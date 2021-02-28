@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Foodie App</string>
+    <string name="verRestaurantes">Ver Restaurantes</string>
+    <string name="SoyUnRestaurante">Soy un restaurante</string>
+    <string name="descripcion_logo_foodie">Logo Foodie</string>
+    <string name="descripcion_imagen_foodie">Imagen Foodie</string>
 </resources>
