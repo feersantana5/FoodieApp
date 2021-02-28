@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundColor">#E4CDE1</color>
+    <color name="backgroundEditText">#5D55B4</color>
+
 </resources>
