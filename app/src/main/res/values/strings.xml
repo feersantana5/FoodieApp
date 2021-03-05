@@ -4,4 +4,8 @@
     <string name="SoyUnRestaurante">Soy un restaurante</string>
     <string name="descripcion_logo_foodie">Logo Foodie</string>
     <string name="descripcion_imagen_foodie">Imagen Foodie</string>
+    <string name="email">Email</string>
+    <string name="no_tengo_cuenta">No tengo cuenta</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="contrase_a">Contraseña</string>
 </resources>
