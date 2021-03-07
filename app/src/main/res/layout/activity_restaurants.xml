@@ -8,8 +8,10 @@
     tools:context=".RestaurantsActivity">
 
     <LinearLayout
-        android:layout_width="416dp"
-        android:layout_height="225dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="413dp"
+        android:layout_height="189dp"
+        android:layout_marginTop="-5dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,16 +23,44 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
+            android:layout_height="137dp"
             android:contentDescription="@string/allende"
             app:srcCompat="@drawable/allende" />
 
         <Button
             android:id="@+id/btn_allende"
             android:layout_width="153dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="#FFFFFF"
             android:text="@string/btnallende"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="415dp"
+        android:layout_height="200dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.117">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="151dp"
+            android:contentDescription="@string/bormeo"
+            app:srcCompat="@drawable/logo_bormeo" />
+
+        <Button
+            android:id="@+id/btn_bormeo"
+            android:layout_width="152dp"
+            android:layout_height="50dp"
+            android:background="#FFFFFF"
+            android:text="@string/btnbormeo"
             android:textSize="24sp" />
     </LinearLayout>
 
