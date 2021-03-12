@@ -73,17 +73,22 @@
                     android:id="@+id/idSegundoPlato"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Segundo Plato"
                     android:layout_margin="5dp"
-                    />
+                    android:text="Segundo Plato " />
 
                 <TextView
                     android:id="@+id/idPostre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Postre"
                     android:layout_margin="5dp"
-                    />
+                    android:text="Bebida" />
+
+                <TextView
+                    android:id="@+id/idPostre2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Postre" />
 
             </LinearLayout>
         </LinearLayout>
