@@ -13,4 +13,6 @@
     <string name="bormeo">bormeo</string>
     <string name="btnbormeo">Bormeo</string>
     <string name="btnhumus">humus</string>
+    <string name="imagenperfil">imagenperfil</string>
+    <string name="email">Email</string>
 </resources>
