@@ -7,7 +7,7 @@
     <string name="email">Email</string>
     <string name="no_tengo_cuenta">No tengo cuenta</string>
     <string name="iniciar_sesi_n">Iniciar Sesión</string>
-    <string name="contrase_a">Contraseña</string>
+    <string name="contraseña">Contraseña</string>
     <string name="allende">Allende</string>
     <string name="btnallende">Allende</string>
     <string name="bormeo">bormeo</string>
@@ -15,4 +15,10 @@
     <string name="btnhumus">humus</string>
     <string name="imagenperfil">imagenperfil</string>
     <string name="email">Email</string>
+    <string name="webpage">Webpage</string>
+    <string name="restaurantename">Restaurant Name</string>
+    <string name="descripcion">Description</string>
+    <string name="location">Location</string>
+    <string name="crearcuenta">¡Crear Cuenta!</string>
+    <string name="register">Register</string>
 </resources>
