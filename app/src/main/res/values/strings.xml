@@ -14,11 +14,19 @@
     <string name="btnbormeo">Bormeo</string>
     <string name="btnhumus">humus</string>
     <string name="imagenperfil">imagenperfil</string>
-    <string name="email">Email</string>
     <string name="webpage">Webpage</string>
     <string name="restaurantename">Restaurant Name</string>
     <string name="descripcion">Description</string>
     <string name="location">Location</string>
     <string name="crearcuenta">¡Crear Cuenta!</string>
     <string name="register">Register</string>
+    <string name="firstcourse">First Course</string>
+    <string name="secondcourse">Second Course</string>
+    <string name="dessert">Dessert</string>
+    <string name="beverage">Beverage</string>
+    <string name="starter">Starter</string>
+    <string name="añadirmenu">¡Añdir Menu!</string>
+    <string name="menuname">Menu Name</string>
+    <string name="crearmenu">Create Menu</string>
+    <string name="price">Price</string>
 </resources>

@@ -20,13 +20,13 @@
         android:text="@string/iniciar_sesi_n"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCrearCuenta"
+        app:layout_constraintBottom_toTopOf="@+id/btnAñadirMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnCrearCuenta"
+        android:id="@+id/btnAñadirMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -59,7 +59,7 @@
         tools:src="@tools:sample/avatars" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/menuName"
         android:layout_width="339dp"
         android:layout_height="61dp"
         android:autofillHints=""
