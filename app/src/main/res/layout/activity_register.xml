@@ -5,91 +5,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <EditText
-        android:id="@+id/firstCourse"
+        android:id="@+id/webpage"
         android:layout_width="339dp"
         android:layout_height="61dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:autofillHints=""
         android:background="@drawable/edit_text_redondo"
         android:ems="10"
         android:inputType="textPersonName|textEmailAddress"
         android:text="@string/webpage"
         android:textColor="#FDFCFC"
-        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/starter" />
+        app:layout_constraintTop_toBottomOf="@+id/location" />
 
     <EditText
-        android:id="@+id/secondcourse"
+        android:id="@+id/restaurantename"
         android:layout_width="339dp"
         android:layout_height="61dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:autofillHints=""
         android:background="@drawable/edit_text_redondo"
         android:ems="10"
         android:inputType="textPersonName|textEmailAddress"
         android:text="@string/restaurantename"
         android:textColor="#FDFCFC"
-        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstCourse" />
+        app:layout_constraintTop_toBottomOf="@+id/webpage" />
 
     <EditText
-        android:id="@+id/dessert"
+        android:id="@+id/descripcion"
         android:layout_width="339dp"
         android:layout_height="61dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:autofillHints=""
         android:background="@drawable/edit_text_redondo"
         android:ems="10"
         android:inputType="textPersonName|textEmailAddress"
         android:text="@string/descripcion"
         android:textColor="#FDFCFC"
-        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondcourse" />
+        app:layout_constraintTop_toBottomOf="@+id/restaurantename" />
 
     <EditText
-        android:id="@+id/price"
+        android:id="@+id/password"
         android:layout_width="339dp"
         android:layout_height="61dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:autofillHints=""
         android:background="@drawable/edit_text_redondo"
         android:ems="10"
-        android:inputType="textPersonName|textEmailAddress"
+        android:inputType="numberPassword"
         android:text="@string/contraseña"
         android:textColor="#FDFCFC"
-        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuName" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <EditText
-        android:id="@+id/starter"
+        android:id="@+id/location"
         android:layout_width="339dp"
         android:layout_height="61dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:autofillHints=""
         android:background="@drawable/edit_text_redondo"
         android:ems="10"
         android:inputType="textPersonName|textEmailAddress"
         android:text="@string/location"
         android:textColor="#FDFCFC"
-        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
-        android:id="@+id/btnAñadirMenu"
+        android:id="@+id/btncreate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -123,14 +120,13 @@
         tools:src="@drawable/register" />
 
     <EditText
-        android:id="@+id/menuName"
+        android:id="@+id/email"
         android:layout_width="339dp"
         android:layout_height="61dp"
         android:layout_marginTop="16dp"
         android:autofillHints=""
         android:background="@drawable/edit_text_redondo"
         android:ems="10"
-        android:inputType="textPersonName|textEmailAddress"
         android:text="@string/email"
         android:textColor="#FDFCFC"
         app:layout_constraintEnd_toEndOf="parent"

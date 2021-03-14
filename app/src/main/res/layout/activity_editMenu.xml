@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".RegisterActivity">
+    tools:context=".EditMenuActivity">
 
     <EditText
         android:id="@+id/firstCourse"
@@ -15,7 +15,7 @@
         android:autofillHints=""
         android:background="@drawable/edit_text_redondo"
         android:ems="10"
-        android:inputType="textPersonName|textEmailAddress"
+        android:inputType="textPersonName"
         android:text="@string/firstcourse"
         android:textColor="#FDFCFC"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/price" />
 
     <Button
-        android:id="@+id/btnAñadirMenu"
+        android:id="@+id/btnEditMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -109,7 +109,7 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="36dp"
         android:background="@drawable/btn_redondo"
-        android:text="@string/añadirmenu"
+        android:text="@string/actualizarmenu"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -152,14 +152,14 @@
         android:id="@+id/textView"
         android:layout_width="198dp"
         android:layout_height="63dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/crearmenu"
+        android:layout_marginTop="36dp"
+        android:text="@string/editmenu"
         android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold"
         android:typeface="monospace"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

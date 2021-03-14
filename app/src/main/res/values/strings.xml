@@ -29,4 +29,6 @@
     <string name="menuname">Menu Name</string>
     <string name="crearmenu">Create Menu</string>
     <string name="price">Price</string>
+    <string name="actualizarmenu">¡Actualizar Menu!</string>
+    <string name="editmenu">Edit Menu</string>
 </resources>
