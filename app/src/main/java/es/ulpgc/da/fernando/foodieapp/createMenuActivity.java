@@ -9,6 +9,6 @@ public class createMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_createMenu);
+        setContentView(R.layout.activity_createmenu);
     }
 }
