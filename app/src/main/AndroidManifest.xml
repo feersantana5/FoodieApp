@@ -15,7 +15,7 @@
         <activity android:name=".MyMenusActivity" />
         <activity android:name=".RestaurantsListActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".InicioActivity">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
