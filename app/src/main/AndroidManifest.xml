@@ -12,7 +12,7 @@
         <activity android:name=".MenuDetailActivity"></activity>
         <activity android:name=".RestaurantCartaActivity" />
         <activity android:name=".MyMenusActivity" />
-        <activity android:name=".RestaurantsActivity" />
+        <activity android:name=".RestaurantsListActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".InicioActivity">
             <intent-filter>

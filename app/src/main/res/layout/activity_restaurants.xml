@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E4CDE1"
-    tools:context=".RestaurantsActivity">
+    tools:context=".RestaurantsListActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"

@@ -1,14 +1,14 @@
 package es.ulpgc.da.fernando.foodieapp;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EditAcoountActivity extends AppCompatActivity {
+import android.os.Bundle;
+
+public class RestaurantsListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editaccount);
+        setContentView(R.layout.activity_restaurants);
     }
 }
