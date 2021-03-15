@@ -7,6 +7,7 @@
     android:background="@color/backgroundColor"
     tools:context=".RegisterActivity">
 
+
     <EditText
         android:id="@+id/firstCourse"
         android:layout_width="339dp"
@@ -148,19 +149,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="198dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/crearmenu"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:typeface="monospace"
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/createmenutxt" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -111,7 +111,7 @@
         android:layout_marginRight="8dp"
         android:contentDescription="@string/imagenperfil"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/register" />
@@ -130,19 +130,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="155dp"
-        android:layout_height="72dp"
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="48dp"
-        android:text="@string/editaccount"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:typeface="monospace"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.701"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/editaccounttxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
