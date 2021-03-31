@@ -13,7 +13,8 @@
         <activity android:name=".MenuDetailActivity" />
         <activity android:name=".RestaurantCartaActivity" />
         <activity android:name=".MyMenusActivity" />
-        <activity android:name=".RestaurantsListActivity" />
+        <activity android:name=".RestaurantsListActivity">
+        </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>

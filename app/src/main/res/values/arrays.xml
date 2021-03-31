@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="restaurants_titles">
+        <item>Allende</item>
+        <item>Bormeo</item>
+        <item>Hummus</item>
+    </string-array>
+
+    <string-array name="restaurants_locations">
+        <item> Calle Isla de Cuba, 42, 35007 Las Palmas de Gran Canaria, Las Palmas</item>
+        <item> Av. Ansite, 89, 35118 Cruce de Arinaga, Las Palmas</item>
+        <item>Paseo Iqbal Masih, 7, Vecindario, Las Palmas</item>
+    </string-array>
+
+    <string-array name="restaurants_webpages">
+        <item>https://www.allenderestauracion.com</item>
+        <item>http://bormeopizzeriagrill.com</item>
+        <item>https://restaurantehumus.com</item>
+    </string-array>
+
+    <string-array name="restaurants_logoImages">
+        <item>@drawable/logo_allende</item>
+        <item>@drawable/logo_bormeo</item>
+        <item>@drawable/logo_hummus</item>
+    </string-array>
+
+</resources>
