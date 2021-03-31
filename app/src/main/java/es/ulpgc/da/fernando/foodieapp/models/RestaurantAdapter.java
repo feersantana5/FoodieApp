@@ -30,7 +30,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
     @Override
     public RestaurantAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.restaurantlist_item, parent, false));
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.restaurantslist_item, parent, false));
     }
 
     @Override
@@ -71,6 +71,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         void bindTo(Restaurant currentRestaurant) {
             // Populate the textviews with data.
             mTitleText.setText(currentRestaurant.getTitle());
+            //TODO: hay que pasar indo de las uris de los botones, realmente imagenes?
 
             // Load images into ImageView using Glide
             Glide.with(mContext).load(currentRestaurant.getImageResource()).into(mRestaurantLogoImage);

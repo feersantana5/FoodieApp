@@ -25,7 +25,7 @@ public class RestaurantsListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurantslist);
+        setContentView(R.layout.restaurantslist_activity);
 
         // inicializa RecyclerView.
         mRecyclerView = findViewById(R.id.recyclerView);
@@ -42,7 +42,7 @@ public class RestaurantsListActivity extends AppCompatActivity {
     }
 
     /**
-     * inicializa los datos de los deportes desde los recursos de android
+     * inicializa los datos de los menus desde los recursos de android
      */
     private void initializeData() {
         // obtiene los recursos del xml strings (titulos / informaciones)
@@ -56,7 +56,7 @@ public class RestaurantsListActivity extends AppCompatActivity {
         // clear los datos existentes (para evitar duplique)
         restaurantsData.clear();
 
-        // Crea el ArrayList de los objetos deportes con los titulos e informacion sobre cada deporte
+        // Crea el ArrayList de los objetos menus con los titulos e informacion sobre cada restaurante
         for (int i = 0; i < restaurantList.length; i++) {
             restaurantsData.add(new Restaurant(restaurantList[i], restaurantLocationList[i], restaurantWebpageList[i], restaurantsImageResources.getResourceId(i, 0)));
         }
