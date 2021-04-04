@@ -58,34 +58,64 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/logintxt" />
 
-    <EditText
-        android:id="@+id/menuName"
-        android:layout_width="339dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="16dp"
-        android:autofillHints=""
-        android:background="@drawable/edit_text_redondo"
-        android:ems="10"
-        android:text="@string/email"
-        android:textColor="#FDFCFC"
-        app:layout_constraintBottom_toTopOf="@+id/password"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailSignUpTextInputLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/input_text_round"
+        android:elevation="4dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.645" />
+        tools:ignore="DuplicateIds,MissingConstraints">
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="339dp"
-        android:layout_height="61dp"
-        android:autofillHints=""
-        android:background="@drawable/edit_text_redondo"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/btn"
+        <EditText
+            android:id="@+id/emailSignUpText"
+            android:layout_width="330dp"
+            android:layout_height="30dp"
+            android:background="@drawable/input_text_round"
+            android:fontFamily="@font/source_sans_pro_bold"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            tools:text="@string/email" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordSignUpTextInputLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="192dp"
+        android:background="@drawable/input_text_round"
+        android:elevation="4dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.853" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="DuplicateIds,MissingConstraints">
+
+        <EditText
+            android:id="@+id/passwordSignUpText"
+            android:layout_width="330dp"
+            android:layout_height="30dp"
+            android:background="@drawable/input_text_round"
+            android:fontFamily="@font/source_sans_pro_bold"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            tools:text="@string/password" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
