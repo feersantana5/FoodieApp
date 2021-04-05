@@ -21,7 +21,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/foodie" />
+        android:src="@drawable/foodie" />
 
     <ImageView
         android:id="@+id/imagenInicio"
@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoApp"
-        tools:srcCompat="@drawable/inicio" />
+        android:src="@drawable/inicio"/>
 
     <Button
         android:id="@+id/botonVerRestaurantes"
