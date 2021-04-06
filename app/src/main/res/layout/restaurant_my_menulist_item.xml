@@ -14,8 +14,8 @@
             android:id="@+id/menuImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background"
-            android:adjustViewBounds="true"/>
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_launcher_background" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,8 +31,27 @@
                 android:text="Nombre"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-        </LinearLayout>
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/menuEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@drawable/ic_edit" />
+
+            <ImageView
+                android:id="@+id/menuDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@drawable/ic_delete" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

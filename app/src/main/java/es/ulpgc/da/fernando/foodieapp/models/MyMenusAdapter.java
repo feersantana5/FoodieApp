@@ -17,23 +17,24 @@ import java.util.ArrayList;
 import es.ulpgc.da.fernando.foodieapp.MenuDetailActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
 
-public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
+
+public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHolder> {
     private ArrayList<Menu> menusData;
     private Context mContext;
 
 
-    public MenuAdapter(Context context, ArrayList<Menu> menusData) {
+    public MyMenusAdapter(Context context, ArrayList<Menu> menusData) {
         this.menusData = menusData;
         this.mContext = context;
     }
 
     @Override
-    public MenuAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MenuAdapter.ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.restaurantmenulist_item, parent, false));
+    public MyMenusAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new MyMenusAdapter.ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.restaurant_my_menulist_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(MenuAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(MyMenusAdapter.ViewHolder holder, int position) {
         // Get current menu
         Menu currentMenu = menusData.get(position);
 
@@ -84,7 +85,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
             detailIntent.putExtra("firstCourse", currentMenu.getFirstCourse());
             detailIntent.putExtra("secondCourse", currentMenu.getSecondCourse());
             detailIntent.putExtra("dessert", currentMenu.getDessert());
-
 
             mContext.startActivity(detailIntent);
         }

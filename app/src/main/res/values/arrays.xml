@@ -29,17 +29,17 @@
     <!-- Menus -->
 
     <string-array name="menu_titles">
-        <item>Chino</item>
-        <item>Mexicano</item>
-        <item>Japonés</item>
-        <item>Español</item>
+        <item>Menú 1</item>
+        <item>Menú 2</item>
+        <item>Menú 3</item>
+        <item>Menú 4</item>
     </string-array>
 
     <string-array name="menus_Images">
-        <item>@drawable/image_menu_chino</item>
-        <item>@drawable/image_menu_mexicano</item>
-        <item>@drawable/image_menu_japones</item>
-        <item>@drawable/image_menu_espanol</item>
+        <item>@drawable/image1</item>
+        <item>@drawable/image2</item>
+        <item>@drawable/image3</item>
+        <item>@drawable/image4</item>
     </string-array>
 
     <string-array name="menu_starters">
