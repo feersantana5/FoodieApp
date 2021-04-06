@@ -75,9 +75,18 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         public void onClick(View view) {
             Menu currentMenu = menusData.get(getAdapterPosition());
             Intent detailIntent = new Intent(mContext, MenuDetailActivity.class);
+            //TODO: pendiente de pasar nombre del restaurante
+
             detailIntent.putExtra("title", currentMenu.getName());
-            //TODO: pendiente de que pasar exactamente platos, bla bla bla....
             detailIntent.putExtra("image_resource", currentMenu.getImageResource());
+            detailIntent.putExtra("price", currentMenu.getPrice());
+            detailIntent.putExtra("starter", currentMenu.getStarter());
+            detailIntent.putExtra("beverage", currentMenu.getBeverage());
+            detailIntent.putExtra("firstCourse", currentMenu.getFirstCourse());
+            detailIntent.putExtra("secondCourse", currentMenu.getSecondCourse());
+            detailIntent.putExtra("dessert", currentMenu.getDessert());
+
+
             mContext.startActivity(detailIntent);
         }
     }

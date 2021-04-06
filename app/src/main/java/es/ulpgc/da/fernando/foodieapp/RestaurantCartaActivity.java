@@ -49,6 +49,12 @@ public class RestaurantCartaActivity extends AppCompatActivity {
     private void initializeData() {
         // obtiene los recursos del xml strings
         String[] menuList = getResources().getStringArray(R.array.menu_titles);
+        int[] menuPriceList = getResources().getIntArray((R.array.menu_price));
+        String[] menuStartersList = getResources().getStringArray(R.array.menu_starters);
+        String[] menuBeveragesList = getResources().getStringArray(R.array.menu_beverages);
+        String[] menuFirstCourseList = getResources().getStringArray(R.array.menu_firstCourse);
+        String[] menuSecondCourseList = getResources().getStringArray(R.array.menu_secondCourse);
+        String[] menuDessertList = getResources().getStringArray(R.array.menu_dessert);
 
         //TypedArray permite almacenar un array de otro recurso XML
         TypedArray menuImageResources = getResources().obtainTypedArray(R.array.menus_Images);
@@ -56,10 +62,9 @@ public class RestaurantCartaActivity extends AppCompatActivity {
         // clear los datos existentes (para evitar duplique)
         menusData.clear();
 
-        //TODO: colocar esto bien
-        // Crea el ArrayList de los objetos menus con los titulos e informacion sobre cada menu
+
         for (int i = 0; i < menuList.length; i++) {
-            menusData.add(new Menu(menuList[i], menuImageResources.getResourceId(i, 0),15, "nachos", "agua", "sopa", "carne", "flan"));
+            menusData.add(new Menu(menuList[i], menuImageResources.getResourceId(i, 0), menuPriceList[i], menuStartersList[i], menuBeveragesList[i], menuFirstCourseList[i], menuSecondCourseList[i], menuDessertList[i]));
         }
 
         //recicla TypedArray

@@ -11,21 +11,27 @@
         android:theme="@style/Theme.FoodieApp">
         <activity android:name=".RestaurantProfileActivity"></activity>
         <activity android:name=".MenuDetailActivity" />
-        <activity android:name=".RestaurantCartaActivity"/>
+        <activity android:name=".RestaurantCartaActivity">
+
+        </activity>
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".MyMenusActivity" />
         <activity android:name=".RestaurantsListActivity">
+
         </activity>
         <activity android:name=".LoginActivity" >
 
 
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

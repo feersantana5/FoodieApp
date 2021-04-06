@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Restaurants -->
+
     <string-array name="restaurants_titles">
         <item>Allende</item>
         <item>Bormeo</item>
@@ -24,6 +26,8 @@
         <item>@drawable/logo_hummus</item>
     </string-array>
 
+    <!-- Menus -->
+
     <string-array name="menu_titles">
         <item>Chino</item>
         <item>Mexicano</item>
@@ -32,10 +36,53 @@
     </string-array>
 
     <string-array name="menus_Images">
-        <item>@drawable/ic_launcher_background</item>
-        <item>@drawable/ic_launcher_foreground</item>
-        <item>@drawable/ic_launcher_foreground</item>
-        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/image_menu_chino</item>
+        <item>@drawable/image_menu_mexicano</item>
+        <item>@drawable/image_menu_japones</item>
+        <item>@drawable/image_menu_espanol</item>
     </string-array>
+
+    <string-array name="menu_starters">
+        <item> Papas</item>
+        <item> Aceitunas</item>
+        <item> Aceitunas</item>
+        <item> Papas</item>
+
+    </string-array>
+
+    <string-array name="menu_beverages">
+        <item> Agua</item>
+        <item> Refresco</item>
+        <item> Cubatas</item>
+        <item> Vino</item>
+    </string-array>
+
+    <string-array name="menu_firstCourse">
+        <item> Pure</item>
+        <item> Sopa</item>
+        <item> Fabada</item>
+        <item> Garbanzas</item>
+    </string-array>
+
+    <string-array name="menu_secondCourse">
+        <item> Atún</item>
+        <item> Solomillo</item>
+        <item> Escalope</item>
+        <item> Cherne</item>
+    </string-array>
+
+    <string-array name="menu_dessert">
+        <item> Frangollo</item>
+        <item> Flan</item>
+        <item> Tiramisú</item>
+        <item> Helado</item>
+    </string-array>
+
+    <integer-array name="menu_price">
+        <item>20</item>
+        <item>12</item>
+        <item>15</item>
+        <item>30</item>
+    </integer-array>
 
 </resources>
