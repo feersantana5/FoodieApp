@@ -22,13 +22,13 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                comeBackToLogin();
+                GoToYourMenus();
             }
         });
     }
 
-    private void comeBackToLogin() {
-        finish();
-    }
+    private void GoToYourMenus() {
+        Intent intent = new Intent(this, MyMenusActivity.class);
+        startActivity(intent);    }
 
 }
