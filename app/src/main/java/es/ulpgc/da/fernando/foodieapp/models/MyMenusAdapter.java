@@ -60,8 +60,9 @@ public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHold
             mTitleText = itemView.findViewById(R.id.menuTitle);
             mMenuImage = itemView.findViewById(R.id.menuImage);
 
-            // Set OnClickListener to entire view
-            itemView.setOnClickListener(this);
+            // Set OnClickListener to the imagen and the buttons
+            mMenuImage.setOnClickListener(this);
+            //TODO: onclick a btns
         }
 
         void bindTo(Menu currentMenu) {

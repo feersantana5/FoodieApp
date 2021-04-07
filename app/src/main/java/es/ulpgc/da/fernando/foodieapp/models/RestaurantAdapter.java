@@ -64,8 +64,10 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             mWebpage = itemView.findViewById(R.id.restaurantWebpage);
             mRestaurantLogoImage = itemView.findViewById(R.id.restaurantLogoImage);
 
-            // Set OnClickListener to entire view
-            itemView.setOnClickListener(this);
+            // Set OnClickListener al image
+            mRestaurantLogoImage.setOnClickListener(this);
+            //TODO: onclick a btns
+            //itemView.setOnClickListener(this);
         }
 
         void bindTo(Restaurant currentRestaurant) {
