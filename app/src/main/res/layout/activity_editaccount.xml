@@ -227,7 +227,7 @@
         app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/register" />
+        android:src="@drawable/register" />
 
     <ImageView
         android:id="@+id/imageView7"
