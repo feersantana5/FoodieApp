@@ -11,4 +11,5 @@ public class RestaurantProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_profile);
     }
+
 }
