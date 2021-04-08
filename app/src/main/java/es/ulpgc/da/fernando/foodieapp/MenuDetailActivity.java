@@ -2,7 +2,6 @@ package es.ulpgc.da.fernando.foodieapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -22,7 +21,7 @@ public class MenuDetailActivity extends AppCompatActivity {
         txtBeaveragesMenu = (TextView) findViewById(R.id.menuBeaverages);
         txtFirstCourseMenu = (TextView) findViewById(R.id.menuFirstCourse);
         txtSecondCourseMenu = (TextView) findViewById(R.id.menuSecondCourse);
-        txtDessertMenu = (TextView) findViewById(R.id.menuDessert);
+        txtDessertMenu = (TextView) findViewById(R.id.desserts);
 
 //Todo: acabar de hacer los intents de cada elementos
         //Intent intent = getIntent();

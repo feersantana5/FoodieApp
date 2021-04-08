@@ -48,7 +48,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/menu1"
+                android:id="@+id/menuStarters"
                 android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
