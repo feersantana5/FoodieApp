@@ -127,6 +127,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="0dp"
                 android:background="#E0B5D9" />
+
             <TextView
                 android:id="@+id/postres"
                 android:layout_width="66dp"
