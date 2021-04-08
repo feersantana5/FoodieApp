@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 import es.ulpgc.da.fernando.foodieapp.models.MyMenusAdapter;
@@ -23,6 +25,9 @@ public class MyMenusActivity extends AppCompatActivity {
     private ArrayList<Menu> menusData;
     //interfaz del adaptador que conecta los datos con el recyclerview
     private MyMenusAdapter mAdapter;
+
+    FloatingActionButton fabAddMenu;
+
 
 
 
@@ -44,6 +49,15 @@ public class MyMenusActivity extends AppCompatActivity {
         // obtiene los datos
         initializeData();
 
+        //listener del fab button add
+        fabAddMenu = findViewById(R.id.fab_addMenu);
+        fabAddMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyMenusActivity.this, CreateMenuActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //Funcionalidad de los botones del navBar
 
