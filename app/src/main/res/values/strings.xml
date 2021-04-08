@@ -38,7 +38,8 @@
     <string name="imgallende">imgallende</string>
     <string name="mymenus">Mis Menús</string>
     <string name="datos">Datos</string>
-    <string name="allende">Allende</string>
     <string name="ubicacion">Ubicación</string>
-    <string name="detallemenu1">TODO</string>
+    <string name="detallemenu1">DetalleMenu1</string>
+    <string name="menu1">Menu 1</string>
+    <string name="menu1">Menu 1</string>
 </resources>
