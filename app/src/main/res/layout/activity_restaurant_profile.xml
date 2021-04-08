@@ -23,6 +23,7 @@
         app:srcCompat="@drawable/allende" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="382dp"
         android:layout_height="490dp"
         android:background="#F3DCF0"
@@ -71,9 +72,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="28dp"
                 android:layout_marginRight="28dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textEmailAddress"
-                android:autofillHints="" />
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/nombre"
@@ -84,10 +85,10 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="28dp"
                 android:layout_marginRight="28dp"
+                android:autofillHints=""
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/allende"
-                android:autofillHints="" />
+                android:text="@string/allende" />
 
             <EditText
                 android:id="@+id/contraseña"
@@ -98,9 +99,9 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
                 android:layout_marginRight="28dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="numberPassword"
-                android:autofillHints="" />
+                android:inputType="numberPassword" />
 
             <EditText
                 android:id="@+id/ubicacion"
@@ -111,10 +112,10 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="28dp"
                 android:layout_marginRight="28dp"
+                android:autofillHints=""
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/ubicacion"
-                android:autofillHints="" />
+                android:text="@string/ubicacion" />
 
             <Button
                 android:id="@+id/mismenus"
@@ -132,5 +133,16 @@
 
         </LinearLayout>
     </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavViewMyNav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:itemIconTint="@color/design_default_color_background"
+        app:itemTextColor="@color/design_default_color_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

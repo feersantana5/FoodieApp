@@ -41,12 +41,5 @@
     <string name="ubicacion">Ubicación</string>
     <string name="detallemenu1">DetalleMenu1</string>
     <string name="menu1">Menu 1</string>
-    <string name="menuFirstCourse">Sopa de pollo</string>
-    <string name="menuSecondCourse">Costillas de cerdo y papas arrugadas con mojo</string>
-    <string name="desserts">Brownie</string>
-    <string name="postres">Postres</string>
-    <string name="precio">1€</string>
-    <string name="bebidas">Bebidas</string>
-    <string name="menuBeaverages">Agua</string>
 
 </resources>
