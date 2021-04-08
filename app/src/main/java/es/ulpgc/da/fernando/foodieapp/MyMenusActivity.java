@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
@@ -74,5 +75,8 @@ public class MyMenusActivity extends AppCompatActivity {
 
     //TODO: pendiente
     public void addMenu(View view) {
+        Intent createMenuIntent = new Intent(this, CreateMenuActivity.class);
+        startActivity(createMenuIntent);
     }
+
 }

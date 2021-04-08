@@ -2,6 +2,7 @@ package es.ulpgc.da.fernando.foodieapp.models;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,11 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import es.ulpgc.da.fernando.foodieapp.CreateMenuActivity;
+import es.ulpgc.da.fernando.foodieapp.EditMenuActivity;
 import es.ulpgc.da.fernando.foodieapp.MenuDetailActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
+import es.ulpgc.da.fernando.foodieapp.RestaurantCartaActivity;
 
 
 public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHolder> {
@@ -52,6 +56,9 @@ public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHold
         // Member Variables for the TextViews
         final ImageView mMenuImage;
         final TextView mTitleText;
+        final ImageView mMenuEdit;
+        final ImageView mMenuDelete;
+
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -60,9 +67,14 @@ public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHold
             mTitleText = itemView.findViewById(R.id.menuTitle);
             mMenuImage = itemView.findViewById(R.id.menuImage);
 
+            mMenuEdit = itemView.findViewById(R.id.menuEdit);
+            mMenuDelete = itemView.findViewById(R.id.menuDelete);
+
             // Set OnClickListener to the imagen and the buttons
-            mMenuImage.setOnClickListener(this);
+            mMenuImage.setOnClickListener(this); // a MenuDetailActivity
             //TODO: onclick a btns
+            mMenuEdit.setOnClickListener(this); // a editar
+            mMenuDelete.setOnClickListener(this); // a borrar
         }
 
         void bindTo(Menu currentMenu) {
@@ -75,19 +87,36 @@ public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHold
         @Override
         public void onClick(View view) {
             Menu currentMenu = menusData.get(getAdapterPosition());
-            Intent detailIntent = new Intent(mContext, MenuDetailActivity.class);
-            //TODO: pendiente de pasar nombre del restaurante
+            switch (view.getId()) {
+                case R.id.menuImage:
 
-            detailIntent.putExtra("title", currentMenu.getName());
-            detailIntent.putExtra("image_resource", currentMenu.getImageResource());
-            detailIntent.putExtra("price", currentMenu.getPrice());
-            detailIntent.putExtra("starter", currentMenu.getStarter());
-            detailIntent.putExtra("beverage", currentMenu.getBeverage());
-            detailIntent.putExtra("firstCourse", currentMenu.getFirstCourse());
-            detailIntent.putExtra("secondCourse", currentMenu.getSecondCourse());
-            detailIntent.putExtra("dessert", currentMenu.getDessert());
+                    Intent menuDetailIntent = new Intent(mContext, MenuDetailActivity.class);
+                    //TODO: pendiente de pasar nombre del restaurante
+                    menuDetailIntent.putExtra("title", currentMenu.getName());
+                    menuDetailIntent.putExtra("image_resource", currentMenu.getImageResource());
+                    menuDetailIntent.putExtra("price", currentMenu.getPrice());
+                    menuDetailIntent.putExtra("starter", currentMenu.getStarter());
+                    menuDetailIntent.putExtra("beverage", currentMenu.getBeverage());
+                    menuDetailIntent.putExtra("firstCourse", currentMenu.getFirstCourse());
+                    menuDetailIntent.putExtra("secondCourse", currentMenu.getSecondCourse());
+                    menuDetailIntent.putExtra("dessert", currentMenu.getDessert());
 
-            mContext.startActivity(detailIntent);
+                    mContext.startActivity(menuDetailIntent);
+                    break;
+
+                case R.id.menuEdit:
+                    Intent editMenuIntent = new Intent(mContext, EditMenuActivity.class);
+                    mContext.startActivity(editMenuIntent);
+                    break;
+
+              /*  case R.id.menuDelete:
+                    Intent deleteIntent = new Intent(mContext, .class);
+                    mContext.startActivity(deleteIntent);
+                    break;*/
+
+                default:
+                    break;
+            }
         }
     }
 }

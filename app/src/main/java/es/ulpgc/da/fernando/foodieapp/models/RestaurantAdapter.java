@@ -2,6 +2,7 @@ package es.ulpgc.da.fernando.foodieapp.models;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import es.ulpgc.da.fernando.foodieapp.MenuDetailActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.RestaurantCartaActivity;
 
@@ -67,7 +69,8 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             // Set OnClickListener al image
             mRestaurantLogoImage.setOnClickListener(this);
             //TODO: onclick a btns
-            //itemView.setOnClickListener(this);
+            mLocation.setOnClickListener(this); // a internet
+            mWebpage.setOnClickListener(this); // a internet
         }
 
         void bindTo(Restaurant currentRestaurant) {
@@ -82,12 +85,34 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         @Override
         public void onClick(View view) {
             Restaurant currentRestaurant = restaurantsData.get(getAdapterPosition());
-            Intent detailIntent = new Intent(mContext, RestaurantCartaActivity.class);
-            //TODO: pendiente de que pasar exactamente
-            detailIntent.putExtra("title", currentRestaurant.getTitle());
-            detailIntent.putExtra("image_resource", currentRestaurant.getImageResource());
 
-            mContext.startActivity(detailIntent);
+            switch (view.getId()) {
+                case R.id.restaurantLogoImage:
+                    Intent detailIntent = new Intent(mContext, RestaurantCartaActivity.class);
+                    //TODO: pendiente de que pasar exactamente
+                    detailIntent.putExtra("title", currentRestaurant.getTitle());
+                    detailIntent.putExtra("image_resource", currentRestaurant.getImageResource());
+                    mContext.startActivity(detailIntent);
+                    break;
+
+                case R.id.restaurantLocation:
+
+                    String url = "http://www.example.com";
+                    Intent locationIntent = new Intent(Intent.ACTION_VIEW);
+                    locationIntent.setData(Uri.parse(url));
+                    mContext.startActivity(locationIntent);
+
+                    break;
+
+                case R.id.restaurantWebpage:
+                    Intent webpageIntent = new Intent(Intent.ACTION_VIEW);
+                    webpageIntent.setData(Uri.parse("http://maps.google.com/maps?saddr=20.344,34.34&daddr=20.5666,45.345"));
+                    mContext.startActivity(webpageIntent);
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

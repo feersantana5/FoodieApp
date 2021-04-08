@@ -11,6 +11,7 @@
         android:theme="@style/Theme.FoodieApp">
         <activity android:name=".RestaurantProfileActivity"></activity>
         <activity android:name=".MenuDetailActivity" />
+        <activity android:name=".EditMenuActivity" />
         <activity android:name=".RestaurantCartaActivity">
 
         </activity>
