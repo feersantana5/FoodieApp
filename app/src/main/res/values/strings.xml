@@ -42,4 +42,8 @@
     <string name="detallemenu1">DetalleMenu1</string>
     <string name="menu1">Menu 1</string>
     <string name="menu1">Menu 1</string>
+    <string name="Inicio">Inicio</string>
+    <string name="perfil">Mi perfil</string>
+    <string name="menu">Menú</string>
+    <string name="salir">Cerrar Sesión</string>
 </resources>
