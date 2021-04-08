@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -22,6 +23,7 @@ public class MyMenusActivity extends AppCompatActivity {
     private ArrayList<Menu> menusData;
     //interfaz del adaptador que conecta los datos con el recyclerview
     private MyMenusAdapter mAdapter;
+
 
 
     @Override
@@ -41,6 +43,12 @@ public class MyMenusActivity extends AppCompatActivity {
 
         // obtiene los datos
         initializeData();
+
+
+        //Funcionalidad de los botones del navBar
+
+
+
     }
 
     /**
@@ -79,4 +87,9 @@ public class MyMenusActivity extends AppCompatActivity {
         startActivity(createMenuIntent);
     }
 
+
+    private void goToHome() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
 }

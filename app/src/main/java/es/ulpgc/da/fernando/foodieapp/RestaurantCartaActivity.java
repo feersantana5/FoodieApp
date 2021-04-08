@@ -1,11 +1,17 @@
 package es.ulpgc.da.fernando.foodieapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -22,6 +28,7 @@ public class RestaurantCartaActivity extends AppCompatActivity {
     //interfaz del adaptador que conecta los datos con el recyclerview
     private MenuAdapter mAdapter;
 
+    BottomNavigationView buttonNavBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +47,33 @@ public class RestaurantCartaActivity extends AppCompatActivity {
 
         // obtiene los datos
         initializeData();
+
+        //Funcionalidad de los botones del navBar
+
+        buttonNavBar =  findViewById(R.id.bottomNavViewMyNav);
+        buttonNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.nav_menu_inicio){
+                    goToHome();
+                }
+                if(item.getItemId() == R.id.nav_menu_profile){
+                    goProfile();
+                }
+                if(item.getItemId() == R.id.nav_menu_menu){
+                    goMenu();
+                }
+                if(item.getItemId() == R.id.nav_menu_out){
+                    goOut();
+                }
+                return true;
+
+            }
+        });
     }
+
+
+
 
     /**
      * inicializa los datos de los deportes desde los recursos de android
@@ -70,5 +103,23 @@ public class RestaurantCartaActivity extends AppCompatActivity {
         menuImageResources.recycle();
         // Notifica al adaptador de cambio
         mAdapter.notifyDataSetChanged();
+    }
+
+
+    private void goToHome() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
+    private void goProfile() {
+        Intent intent = new Intent(this, RestaurantProfileActivity.class);
+        startActivity(intent);
+    }
+    private void goMenu() {
+        Intent intent = new Intent(this, RestaurantCartaActivity.class);
+        startActivity(intent);
+    }
+    private void goOut() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }
