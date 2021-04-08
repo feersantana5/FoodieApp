@@ -47,19 +47,35 @@
             android:background="#EDCCE9"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/mismenus"
-                android:layout_width="173dp"
+            <TextView
+                android:id="@+id/datos"
+                android:layout_width="96dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="400dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
+                android:fontFamily="@font/sniglet"
+                android:text="@string/datos"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/mismenus"
+                android:layout_width="160dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="360dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginRight="28dp"
                 android:layout_marginBottom="4dp"
                 android:background="@drawable/btn_redondo"
                 android:text="@string/mymenus"
                 android:textColor="@color/white" />
+
         </LinearLayout>
     </RelativeLayout>
 
