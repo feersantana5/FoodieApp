@@ -41,5 +41,9 @@
     <string name="ubicacion">Ubicación</string>
     <string name="detallemenu1">DetalleMenu1</string>
     <string name="menu1">Menu 1</string>
+    <string name="Inicio">Inicio</string>
+    <string name="perfil">Perfil</string>
+    <string name="menu">Mis menús</string>
+    <string name="salir">Cerrar Sesión</string>
 
 </resources>
