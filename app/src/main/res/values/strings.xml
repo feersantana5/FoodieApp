@@ -34,7 +34,7 @@
     <string name="actualizar">¡Actualizar!</string>
     <string name="editaccount">Edit Account</string>
     <string name="your_menus_text">Your Menus Text</string>
-    <string name="password">password</string>
+    <string name="password">Password</string>
     <string name="imgallende">imgallende</string>
     <string name="mymenus">Mis Menús</string>
     <string name="datos">Datos</string>
@@ -49,5 +49,6 @@
     <string name="nombre_allende">Nombre: Allende</string>
     <string name="passwordallende">Contraseña: ********</string>
     <string name="añadirImagen">Selecciona Imagén</string>
+    <string name="allendeDescripcion">Descripción: Restaurante de comida mediterránea</string>
 
 </resources>

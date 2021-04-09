@@ -1,11 +1,13 @@
 package es.ulpgc.da.fernando.foodieapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -55,40 +57,48 @@ public class RestaurantCartaActivity extends AppCompatActivity {
 
         //Funcionalidad de los botones del navBar
 
-        buttonNavBar =  findViewById(R.id.bottomNavViewMyNav);
+        buttonNavBar = findViewById(R.id.bottomNavViewMyNav);
         buttonNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                if(item.getItemId() == R.id.nav_menu_inicio){
+                if (item.getItemId() == R.id.nav_menu_inicio) {
                     goToHome();
                 }
-                if(item.getItemId() == R.id.nav_menu_profile){
+                if (item.getItemId() == R.id.nav_menu_profile) {
                     goProfile();
                 }
-                if(item.getItemId() == R.id.nav_menu_menu){
+                if (item.getItemId() == R.id.nav_menu_menu) {
                     goMenu();
                 }
-                if(item.getItemId() == R.id.nav_menu_out){
-                    Toast toast3 = new Toast(getApplicationContext());
+                if (item.getItemId() == R.id.nav_menu_out) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RestaurantCartaActivity.this);
+                    builder.setTitle("Cerrar Sesión");
+                    builder.setMessage("¿Está seguro de que desea cerrar su sesión?");
 
-                    LayoutInflater inflater = getLayoutInflater();
-                    View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.lytLayout));
+                    builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //TODO: pendiente modificar
+                            goToHome();
+                        }
+                    });
+                    builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //TODO: pendiente modificar
+                            finish();
+                        }
+                    });
 
-                    TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
-                    txtMsg.setText("¡Se ha cerrado la Sesión!");
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
 
-                    toast3.setDuration(Toast.LENGTH_SHORT);
-                    toast3.setView(layout);
-                    toast3.show();
-                    goOut();
                 }
                 return true;
 
             }
         });
     }
-
-
 
 
     /**
@@ -126,14 +136,17 @@ public class RestaurantCartaActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
+
     private void goProfile() {
         Intent intent = new Intent(this, RestaurantProfileActivity.class);
         startActivity(intent);
     }
+
     private void goMenu() {
         Intent intent = new Intent(this, RestaurantCartaActivity.class);
         startActivity(intent);
     }
+
     private void goOut() {
 
         Intent intent = new Intent(this, LoginActivity.class);
