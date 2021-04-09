@@ -13,7 +13,7 @@ public class EditMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editmenu);
+        setContentView(R.layout.activity_form_editmenu);
 
         buttonEditMenu = findViewById(R.id.btnEditMenu);
 

@@ -18,7 +18,7 @@ public class CreateMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_createmenu);
+        setContentView(R.layout.activity_form_createmenu);
 
         imagenNew = (ImageView) findViewById(R.id.imageView);
 

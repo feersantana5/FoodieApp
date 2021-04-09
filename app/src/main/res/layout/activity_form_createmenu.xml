@@ -286,7 +286,7 @@
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="4dp"
                 android:background="@drawable/btn_redondo"
-                android:text="@string/añadirImagen"
+                android:text="@string/crearmenu"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
