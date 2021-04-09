@@ -6,249 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
     tools:context=".EditMenuActivity">
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/menuNameSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/menuNameSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/menuname"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/menuname" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/priceSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuNameSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/priceSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/price"
-            android:inputType="number"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/price" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/starterSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/starterSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/starter"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/starter" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/firstCourseSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/starterSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/firstCourseSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/firstcourse"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/firstcourse" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/secondcourseSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstCourseSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/secondcourseSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/secondcourse"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/secondcourse" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/dessertSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondcourseSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/dessertSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/dessert"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/dessert" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/beverageSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dessertSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/beverageSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/beverage"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/beverage" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/btnEditMenu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/btn_redondo"
-        android:text="@string/actualizarmenu"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/beverageSignUpTextInputLayout" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -260,11 +17,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:contentDescription="@string/imagenperfil"
+        android:src="@drawable/menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.965"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/menu" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -279,5 +36,264 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/editmenutxt" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menuNameSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/menuNameSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/menuname"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/menuname" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/priceSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menuNameSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/priceSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/price"
+                    android:inputType="number"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/price" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/starterSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/priceSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/starterSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/starter"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/starter" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/firstCourseSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/starterSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/firstCourseSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/firstcourse"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/firstcourse" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/secondcourseSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firstCourseSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/secondcourseSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/secondcourse"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/secondcourse" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dessertSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/secondcourseSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/dessertSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/dessert"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/dessert" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/beverageSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dessertSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/beverageSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/beverage"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/beverage" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnEditMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/btn_redondo"
+                android:text="@string/actualizarmenu"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beverageSignUpTextInputLayout" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
