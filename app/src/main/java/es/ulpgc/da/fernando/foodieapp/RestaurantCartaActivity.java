@@ -72,11 +72,10 @@ public class RestaurantCartaActivity extends AppCompatActivity {
                     Toast toast3 = new Toast(getApplicationContext());
 
                     LayoutInflater inflater = getLayoutInflater();
-                    View layout = inflater.inflate(R.layout.toast_layout,
-                            (ViewGroup) findViewById(R.id.lytLayout));
+                    View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.lytLayout));
 
                     TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
-                    txtMsg.setText("!Se ha cerrado la Sesión¡");
+                    txtMsg.setText("¡Se ha cerrado la Sesión!");
 
                     toast3.setDuration(Toast.LENGTH_SHORT);
                     toast3.setView(layout);
