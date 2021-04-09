@@ -9,7 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -64,6 +69,18 @@ public class RestaurantCartaActivity extends AppCompatActivity {
                     goMenu();
                 }
                 if(item.getItemId() == R.id.nav_menu_out){
+                    Toast toast3 = new Toast(getApplicationContext());
+
+                    LayoutInflater inflater = getLayoutInflater();
+                    View layout = inflater.inflate(R.layout.toast_layout,
+                            (ViewGroup) findViewById(R.id.lytLayout));
+
+                    TextView txtMsg = (TextView)layout.findViewById(R.id.txtMensaje);
+                    txtMsg.setText("!Se ha cerrado la Sesión¡");
+
+                    toast3.setDuration(Toast.LENGTH_SHORT);
+                    toast3.setView(layout);
+                    toast3.show();
                     goOut();
                 }
                 return true;
@@ -119,6 +136,7 @@ public class RestaurantCartaActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void goOut() {
+
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
