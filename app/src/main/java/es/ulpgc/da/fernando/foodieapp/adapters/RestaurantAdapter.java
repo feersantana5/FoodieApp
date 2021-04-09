@@ -85,33 +85,23 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         @Override
         public void onClick(View view) {
             Restaurant currentRestaurant = restaurantsData.get(getAdapterPosition());
-
-            switch (view.getId()) {
-                case R.id.restaurantLogoImage:
-                    Intent detailIntent = new Intent(mContext, RestaurantCartaActivity.class);
-                    //TODO: pendiente de que pasar exactamente
-                    detailIntent.putExtra("title", currentRestaurant.getTitle());
-                    detailIntent.putExtra("image_resource", currentRestaurant.getImageResource());
-                    mContext.startActivity(detailIntent);
-                    break;
-
-                case R.id.restaurantLocation:
-
-                    String url = "http://www.example.com";
-                    Intent locationIntent = new Intent(Intent.ACTION_VIEW);
-                    locationIntent.setData(Uri.parse(url));
-                    mContext.startActivity(locationIntent);
-
-                    break;
-
-                case R.id.restaurantWebpage:
-                    Intent webpageIntent = new Intent(Intent.ACTION_VIEW);
-                    webpageIntent.setData(Uri.parse("http://maps.google.com/maps?saddr=20.344,34.34&daddr=20.5666,45.345"));
-                    mContext.startActivity(webpageIntent);
-                    break;
-
-                default:
-                    break;
+            if (view.getId() == R.id.restaurantLogoImage) {
+                Intent detailIntent = new Intent(mContext, RestaurantCartaActivity.class);
+                //TODO: pendiente de que pasar exactamente
+                detailIntent.putExtra("title", currentRestaurant.getTitle());
+                detailIntent.putExtra("image_resource", currentRestaurant.getImageResource());
+                mContext.startActivity(detailIntent);
+            }
+            if (view.getId() == R.id.restaurantWebpage) {
+                String url = "https://www.allenderestauracion.com";
+                Intent locationIntent = new Intent(Intent.ACTION_VIEW);
+                locationIntent.setData(Uri.parse(url));
+                mContext.startActivity(locationIntent);
+            }
+            if (view.getId() == R.id.restaurantLocation) {
+                Intent webpageIntent = new Intent(Intent.ACTION_VIEW);
+                webpageIntent.setData(Uri.parse("https://goo.gl/maps/PwmAy5tok6GUUP6bA"));
+                mContext.startActivity(webpageIntent);
             }
         }
     }

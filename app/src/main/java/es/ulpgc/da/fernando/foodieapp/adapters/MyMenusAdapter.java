@@ -85,36 +85,31 @@ public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHold
         @Override
         public void onClick(View view) {
             Menu currentMenu = menusData.get(getAdapterPosition());
-            switch (view.getId()) {
-                case R.id.menuImage:
+            if (view.getId() == R.id.menuImage) {
+                Intent menuDetailIntent = new Intent(mContext, MenuDetailActivity.class);
+                //TODO: pendiente de pasar nombre del restaurante
+                menuDetailIntent.putExtra("title", currentMenu.getName());
+                menuDetailIntent.putExtra("image_resource", currentMenu.getImageResource());
+                menuDetailIntent.putExtra("price", currentMenu.getPrice());
+                menuDetailIntent.putExtra("starter", currentMenu.getStarter());
+                menuDetailIntent.putExtra("beverage", currentMenu.getBeverage());
+                menuDetailIntent.putExtra("firstCourse", currentMenu.getFirstCourse());
+                menuDetailIntent.putExtra("secondCourse", currentMenu.getSecondCourse());
+                menuDetailIntent.putExtra("dessert", currentMenu.getDessert());
 
-                    Intent menuDetailIntent = new Intent(mContext, MenuDetailActivity.class);
-                    //TODO: pendiente de pasar nombre del restaurante
-                    menuDetailIntent.putExtra("title", currentMenu.getName());
-                    menuDetailIntent.putExtra("image_resource", currentMenu.getImageResource());
-                    menuDetailIntent.putExtra("price", currentMenu.getPrice());
-                    menuDetailIntent.putExtra("starter", currentMenu.getStarter());
-                    menuDetailIntent.putExtra("beverage", currentMenu.getBeverage());
-                    menuDetailIntent.putExtra("firstCourse", currentMenu.getFirstCourse());
-                    menuDetailIntent.putExtra("secondCourse", currentMenu.getSecondCourse());
-                    menuDetailIntent.putExtra("dessert", currentMenu.getDessert());
-
-                    mContext.startActivity(menuDetailIntent);
-                    break;
-
-                case R.id.menuEdit:
-                    Intent editMenuIntent = new Intent(mContext, EditMenuActivity.class);
-                    mContext.startActivity(editMenuIntent);
-                    break;
-
-              /*  case R.id.menuDelete:
-                    Intent deleteIntent = new Intent(mContext, .class);
-                    mContext.startActivity(deleteIntent);
-                    break;*/
-
-                default:
-                    break;
+                mContext.startActivity(menuDetailIntent);
             }
+            if (view.getId() == R.id.menuEdit) {
+                Intent editMenuIntent = new Intent(mContext, EditMenuActivity.class);
+                mContext.startActivity(editMenuIntent);
+            }
+
+/*            if (view.getId() == R.id.menuDelete) {
+                Intent deleteIntent = new Intent(mContext, .class);
+                mContext.startActivity(deleteIntent);
+            }*/
+
         }
     }
 }
+
