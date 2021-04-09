@@ -48,5 +48,6 @@
     <string name="emailallende">Correo: mirestaurante@allende.com</string>
     <string name="nombre_allende">Nombre: Allende</string>
     <string name="passwordallende">Contraseña: ********</string>
+    <string name="añadirImagen">Selecciona Imagén</string>
 
 </resources>
