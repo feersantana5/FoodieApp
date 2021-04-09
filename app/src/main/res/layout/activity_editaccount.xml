@@ -6,228 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
     tools:context=".EditAccountActivity">
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/emailSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/email" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/passwordSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:text="@string/password" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/locationSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/locationSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/location"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/location" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/webpageSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/webpageSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/webpage"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/webpage" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/restaurantenameSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/webpageSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/restaurantenameSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/restaurantename"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/restaurantename" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/descripcionSignUpTextInputLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/input_text_round"
-        android:elevation="4dp"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/restaurantenameSignUpTextInputLayout"
-        tools:ignore="DuplicateIds,MissingConstraints">
-
-        <EditText
-            android:id="@+id/descripcionSignUpText"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="@drawable/input_text_round"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:hint="@string/descripcion"
-            android:inputType="text"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="154dp"
-            tools:text="@string/descripcion" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-    <Button
-        android:id="@+id/btnedit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/btn_redondo"
-        android:text="@string/actualizar"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="163dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:contentDescription="@string/imagenperfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.918"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/register" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -240,5 +18,244 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/editaccounttxt" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="163dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:contentDescription="@string/imagenperfil"
+        android:src="@drawable/register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/emailSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/email" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emailSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/passwordSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:text="@string/password" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/locationSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passwordSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/locationSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/location"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/location" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/webpageSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/locationSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/webpageSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/webpage"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/webpage" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/restaurantenameSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/webpageSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/restaurantenameSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/restaurantename"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/restaurantename" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/descripcionSignUpTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantenameSignUpTextInputLayout"
+                tools:ignore="DuplicateIds,MissingConstraints">
+
+                <EditText
+                    android:id="@+id/descripcionSignUpText"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/descripcion"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/descripcion" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnedit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/btn_redondo"
+                android:text="@string/actualizar"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
