@@ -58,7 +58,7 @@ public class RestaurantCartaActivity extends AppCompatActivity {
         buttonNavBar =  findViewById(R.id.bottomNavViewMyNav);
         buttonNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(MenuItem item) {
                 if(item.getItemId() == R.id.nav_menu_inicio){
                     goToHome();
                 }
