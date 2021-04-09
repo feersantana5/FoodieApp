@@ -13,7 +13,7 @@
         android:layout_width="351dp"
         android:layout_height="45dp"
         android:layout_gravity="center_vertical"
-        android:background="#18FFFF"
+        android:background="@color/backgroundColor"
         android:paddingLeft="30dp"
         android:textColor="#BF1111" />
 

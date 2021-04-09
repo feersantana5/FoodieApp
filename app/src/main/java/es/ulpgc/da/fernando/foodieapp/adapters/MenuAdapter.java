@@ -1,4 +1,4 @@
-package es.ulpgc.da.fernando.foodieapp.models;
+package es.ulpgc.da.fernando.foodieapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 import es.ulpgc.da.fernando.foodieapp.MenuDetailActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
+import es.ulpgc.da.fernando.foodieapp.models.Menu;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     private ArrayList<Menu> menusData;

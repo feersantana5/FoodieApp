@@ -1,8 +1,7 @@
-package es.ulpgc.da.fernando.foodieapp.models;
+package es.ulpgc.da.fernando.foodieapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,10 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-import es.ulpgc.da.fernando.foodieapp.CreateMenuActivity;
 import es.ulpgc.da.fernando.foodieapp.EditMenuActivity;
 import es.ulpgc.da.fernando.foodieapp.MenuDetailActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.RestaurantCartaActivity;
+import es.ulpgc.da.fernando.foodieapp.models.Menu;
 
 
 public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHolder> {

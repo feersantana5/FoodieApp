@@ -10,7 +10,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 import es.ulpgc.da.fernando.foodieapp.models.Restaurant;
-import es.ulpgc.da.fernando.foodieapp.models.RestaurantAdapter;
+import es.ulpgc.da.fernando.foodieapp.adapters.RestaurantAdapter;
 
 public class RestaurantsListActivity extends AppCompatActivity {
 

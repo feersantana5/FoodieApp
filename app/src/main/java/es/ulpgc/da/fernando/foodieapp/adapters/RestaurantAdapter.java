@@ -1,4 +1,4 @@
-package es.ulpgc.da.fernando.foodieapp.models;
+package es.ulpgc.da.fernando.foodieapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,9 +15,9 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-import es.ulpgc.da.fernando.foodieapp.MenuDetailActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.RestaurantCartaActivity;
+import es.ulpgc.da.fernando.foodieapp.models.Restaurant;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
 

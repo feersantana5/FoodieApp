@@ -21,7 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 import es.ulpgc.da.fernando.foodieapp.models.Menu;
-import es.ulpgc.da.fernando.foodieapp.models.MenuAdapter;
+import es.ulpgc.da.fernando.foodieapp.adapters.MenuAdapter;
 
 
 public class RestaurantCartaActivity extends AppCompatActivity {
