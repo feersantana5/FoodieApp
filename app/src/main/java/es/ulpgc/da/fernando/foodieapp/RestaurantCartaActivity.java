@@ -73,7 +73,7 @@ public class RestaurantCartaActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.nav_menu_out) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RestaurantCartaActivity.this);
                     builder.setTitle("Cerrar Sesión");
-                    builder.setMessage("¿Está seguro de que desea cerrar su sesión?");
+                    builder.setMessage("¿Está seguro que desea cerrar su sesión?");
 
                     builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                         @Override
