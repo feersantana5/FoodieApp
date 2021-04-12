@@ -22,13 +22,13 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                GoToYourMenus();
+                GoToMyProfile();
             }
         });
     }
 
-    private void GoToYourMenus() {
-        Intent intent = new Intent(this, MyMenusActivity.class);
+    private void GoToMyProfile() {
+        Intent intent = new Intent(this, RestaurantProfileActivity.class);
         startActivity(intent);    }
 
 }
