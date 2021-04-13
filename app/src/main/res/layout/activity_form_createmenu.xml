@@ -276,26 +276,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btnAddImagen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginBottom="4dp"
-                android:background="@drawable/btn_redondo"
-                android:text="@string/crearmenu"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/beverageSignUpTextInputLayout" />
-
-            <Button
                 android:id="@+id/btnAddMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -309,6 +289,27 @@
                 android:text="@string/añadirmenu"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnAddImagen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/btn_redondo"
+                android:text="@string/addImagen"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beverageSignUpTextInputLayout" />
+
 
         </LinearLayout>
     </ScrollView>

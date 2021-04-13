@@ -29,21 +29,20 @@ public class CreateMenuActivity extends AppCompatActivity {
                 finish();
             }
         });
-        btnAddImag= findViewById(R.id.btnAddImagen);
+/*        btnAddImag= findViewById(R.id.btnAddImagen);
         btnAddImag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cargarImagen();
             }
-        });
+        });*/
 
     }
 
-    private void cargarImagen() {
+ /*   private void cargarImagen() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("imagen/");
         startActivityForResult(intent.createChooser(intent,"seleccione la Aplicacion"),10);
-
     }
 
     @Override
@@ -53,7 +52,7 @@ public class CreateMenuActivity extends AppCompatActivity {
             Uri path = data.getData();
             imagenNew.setImageURI(path);
         }
-    }
+    }*/
 
 
 }
