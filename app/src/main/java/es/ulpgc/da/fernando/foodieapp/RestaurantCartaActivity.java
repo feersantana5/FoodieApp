@@ -148,7 +148,6 @@ public class RestaurantCartaActivity extends AppCompatActivity {
     }
 
     private void goOut() {
-
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
