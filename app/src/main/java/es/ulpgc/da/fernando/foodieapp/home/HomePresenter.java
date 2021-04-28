@@ -2,6 +2,8 @@ package es.ulpgc.da.fernando.foodieapp.home;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
+
 public class HomePresenter implements HomeContract.Presenter {
 
     public static String TAG = HomePresenter.class.getSimpleName();
@@ -9,9 +11,9 @@ public class HomePresenter implements HomeContract.Presenter {
     private WeakReference<HomeContract.View> view;
     private HomeState state;
     private HomeContract.Model model;
-    private AppMediator mediator;
+    private FoodieMediator mediator;
 
-    public HomePresenter(AppMediator mediator) {
+    public HomePresenter(FoodieMediator mediator) {
         this.mediator = mediator;
         state = mediator.getHomeState();
     }
@@ -43,7 +45,10 @@ public class HomePresenter implements HomeContract.Presenter {
     @Override
     public void onRestart() {
         // Log.e(TAG, "onRestart()");
-
+        if (state == null) {
+            state = new HomeState();
+        }
+            PreviousToHomeState savedState = getStateFromPreviousScreen();
         // update the model if is necessary
         model.onRestartScreen(state.data);
     }

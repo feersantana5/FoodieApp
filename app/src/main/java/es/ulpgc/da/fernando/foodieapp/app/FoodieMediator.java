@@ -1,5 +1,7 @@
 package es.ulpgc.da.fernando.foodieapp.app;
 
+import es.ulpgc.da.fernando.foodieapp.home.HomeState;
+
 public class FoodieMediator {
 
     private static FoodieMediator INSTANCE;
@@ -41,5 +43,9 @@ public class FoodieMediator {
 
     public PreviousToState getPreviousScreenState() {
         return null;
+    }
+
+    public HomeState getHomeState() {
+        return state;
     }
 }

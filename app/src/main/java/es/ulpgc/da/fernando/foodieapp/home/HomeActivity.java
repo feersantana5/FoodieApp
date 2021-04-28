@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import es.ulpgc.da.fernando.foodieapp.R;
+
 public class HomeActivity
         extends AppCompatActivity implements HomeContract.View {
 
@@ -16,7 +18,7 @@ public class HomeActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_);
+        setContentView(R.layout.activity_home);
         getSupportActionBar().setTitle(R.string.app_name);
 
     /*
@@ -24,6 +26,7 @@ public class HomeActivity
       AppMediator.resetInstance();
     }
     */
+
 
         // do the setup
         HomeScreen.configure(this);

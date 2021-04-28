@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import es.ulpgc.da.fernando.foodieapp.R;
+
 public class LoginActivity
         extends AppCompatActivity implements LoginContract.View {
 
@@ -16,7 +18,7 @@ public class LoginActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_);
+        setContentView(R.layout.activity_login);
         getSupportActionBar().setTitle(R.string.app_name);
 
     /*

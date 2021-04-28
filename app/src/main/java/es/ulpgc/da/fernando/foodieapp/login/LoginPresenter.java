@@ -2,6 +2,8 @@ package es.ulpgc.da.fernando.foodieapp.login;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
+
 public class LoginPresenter implements LoginContract.Presenter {
 
     public static String TAG = LoginPresenter.class.getSimpleName();
@@ -9,9 +11,9 @@ public class LoginPresenter implements LoginContract.Presenter {
     private WeakReference<LoginContract.View> view;
     private LoginState state;
     private LoginContract.Model model;
-    private AppMediator mediator;
+    private FoodieMediator mediator;
 
-    public LoginPresenter(AppMediator mediator) {
+    public LoginPresenter(FoodieMediator mediator) {
         this.mediator = mediator;
         state = mediator.getLoginState();
     }
