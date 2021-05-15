@@ -1,6 +1,6 @@
-package es.ulpgc.da.fernando.foodieapp.models;
+package es.ulpgc.da.fernando.foodieapp.data;
 
-public class Menu {
+public class MenuItem {
 
     private String name;
     private String starter;
@@ -11,7 +11,7 @@ public class Menu {
     private int price;
     private final int imageResource;
 
-    public Menu(String name, int imageResource, int price, String starter, String beverage, String firstCourse, String secondCourse, String dessert) {
+    public MenuItem(String name, int imageResource, int price, String starter, String beverage, String firstCourse, String secondCourse, String dessert) {
         this.name = name;
         this.starter = starter;
         this.beverage = beverage;

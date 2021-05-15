@@ -2,6 +2,7 @@ package es.ulpgc.da.fernando.foodieapp.app;
 
 import es.ulpgc.da.fernando.foodieapp.home.HomeState;
 import es.ulpgc.da.fernando.foodieapp.login.LoginState;
+import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListState;
 
 public class FoodieMediator {
 
@@ -11,6 +12,7 @@ public class FoodieMediator {
     //screen states
     private HomeState homeState =  new HomeState();
     private LoginState loginState = new LoginState();
+    private RestaurantsListState restaurantsListState= new RestaurantsListState();
 
     //elementos
     //private MenuItem menu;
@@ -34,6 +36,8 @@ public class FoodieMediator {
     //delvuelve el estado del screen en constructor del presenter
     public HomeState getHomeState() {return homeState;}
     public LoginState getLoginState() {return loginState;}
+    public RestaurantsListState getRestaurantsListState() {return restaurantsListState;}
+
 
 
 

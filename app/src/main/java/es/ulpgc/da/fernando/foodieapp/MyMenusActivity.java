@@ -15,14 +15,14 @@ import java.util.ArrayList;
 
 import es.ulpgc.da.fernando.foodieapp.adapters.MyMenusAdapter;
 import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
-import es.ulpgc.da.fernando.foodieapp.models.Menu;
+import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 
 public class MyMenusActivity extends AppCompatActivity {
     //recyclerview
     private RecyclerView mRecyclerView;
 
     //arraylist con los datos de los menus
-    private ArrayList<Menu> menusData;
+    private ArrayList<MenuItem> menusData;
     //interfaz del adaptador que conecta los datos con el recyclerview
     private MyMenusAdapter mAdapter;
 
@@ -86,7 +86,7 @@ public class MyMenusActivity extends AppCompatActivity {
 
 
         for (int i = 0; i < menuList.length; i++) {
-            menusData.add(new Menu(menuList[i], menuImageResources.getResourceId(i, 0), menuPriceList[i], menuStartersList[i], menuBeveragesList[i], menuFirstCourseList[i], menuSecondCourseList[i], menuDessertList[i]));
+            menusData.add(new MenuItem(menuList[i], menuImageResources.getResourceId(i, 0), menuPriceList[i], menuStartersList[i], menuBeveragesList[i], menuFirstCourseList[i], menuSecondCourseList[i], menuDessertList[i]));
         }
 
         //recicla TypedArray

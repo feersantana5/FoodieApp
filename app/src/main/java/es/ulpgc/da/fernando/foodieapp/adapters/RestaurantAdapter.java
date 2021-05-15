@@ -17,15 +17,15 @@ import java.util.ArrayList;
 
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.RestaurantCartaActivity;
-import es.ulpgc.da.fernando.foodieapp.models.Restaurant;
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
 
-    private ArrayList<Restaurant> restaurantsData;
+    private ArrayList<RestaurantItem> restaurantsData;
     private Context mContext;
 
 
-    public RestaurantAdapter(Context context, ArrayList<Restaurant> restaurantsData) {
+    public RestaurantAdapter(Context context, ArrayList<RestaurantItem> restaurantsData) {
         this.restaurantsData = restaurantsData;
         this.mContext = context;
     }
@@ -38,10 +38,10 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     @Override
     public void onBindViewHolder(RestaurantAdapter.ViewHolder holder, int position) {
         // Get current restaurant
-        Restaurant currentRestaurant = restaurantsData.get(position);
+        RestaurantItem currentRestaurantItem = restaurantsData.get(position);
 
         // Populate the textviews with data.
-        holder.bindTo(currentRestaurant);
+        holder.bindTo(currentRestaurantItem);
     }
 
     @Override
@@ -73,23 +73,23 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             mWebpage.setOnClickListener(this); // a internet
         }
 
-        void bindTo(Restaurant currentRestaurant) {
+        void bindTo(RestaurantItem currentRestaurantItem) {
             // Populate the textviews with data.
-            mTitleText.setText(currentRestaurant.getTitle());
+            mTitleText.setText(currentRestaurantItem.getTitle());
             //TODO: hay que pasar indo de las uris de los botones, realmente imagenes?
 
             // Load images into ImageView using Glide
-            Glide.with(mContext).load(currentRestaurant.getImageResource()).into(mRestaurantLogoImage);
+            Glide.with(mContext).load(currentRestaurantItem.getImageResource()).into(mRestaurantLogoImage);
         }
 
         @Override
         public void onClick(View view) {
-            Restaurant currentRestaurant = restaurantsData.get(getAdapterPosition());
+            RestaurantItem currentRestaurantItem = restaurantsData.get(getAdapterPosition());
             if (view.getId() == R.id.restaurantLogoImage) {
                 Intent detailIntent = new Intent(mContext, RestaurantCartaActivity.class);
                 //TODO: pendiente de que pasar exactamente
-                detailIntent.putExtra("title", currentRestaurant.getTitle());
-                detailIntent.putExtra("image_resource", currentRestaurant.getImageResource());
+                detailIntent.putExtra("title", currentRestaurantItem.getTitle());
+                detailIntent.putExtra("image_resource", currentRestaurantItem.getImageResource());
                 mContext.startActivity(detailIntent);
             }
             if (view.getId() == R.id.restaurantWebpage) {

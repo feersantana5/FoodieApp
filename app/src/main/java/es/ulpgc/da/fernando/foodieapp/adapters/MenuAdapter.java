@@ -16,14 +16,14 @@ import java.util.ArrayList;
 
 import es.ulpgc.da.fernando.foodieapp.MenuDetailActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.models.Menu;
+import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
-    private ArrayList<Menu> menusData;
+    private ArrayList<MenuItem> menusData;
     private Context mContext;
 
 
-    public MenuAdapter(Context context, ArrayList<Menu> menusData) {
+    public MenuAdapter(Context context, ArrayList<MenuItem> menusData) {
         this.menusData = menusData;
         this.mContext = context;
     }
@@ -36,10 +36,10 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(MenuAdapter.ViewHolder holder, int position) {
         // Get current menu
-        Menu currentMenu = menusData.get(position);
+        MenuItem currentMenuItem = menusData.get(position);
 
         // Populate the textviews with data.
-        holder.bindTo(currentMenu);
+        holder.bindTo(currentMenuItem);
     }
 
     @Override
@@ -64,27 +64,27 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
             itemView.setOnClickListener(this);
         }
 
-        void bindTo(Menu currentMenu) {
+        void bindTo(MenuItem currentMenuItem) {
             // Populate the textviews with data.
-            mTitleText.setText(currentMenu.getName());
+            mTitleText.setText(currentMenuItem.getName());
             // Load images into ImageView using Glide
-            Glide.with(mContext).load(currentMenu.getImageResource()).into(mMenuImage);
+            Glide.with(mContext).load(currentMenuItem.getImageResource()).into(mMenuImage);
         }
 
         @Override
         public void onClick(View view) {
-            Menu currentMenu = menusData.get(getAdapterPosition());
+            MenuItem currentMenuItem = menusData.get(getAdapterPosition());
             Intent detailIntent = new Intent(mContext, MenuDetailActivity.class);
             //TODO: pendiente de pasar nombre del restaurante
 
-            detailIntent.putExtra("title", currentMenu.getName());
-            detailIntent.putExtra("image_resource", currentMenu.getImageResource());
-            detailIntent.putExtra("price", currentMenu.getPrice());
-            detailIntent.putExtra("starter", currentMenu.getStarter());
-            detailIntent.putExtra("beverage", currentMenu.getBeverage());
-            detailIntent.putExtra("firstCourse", currentMenu.getFirstCourse());
-            detailIntent.putExtra("secondCourse", currentMenu.getSecondCourse());
-            detailIntent.putExtra("dessert", currentMenu.getDessert());
+            detailIntent.putExtra("title", currentMenuItem.getName());
+            detailIntent.putExtra("image_resource", currentMenuItem.getImageResource());
+            detailIntent.putExtra("price", currentMenuItem.getPrice());
+            detailIntent.putExtra("starter", currentMenuItem.getStarter());
+            detailIntent.putExtra("beverage", currentMenuItem.getBeverage());
+            detailIntent.putExtra("firstCourse", currentMenuItem.getFirstCourse());
+            detailIntent.putExtra("secondCourse", currentMenuItem.getSecondCourse());
+            detailIntent.putExtra("dessert", currentMenuItem.getDessert());
 
 
             mContext.startActivity(detailIntent);

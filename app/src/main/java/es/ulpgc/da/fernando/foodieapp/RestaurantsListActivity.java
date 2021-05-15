@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-import es.ulpgc.da.fernando.foodieapp.models.Restaurant;
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.adapters.RestaurantAdapter;
 
 public class RestaurantsListActivity extends AppCompatActivity {
@@ -18,7 +18,7 @@ public class RestaurantsListActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
 
     //arraylist con los datos de los restaurantes
-    private ArrayList<Restaurant> restaurantsData;
+    private ArrayList<RestaurantItem> restaurantsData;
     //interfaz del adaptador que conecta los datos con el recyclerview
     private RestaurantAdapter mAdapter;
 
@@ -58,7 +58,7 @@ public class RestaurantsListActivity extends AppCompatActivity {
 
         // Crea el ArrayList de los objetos menus con los titulos e informacion sobre cada restaurante
         for (int i = 0; i < restaurantList.length; i++) {
-            restaurantsData.add(new Restaurant(restaurantList[i], restaurantLocationList[i], restaurantWebpageList[i], restaurantsImageResources.getResourceId(i, 0)));
+            restaurantsData.add(new RestaurantItem(restaurantList[i], restaurantLocationList[i], restaurantWebpageList[i], restaurantsImageResources.getResourceId(i, 0)));
         }
         //recicla TypedArray
         restaurantsImageResources.recycle();

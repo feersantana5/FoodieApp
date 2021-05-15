@@ -17,15 +17,15 @@ import java.util.ArrayList;
 import es.ulpgc.da.fernando.foodieapp.EditMenuActivity;
 import es.ulpgc.da.fernando.foodieapp.MenuDetailActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.models.Menu;
+import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 
 
 public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHolder> {
-    private ArrayList<Menu> menusData;
+    private ArrayList<MenuItem> menusData;
     private Context mContext;
 
 
-    public MyMenusAdapter(Context context, ArrayList<Menu> menusData) {
+    public MyMenusAdapter(Context context, ArrayList<MenuItem> menusData) {
         this.menusData = menusData;
         this.mContext = context;
     }
@@ -38,10 +38,10 @@ public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHold
     @Override
     public void onBindViewHolder(MyMenusAdapter.ViewHolder holder, int position) {
         // Get current menu
-        Menu currentMenu = menusData.get(position);
+        MenuItem currentMenuItem = menusData.get(position);
 
         // Populate the textviews with data.
-        holder.bindTo(currentMenu);
+        holder.bindTo(currentMenuItem);
     }
 
     @Override
@@ -75,27 +75,27 @@ public class MyMenusAdapter extends RecyclerView.Adapter<MyMenusAdapter.ViewHold
             mMenuDelete.setOnClickListener(this); // a borrar
         }
 
-        void bindTo(Menu currentMenu) {
+        void bindTo(MenuItem currentMenuItem) {
             // Populate the textviews with data.
-            mTitleText.setText(currentMenu.getName());
+            mTitleText.setText(currentMenuItem.getName());
             // Load images into ImageView using Glide
-            Glide.with(mContext).load(currentMenu.getImageResource()).into(mMenuImage);
+            Glide.with(mContext).load(currentMenuItem.getImageResource()).into(mMenuImage);
         }
 
         @Override
         public void onClick(View view) {
-            Menu currentMenu = menusData.get(getAdapterPosition());
+            MenuItem currentMenuItem = menusData.get(getAdapterPosition());
             if (view.getId() == R.id.menuImage) {
                 Intent menuDetailIntent = new Intent(mContext, MenuDetailActivity.class);
                 //TODO: pendiente de pasar nombre del restaurante
-                menuDetailIntent.putExtra("title", currentMenu.getName());
-                menuDetailIntent.putExtra("image_resource", currentMenu.getImageResource());
-                menuDetailIntent.putExtra("price", currentMenu.getPrice());
-                menuDetailIntent.putExtra("starter", currentMenu.getStarter());
-                menuDetailIntent.putExtra("beverage", currentMenu.getBeverage());
-                menuDetailIntent.putExtra("firstCourse", currentMenu.getFirstCourse());
-                menuDetailIntent.putExtra("secondCourse", currentMenu.getSecondCourse());
-                menuDetailIntent.putExtra("dessert", currentMenu.getDessert());
+                menuDetailIntent.putExtra("title", currentMenuItem.getName());
+                menuDetailIntent.putExtra("image_resource", currentMenuItem.getImageResource());
+                menuDetailIntent.putExtra("price", currentMenuItem.getPrice());
+                menuDetailIntent.putExtra("starter", currentMenuItem.getStarter());
+                menuDetailIntent.putExtra("beverage", currentMenuItem.getBeverage());
+                menuDetailIntent.putExtra("firstCourse", currentMenuItem.getFirstCourse());
+                menuDetailIntent.putExtra("secondCourse", currentMenuItem.getSecondCourse());
+                menuDetailIntent.putExtra("dessert", currentMenuItem.getDessert());
 
                 mContext.startActivity(menuDetailIntent);
             }

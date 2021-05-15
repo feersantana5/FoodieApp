@@ -1,6 +1,5 @@
 package es.ulpgc.da.fernando.foodieapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,19 +10,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
 import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
-import es.ulpgc.da.fernando.foodieapp.models.Menu;
+import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.adapters.MenuAdapter;
 
 
@@ -32,7 +25,7 @@ public class RestaurantCartaActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
 
     //arraylist con los datos de los menus
-    private ArrayList<Menu> menusData;
+    private ArrayList<MenuItem> menusData;
     //interfaz del adaptador que conecta los datos con el recyclerview
     private MenuAdapter mAdapter;
 
@@ -61,7 +54,7 @@ public class RestaurantCartaActivity extends AppCompatActivity {
         buttonNavBar = findViewById(R.id.bottomNavViewMyNav);
         buttonNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
+            public boolean onNavigationItemSelected(android.view.MenuItem item) {
                 if (item.getItemId() == R.id.nav_menu_inicio) {
                     goToHome();
                 }
@@ -123,7 +116,7 @@ public class RestaurantCartaActivity extends AppCompatActivity {
 
 
         for (int i = 0; i < menuList.length; i++) {
-            menusData.add(new Menu(menuList[i], menuImageResources.getResourceId(i, 0), menuPriceList[i], menuStartersList[i], menuBeveragesList[i], menuFirstCourseList[i], menuSecondCourseList[i], menuDessertList[i]));
+            menusData.add(new MenuItem(menuList[i], menuImageResources.getResourceId(i, 0), menuPriceList[i], menuStartersList[i], menuBeveragesList[i], menuFirstCourseList[i], menuSecondCourseList[i], menuDessertList[i]));
         }
 
         //recicla TypedArray

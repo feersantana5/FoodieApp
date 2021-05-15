@@ -1,6 +1,6 @@
-package es.ulpgc.da.fernando.foodieapp.models;
+package es.ulpgc.da.fernando.foodieapp.data;
 
-public class Restaurant {
+public class RestaurantItem {
 
     // variables que representan el titulo, la locaclizacion, la pagina web e id de la imagen del restaurante
     private String title;
@@ -9,7 +9,7 @@ public class Restaurant {
     private final int imageResource;
 
     //TODO: hacer los menus
-    public Restaurant(String title, String location, String webpage, int imageResource) {
+    public RestaurantItem(String title, String location, String webpage, int imageResource) {
         this.title = title;
         this.location = location;
         this.webpage = webpage;
