@@ -3,11 +3,14 @@ package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import es.ulpgc.da.fernando.foodieapp.R;
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class RestaurantsListActivity
         extends AppCompatActivity implements RestaurantsListContract.View {
@@ -15,6 +18,9 @@ public class RestaurantsListActivity
     public static String TAG = RestaurantsListActivity.class.getSimpleName();
 
     private RestaurantsListContract.Presenter presenter;
+
+    private RestaurantsListAdapter listAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,24 @@ public class RestaurantsListActivity
       AppMediator.resetInstance();
     }
     */
+
+        //adapter y onclick
+        listAdapter = new RestaurantsListAdapter(new View.OnClickListener() {
+
+            //onClick
+            @Override
+            public void onClick(View view) {
+                //listener de la lista cuando se pulsa obtiene el tag y lo pasa
+                RestaurantItem item = (RestaurantItem) view.getTag();
+                presenter.selectRestaurantListData(item);
+            }
+        });
+
+        //recyclerview
+        RecyclerView recyclerView = findViewById(R.id.category_list);
+        //relacion de recycler con adapter
+        recyclerView.setAdapter(listAdapter);
+
 
         // do the setup
         RestaurantsListScreen.configure(this);
