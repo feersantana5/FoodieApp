@@ -11,15 +11,13 @@ public class HomeScreen {
 
     public static void configure(HomeContract.View view) {
 
-        WeakReference<FragmentActivity> context =
-                new WeakReference<>((FragmentActivity) view);
-
-        String data = context.get().getString(R.string.app_name);
+        WeakReference<FragmentActivity> context = new WeakReference<>((FragmentActivity) view);
 
         FoodieMediator mediator = FoodieMediator.getInstance();
-
         HomeContract.Presenter presenter = new HomePresenter(mediator);
-        HomeContract.Model model = new HomeModel(data);
+
+        HomeContract.Model model = new HomeModel();
+
         presenter.injectModel(model);
         presenter.injectView(new WeakReference<>(view));
 

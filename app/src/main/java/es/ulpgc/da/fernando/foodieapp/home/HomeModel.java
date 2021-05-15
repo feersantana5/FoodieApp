@@ -6,8 +6,8 @@ public class HomeModel implements HomeContract.Model {
 
     private String data;
 
-    public HomeModel(String data) {
-        this.data = data;
+    public HomeModel() {
+
     }
 
     @Override

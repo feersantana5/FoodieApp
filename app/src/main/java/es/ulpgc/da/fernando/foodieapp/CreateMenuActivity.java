@@ -1,9 +1,6 @@
 package es.ulpgc.da.fernando.foodieapp;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,7 +17,7 @@ public class CreateMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_createmenu);
 
-        imagenNew = (ImageView) findViewById(R.id.imageView);
+        imagenNew = (ImageView) findViewById(R.id.loginImage);
 
         buttonCreateMenu = findViewById(R.id.btnAddMenu);
         buttonCreateMenu.setOnClickListener(new View.OnClickListener() {

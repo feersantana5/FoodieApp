@@ -7,9 +7,9 @@ public interface HomeContract {
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void onDataUpdated(HomeViewModel viewModel);
+        void navigateToRestaurantList();
 
-        void navigateToNextScreen();
+        void navigateToLogin();
     }
 
     interface Presenter {
@@ -28,6 +28,10 @@ public interface HomeContract {
         void onPause();
 
         void onDestroy();
+
+        void goToLogin();
+
+        void goToRestaurantList();
     }
 
     interface Model {

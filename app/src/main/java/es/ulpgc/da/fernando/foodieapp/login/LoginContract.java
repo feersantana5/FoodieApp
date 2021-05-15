@@ -7,9 +7,9 @@ public interface LoginContract {
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void onDataUpdated(LoginViewModel viewModel);
+        void navigateToRestaurantProfile();
 
-        void navigateToNextScreen();
+        void navigateToRegister();
     }
 
     interface Presenter {
@@ -28,6 +28,11 @@ public interface LoginContract {
         void onPause();
 
         void onDestroy();
+
+        void goToRegister();
+
+        void goToRestaurantProfile();
+
     }
 
     interface Model {

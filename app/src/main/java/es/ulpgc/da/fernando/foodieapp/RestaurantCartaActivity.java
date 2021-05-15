@@ -22,6 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
+import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
 import es.ulpgc.da.fernando.foodieapp.models.Menu;
 import es.ulpgc.da.fernando.foodieapp.adapters.MenuAdapter;
 

@@ -10,6 +10,15 @@
         android:roundIcon="@mipmap/ic_fooidie_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodieApp">
+        <activity android:name=".home.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".login.LoginActivity"></activity>
+
         <activity android:name=".RestaurantProfileActivity"></activity>
         <activity android:name=".MenuDetailActivity" />
         <activity android:name=".EditAccountActivity" />
@@ -17,12 +26,6 @@
         <activity android:name=".CreateMenuActivity" />
         <activity android:name=".RestaurantCartaActivity">
 
-        </activity>
-        <activity android:name=".HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".MyMenusActivity">
 

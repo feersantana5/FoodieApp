@@ -2,11 +2,16 @@ package es.ulpgc.da.fernando.foodieapp.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.da.fernando.foodieapp.R;
+import es.ulpgc.da.fernando.foodieapp.RegisterActivity;
+import es.ulpgc.da.fernando.foodieapp.RestaurantProfileActivity;
 
 public class LoginActivity
         extends AppCompatActivity implements LoginContract.View {
@@ -15,11 +20,14 @@ public class LoginActivity
 
     private LoginContract.Presenter presenter;
 
+    ImageView loginImage;
+    EditText email, password;
+    Button btnLogin, btnRegister;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().setTitle(R.string.app_name);
 
     /*
     if(savedInstanceState == null) {
@@ -27,21 +35,49 @@ public class LoginActivity
     }
     */
 
+        initLayout();
+        enableLayoutButtons();
+
+
         // do the setup
         LoginScreen.configure(this);
 
         if (savedInstanceState == null) {
             presenter.onStart();
-
         } else {
             presenter.onRestart();
         }
     }
 
+    private void initLayout() {
+        loginImage = findViewById(R.id.loginImage);
+        email = findViewById(R.id.emailSignUpText);
+        password = findViewById(R.id.passwordSignUpText);
+
+        btnLogin = findViewById(R.id.btnLogin);
+        btnRegister = findViewById(R.id.btnRegister);
+    }
+
+    private void enableLayoutButtons(){
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.goToRestaurantProfile();
+                //TODO: verificar registro e ir al perfil
+            }
+        });
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.goToRegister();
+            }
+        });
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-
         // load the data
         presenter.onResume();
     }
@@ -49,38 +85,33 @@ public class LoginActivity
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
         presenter.onBackPressed();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
         presenter.onPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         presenter.onDestroy();
     }
 
     @Override
-    public void onDataUpdated(LoginViewModel viewModel) {
-        //Log.e(TAG, "onDataUpdated()");
-
-        // deal with the data
-        ((TextView) findViewById(R.id.data)).setText(viewModel.data);
-    }
-
-
-    @Override
-    public void navigateToNextScreen() {
-        Intent intent = new Intent(this, LoginActivity.class);
+    public void navigateToRegister() {
+        Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void navigateToRestaurantProfile() {
+        Intent intent = new Intent(this, RestaurantProfileActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void injectPresenter(LoginContract.Presenter presenter) {
