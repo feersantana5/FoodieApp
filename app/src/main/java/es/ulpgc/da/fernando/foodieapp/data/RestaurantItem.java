@@ -1,47 +1,30 @@
 package es.ulpgc.da.fernando.foodieapp.data;
 
+
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
+//config tabla room
+@Entity(tableName = "restaurants") //nombre de la tabla
 public class RestaurantItem {
 
-    // variables que representan el titulo, la locaclizacion, la pagina web e id de la imagen del restaurante
-    private String title;
-    private String location;
-    private String webpage;
-    private final int imageResource;
+    @PrimaryKey //identificador unico e irrepetible
+    public int id;
 
-    //TODO: hacer los menus
-    public RestaurantItem(String title, String location, String webpage, int imageResource) {
-        this.title = title;
-        this.location = location;
-        this.webpage = webpage;
-        this.imageResource = imageResource;
-    }
+    public String title;
+    public String location;
+    public String webpage;
+    public String description;
+    public String logo;
 
-    public String getTitle() {
-        return title;
-    }
+    @Ignore //hace que no aparezca en la tabla
+    @SerializedName("menus")
+    //unica  etiqueta json, hace referencia a la identificacion del elem en json
+    public List<MenuItem> menus;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getWebpage() {
-        return webpage;
-    }
-
-    public void setWebpage(String webpage) {
-        this.webpage = webpage;
-    }
-
-    public int getImageResource() {
-        return imageResource;
-    }
 
 }

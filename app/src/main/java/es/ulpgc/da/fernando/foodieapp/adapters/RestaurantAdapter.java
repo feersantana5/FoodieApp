@@ -79,7 +79,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             //TODO: hay que pasar indo de las uris de los botones, realmente imagenes?
 
             // Load images into ImageView using Glide
-            Glide.with(mContext).load(currentRestaurantItem.getImageResource()).into(mRestaurantLogoImage);
+            Glide.with(mContext).load(currentRestaurantItem.getLogo()).into(mRestaurantLogoImage);
         }
 
         @Override
@@ -89,7 +89,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
                 Intent detailIntent = new Intent(mContext, RestaurantCartaActivity.class);
                 //TODO: pendiente de que pasar exactamente
                 detailIntent.putExtra("title", currentRestaurantItem.getTitle());
-                detailIntent.putExtra("image_resource", currentRestaurantItem.getImageResource());
+                detailIntent.putExtra("image_resource", currentRestaurantItem.getLogo());
                 mContext.startActivity(detailIntent);
             }
             if (view.getId() == R.id.restaurantWebpage) {
