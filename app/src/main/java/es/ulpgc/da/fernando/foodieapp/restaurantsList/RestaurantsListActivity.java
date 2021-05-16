@@ -1,6 +1,7 @@
 package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import es.ulpgc.da.fernando.foodieapp.R;
+import es.ulpgc.da.fernando.foodieapp.RestaurantCartaActivity;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class RestaurantsListActivity
@@ -18,7 +20,6 @@ public class RestaurantsListActivity
     public static String TAG = RestaurantsListActivity.class.getSimpleName();
 
     private RestaurantsListContract.Presenter presenter;
-
     private RestaurantsListAdapter listAdapter;
 
 
@@ -46,7 +47,7 @@ public class RestaurantsListActivity
         });
 
         //recyclerview
-        RecyclerView recyclerView = findViewById(R.id.category_list);
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewRestaurants);
         //relacion de recycler con adapter
         recyclerView.setAdapter(listAdapter);
 
@@ -54,12 +55,8 @@ public class RestaurantsListActivity
         // do the setup
         RestaurantsListScreen.configure(this);
 
-        if (savedInstanceState == null) {
-            presenter.onStart();
-
-        } else {
-            presenter.onRestart();
-        }
+        // do some work
+        presenter.fetchCategoryListData();
     }
 
     @Override
@@ -87,22 +84,49 @@ public class RestaurantsListActivity
         presenter.onDestroy();
     }
 
+    //muestra la lista
     @Override
-    public void onDataUpdated(RestaurantsListViewModel viewModel) {
-        Log.e(TAG, "onDataUpdated()");
-        // deal with the data
-        ((TextView) findViewById(R.id.data)).setText(viewModel.data);
+    public void displayCategoryListData(final CategoryListViewModel viewModel) {
+        Log.e(TAG, "displayCategoryListData()");
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                // deal with the data
+                //muesta la info
+                listAdapter.setItems(viewModel.categories);
+            }
+        });
     }
 
-
+    //intent
     @Override
-    public void navigateToNextScreen() {
-        Intent intent = new Intent(this, RestaurantsListActivity.class);
+    public void navigateToRestaurantCarta() {
+        Intent intent = new Intent(this, RestaurantCartaActivity.class);
         startActivity(intent);
+    }
+
+    //intent
+    @Override
+    public void navigateToInternet() {
+        Intent webpageIntent = new Intent(Intent.ACTION_VIEW);
+        webpageIntent.setData(Uri.parse("https://goo.gl/maps/PwmAy5tok6GUUP6bA"));
+        mContext.startActivity(webpageIntent);
+    }
+
+    //intent
+    @Override
+    public void navigateToMaps() {
+        String url = "https://www.allenderestauracion.com";
+        Intent locationIntent = new Intent(Intent.ACTION_VIEW);
+        locationIntent.setData(Uri.parse(url));
+        mContext.startActivity(locationIntent);
     }
 
     @Override
     public void injectPresenter(RestaurantsListContract.Presenter presenter) {
         this.presenter = presenter;
     }
+
 }
