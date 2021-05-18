@@ -13,4 +13,7 @@ import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 
 @Dao
 public interface MenuDao {
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE) // si inserto menu que ya existe, la machaco, sino saldria error
+    void insertMenu(MenuItem menu);
 }

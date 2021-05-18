@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentActivity;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
+import es.ulpgc.da.fernando.foodieapp.data.CatalogRepository;
+import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 
 public class RestaurantsListScreen {
 
@@ -16,7 +18,8 @@ public class RestaurantsListScreen {
         FoodieMediator mediator = FoodieMediator.getInstance();
         RestaurantsListContract.Presenter presenter = new RestaurantsListPresenter(mediator);
 
-        RestaurantsListContract.Model model = new RestaurantsListModel();
+        RepositoryContract repository = CatalogRepository.getInstance(context.get());
+        RestaurantsListContract.Model model = new RestaurantsListModel(repository);
 
         presenter.injectModel(model);
         presenter.injectView(new WeakReference<>(view));

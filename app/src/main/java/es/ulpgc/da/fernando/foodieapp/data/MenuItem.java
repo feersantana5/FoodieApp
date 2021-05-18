@@ -23,9 +23,6 @@ public class MenuItem {
     @PrimaryKey //identificador unico e irrepetible
     public int id;
 
-    @ColumnInfo(name = "restaurantId") //columna customizada, obtiene el foreignkey que lo relaciona con la otra tabla
-    public int restaurantId;
-
     public String name;
     public int price;
     public String image;
@@ -35,8 +32,8 @@ public class MenuItem {
     public String dessert;
     public String beverage;
 
-
-
+    @ColumnInfo(name = "restaurantId") //columna customizada, obtiene el foreignkey que lo relaciona con la otra tabla
+    public int restaurantId;
 
 
 }

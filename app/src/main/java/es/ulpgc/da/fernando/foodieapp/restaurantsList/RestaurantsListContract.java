@@ -2,13 +2,24 @@ package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
+
 public interface RestaurantsListContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void onDataUpdated(RestaurantsListViewModel viewModel);
-        void navigateToNextScreen();
+        //presentar lista
+        void displayRestaurantsListData(RestaurantsListViewModel viewModel);
+
+        //intent
+        void navigateToRestaurantCarta();
+
+        void navigateToInternet();
+
+        void navigateToMaps();
+
     }
 
     interface Presenter {
@@ -22,21 +33,22 @@ public interface RestaurantsListContract {
 
         void onRestart();
 
+        void fetchRestaurantsListData();
+
+        void selectRestaurantListData(RestaurantItem item);
+
         void onBackPressed();
 
         void onPause();
 
         void onDestroy();
+
+
     }
 
     interface Model {
-        String getStoredData();
-
-        void onDataFromNextScreen(String data);
-
-        void onRestartScreen(String data);
-
-        void onDataFromPreviousScreen(String data);
+        //obtiene la lista de categorias
+        void fetchRestaurantsListData(RepositoryContract.GetRestaurantsListCallback callback);
     }
 
 }

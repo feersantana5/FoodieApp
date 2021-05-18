@@ -16,15 +16,16 @@ public class RestaurantItem {
     public int id;
 
     public String title;
+    public String logo;
+    public String description;
+
     public String location;
     public String webpage;
-    public String description;
-    public String logo;
 
     @Ignore //hace que no aparezca en la tabla
     @SerializedName("menus")
     //unica  etiqueta json, hace referencia a la identificacion del elem en json
-    public List<MenuItem> menus;
+    public List<MenuItem> items;
 
 
 }

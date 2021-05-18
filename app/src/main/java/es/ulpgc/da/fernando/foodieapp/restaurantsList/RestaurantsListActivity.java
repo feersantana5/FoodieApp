@@ -56,7 +56,7 @@ public class RestaurantsListActivity
         RestaurantsListScreen.configure(this);
 
         // do some work
-        presenter.fetchCategoryListData();
+        presenter.fetchRestaurantsListData();
     }
 
     @Override
@@ -64,6 +64,47 @@ public class RestaurantsListActivity
         super.onResume();
         // load the data
         presenter.onResume();
+    }
+
+    //muestra la lista
+    @Override
+    public void displayRestaurantsListData(final RestaurantsListViewModel viewModel) {
+        Log.e(TAG, "displayRestaurantsListData()");
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // deal with the data
+                //muesta la info
+                listAdapter.setItems(viewModel.restaurants);
+            }
+        });
+    }
+
+    //intent
+    @Override
+    public void navigateToRestaurantCarta() {
+        Intent intent = new Intent(this, RestaurantCartaActivity.class);
+        startActivity(intent);
+    }
+
+    //intent
+    @Override
+    public void navigateToInternet() {
+        Intent webpageIntent = new Intent(Intent.ACTION_VIEW);
+        webpageIntent.setData(Uri.parse("https://goo.gl/maps/PwmAy5tok6GUUP6bA"));
+        //TODO
+        //mContext.startActivity(webpageIntent);
+    }
+
+    //intent
+    @Override
+    public void navigateToMaps() {
+        String url = "https://www.allenderestauracion.com";
+        Intent locationIntent = new Intent(Intent.ACTION_VIEW);
+        locationIntent.setData(Uri.parse(url));
+        //TODO
+        //mContext.startActivity(locationIntent);
     }
 
     @Override
@@ -82,46 +123,6 @@ public class RestaurantsListActivity
     protected void onDestroy() {
         super.onDestroy();
         presenter.onDestroy();
-    }
-
-    //muestra la lista
-    @Override
-    public void displayCategoryListData(final CategoryListViewModel viewModel) {
-        Log.e(TAG, "displayCategoryListData()");
-
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-                // deal with the data
-                //muesta la info
-                listAdapter.setItems(viewModel.categories);
-            }
-        });
-    }
-
-    //intent
-    @Override
-    public void navigateToRestaurantCarta() {
-        Intent intent = new Intent(this, RestaurantCartaActivity.class);
-        startActivity(intent);
-    }
-
-    //intent
-    @Override
-    public void navigateToInternet() {
-        Intent webpageIntent = new Intent(Intent.ACTION_VIEW);
-        webpageIntent.setData(Uri.parse("https://goo.gl/maps/PwmAy5tok6GUUP6bA"));
-        mContext.startActivity(webpageIntent);
-    }
-
-    //intent
-    @Override
-    public void navigateToMaps() {
-        String url = "https://www.allenderestauracion.com";
-        Intent locationIntent = new Intent(Intent.ACTION_VIEW);
-        locationIntent.setData(Uri.parse(url));
-        mContext.startActivity(locationIntent);
     }
 
     @Override

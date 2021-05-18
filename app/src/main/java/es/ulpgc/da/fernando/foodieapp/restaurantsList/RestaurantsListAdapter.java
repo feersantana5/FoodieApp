@@ -62,7 +62,7 @@ public class RestaurantsListAdapter
         holder.itemView.setTag(itemList.get(position)); //añade etiqueta con su posicion
         holder.itemView.setOnClickListener(clickListener);//añade listener
         //TODO:
-        holder.contentView.setText(itemList.get(position).content);//añade texto
+        holder.contentView.setText(itemList.get(position).title);//añade texto
     }
 
     //describe la vista de los items en el RecyclerView y su posicion (para cada celda en memoria)

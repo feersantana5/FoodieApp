@@ -1,7 +1,11 @@
 package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 
+import java.util.List;
+
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
+
 public class RestaurantsListViewModel {
 
-    // put the view state here
-    public String data;
+    //lista de categorias
+    public List<RestaurantItem> restaurants;
 }

@@ -13,7 +13,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-import es.ulpgc.da.fernando.foodieapp.adapters.MyMenusAdapter;
 import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 
@@ -24,7 +23,7 @@ public class MyMenusActivity extends AppCompatActivity {
     //arraylist con los datos de los menus
     private ArrayList<MenuItem> menusData;
     //interfaz del adaptador que conecta los datos con el recyclerview
-    private MyMenusAdapter mAdapter;
+    //private MyMenusAdapter mAdapter;
 
     FloatingActionButton fabAddMenu;
 
@@ -43,8 +42,8 @@ public class MyMenusActivity extends AppCompatActivity {
         // inicializa el ArrayList que contiene los datos
         menusData = new ArrayList<>();
         // inicializa el adaptador y lo asigna al RecyclerView.
-        mAdapter = new MyMenusAdapter(this, menusData);
-        mRecyclerView.setAdapter(mAdapter);
+        //mAdapter = new MyMenusAdapter(this, menusData);
+        //mRecyclerView.setAdapter(mAdapter);
 
         // obtiene los datos
         initializeData();
@@ -86,13 +85,13 @@ public class MyMenusActivity extends AppCompatActivity {
 
 
         for (int i = 0; i < menuList.length; i++) {
-            menusData.add(new MenuItem(menuList[i], menuImageResources.getResourceId(i, 0), menuPriceList[i], menuStartersList[i], menuBeveragesList[i], menuFirstCourseList[i], menuSecondCourseList[i], menuDessertList[i]));
+            //menusData.add(new MenuItem(menuList[i], menuImageResources.getResourceId(i, 0), menuPriceList[i], menuStartersList[i], menuBeveragesList[i], menuFirstCourseList[i], menuSecondCourseList[i], menuDessertList[i]));
         }
 
         //recicla TypedArray
         menuImageResources.recycle();
         // Notifica al adaptador de cambio
-        mAdapter.notifyDataSetChanged();
+        //mAdapter.notifyDataSetChanged();
     }
 
     //TODO: pendiente

@@ -3,8 +3,11 @@ package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
+import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class RestaurantsListPresenter implements RestaurantsListContract.Presenter {
 
@@ -23,54 +26,50 @@ public class RestaurantsListPresenter implements RestaurantsListContract.Present
     @Override
     public void onStart() {
          Log.e(TAG, "onStart()");
-
-        // initialize the state if is necessary
-        if (state == null) {
-            state = new RestaurantsListState();
-        }
-
-        // call the model and update the state
-        state.data = model.getStoredData();
-
-        // use passed state if is necessary
-        PreviousToRestaurantsListState savedState = getStateFromPreviousScreen();
-        if (savedState != null) {
-
-            // update the model if is necessary
-            model.onDataFromPreviousScreen(savedState.data);
-
-            // update the state if is necessary
-            state.data = savedState.data;
-        }
+        // initialize the state if is necessary...
     }
-
     @Override
     public void onRestart() {
          Log.e(TAG, "onRestart()");
-        // update the model if is necessary
-        model.onRestartScreen(state.data);
+        // update the model if is necessary...
     }
-
     @Override
     public void onResume() {
          Log.e(TAG, "onResume()");
-        // use passed state if is necessary
-        NextToRestaurantsListState savedState = getStateFromNextScreen();
-        if (savedState != null) {
+        // use passed state if is necessary...
+    }
 
-            // update the model if is necessary
-            model.onDataFromNextScreen(savedState.data);
+    //obtiene la lista categorias y las muestra
+    @Override
+    public void fetchRestaurantsListData() {
+        Log.e(TAG, "fetchRestaurantsListData()");
 
-            // update the state if is necessary
-            state.data = savedState.data;
-        }
+        // call the model
+        // pide al modelo de forma asincrona la lista y que cuando los tenga le notifique
+        // (callback) del Repository Contract
+        model.fetchRestaurantsListData(new RepositoryContract.GetRestaurantsListCallback() {
 
-        // call the model and update the state
-        //state.data = model.getStoredData();
+            @Override
+            public void setRestaurantsList(List<RestaurantItem> restaurants) {
+                // rellena la lista con las categprias almacenadas
+                state.restaurants = restaurants;
+                // update view
+                view.get().displayRestaurantsListData(state);
+            }
+        });
+    }
 
-        // update the view
-        view.get().onDataUpdated(state);
-
+    //cuando se selecciona una categoria, para pasar a su detalle
+    @Override
+    public void selectRestaurantListData(RestaurantItem item) {
+        //envia la info al mediador
+        passDataToProductListScreen(item);
+        //cambia de activity
+        view.get().navigateToRestaurantCarta();
+    }
+    //almacena en ek mediador la info a pasar
+    private void passDataToProductListScreen(RestaurantItem item) {
+        mediator.setRestaurant(item);
     }
 
     @Override
@@ -86,22 +85,6 @@ public class RestaurantsListPresenter implements RestaurantsListContract.Present
     @Override
     public void onDestroy() {
          Log.e(TAG, "onDestroy()");
-    }
-
-    private NextToRestaurantsListState getStateFromNextScreen() {
-        return mediator.getNextRestaurantsListScreenState();
-    }
-
-    private void passStateToNextScreen(RestaurantsListToNextState state) {
-        mediator.setNextRestaurantsListScreenState(state);
-    }
-
-    private void passStateToPreviousScreen(RestaurantsListToPreviousState state) {
-        mediator.setPreviousRestaurantsListScreenState(state);
-    }
-
-    private PreviousToRestaurantsListState getStateFromPreviousScreen() {
-        return mediator.getPreviousRestaurantsListScreenState();
     }
 
     @Override

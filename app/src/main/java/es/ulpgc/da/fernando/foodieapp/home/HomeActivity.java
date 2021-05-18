@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.RestaurantsListActivity;
 import es.ulpgc.da.fernando.foodieapp.login.LoginActivity;
+import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListActivity;
 
 public class HomeActivity
         extends AppCompatActivity implements HomeContract.View {
