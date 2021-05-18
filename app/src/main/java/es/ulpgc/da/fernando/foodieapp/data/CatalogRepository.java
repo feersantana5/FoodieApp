@@ -110,7 +110,8 @@ public class CatalogRepository implements RepositoryContract {
                 //recorre los menus e inserta
                 for (RestaurantItem restaurant : restaurants) {
                     for (MenuItem menu : restaurant.items) {
-                        menu.restaurantId = menu.id;
+                        //la clave foranea
+                        menu.restaurantId = restaurant.id;
                         getMenuDao().insertMenu(menu);
                     }
                 }

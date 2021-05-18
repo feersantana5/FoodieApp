@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RestaurantsListActivity"
+    tools:context=".restaurantsList.RestaurantsListActivity"
     android:background="@color/backgroundColor">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -27,7 +27,7 @@
         app:itemIconTint="@color/design_default_color_background"
         app:itemTextColor="@color/design_default_color_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerViewRestaurants"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
 

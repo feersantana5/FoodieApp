@@ -3,9 +3,16 @@ package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,16 +69,39 @@ public class RestaurantsListAdapter
         holder.itemView.setTag(itemList.get(position)); //añade etiqueta con su posicion
         holder.itemView.setOnClickListener(clickListener);//añade listener
         //TODO:
-        holder.contentView.setText(itemList.get(position).title);//añade texto
+        holder.cardViewTitle.setText(itemList.get(position).title);//añade texto
+        //añade intents
+        holder.cardViewLocation.setOnClickListener(clickListener);
+        holder.cardViewWebpage.setOnClickListener(clickListener);
+        //añade imagen
+        loadImageFromURL(holder.cardViewLogo, itemList.get(position).logo);
     }
 
     //describe la vista de los items en el RecyclerView y su posicion (para cada celda en memoria)
     class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView contentView;
+        final TextView cardViewTitle;
+        final ImageView cardViewLocation, cardViewWebpage, cardViewLogo;
+
         ViewHolder(View view) {
             super(view);
             //TODO:
-            contentView = view.findViewById(R.id.content);
+            //texto
+            cardViewTitle = view.findViewById(R.id.restaurantTitleCardView);
+            //intents
+            cardViewLocation = view.findViewById(R.id.restaurantLocationCardView);
+            cardViewWebpage = view.findViewById(R.id.restaurantWebpageCardView);
+            //imagen
+            cardViewLogo = view.findViewById(R.id.restaurantLogoImageCardView);
         }
     }
+
+    private void loadImageFromURL(ImageView imageView, String imageUrl) { //metodo para añadir la imagen usando Glide
+        RequestManager reqManager = Glide.with(imageView.getContext());
+        RequestBuilder reqBuilder = reqManager.load(imageUrl);
+        RequestOptions reqOptions = new RequestOptions();
+        reqOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
+        reqBuilder.apply(reqOptions);
+        reqBuilder.into(imageView);
+    }
+
 }

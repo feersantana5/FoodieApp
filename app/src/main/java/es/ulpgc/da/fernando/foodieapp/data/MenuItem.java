@@ -14,7 +14,7 @@ import static androidx.room.ForeignKey.CASCADE;
         foreignKeys = @ForeignKey(  //valor que obtiene de otra tabla y sus caract aqui
                 entity = RestaurantItem.class,
                 parentColumns = "id",
-                childColumns = "restaurantId", //tabla relacion 1-n
+                childColumns = "restaurant_Id", //tabla relacion 1-n
                 onDelete = CASCADE
         )
 )
@@ -32,7 +32,7 @@ public class MenuItem {
     public String dessert;
     public String beverage;
 
-    @ColumnInfo(name = "restaurantId") //columna customizada, obtiene el foreignkey que lo relaciona con la otra tabla
+    @ColumnInfo(name = "restaurant_Id") //columna customizada, obtiene el foreignkey que lo relaciona con la otra tabla
     public int restaurantId;
 
 
