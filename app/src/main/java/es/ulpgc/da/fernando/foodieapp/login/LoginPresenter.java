@@ -5,6 +5,7 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
+import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 
 public class LoginPresenter implements LoginContract.Presenter {
 
@@ -12,6 +13,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     private WeakReference<LoginContract.View> view;
     private LoginState state;
+    private LoginViewModel viewModel;
     private LoginContract.Model model;
     private FoodieMediator mediator;
 
@@ -72,6 +74,42 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void onDestroy() {
          Log.e(TAG, "onDestroy()");
     }
+
+    @Override
+    public void signIn(String correo, String passw) {
+        model.signIn(correo, passw, new RepositoryContract.OnSignInCallback() {
+            @Override
+            public void onSignIn(boolean error) {
+                if (!error) {
+                    downloadDataFromRepository();
+
+                } else {
+                    viewModel.message = "This user does not exist";
+                    view.get().displayData(viewModel);
+
+                }
+            }
+        });
+    }
+
+    private void downloadDataFromRepository() {
+
+    }
+
+    //se comprueba si se han introducidos los campos requeridos
+    @Override
+    public void checkLogin(String correo, String passw) {
+        if(correo.isEmpty() && passw.isEmpty()) {
+            view.get().setErrorLayoutInputs(2);
+        } else if(correo.isEmpty()) {
+            view.get().setErrorLayoutInputs(0);
+        }else if(passw.isEmpty()) {
+            view.get().setErrorLayoutInputs(1);
+        }else{
+            signIn(correo,passw);
+        }
+    }
+
 
 
     @Override

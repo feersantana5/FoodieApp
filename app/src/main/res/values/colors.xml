@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundColor">#E4CDE1</color>
     <color name="backgroundEditText">#5D55B4</color>
+    <color name="colorRed">#E20F00</color>
 
 </resources>

@@ -2,12 +2,16 @@ package es.ulpgc.da.fernando.foodieapp.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.RegisterActivity;
@@ -22,6 +26,7 @@ public class LoginActivity
 
     ImageView loginImage;
     EditText email, password;
+    TextInputLayout emailTextInputLayout, passwTextInputLayout;
     Button btnLogin, btnRegister;
 
     @Override
@@ -37,6 +42,7 @@ public class LoginActivity
 
         initLayout();
         enableLayoutButtons();
+        setUpLoginLayout();
 
 
         // do the setup
@@ -49,16 +55,25 @@ public class LoginActivity
         }
     }
 
+
     private void initLayout() {
         loginImage = findViewById(R.id.loginImage);
         email = findViewById(R.id.emailSignUpText);
         password = findViewById(R.id.passwordSignUpText);
+        emailTextInputLayout = findViewById(R.id.emailSignUpTextInputLayout);
+        passwTextInputLayout = findViewById(R.id.passwordSignUpTextInputLayout);
 
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
     }
 
-    private void enableLayoutButtons(){
+    //Fijamos texto y botones del layout
+    private void setUpLoginLayout() {
+        btnLogin.setText(R.string.iniciar_sesion);
+        btnRegister.setText(R.string.no_tengo_cuenta);
+    }
+
+    private void enableLayoutButtons() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,5 +131,40 @@ public class LoginActivity
     @Override
     public void injectPresenter(LoginContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    public void onLoginClicked(View view) {
+        Log.e(TAG, "inicia bien");
+        String correo = email.getText().toString();
+        String passw = password.getText().toString();
+        presenter.checkLogin(correo, passw);
+
+    }
+
+    //Errores a razón de los campos que estén vacíos
+    @Override
+    public void setErrorLayoutInputs(int i) {
+        switch (i) {
+            case 0:
+                emailTextInputLayout.setError(getResources().getString(R.string.emailSignUpError));
+                break;
+            case 1:
+                passwTextInputLayout.setError(getResources().getString(R.string.passwSignUpError));
+                break;
+            case 2:
+                emailTextInputLayout.setError(getResources().getString(R.string.emailSignUpError));
+                passwTextInputLayout.setError(getResources().getString(R.string.passwSignUpError));
+                break;
+            default:
+                break;
+
+
+        }
+
+    }
+
+    @Override
+    public void displayData(LoginViewModel viewModel) {
+        Toast.makeText(getApplicationContext(), viewModel.message,Toast.LENGTH_LONG).show();
     }
 }

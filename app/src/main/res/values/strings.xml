@@ -11,6 +11,8 @@
     <string name="email">Email</string>
     <string name="no_tengo_cuenta">No tengo cuenta</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="emailSignUpError">Este campo no debe estar vacío</string>
+    <string name="passwSignUpError">Este campo no debe estar vacío</string>
     <!--    LoginActivity -->
 
 
@@ -71,5 +73,6 @@
 
     <string name="añadirImagen">Selecciona Imagen</string>
     <string name="addImagen">Añadir Imagen</string>
+
 
 </resources>

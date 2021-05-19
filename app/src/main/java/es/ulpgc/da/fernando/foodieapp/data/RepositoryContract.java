@@ -22,15 +22,7 @@ public interface RepositoryContract {
     //metodo que obtiene del repositorio la lista de categorias y notifica
     void getRestaurantsList(CatalogRepository.GetRestaurantsListCallback callback);
 
-    //MENUS
-
-    //obtiene la lista de menus y notifica, modifica la lista
-    interface GetMenuListCallback {
-        void setMenuList(List<MenuItem> menus);
+    public interface OnSignInCallback {
+        void onSignIn(boolean error);
     }
-
-    //llamado desde el modelo de Menus
-    void getMenuList(RestaurantItem restaurant, CatalogRepository.GetMenuListCallback callback);
-    void getMenuList(int restaurantId, CatalogRepository.GetMenuListCallback callback);
-
 }
