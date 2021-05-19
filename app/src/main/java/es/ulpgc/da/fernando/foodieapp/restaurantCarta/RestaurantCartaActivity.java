@@ -4,17 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import es.ulpgc.da.fernando.foodieapp.MenuDetailActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
+import es.ulpgc.da.fernando.foodieapp.menuDetail.MenuDetailActivity;
 
 public class RestaurantCartaActivity
         extends AppCompatActivity implements RestaurantCartaContract.View {
@@ -53,6 +51,12 @@ public class RestaurantCartaActivity
 
         // do the setup
         RestaurantCartaScreen.configure(this);
+
+        if (savedInstanceState == null) {
+            presenter.onStart();
+        } else {
+            presenter.onRestart();
+        }
 
         // do some work
         presenter.fetchMenuListData();

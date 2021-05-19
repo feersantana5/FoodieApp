@@ -67,6 +67,12 @@ public class RestaurantsListActivity
         // do the setup
         RestaurantsListScreen.configure(this);
 
+        if (savedInstanceState == null) {
+            presenter.onStart();
+        } else {
+            presenter.onRestart();
+        }
+
         // do some work
         presenter.fetchRestaurantsListData();
     }
