@@ -83,16 +83,14 @@ public class MenuDetailActivity
         if (menu != null) {
             //textos
             ((TextView) findViewById(R.id.menuTitle)).setText(menu.name);
-            //((TextView) findViewById(R.id.menuPrice)).setText(menu.price);
+            ((TextView) findViewById(R.id.menuPrice)).setText(String.valueOf(menu.price).concat(" €"));
             ((TextView) findViewById(R.id.menuBeaverages)).setText(menu.beverage);
             ((TextView) findViewById(R.id.menuStarters)).setText(menu.starter);
             ((TextView) findViewById(R.id.menuFirstCourse)).setText(menu.firstCourse);
             ((TextView) findViewById(R.id.menuSecondCourse)).setText(menu.secondCourse);
             ((TextView) findViewById(R.id.menuDesserts)).setText(menu.dessert);
             //añade imagen
-            //ImageView imagen;
-            //imagen = findViewById(R.id.menuImage);
-            //loadImageFromURL( imagen, menu.image);
+            loadImageFromURL((ImageView) findViewById(R.id.detalleimagen), menu.image);
         }
     }
 

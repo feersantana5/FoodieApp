@@ -70,6 +70,7 @@ public class RestaurantCartaAdapter extends RecyclerView.Adapter<RestaurantCarta
         //añade intents
         holder.menuImage.setTag(itemList.get(position));
         holder.menuImage.setOnClickListener(clickListener);
+
         //añade imagen
         loadImageFromURL(holder.menuImage, itemList.get(position).image);
     }
