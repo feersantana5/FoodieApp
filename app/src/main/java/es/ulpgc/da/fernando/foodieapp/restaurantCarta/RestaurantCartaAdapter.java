@@ -70,10 +70,6 @@ public class RestaurantCartaAdapter extends RecyclerView.Adapter<RestaurantCarta
         //añade intents
         holder.menuImage.setTag(itemList.get(position));
         holder.menuImage.setOnClickListener(clickListener);
-        holder.menuEdit.setTag(itemList.get(position));
-        holder.menuEdit.setOnClickListener(clickListener);
-        holder.menuDelete.setTag(itemList.get(position));
-        holder.menuDelete.setOnClickListener(clickListener);
         //añade imagen
         loadImageFromURL(holder.menuImage, itemList.get(position).image);
     }
@@ -81,15 +77,12 @@ public class RestaurantCartaAdapter extends RecyclerView.Adapter<RestaurantCarta
     //describe la vista de los items en el RecyclerView y su posicion (para cada celda en memoria)
     class ViewHolder extends RecyclerView.ViewHolder {
         final TextView menuTitle;
-        final ImageView menuImage, menuEdit, menuDelete;
+        final ImageView menuImage;
 
         ViewHolder(View view) {
             super(view);
             //imagen
             menuImage = view.findViewById(R.id.menuImage);
-            //intents
-            menuEdit = view.findViewById(R.id.menuEdit);
-            menuDelete = view.findViewById(R.id.menuDelete);
             //texto
             menuTitle = view.findViewById(R.id.menuTitle);
         }

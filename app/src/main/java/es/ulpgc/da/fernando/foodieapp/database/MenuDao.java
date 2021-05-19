@@ -16,4 +16,7 @@ public interface MenuDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE) // si inserto menu que ya existe, la machaco, sino saldria error
     void insertMenu(MenuItem menu);
+
+    @Query("SELECT * FROM menus WHERE restaurant_Id=:restaurantId")
+    List<MenuItem> loadMenus(final int restaurantId);
 }

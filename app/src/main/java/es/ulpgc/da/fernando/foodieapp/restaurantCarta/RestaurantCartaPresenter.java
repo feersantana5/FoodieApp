@@ -65,7 +65,6 @@ public class RestaurantCartaPresenter implements RestaurantCartaContract.Present
             }
         });
     }
-
     //obtiene el restaurante almacenado en el mediador
     private RestaurantItem getDataFromRestaurantListScreen() {
         RestaurantItem restaurant = mediator.getRestaurant();
@@ -80,7 +79,6 @@ public class RestaurantCartaPresenter implements RestaurantCartaContract.Present
         //cambia de activity
         view.get().navigateToMenuDetail();
     }
-
     private void passDataToProductDetailScreen(MenuItem item) {
         mediator.setMenu(item);
     }

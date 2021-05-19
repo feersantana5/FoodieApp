@@ -148,6 +148,7 @@ public class CatalogRepository implements RepositoryContract {
     }
 
 
+
     //obtiene la lista de categorias y notifica cuando las tiene
     @Override
     public void getRestaurantsList(final GetRestaurantsListCallback callback) {
@@ -163,6 +164,8 @@ public class CatalogRepository implements RepositoryContract {
 
     }
 
+    //MENUS
+
     //desde el modelo, obtiene la lista de modelos segun el restaurante y notifica
     @Override
     public void getMenuList(final RestaurantItem restaurant, final GetMenuListCallback callback) {
@@ -171,26 +174,15 @@ public class CatalogRepository implements RepositoryContract {
 
     //llamado desde el presenter, obtiene la lista segun el id
     @Override
-    public void getMenuList(final int restaurantId, GetMenuListCallback callback) {
+    public void getMenuList(final int restaurantId, final GetMenuListCallback callback) {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
                 if (callback != null) {
-                    callback.setMenuList(loadMenus(restaurantId));
+                    callback.setMenuList(getMenuDao().loadMenus(restaurantId));
                 }
             }
         });
     }
-    private List<RestaurantItem> restaurants;
 
-    private List<MenuItem> loadMenus(int restaurantId) {
-        List<MenuItem> menus = new ArrayList();
-
-        for (RestaurantItem restaurant : restaurants) {
-            if (restaurant.id == restaurantId) {
-                menus = restaurant.items;
-            }
-        }
-        return menus;
-    }
 }
