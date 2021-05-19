@@ -23,13 +23,13 @@
 
         <activity android:name=".login.LoginActivity"></activity>
         <activity android:name=".restaurantsList.RestaurantsListActivity"></activity>
+        <activity android:name=".restaurantCarta.RestaurantCartaActivity"></activity>
 
         <activity android:name=".RestaurantProfileActivity"></activity>
         <activity android:name=".MenuDetailActivity" />
         <activity android:name=".EditAccountActivity" />
         <activity android:name=".EditMenuActivity" />
         <activity android:name=".CreateMenuActivity" />
-        <activity android:name=".RestaurantCartaActivity"></activity>
         <activity android:name=".MyMenusActivity"></activity>
 
         <activity android:name=".RegisterActivity" />

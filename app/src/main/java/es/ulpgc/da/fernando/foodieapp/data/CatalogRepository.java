@@ -15,6 +15,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -160,5 +161,36 @@ public class CatalogRepository implements RepositoryContract {
             }
         });
 
+    }
+
+    //desde el modelo, obtiene la lista de modelos segun el restaurante y notifica
+    @Override
+    public void getMenuList(final RestaurantItem restaurant, final GetMenuListCallback callback) {
+        getMenuList(restaurant.id, callback);
+    }
+
+    //llamado desde el presenter, obtiene la lista segun el id
+    @Override
+    public void getMenuList(final int restaurantId, GetMenuListCallback callback) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                if (callback != null) {
+                    callback.setMenuList(loadMenus(restaurantId));
+                }
+            }
+        });
+    }
+    private List<RestaurantItem> restaurants;
+
+    private List<MenuItem> loadMenus(int restaurantId) {
+        List<MenuItem> menus = new ArrayList();
+
+        for (RestaurantItem restaurant : restaurants) {
+            if (restaurant.id == restaurantId) {
+                menus = restaurant.items;
+            }
+        }
+        return menus;
     }
 }

@@ -4,6 +4,7 @@ import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.home.HomeState;
 import es.ulpgc.da.fernando.foodieapp.login.LoginState;
+import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaState;
 import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListState;
 
 public class FoodieMediator {
@@ -15,6 +16,8 @@ public class FoodieMediator {
     private HomeState homeState = new HomeState();
     private LoginState loginState = new LoginState();
     private RestaurantsListState restaurantsListState = new RestaurantsListState();
+    private RestaurantCartaState restaurantCartaState = new RestaurantCartaState();
+
 
     //elementos
     private RestaurantItem restaurant;
@@ -46,6 +49,11 @@ public class FoodieMediator {
     public RestaurantsListState getRestaurantsListState() {
         return restaurantsListState;
     }
+
+    public RestaurantCartaState getRestaurantCartaState() {
+        return restaurantCartaState;
+    }
+
 
     //modifica la info a enviar a RestaurantCarta
     public void setRestaurant(RestaurantItem item) {

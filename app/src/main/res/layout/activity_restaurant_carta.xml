@@ -13,14 +13,14 @@
         android:layout_height="wrap_content"
         app:itemIconTint="@color/design_default_color_background"
         app:itemTextColor="@color/design_default_color_background"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewMenusCarta"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerViewMenusCarta"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewMenusCarta"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
