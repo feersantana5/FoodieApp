@@ -12,7 +12,7 @@ public class RestaurantsListModel implements RestaurantsListContract.Model {
     private RepositoryContract repository;
 
     public RestaurantsListModel(RepositoryContract repository) {
-        //lo enlaza con el repositorio
+        //iniciali repo
         this.repository = repository;
     }
 

@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import es.ulpgc.da.fernando.foodieapp.R;
@@ -36,21 +38,33 @@ public class RestaurantsListActivity
 
         //adapter y onclick
         listAdapter = new RestaurantsListAdapter(new View.OnClickListener() {
-
             //onClick
             @Override
             public void onClick(View view) {
-                //listener de la lista cuando se pulsa obtiene el tag y lo pasa
                 RestaurantItem item = (RestaurantItem) view.getTag();
-                presenter.selectRestaurantListData(item);
+                Log.d(TAG, "onClick: "+item.logo);
+                if (view.getId() == R.id.restaurantLogoImageCardView) {
+                    //listener de la lista cuando se pulsa obtiene el tag y lo pasa
+                    presenter.selectRestaurantListData(item);
+                }
+                if (view.getId() == R.id.restaurantWebpageCardView) {
+                    Intent locationIntent = new Intent(Intent.ACTION_VIEW);
+                    locationIntent.setData(Uri.parse(item.webpage));
+                    startActivity(locationIntent);
+                }
+                if (view.getId() == R.id.restaurantLocationCardView) {
+                    Intent webpageIntent = new Intent(Intent.ACTION_VIEW);
+                    webpageIntent.setData(Uri.parse(item.location));
+                    startActivity(webpageIntent);
+                }
             }
         });
 
         //recyclerview
         RecyclerView recyclerView = findViewById(R.id.recyclerViewRestaurants);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //relacion de recycler con adapter
         recyclerView.setAdapter(listAdapter);
-
 
         // do the setup
         RestaurantsListScreen.configure(this);
@@ -88,24 +102,6 @@ public class RestaurantsListActivity
         startActivity(intent);
     }
 
-    //intent
-    @Override
-    public void navigateToInternet() {
-        Intent webpageIntent = new Intent(Intent.ACTION_VIEW);
-        webpageIntent.setData(Uri.parse("https://goo.gl/maps/PwmAy5tok6GUUP6bA"));
-        //TODO
-        //mContext.startActivity(webpageIntent);
-    }
-
-    //intent
-    @Override
-    public void navigateToMaps() {
-        String url = "https://www.allenderestauracion.com";
-        Intent locationIntent = new Intent(Intent.ACTION_VIEW);
-        locationIntent.setData(Uri.parse(url));
-        //TODO
-        //mContext.startActivity(locationIntent);
-    }
 
     @Override
     public void onBackPressed() {

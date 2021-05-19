@@ -1,5 +1,6 @@
 package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,11 +68,13 @@ public class RestaurantsListAdapter
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.itemView.setTag(itemList.get(position)); //añade etiqueta con su posicion
-        holder.itemView.setOnClickListener(clickListener);//añade listener
-        //TODO:
         holder.cardViewTitle.setText(itemList.get(position).title);//añade texto
         //añade intents
+        holder.cardViewLogo.setTag(itemList.get(position));
+        holder.cardViewLogo.setOnClickListener(clickListener);
+        holder.cardViewLocation.setTag(itemList.get(position));
         holder.cardViewLocation.setOnClickListener(clickListener);
+        holder.cardViewWebpage.setTag(itemList.get(position));
         holder.cardViewWebpage.setOnClickListener(clickListener);
         //añade imagen
         loadImageFromURL(holder.cardViewLogo, itemList.get(position).logo);
@@ -84,7 +87,6 @@ public class RestaurantsListAdapter
 
         ViewHolder(View view) {
             super(view);
-            //TODO:
             //texto
             cardViewTitle = view.findViewById(R.id.restaurantTitleCardView);
             //intents
@@ -95,7 +97,8 @@ public class RestaurantsListAdapter
         }
     }
 
-    private void loadImageFromURL(ImageView imageView, String imageUrl) { //metodo para añadir la imagen usando Glide
+    //metodo para cargar la imagen desde url usando Glide
+    private void loadImageFromURL(ImageView imageView, String imageUrl) {
         RequestManager reqManager = Glide.with(imageView.getContext());
         RequestBuilder reqBuilder = reqManager.load(imageUrl);
         RequestOptions reqOptions = new RequestOptions();

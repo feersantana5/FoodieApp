@@ -25,18 +25,17 @@ public class RestaurantsListPresenter implements RestaurantsListContract.Present
 
     @Override
     public void onStart() {
-         Log.e(TAG, "onStart()");
-        // initialize the state if is necessary...
+        Log.e(TAG, "onStart()");// initialize the state if is necessary...
     }
+
     @Override
     public void onRestart() {
-         Log.e(TAG, "onRestart()");
-        // update the model if is necessary...
+        Log.e(TAG, "onRestart()");// update the model if is necessary...
     }
+
     @Override
     public void onResume() {
-         Log.e(TAG, "onResume()");
-        // use passed state if is necessary...
+        Log.e(TAG, "onResume()");// use passed state if is necessary...
     }
 
     //obtiene la lista categorias y las muestra
@@ -67,6 +66,7 @@ public class RestaurantsListPresenter implements RestaurantsListContract.Present
         //cambia de activity
         view.get().navigateToRestaurantCarta();
     }
+
     //almacena en ek mediador la info a pasar
     private void passDataToProductListScreen(RestaurantItem item) {
         mediator.setRestaurant(item);
@@ -74,17 +74,17 @@ public class RestaurantsListPresenter implements RestaurantsListContract.Present
 
     @Override
     public void onBackPressed() {
-         Log.e(TAG, "onBackPressed()");
+        Log.e(TAG, "onBackPressed()");
     }
 
     @Override
     public void onPause() {
-         Log.e(TAG, "onPause()");
+        Log.e(TAG, "onPause()");
     }
 
     @Override
     public void onDestroy() {
-         Log.e(TAG, "onDestroy()");
+        Log.e(TAG, "onDestroy()");
     }
 
     @Override

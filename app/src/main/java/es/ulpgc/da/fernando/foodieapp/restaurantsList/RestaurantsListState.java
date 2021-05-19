@@ -1,6 +1,5 @@
 package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 
 public class RestaurantsListState extends RestaurantsListViewModel {
-
-    // put the model state here
+    //no almacena nada pq la informacion esta en el repositorio, aqui solo cosas temporales
 }

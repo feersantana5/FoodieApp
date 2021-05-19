@@ -20,8 +20,7 @@ public class FoodieMediator {
     private RestaurantItem restaurant;
     private MenuItem menu;
 
-    private FoodieMediator() {
-    }
+    private FoodieMediator() { }
 
     public static void resetInstance() {
         INSTANCE = null;
