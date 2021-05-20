@@ -49,6 +49,7 @@ public class RestaurantsListActivity
 
         BottomNavigationView buttonNavBar;
         buttonNavBar = findViewById(R.id.bottomNavViewMyNav);
+        //buttonNavBar.setVisibility(View.GONE);
         //buttonNavBar.onNavigationItemSelected(buttonNavBar.getMenu().getItem());
 //        buttonNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 //            @Override
@@ -188,7 +189,6 @@ public class RestaurantsListActivity
 
 
     private void goToHome() {
-        finish();
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
