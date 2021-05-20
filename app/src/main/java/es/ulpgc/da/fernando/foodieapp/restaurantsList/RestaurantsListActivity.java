@@ -1,26 +1,38 @@
 package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import es.ulpgc.da.fernando.foodieapp.R;
+import es.ulpgc.da.fernando.foodieapp.RestaurantProfileActivity;
+import es.ulpgc.da.fernando.foodieapp.app.NavBar;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
+import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
 import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaActivity;
 
 public class RestaurantsListActivity
-        extends AppCompatActivity implements RestaurantsListContract.View {
+        extends NavBar implements RestaurantsListContract.View {
 
     public static String TAG = RestaurantsListActivity.class.getSimpleName();
 
     private RestaurantsListContract.Presenter presenter;
     private RestaurantsListAdapter listAdapter;
+
 
 
     @Override
@@ -34,13 +46,57 @@ public class RestaurantsListActivity
     }
     */
 
+
+        BottomNavigationView buttonNavBar;
+        buttonNavBar = findViewById(R.id.bottomNavViewMyNav);
+        //buttonNavBar.onNavigationItemSelected(buttonNavBar.getMenu().getItem());
+//        buttonNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(android.view.MenuItem item) {
+//                if (item.getItemId() == R.id.nav_menu_inicio) {
+//                    goToHome();
+//                }
+//                if (item.getItemId() == R.id.nav_menu_profile) {
+//                    goProfile();
+//                }
+//                if (item.getItemId() == R.id.nav_menu_menu) {
+//                    goMenu();
+//                }
+//                if (item.getItemId() == R.id.nav_menu_out) {
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(RestaurantsListActivity.this);
+//                    builder.setTitle("Cerrar Sesión");
+//                    builder.setMessage("¿Está seguro que desea cerrar su sesión?");
+//
+//                    builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            //TODO: pendiente modificar
+//                            goToHome();
+//                        }
+//                    });
+//                    builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            //TODO: pendiente modificar
+//                            finish();
+//                        }
+//                    });
+//
+//                    AlertDialog dialog = builder.create();
+//                    dialog.show();
+//
+//                }
+//                return true;
+//            }
+//        });
+
         //adapter y onclick
         listAdapter = new RestaurantsListAdapter(new View.OnClickListener() {
             //onClick
             @Override
             public void onClick(View view) {
                 RestaurantItem item = (RestaurantItem) view.getTag();
-                Log.d(TAG, "onClick: "+item.logo);
+                Log.d(TAG, "onClick: " + item);
                 if (view.getId() == R.id.restaurantLogoImageCardView) {
                     //listener de la lista cuando se pulsa obtiene el tag y lo pasa
                     presenter.selectRestaurantListData(item);
@@ -130,4 +186,23 @@ public class RestaurantsListActivity
         this.presenter = presenter;
     }
 
+
+    private void goToHome() {
+        finish();
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void goProfile() {
+        Intent intent = new Intent(this, RestaurantProfileActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void goMenu() {
+        Intent intent = new Intent(this, RestaurantCartaActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

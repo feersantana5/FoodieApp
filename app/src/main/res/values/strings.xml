@@ -16,7 +16,6 @@
     <!--    LoginActivity -->
 
 
-
     <!--    RegisterActivity -->
     <string name="crearcuenta">¡Crear Cuenta!</string>
     <string name="imagenperfil">imagenperfil</string>
@@ -56,7 +55,7 @@
     <string name="mymenus">Mis Menús</string>
     <string name="detallemenu1">DetalleMenu1</string>
     <string name="menu1">Menu 1</string>
-<!--    Nav -->
+    <!--    Nav -->
     <string name="Inicio">Inicio</string>
     <string name="perfil">Perfil</string>
     <string name="menu">Mis Menús</string>

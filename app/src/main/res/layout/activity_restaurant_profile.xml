@@ -26,13 +26,13 @@
         android:id="@+id/fab_editProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/ic_edit"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavViewMyNav"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="16dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -87,8 +87,7 @@
                 android:fontFamily="@font/sniglet"
                 android:text="@string/emailallende"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                 />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/nombre"
@@ -127,10 +126,10 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="28dp"
                 android:layout_marginRight="28dp"
-                android:textColor="#000000"
                 android:fontFamily="@font/sniglet"
-                android:textSize="20sp"
-                android:text="@string/allendeDescripcion" />
+                android:text="@string/allendeDescripcion"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/mismenus"
@@ -139,11 +138,11 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="130dp"
+                android:layout_marginEnd="28dp"
                 android:layout_marginRight="28dp"
                 android:background="@drawable/btn_redondo"
                 android:text="@string/mymenus"
-                android:textColor="@color/white"
-                android:layout_marginEnd="28dp" />
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </RelativeLayout>

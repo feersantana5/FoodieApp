@@ -5,15 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".restaurantsList.RestaurantsListActivity"
-    android:background="@color/backgroundColor">
+    android:background="@color/backgroundColor"
+    tools:context=".restaurantsList.RestaurantsListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewRestaurants"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
         android:padding="8dp"
+        android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,104 +49,100 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <!--
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E4CDE1"
+        tools:context=".RestaurantsListActivity">
 
-
-
-
-<!--
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E4CDE1"
-    tools:context=".RestaurantsListActivity">
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="413dp"
-        android:layout_height="189dp"
-        android:layout_marginTop="-5dp"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.09">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="137dp"
-            android:contentDescription="@string/allende"
-            app:srcCompat="@drawable/allende" />
-
-        <Button
-            android:id="@+id/btn_allende"
-            android:layout_width="153dp"
-            android:layout_height="50dp"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="413dp"
+            android:layout_height="189dp"
+            android:layout_marginTop="-5dp"
             android:background="#FFFFFF"
-            android:text="@string/btnallende"
-            android:textSize="24sp" />
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.09">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="137dp"
+                android:contentDescription="@string/allende"
+                app:srcCompat="@drawable/allende" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="415dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="-5dp"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.117">
+            <Button
+                android:id="@+id/btn_allende"
+                android:layout_width="153dp"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:text="@string/btnallende"
+                android:textSize="24sp" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="151dp"
-            android:contentDescription="@string/bormeo"
-            app:srcCompat="@drawable/logo_bormeo" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_bormeo"
-            android:layout_width="152dp"
-            android:layout_height="50dp"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="415dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="-5dp"
             android:background="#FFFFFF"
-            android:text="@string/btnbormeo"
-            android:textSize="24sp" />
-    </LinearLayout>
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.117">
 
-    <LinearLayout
-        android:layout_width="415dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="8dp"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.94">
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="151dp"
+                android:contentDescription="@string/bormeo"
+                app:srcCompat="@drawable/logo_bormeo" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="match_parent"
-            android:layout_height="151dp"
-            android:contentDescription="@string/bormeo"
-            app:srcCompat="@drawable/hummus" />
+            <Button
+                android:id="@+id/btn_bormeo"
+                android:layout_width="152dp"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:text="@string/btnbormeo"
+                android:textSize="24sp" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_hummus"
-            android:layout_width="152dp"
-            android:layout_height="50dp"
+        <LinearLayout
+            android:layout_width="415dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
             android:background="#FFFFFF"
-            android:text="@string/btnhumus"
-            android:textSize="24sp" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>-->
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.94">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="151dp"
+                android:contentDescription="@string/bormeo"
+                app:srcCompat="@drawable/hummus" />
+
+            <Button
+                android:id="@+id/btn_hummus"
+                android:layout_width="152dp"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:text="@string/btnhumus"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
