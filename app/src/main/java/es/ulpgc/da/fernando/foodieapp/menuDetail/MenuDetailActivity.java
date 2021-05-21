@@ -35,28 +35,6 @@ public class MenuDetailActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_detail);
 
-        BottomNavigationView buttonNavBar;
-        buttonNavBar = findViewById(R.id.bottomNavViewMyNav);
-        //buttonNavBar.setVisibility(View.GONE);
-        buttonNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(android.view.MenuItem item) {
-                if (item.getItemId() == R.id.nav_menu_inicio) {
-                    goToHome();
-                }
-                if (item.getItemId() == R.id.nav_menu_profile) {
-                    goProfile();
-                }
-                if (item.getItemId() == R.id.nav_menu_menu) {
-                    goMenu();
-                }
-                if (item.getItemId() == R.id.nav_menu_out) {
-                    showAlertDialog();
-                }
-                return true;
-            }
-        });
-
     /*
     if(savedInstanceState == null) {
       AppMediator.resetInstance();
@@ -136,44 +114,4 @@ public class MenuDetailActivity
         this.presenter = presenter;
     }
 
-    private void goToHome() {
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    private void goProfile() {
-        Intent intent = new Intent(this, RestaurantProfileActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    private void goMenu() {
-        Intent intent = new Intent(this, RestaurantCartaActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    private void showAlertDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MenuDetailActivity.this);
-        builder.setTitle("Cerrar Sesión");
-        builder.setMessage("¿Está seguro que desea cerrar su sesión?");
-
-        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //TODO: pendiente modificar
-                goToHome();
-            }
-        });
-        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //TODO: pendiente modificar
-                finish();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
 }

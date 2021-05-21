@@ -1,7 +1,5 @@
 package es.ulpgc.da.fernando.foodieapp.login;
 
 public class LoginState extends LoginViewModel {
-
-    // put the model state here
-
+    //no almacena nada pq la informacion esta en el repositorio, aqui solo cosas temporales
 }

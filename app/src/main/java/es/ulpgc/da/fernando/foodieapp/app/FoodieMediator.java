@@ -2,9 +2,11 @@ package es.ulpgc.da.fernando.foodieapp.app;
 
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
+import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 import es.ulpgc.da.fernando.foodieapp.home.HomeState;
 import es.ulpgc.da.fernando.foodieapp.login.LoginState;
 import es.ulpgc.da.fernando.foodieapp.menuDetail.MenuDetailState;
+import es.ulpgc.da.fernando.foodieapp.register.RegisterState;
 import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaState;
 import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListState;
 
@@ -16,6 +18,7 @@ public class FoodieMediator {
     //screen states
     private HomeState homeState = new HomeState();
     private LoginState loginState = new LoginState();
+    protected RegisterState registerState = new RegisterState();
 
     private RestaurantsListState restaurantsListState = new RestaurantsListState();
     private RestaurantCartaState restaurantCartaState = new RestaurantCartaState();
@@ -25,6 +28,8 @@ public class FoodieMediator {
     //elementos
     private RestaurantItem restaurant;
     private MenuItem menu;
+    private UserItem user;
+
 
     private FoodieMediator() { }
 
@@ -49,6 +54,11 @@ public class FoodieMediator {
         return loginState;
     }
 
+    public RegisterState getRegisterState() {
+        return registerState;
+    }
+
+
     public RestaurantsListState getRestaurantsListState() {
         return restaurantsListState;
     }
@@ -62,6 +72,7 @@ public class FoodieMediator {
     }
 
 
+
     //modifica la info a enviar a RestaurantCarta
     public void setRestaurant(RestaurantItem item) {
         restaurant = item;
@@ -73,6 +84,7 @@ public class FoodieMediator {
         return item;
     }
 
+
     //modifica la info a enviar a MenuDetail
     public void setMenu(MenuItem item) {
         menu = item;
@@ -83,8 +95,6 @@ public class FoodieMediator {
         //product = null;
         return item;
     }
-
-
 
 
 }

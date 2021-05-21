@@ -32,7 +32,7 @@ public class LoginPresenter implements LoginContract.Presenter {
         }
 
         // call the model and update the state
-        state.data = model.getStoredData();
+        //state.data = model.getStoredData();
 
     }
 
@@ -40,7 +40,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void onRestart() {
          Log.e(TAG, "onRestart()");
         // update the model if is necessary
-        model.onRestartScreen(state.data);
+       // model.onRestartScreen(state.data);
     }
 
     @Override

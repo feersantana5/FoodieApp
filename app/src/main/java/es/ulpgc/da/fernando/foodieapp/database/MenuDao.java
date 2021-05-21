@@ -14,9 +14,17 @@ import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 @Dao
 public interface MenuDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE) // si inserto menu que ya existe, la machaco, sino saldria error
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+        // si inserto menu que ya existe, la machaco, sino saldria error
     void insertMenu(MenuItem menu);
 
     @Query("SELECT * FROM menus WHERE restaurant_Id=:restaurantId")
     List<MenuItem> loadMenus(final int restaurantId);
+
+
+    //TODO: hacer esto para editar y añadir menus
+    //@Delete
+    //void editMenu(MenuItem menu);
+    //@Update
+    //void updateMenu(MenuItem menu);
 }

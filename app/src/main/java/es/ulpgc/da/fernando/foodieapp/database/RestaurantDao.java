@@ -20,4 +20,9 @@ public interface RestaurantDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE) // si inserto restaurante que ya existe, la machaco, sino saldria error
     void insertRestaurant(RestaurantItem restaurant);
 
+    //TODO: hacer esto para editar y añadir la cuenta
+    //@Delete
+    //void editMenu(MenuItem menu);
+    //@Update
+    //void updateMenu(MenuItem menu);
 }
