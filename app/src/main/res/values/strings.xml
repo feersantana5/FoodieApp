@@ -72,6 +72,7 @@
 
     <string name="añadirImagen">Selecciona Imagen</string>
     <string name="addImagen">Añadir Imagen</string>
+    <string name="register">Register</string>
 
 
 </resources>
