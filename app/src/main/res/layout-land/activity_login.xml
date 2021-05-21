@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundColor"
+        tools:context=".login.LoginActivity">
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="195dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginLeft="104dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/btn_redondo"
+            android:text="@string/iniciar_sesion"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="195dp"
+            android:layout_height="53dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/btn_redondo"
+            android:text="@string/no_tengo_cuenta"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/loginImage"
+            android:layout_width="267dp"
+            android:layout_height="101dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:contentDescription="@string/imagenperfil"
+            android:src="@drawable/logintxt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailSignUpTextInputLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/input_text_round"
+            android:elevation="4dp"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/error_appearance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginImage"
+            tools:ignore="DuplicateIds,MissingConstraints">
+
+            <EditText
+                android:id="@+id/emailSignUpText"
+                android:layout_width="330dp"
+                android:layout_height="30dp"
+                android:background="@drawable/input_text_round"
+                android:fontFamily="@font/source_sans_pro_bold"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="8dp"
+                tools:text="@string/email" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordSignUpTextInputLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="108dp"
+            android:background="@drawable/input_text_round"
+            android:elevation="4dp"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/error_appearance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginImage"
+            tools:ignore="DuplicateIds,MissingConstraints">
+
+            <EditText
+                android:id="@+id/passwordSignUpText"
+                android:layout_width="330dp"
+                android:layout_height="30dp"
+                android:background="@drawable/input_text_round"
+                android:fontFamily="@font/source_sans_pro_bold"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="8dp"
+                tools:text="@string/password" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
