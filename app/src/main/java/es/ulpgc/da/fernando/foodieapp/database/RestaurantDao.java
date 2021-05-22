@@ -17,8 +17,12 @@ public interface RestaurantDao {
     @Query("SELECT * FROM restaurants")
     List<RestaurantItem> loadRestaurants();
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE) // si inserto restaurante que ya existe, la machaco, sino saldria error
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+        // si inserto restaurante que ya existe, la machaco, sino saldria error
     void insertRestaurant(RestaurantItem restaurant);
+
+    @Query("SELECT * FROM restaurants Where  title = :nombre")
+    RestaurantItem checkName(String nombre);
 
     //TODO: hacer esto para editar y añadir la cuenta
     //@Delete

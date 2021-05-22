@@ -3,7 +3,11 @@ package es.ulpgc.da.fernando.foodieapp.register;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +20,10 @@ public class RegisterActivity
 
     private RegisterContract.Presenter presenter;
 
+    private EditText email, password, ubicacion, webpage, descripcion, nombre, logoURL;
+    private Button crearBtn;
+    private Toast toast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +34,9 @@ public class RegisterActivity
       AppMediator.resetInstance();
     }
     */
+
+        initLayout();
+        enableLayoutButtons();
 
         // do the setup
         RegisterScreen.configure(this);
@@ -42,6 +53,46 @@ public class RegisterActivity
         super.onResume();
         // load the data
         presenter.onResume();
+    }
+
+
+    public void initLayout() {
+        email = findViewById(R.id.emailRegister);
+        password = findViewById(R.id.passwordRegister);
+        ubicacion = findViewById(R.id.locationRegister);
+        webpage = findViewById(R.id.webpageRegister);
+        descripcion = findViewById(R.id.descripcionRegister);
+        nombre = findViewById(R.id.restaurantenameRegister);
+        logoURL = findViewById(R.id.logoURLRegister);
+
+
+        crearBtn = findViewById(R.id.btnCreateAccount);
+    }
+
+    public void enableLayoutButtons() {
+        crearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String emailUser = email.getText().toString().trim();
+                String passwordUser = password.getText().toString().trim();
+                String ubicacionUser = ubicacion.getText().toString().trim();
+                String webpageUser = webpage.getText().toString().trim();
+                String descripcionUser = descripcion.getText().toString().trim();
+                String nombreUser = nombre.getText().toString().trim();
+                String logoUser = logoURL.getText().toString().trim();
+
+                presenter.createRestaurant(emailUser, passwordUser, ubicacionUser, webpageUser, descripcionUser, nombreUser, logoUser);
+            }
+        });
+    }
+    public void showToast(RegisterViewModel viewModel ) {
+        Log.e(TAG, "showToast()");
+
+        if (toast != null) {
+            toast.cancel();
+        }
+        toast = Toast.makeText(this, viewModel.toast, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
@@ -80,4 +131,5 @@ public class RegisterActivity
     public void injectPresenter(RegisterContract.Presenter presenter) {
         this.presenter = presenter;
     }
+
 }

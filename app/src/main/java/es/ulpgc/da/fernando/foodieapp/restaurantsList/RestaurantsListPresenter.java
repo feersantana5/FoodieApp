@@ -38,11 +38,10 @@ public class RestaurantsListPresenter implements RestaurantsListContract.Present
         Log.e(TAG, "onResume()");// use passed state if is necessary...
     }
 
-    //obtiene la lista categorias y las muestra
+    //obtiene la lista restaurantes y las muestra
     @Override
     public void fetchRestaurantsListData() {
         Log.e(TAG, "fetchRestaurantsListData()");
-
         // call the model
         // pide al modelo de forma asincrona la lista y que cuando los tenga le notifique
         // (callback) del Repository Contract

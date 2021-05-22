@@ -19,7 +19,6 @@ public class HomeActivity
 
     private HomeContract.Presenter presenter;
 
-    private ImageView logoImagen, homeImagen;
     private Button btnUser, btnRestaurante;
 
     @Override
@@ -47,8 +46,6 @@ public class HomeActivity
     }
 
     private void initLayout() {
-        logoImagen = findViewById(R.id.logoApp);
-        homeImagen = findViewById(R.id.imagenInicio);
         btnUser = findViewById(R.id.botonVerRestaurantes);
         btnRestaurante = findViewById(R.id.botonSoyRestaurante);
     }

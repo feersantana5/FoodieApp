@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface RepositoryContract {
 
-    // llamada en el presenter
+    // llamada en el restaurantlist presenter
     // modifica la lista de restaurantes con los datos obtenidos
     interface GetRestaurantsListCallback {
         void setRestaurantsList(List<RestaurantItem> products);
@@ -32,8 +32,13 @@ public interface RepositoryContract {
     void getMenuList(RestaurantItem restaurant, CatalogRepository.GetMenuListCallback callback);
     void getMenuList(int restaurantId, CatalogRepository.GetMenuListCallback callback);
 
-    public interface OnSignInCallback {
-        void onSignIn(boolean error);
+    // llamada en el register presenter
+    //
+    interface RegistroUsuarioCallback {
+        void setUserLists(List<RestaurantItem> restaurants, List<UserItem> users);
     }
+    // llamada en el register model
+    void registrarUsuario(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RegistroUsuarioCallback registroUsuarioCallback);
+
 
 }

@@ -23,8 +23,7 @@ public class RestaurantItem {
     public String webpage;
 
     @Ignore //hace que no aparezca en la tabla
-    @SerializedName("menus")
-    //unica  etiqueta json, hace referencia a la identificacion del elem en json
+    @SerializedName("menus") //unica  etiqueta json, hace referencia a la identificacion del elem en json
     public List<MenuItem> items;
 
 

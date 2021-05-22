@@ -10,6 +10,8 @@ public interface RegisterContract {
         void onDataUpdated(RegisterViewModel viewModel);
 
         void navigateToNextScreen();
+
+        void showToast(RegisterViewModel state);
     }
 
     interface Presenter {
@@ -28,9 +30,13 @@ public interface RegisterContract {
         void onPause();
 
         void onDestroy();
+
+        void createRestaurant(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo);
     }
 
     interface Model {
+        String getEmptyAdvice();
+
         String getStoredData();
 
         void onDataFromNextScreen(String data);

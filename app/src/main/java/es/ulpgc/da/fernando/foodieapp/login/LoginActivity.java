@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.RegisterActivity;
 import es.ulpgc.da.fernando.foodieapp.RestaurantProfileActivity;
+import es.ulpgc.da.fernando.foodieapp.register.RegisterActivity;
 
 public class LoginActivity
         extends AppCompatActivity implements LoginContract.View {
@@ -24,10 +23,9 @@ public class LoginActivity
 
     private LoginContract.Presenter presenter;
 
-    ImageView loginImage;
-    EditText email, password;
-    TextInputLayout emailTextInputLayout, passwTextInputLayout;
-    Button btnLogin, btnRegister;
+    private EditText email, password;
+    private TextInputLayout emailTextInputLayout, passwTextInputLayout;
+    private Button btnLogin, btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +40,6 @@ public class LoginActivity
 
         initLayout();
         enableLayoutButtons();
-        setUpLoginLayout();
-
 
         // do the setup
         LoginScreen.configure(this);
@@ -57,20 +53,13 @@ public class LoginActivity
 
 
     private void initLayout() {
-        loginImage = findViewById(R.id.loginImage);
         email = findViewById(R.id.emailSignUpText);
         password = findViewById(R.id.passwordSignUpText);
         emailTextInputLayout = findViewById(R.id.emailSignUpTextInputLayout);
-        passwTextInputLayout = findViewById(R.id.passwordSignUpTextInputLayout);
+        passwTextInputLayout = findViewById(R.id.passwordLoginTextInputLayout);
 
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
-    }
-
-    //Fijamos texto y botones del layout
-    private void setUpLoginLayout() {
-        btnLogin.setText(R.string.iniciar_sesion);
-        btnRegister.setText(R.string.no_tengo_cuenta);
     }
 
     private void enableLayoutButtons() {
@@ -89,6 +78,8 @@ public class LoginActivity
             }
         });
     }
+
+
 
     @Override
     protected void onResume() {
@@ -157,8 +148,6 @@ public class LoginActivity
                 break;
             default:
                 break;
-
-
         }
 
     }

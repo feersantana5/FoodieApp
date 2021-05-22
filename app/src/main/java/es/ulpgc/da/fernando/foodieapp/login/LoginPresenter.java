@@ -13,7 +13,6 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     private WeakReference<LoginContract.View> view;
     private LoginState state;
-    private LoginViewModel viewModel;
     private LoginContract.Model model;
     private FoodieMediator mediator;
 
@@ -51,6 +50,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void goToRestaurantProfile() {
         Log.e(TAG, "goToRestaurantProfile()");
+        //TODO: verificar registro e ir al perfil
         view.get().navigateToRestaurantProfile();
     }
 
@@ -84,8 +84,8 @@ public class LoginPresenter implements LoginContract.Presenter {
                     downloadDataFromRepository();
 
                 } else {
-                    viewModel.message = "This user does not exist";
-                    view.get().displayData(viewModel);
+                    //viewModel.message = "This user does not exist";
+                    //view.get().displayData(viewModel);
 
                 }
             }
