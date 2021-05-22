@@ -4,11 +4,10 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/backgroundColor"
         tools:context=".login.LoginActivity">
 
@@ -29,7 +28,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordSignUpTextInputLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordLoginTextInputLayout" />
 
         <Button
             android:id="@+id/btnRegister"
@@ -67,7 +66,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailSignUpTextInputLayout"
+            android:id="@+id/emailLoginTextInputLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -79,26 +78,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.444"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginImage"
-            tools:ignore="DuplicateIds,MissingConstraints">
+            app:layout_constraintTop_toBottomOf="@+id/loginImage">
 
             <EditText
-                android:id="@+id/emailSignUpText"
+                android:id="@+id/emailLoginText"
                 android:layout_width="330dp"
                 android:layout_height="30dp"
+                android:autofillHints="@string/email"
                 android:background="@drawable/input_text_round"
                 android:fontFamily="@font/source_sans_pro_bold"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:paddingStart="8dp"
                 android:paddingTop="4dp"
-                android:paddingEnd="8dp"
-                tools:text="@string/email" />
+                android:paddingEnd="8dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordSignUpTextInputLayout"
+            android:id="@+id/passwordLoginTextInputLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -110,21 +108,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.444"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginImage"
-            tools:ignore="DuplicateIds,MissingConstraints">
+            app:layout_constraintTop_toBottomOf="@+id/loginImage">
 
             <EditText
-                android:id="@+id/passwordSignUpText"
+                android:id="@+id/passwordLoginText"
                 android:layout_width="330dp"
                 android:layout_height="30dp"
+                android:autofillHints="@string/password"
                 android:background="@drawable/input_text_round"
                 android:fontFamily="@font/source_sans_pro_bold"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:paddingStart="8dp"
                 android:paddingTop="4dp"
-                android:paddingEnd="8dp"
-                tools:text="@string/password" />
+                android:paddingEnd="8dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

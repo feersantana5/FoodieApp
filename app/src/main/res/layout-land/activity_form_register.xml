@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".RegisterActivity">
+    tools:context=".register.RegisterActivity">
 
     <ImageView
         android:id="@+id/loginImage"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/registerTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -62,7 +62,7 @@
     <ScrollView
         android:layout_width="436dp"
         android:layout_height="368dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/registerTxt"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="15dp">
 
@@ -73,7 +73,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailSignUpTextInputLayout"
+                android:id="@+id/emailRegisterTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -84,13 +84,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/loginImage"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/loginImage">
 
                 <EditText
-                    android:id="@+id/emailSignUpText"
+                    android:id="@+id/emailRegister"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/email"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/email"
@@ -100,13 +100,12 @@
                     android:paddingEnd="8dp"
                     tools:layout_editor_absoluteX="45dp"
                     tools:layout_editor_absoluteY="154dp"
-                    tools:text="@string/email"
-                    android:autofillHints="" />
+                    tools:text="@string/email" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordSignUpTextInputLayout"
+                android:id="@+id/passwordRegisterTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -117,14 +116,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emailSignUpTextInputLayout"
-                tools:ignore="DuplicateIds,MissingConstraints"
-                tools:targetApi="lollipop">
+                app:layout_constraintTop_toBottomOf="@+id/emailRegisterTextInputLayout">
 
                 <EditText
-                    android:id="@+id/passwordSignUpText"
+                    android:id="@+id/passwordRegister"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/password"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/password"
@@ -132,13 +130,12 @@
                     android:paddingStart="8dp"
                     android:paddingTop="4dp"
                     android:paddingEnd="8dp"
-                    tools:text="@string/password"
-                    android:autofillHints="" />
+                    tools:text="@string/password" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/locationSignUpTextInputLayout"
+                android:id="@+id/locationRegisterTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -149,13 +146,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/passwordSignUpTextInputLayout"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/passwordRegisterTextInputLayout">
 
                 <EditText
-                    android:id="@+id/locationSignUpText"
+                    android:id="@+id/locationRegister"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/location"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/location"
@@ -165,13 +162,12 @@
                     android:paddingEnd="8dp"
                     tools:layout_editor_absoluteX="45dp"
                     tools:layout_editor_absoluteY="154dp"
-                    tools:text="@string/location"
-                    android:autofillHints="" />
+                    tools:text="@string/location" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/webpageSignUpTextInputLayout"
+                android:id="@+id/webpageRegisterTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -182,13 +178,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/locationSignUpTextInputLayout"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/locationRegisterTextInputLayout">
 
                 <EditText
-                    android:id="@+id/webpageSignUpText"
+                    android:id="@+id/webpageRegister"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/webpage"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/webpage"
@@ -198,13 +194,12 @@
                     android:paddingEnd="8dp"
                     tools:layout_editor_absoluteX="45dp"
                     tools:layout_editor_absoluteY="154dp"
-                    tools:text="@string/webpage"
-                    android:autofillHints="" />
+                    tools:text="@string/webpage" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/restaurantenameSignUpTextInputLayout"
+                android:id="@+id/restaurantenameRegisterTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -215,13 +210,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/webpageSignUpTextInputLayout"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/webpageRegisterTextInputLayout">
 
                 <EditText
-                    android:id="@+id/restaurantenameSignUpText"
+                    android:id="@+id/restaurantenameRegister"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/restaurantename"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/restaurantename"
@@ -231,13 +226,12 @@
                     android:paddingEnd="8dp"
                     tools:layout_editor_absoluteX="45dp"
                     tools:layout_editor_absoluteY="154dp"
-                    tools:text="@string/restaurantename"
-                    android:autofillHints="" />
+                    tools:text="@string/restaurantename" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descripcionSignUpTextInputLayout"
+                android:id="@+id/descripcionRegisterTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -248,13 +242,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/restaurantenameSignUpTextInputLayout"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/restaurantenameRegisterTextInputLayout">
 
                 <EditText
-                    android:id="@+id/descripcionSignUpText"
+                    android:id="@+id/descripcionRegister"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/descripcion"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/descripcion"
@@ -264,8 +258,39 @@
                     android:paddingEnd="8dp"
                     tools:layout_editor_absoluteX="45dp"
                     tools:layout_editor_absoluteY="154dp"
-                    tools:text="@string/descripcion"
-                    android:autofillHints="" />
+                    tools:text="@string/descripcion" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/logoRegisterTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descripcionRegisterTextInputLayout">
+
+                <EditText
+                    android:id="@+id/logoURLRegister"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:autofillHints="@string/logo"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/logoURL"
+                    android:inputType="textUri"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/logo" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

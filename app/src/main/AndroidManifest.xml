@@ -18,20 +18,21 @@
         <activity android:name=".home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.LoginActivity" />
         <activity android:name=".restaurantsList.RestaurantsListActivity" />
         <activity android:name=".restaurantCarta.RestaurantCartaActivity" />
         <activity android:name=".menuDetail.MenuDetailActivity" />
+
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".register.RegisterActivity" />
+
         <activity android:name=".RestaurantProfileActivity" />
         <activity android:name=".EditAccountActivity" />
         <activity android:name=".EditMenuActivity" />
         <activity android:name=".CreateMenuActivity" />
         <activity android:name=".MyMenusActivity" />
-        <activity android:name=".RegisterActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

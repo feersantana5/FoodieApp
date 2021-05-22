@@ -73,6 +73,10 @@
     <string name="añadirImagen">Selecciona Imagen</string>
     <string name="addImagen">Añadir Imagen</string>
     <string name="register">Register</string>
+    <string name="registertxt">registerTxt</string>
+    <string name="logoimage">logoImage</string>
+    <string name="logoURL">Logo URL</string>
+    <string name="logo">Logo</string>
 
 
 </resources>
