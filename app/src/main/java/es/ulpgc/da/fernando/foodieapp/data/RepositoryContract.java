@@ -15,9 +15,13 @@ public interface RepositoryContract {
         void onCatalogDataFetched(boolean error);
     }
 
+    interface FetchJSONCallback{
+        void onJSONFetched(boolean error);
+    }
+
     //llamado en listmodel
     //metodo que elimina lo que hay almacenado y relaciona con el repositorio del catalogo
-    void loadCatalog(boolean clearFirst, CatalogRepository.FetchCatalogDataCallback callback);
+    void loadCatalog(boolean clearFirst, RepositoryContract.FetchJSONCallback callback);
 
     //metodo que obtiene del repositorio la lista de categorias y notifica
     void getRestaurantsList(CatalogRepository.GetRestaurantsListCallback callback);
@@ -34,11 +38,13 @@ public interface RepositoryContract {
 
     // llamada en el register presenter
     //
+/*
     interface RegistroUsuarioCallback {
         void setUserLists(List<RestaurantItem> restaurants, List<UserItem> users);
     }
     // llamada en el register model
     void registrarUsuario(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RegistroUsuarioCallback registroUsuarioCallback);
+*/
 
 
 }

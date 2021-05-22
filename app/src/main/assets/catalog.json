@@ -64,6 +64,20 @@
         }
       ]
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "feer@feer.com",
+      "password": "fer",
+      "restaurantId": "5"
+    },
+    {
+      "id": 2,
+      "email": "pp@pp.com",
+      "password": "pp",
+      "restaurantId": "10"
+    }
   ]
 }
 

@@ -29,6 +29,7 @@ public interface LoginContract {
 
         void onRestart();
 
+
         void onBackPressed();
 
         void onPause();
@@ -45,7 +46,7 @@ public interface LoginContract {
     }
 
     interface Model {
-        void signIn(String correo, String passw, RepositoryContract.OnSignInCallback onSignInCallback);
+
         String getStoredData();
 
         void onDataFromNextScreen(String data);

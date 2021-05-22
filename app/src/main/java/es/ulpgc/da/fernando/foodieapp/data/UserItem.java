@@ -9,13 +9,15 @@ import static androidx.room.ForeignKey.CASCADE;
 
 //config tabla room
 @Entity(
-        tableName = "users", //nombre tabla
-        foreignKeys = @ForeignKey(  //valor que obtiene de otra tabla y sus caract aqui
-                entity = RestaurantItem.class,
-                parentColumns = "id",
-                childColumns = "restaurant_Id", //tabla relacion 1-n
-                onDelete = CASCADE
-        )
+
+        tableName = "users"
+//        , //nombre tabla
+//        foreignKeys = @ForeignKey(  //valor que obtiene de otra tabla y sus caract aqui
+//                entity = RestaurantItem.class,
+//                parentColumns = "id",
+//                childColumns = "restaurant_Id", //tabla relacion 1-n
+//                onDelete = CASCADE
+//        )
 )
 
 public class UserItem {

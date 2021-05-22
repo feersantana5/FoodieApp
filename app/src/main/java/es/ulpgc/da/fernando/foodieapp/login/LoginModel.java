@@ -14,16 +14,13 @@ public class LoginModel implements LoginContract.Model {
         this.repository = repository;
     }
 
+
     @Override
     public String getStoredData() {
         Log.e(TAG, "getStoredData()");
         return "data";
     }
 
-    @Override
-    public void signIn(String correo, String passw, RepositoryContract.OnSignInCallback onSignInCallback) {
-        //repository.signIn(correo,passw,onSignInCallback);
-    }
 
     @Override
     public void onRestartScreen(String data) {

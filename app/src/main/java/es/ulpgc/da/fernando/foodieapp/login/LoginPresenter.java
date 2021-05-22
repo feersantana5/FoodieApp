@@ -3,9 +3,11 @@ package es.ulpgc.da.fernando.foodieapp.login;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class LoginPresenter implements LoginContract.Presenter {
 
@@ -23,7 +25,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void onStart() {
-         Log.e(TAG, "onStart()");
+        Log.e(TAG, "onStart()");
 
         // initialize the state if is necessary
         if (state == null) {
@@ -37,14 +39,14 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void onRestart() {
-         Log.e(TAG, "onRestart()");
+        Log.e(TAG, "onRestart()");
         // update the model if is necessary
-       // model.onRestartScreen(state.data);
+        // model.onRestartScreen(state.data);
     }
 
     @Override
     public void onResume() {
-         Log.e(TAG, "onResume()");
+        Log.e(TAG, "onResume()");
     }
 
     @Override
@@ -62,22 +64,22 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void onBackPressed() {
-         Log.e(TAG, "onBackPressed()");
+        Log.e(TAG, "onBackPressed()");
     }
 
     @Override
     public void onPause() {
-         Log.e(TAG, "onPause()");
+        Log.e(TAG, "onPause()");
     }
 
     @Override
     public void onDestroy() {
-         Log.e(TAG, "onDestroy()");
+        Log.e(TAG, "onDestroy()");
     }
 
     @Override
     public void signIn(String correo, String passw) {
-        model.signIn(correo, passw, new RepositoryContract.OnSignInCallback() {
+/*        model.signIn(correo, passw, new RepositoryContract.OnSignInCallback() {
             @Override
             public void onSignIn(boolean error) {
                 if (!error) {
@@ -89,7 +91,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
                 }
             }
-        });
+        });*/
     }
 
     private void downloadDataFromRepository() {
@@ -99,17 +101,16 @@ public class LoginPresenter implements LoginContract.Presenter {
     //se comprueba si se han introducidos los campos requeridos
     @Override
     public void checkLogin(String correo, String passw) {
-        if(correo.isEmpty() && passw.isEmpty()) {
+        if (correo.isEmpty() && passw.isEmpty()) {
             view.get().setErrorLayoutInputs(2);
-        } else if(correo.isEmpty()) {
+        } else if (correo.isEmpty()) {
             view.get().setErrorLayoutInputs(0);
-        }else if(passw.isEmpty()) {
+        } else if (passw.isEmpty()) {
             view.get().setErrorLayoutInputs(1);
-        }else{
-            signIn(correo,passw);
+        } else {
+            signIn(correo, passw);
         }
     }
-
 
 
     @Override

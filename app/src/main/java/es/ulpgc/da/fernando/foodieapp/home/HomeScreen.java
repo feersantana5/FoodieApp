@@ -6,6 +6,8 @@ import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
+import es.ulpgc.da.fernando.foodieapp.data.CatalogRepository;
+import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 
 public class HomeScreen {
 
@@ -16,7 +18,8 @@ public class HomeScreen {
         FoodieMediator mediator = FoodieMediator.getInstance();
         HomeContract.Presenter presenter = new HomePresenter(mediator);
 
-        HomeContract.Model model = new HomeModel();
+        RepositoryContract repository = CatalogRepository.getInstance(context.get());
+        HomeContract.Model model = new HomeModel(repository);
 
         presenter.injectModel(model);
         presenter.injectView(new WeakReference<>(view));

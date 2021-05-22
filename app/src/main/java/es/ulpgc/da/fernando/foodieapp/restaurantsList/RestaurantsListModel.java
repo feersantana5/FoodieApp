@@ -3,6 +3,7 @@ package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 import android.util.Log;
 
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class RestaurantsListModel implements RestaurantsListContract.Model {
 
@@ -16,7 +17,7 @@ public class RestaurantsListModel implements RestaurantsListContract.Model {
         this.repository = repository;
     }
 
-    @Override
+/*    @Override
     public void fetchRestaurantsListData(final RepositoryContract.GetRestaurantsListCallback callback) {
         Log.e(TAG, "fetchRestaurantsListData()");
 
@@ -30,6 +31,14 @@ public class RestaurantsListModel implements RestaurantsListContract.Model {
                 }
             }
         });
+    }*/
 
+    @Override
+    public void fetchRestaurantsListData(final RepositoryContract.GetRestaurantsListCallback callback) {
+        Log.e(TAG, "fetchRestaurantsListData()");
+        //obtiene la lista de restaurantes y notifica
+        repository.getRestaurantsList(callback);
     }
+
+
 }

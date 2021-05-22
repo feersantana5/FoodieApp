@@ -5,6 +5,7 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
+import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 
 public class HomePresenter implements HomeContract.Presenter {
 
@@ -43,6 +44,26 @@ public class HomePresenter implements HomeContract.Presenter {
         // update the model if is necessary
         model.onRestartScreen(state.data);
     }
+
+    @Override
+    public void fetchJSON() {
+        Log.e(TAG, "fetchJSON()");
+        // call the model
+        // pide al modelo de forma asincrona la lista y que cuando los tenga le notifique
+        // (callback) del Repository Contract
+        model.fetchJSON(new RepositoryContract.FetchJSONCallback() {
+
+            @Override
+            public void onJSONFetched(boolean error) {
+                if (error) {
+                    view.get().showToast("NO CONNECTION. DATA MAY BE OBSOLETE");
+                } else {
+                    Log.d(TAG, "catalogo descargado ok");
+                }
+            }
+        });
+    }
+
 
     @Override
     public void goToRestaurantList() {

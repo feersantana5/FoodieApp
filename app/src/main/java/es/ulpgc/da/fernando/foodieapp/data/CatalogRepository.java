@@ -22,6 +22,7 @@ import java.util.List;
 import es.ulpgc.da.fernando.foodieapp.database.CatalogDatabase;
 import es.ulpgc.da.fernando.foodieapp.database.MenuDao;
 import es.ulpgc.da.fernando.foodieapp.database.RestaurantDao;
+import es.ulpgc.da.fernando.foodieapp.database.UserDao;
 
 public class CatalogRepository implements RepositoryContract {
 
@@ -57,7 +58,7 @@ public class CatalogRepository implements RepositoryContract {
     }
 
     @Override
-    public void loadCatalog(final boolean clearFirst, final FetchCatalogDataCallback callback) {
+    public void loadCatalog(final boolean clearFirst, final FetchJSONCallback callback) {
         //crea hilo asincrono
         AsyncTask.execute(new Runnable() {
 
@@ -71,13 +72,13 @@ public class CatalogRepository implements RepositoryContract {
 
                 boolean error = false;
 
-                //si no hay categorias, error al cargar al json pq esta vacio
+                //si no hay restaurantes, error al cargar al json pq esta vacio
                 if (getRestaurantDao().loadRestaurants().size() == 0) {
                     error = !loadCatalogFromJSON(loadJSONFromAsset());
                 }
 
                 if (callback != null) {
-                    callback.onCatalogDataFetched(error); //notifica si hay error o no
+                    callback.onJSONFetched(error); //notifica si hay error o no
                 }
             }
         });
@@ -85,6 +86,28 @@ public class CatalogRepository implements RepositoryContract {
 
     private RestaurantDao getRestaurantDao() {
         return database.restaurantDao();
+    }
+
+    private UserDao getUserDao() {
+        return database.userDao();
+    }
+
+    //carga el json desde assets
+    private String loadJSONFromAsset() {
+        Log.e(TAG, "loadJSONFromAsset()");
+
+        String json = null;
+        try {
+            InputStream is = context.getAssets().open(JSON_FILE);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException error) {
+            Log.e(TAG, "error: " + error);
+        }
+        return json;
     }
 
     private boolean loadCatalogFromJSON(String json) {
@@ -108,7 +131,7 @@ public class CatalogRepository implements RepositoryContract {
                     getRestaurantDao().insertRestaurant(restaurant);
                 }
 
-                //recorre los menus e inserta
+                //recorre los menus e inserta en la base de datos
                 for (RestaurantItem restaurant : restaurants) {
                     for (MenuItem menu : restaurant.items) {
                         //la clave foranea
@@ -116,7 +139,21 @@ public class CatalogRepository implements RepositoryContract {
                         getMenuDao().insertMenu(menu);
                     }
                 }
-                return true;
+                try {
+                    JSONArray jsonSegundoArray = jsonObject.getJSONArray("users"); //elemento padre del json
+                    if (jsonSegundoArray.length() > 0) { //si hay contenido
+                        //convierte la lista de restaurantes en una lista serializable, convirtiendo los elementos a string
+                        final List<UserItem> users = Arrays.asList(gson.fromJson(jsonSegundoArray.toString(), UserItem[].class));
+                        //recorre los usuarios e inserta
+                        for (UserItem user : users) {
+                            getUserDao().insertUser(user);
+                        }
+                        return true;
+                    }
+                } catch (JSONException error) {
+                    Log.e(TAG, "error: " + error);
+                }
+                return false;
             }
             //si esta vacio
         } catch (JSONException error) {
@@ -129,25 +166,27 @@ public class CatalogRepository implements RepositoryContract {
         return database.menuDao();
     }
 
-    //carga el json desde assets
-    private String loadJSONFromAsset() {
-        Log.e(TAG, "loadJSONFromAsset()");
-
-        String json = null;
+/*
+    public boolean getUserFromJson(String json) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
         try {
-            InputStream is = context.getAssets().open(JSON_FILE);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException error) {
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray jsonSegundoArray = jsonObject.getJSONArray("users"); //elemento padre del json
+            if (jsonSegundoArray.length() > 0) { //si hay contenido
+                //convierte la lista de restaurantes en una lista serializable, convirtiendo los elementos a string
+                final List<UserItem> users = Arrays.asList(gson.fromJson(jsonSegundoArray.toString(), UserItem[].class));
+                //recorre los usuarios e inserta
+                for (UserItem user : users) {
+                    getUserDao().insertUser(user);
+                }
+                return true;
+            }
+        } catch (JSONException error) {
             Log.e(TAG, "error: " + error);
         }
-        return json;
-    }
-
-
+        return false;
+    }*/
 
     //obtiene la lista de categorias y notifica cuando las tiene
     @Override
@@ -164,7 +203,7 @@ public class CatalogRepository implements RepositoryContract {
 
     }
 
-    //MENUS
+//MENUS
 
     //desde el modelo, obtiene la lista de modelos segun el restaurante y notifica
     @Override
@@ -185,4 +224,21 @@ public class CatalogRepository implements RepositoryContract {
         });
     }
 
+
+/*    @Override
+    public void registrarUsuario(final String email, final String password, final String ubicacion, final String webpage, final String descripcion, final String nombre, final String logo, final RegistroUsuarioCallback registroUsuarioCallback) {
+        //crea hilo asincrono
+        AsyncTask.execute(new Runnable() {
+
+            //ejecuta el hilo
+            @Override
+            public void run() {
+                database.restaurantDao().insertRestaurant(new RestaurantItem());
+                if (registroUsuarioCallback != null) {
+
+                    registroUsuarioCallback.setUserLists(get);
+                }
+            }
+        });
+    }*/
 }
