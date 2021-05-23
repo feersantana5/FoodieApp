@@ -96,13 +96,17 @@ public class RegisterPresenter implements RegisterContract.Presenter {
                     state.toast = model.getRegisterAdvice();
                     state.sessionEnabled = true;
                     view.get().showToastThread(state);
-                    view.get().navigateToRestaurantProfile();
+                    goToRestaurantProfile();
                 } else {
                     state.toast = model.getErrorAdvice();
                     view.get().showToastThread(state);
                 }
             }
         });
+    }
+    public void goToRestaurantProfile() {
+        Log.e(TAG, "goToRestaurantProfile()");
+        view.get().navigateToRestaurantProfile();
     }
 
     @Override

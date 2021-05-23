@@ -10,11 +10,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.textfield.TextInputLayout;
 
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.RestaurantProfileActivity;
 import es.ulpgc.da.fernando.foodieapp.register.RegisterActivity;
+import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
 
 public class LoginActivity
         extends AppCompatActivity implements LoginContract.View {
@@ -24,8 +24,9 @@ public class LoginActivity
     private LoginContract.Presenter presenter;
 
     private EditText email, password;
-    private TextInputLayout emailTextInputLayout, passwTextInputLayout;
     private Button btnLogin, btnRegister;
+    private Toast toast;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +50,13 @@ public class LoginActivity
         } else {
             presenter.onRestart();
         }
+
     }
 
 
     private void initLayout() {
-        email = findViewById(R.id.emailSignUpText);
-        password = findViewById(R.id.passwordSignUpText);
-        emailTextInputLayout = findViewById(R.id.emailSignUpTextInputLayout);
-        passwTextInputLayout = findViewById(R.id.passwordLoginTextInputLayout);
+        email = findViewById(R.id.emailLoginText);
+        password = findViewById(R.id.passwordLoginText);
 
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
@@ -66,8 +66,10 @@ public class LoginActivity
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.goToRestaurantProfile();
-                //TODO: verificar registro e ir al perfil
+                String emailUser = email.getText().toString().trim();
+                String passwordUser = password.getText().toString().trim();
+                presenter.checkLogin(emailUser, passwordUser);
+                //TODO: verificar registro e ir al perfil, pasar ssesion init
             }
         });
 
@@ -79,6 +81,24 @@ public class LoginActivity
         });
     }
 
+    public void showToast(LoginViewModel viewModel) {
+        Log.e(TAG, "showToast()");
+        if (toast != null) {
+            toast.cancel();
+        }
+        toast = Toast.makeText(this, viewModel.toast, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    public void showToastThread(LoginViewModel viewModel) {
+        Log.e(TAG, "showToastThread()");
+        runOnUiThread(new Runnable() {
+            public void run() {
+                //Do something on UiThread
+                Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 
     @Override
@@ -86,6 +106,19 @@ public class LoginActivity
         super.onResume();
         // load the data
         presenter.onResume();
+    }
+
+    @Override
+    public void navigateToRegister() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void navigateToRestaurantProfile() {
+        Intent intent = new Intent(this, RestaurantProfileActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -107,53 +140,8 @@ public class LoginActivity
     }
 
     @Override
-    public void navigateToRegister() {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void navigateToRestaurantProfile() {
-        Intent intent = new Intent(this, RestaurantProfileActivity.class);
-        startActivity(intent);
-    }
-
-
-    @Override
     public void injectPresenter(LoginContract.Presenter presenter) {
         this.presenter = presenter;
     }
 
-    public void onLoginClicked(View view) {
-        Log.e(TAG, "inicia bien");
-        String correo = email.getText().toString();
-        String passw = password.getText().toString();
-        presenter.checkLogin(correo, passw);
-
-    }
-
-    //Errores a razón de los campos que estén vacíos
-    @Override
-    public void setErrorLayoutInputs(int i) {
-        switch (i) {
-            case 0:
-                emailTextInputLayout.setError(getResources().getString(R.string.emailSignUpError));
-                break;
-            case 1:
-                passwTextInputLayout.setError(getResources().getString(R.string.passwSignUpError));
-                break;
-            case 2:
-                emailTextInputLayout.setError(getResources().getString(R.string.emailSignUpError));
-                passwTextInputLayout.setError(getResources().getString(R.string.passwSignUpError));
-                break;
-            default:
-                break;
-        }
-
-    }
-
-    @Override
-    public void displayData(LoginViewModel viewModel) {
-        Toast.makeText(getApplicationContext(), viewModel.message,Toast.LENGTH_LONG).show();
-    }
 }

@@ -260,4 +260,24 @@ public class CatalogRepository implements RepositoryContract {
             }
         });
     }
+
+    @Override
+    public void logIn(String email, String password, LogInCallback logInCallback) {
+        Log.e(TAG, "logIn()");
+        //crea hilo asincrono
+        AsyncTask.execute(new Runnable() {
+
+            //ejecuta el hilo
+            @Override
+            public void run() {
+
+                if (logInCallback != null) {
+                    logInCallback.logInCheck(false);
+                } else {
+                    logInCallback.logInCheck(true);
+                }
+            }
+        });
+    }
+
 }

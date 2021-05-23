@@ -3,19 +3,21 @@ package es.ulpgc.da.fernando.foodieapp.login;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
+import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
 
 public interface LoginContract {
 
     interface View {
+
         void injectPresenter(Presenter presenter);
+
+        void showToast(LoginViewModel state);
 
         void navigateToRestaurantProfile();
 
         void navigateToRegister();
 
-        void setErrorLayoutInputs(int i);
-
-        void displayData(LoginViewModel viewModel);
+        void showToastThread(LoginViewModel state);
     }
 
     interface Presenter {
@@ -29,6 +31,11 @@ public interface LoginContract {
 
         void onRestart();
 
+        void checkLogin(String email, String password);
+
+        void goToRegister();
+
+        void goToRestaurantProfile();
 
         void onBackPressed();
 
@@ -36,16 +43,16 @@ public interface LoginContract {
 
         void onDestroy();
 
-        void goToRegister();
-
-        void goToRestaurantProfile();
-
-        void checkLogin(String correo, String passw);
-
-        void signIn(String correo, String passw);
     }
 
     interface Model {
+
+        String getEmptyAdvice();
+
+        void logIn(String email, String password, RepositoryContract.LogInCallback logInCallback);
+
+        String getErrorAdvice();
+
 
         String getStoredData();
 

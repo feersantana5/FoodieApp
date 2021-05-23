@@ -8,12 +8,11 @@ public interface RegisterContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
+        void showToast(RegisterViewModel state);
 
         void onDataUpdated(RegisterViewModel viewModel);
 
         void navigateToRestaurantProfile();
-
-        void showToast(RegisterViewModel state);
 
         void showToastThread(RegisterViewModel state);
 

@@ -3,11 +3,10 @@ package es.ulpgc.da.fernando.foodieapp.login;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
-import java.util.List;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
-import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
+
 
 public class LoginPresenter implements LoginContract.Presenter {
 
@@ -26,15 +25,12 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void onStart() {
         Log.e(TAG, "onStart()");
-
         // initialize the state if is necessary
         if (state == null) {
             state = new LoginState();
         }
-
         // call the model and update the state
         //state.data = model.getStoredData();
-
     }
 
     @Override
@@ -47,6 +43,33 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void onResume() {
         Log.e(TAG, "onResume()");
+    }
+
+    //se comprueba si se han introducidos los campos requeridos
+    @Override
+    public void checkLogin(String email, String password) {
+        Log.e(TAG, "checkLogin()");
+        if (email.isEmpty() || password.isEmpty()) {
+            state.toast = model.getEmptyAdvice();
+            view.get().showToast(state);
+        } else {
+            logIn(email, password);
+        }
+    }
+
+    public void logIn(String email, String password) {
+        model.logIn(email, password, new RepositoryContract.LogInCallback() {
+            @Override
+            public void logInCheck(boolean error) {
+                if (!error) {
+                    state.sessionEnabled = true;
+                    goToRestaurantProfile();
+                } else {
+                    state.toast = model.getErrorAdvice();
+                    view.get().showToastThread(state);
+                }
+            }
+        });
     }
 
     @Override
@@ -76,42 +99,6 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void onDestroy() {
         Log.e(TAG, "onDestroy()");
     }
-
-    @Override
-    public void signIn(String correo, String passw) {
-/*        model.signIn(correo, passw, new RepositoryContract.OnSignInCallback() {
-            @Override
-            public void onSignIn(boolean error) {
-                if (!error) {
-                    downloadDataFromRepository();
-
-                } else {
-                    //viewModel.message = "This user does not exist";
-                    //view.get().displayData(viewModel);
-
-                }
-            }
-        });*/
-    }
-
-    private void downloadDataFromRepository() {
-
-    }
-
-    //se comprueba si se han introducidos los campos requeridos
-    @Override
-    public void checkLogin(String correo, String passw) {
-        if (correo.isEmpty() && passw.isEmpty()) {
-            view.get().setErrorLayoutInputs(2);
-        } else if (correo.isEmpty()) {
-            view.get().setErrorLayoutInputs(0);
-        } else if (passw.isEmpty()) {
-            view.get().setErrorLayoutInputs(1);
-        } else {
-            signIn(correo, passw);
-        }
-    }
-
 
     @Override
     public void injectView(WeakReference<LoginContract.View> view) {

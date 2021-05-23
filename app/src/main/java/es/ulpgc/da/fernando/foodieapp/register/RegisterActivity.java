@@ -89,7 +89,6 @@ public class RegisterActivity
 
     public void showToast(RegisterViewModel viewModel) {
         Log.e(TAG, "showToast()");
-
         if (toast != null) {
             toast.cancel();
         }

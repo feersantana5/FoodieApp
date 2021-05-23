@@ -26,8 +26,8 @@ public class RegisterModel implements RegisterContract.Model {
     }
 
     @Override
-    public void registrarUsuario(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RepositoryContract.RegistroUsuarioCallback RegistroUsuarioCallback) {
-        repository.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, RegistroUsuarioCallback);
+    public void registrarUsuario(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RepositoryContract.RegistroUsuarioCallback callback) {
+        repository.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, callback);
     }
 
     @Override
