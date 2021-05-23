@@ -56,9 +56,7 @@ public class HomePresenter implements HomeContract.Presenter {
             @Override
             public void onJSONFetched(boolean error) {
                 if (error) {
-                    view.get().showToast("NO CONNECTION. DATA MAY BE OBSOLETE");
-                } else {
-                    Log.d(TAG, "catalogo descargado ok");
+                    view.get().showToast(model.getJSONWarning());
                 }
             }
         });

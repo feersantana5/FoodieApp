@@ -10,11 +10,7 @@ public interface RepositoryContract {
         void setRestaurantsList(List<RestaurantItem> products);
     }
 
-    //llamado en CatalogRepository para obtener los datos del catalogo
-    interface FetchCatalogDataCallback {
-        void onCatalogDataFetched(boolean error);
-    }
-
+    //llamado en home para obtener los datos del json y añadirlod a la bbdd
     interface FetchJSONCallback{
         void onJSONFetched(boolean error);
     }
@@ -37,14 +33,12 @@ public interface RepositoryContract {
     void getMenuList(int restaurantId, CatalogRepository.GetMenuListCallback callback);
 
     // llamada en el register presenter
-    //
-/*
     interface RegistroUsuarioCallback {
-        void setUserLists(List<RestaurantItem> restaurants, List<UserItem> users);
+        void userAdded(boolean error);
     }
     // llamada en el register model
     void registrarUsuario(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RegistroUsuarioCallback registroUsuarioCallback);
-*/
+
 
 
 }

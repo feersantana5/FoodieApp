@@ -2,6 +2,8 @@ package es.ulpgc.da.fernando.foodieapp.register;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
+
 public interface RegisterContract {
 
     interface View {
@@ -9,9 +11,12 @@ public interface RegisterContract {
 
         void onDataUpdated(RegisterViewModel viewModel);
 
-        void navigateToNextScreen();
+        void navigateToRestaurantProfile();
 
         void showToast(RegisterViewModel state);
+
+        void showToastThread(RegisterViewModel state);
+
     }
 
     interface Presenter {
@@ -36,6 +41,13 @@ public interface RegisterContract {
 
     interface Model {
         String getEmptyAdvice();
+
+        void registrarUsuario(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RepositoryContract.RegistroUsuarioCallback RegistroUsuarioCallback);
+
+        String getRegisterAdvice();
+
+        String getErrorAdvice();
+
 
         String getStoredData();
 

@@ -14,17 +14,18 @@ public class HomeModel implements HomeContract.Model {
         this.repository = repository;
     }
 
+
     @Override
-    public void fetchJSON(final RepositoryContract.FetchJSONCallback callback){
+    public void fetchJSON(final RepositoryContract.FetchJSONCallback callback) {
         Log.e(TAG, "fetchJSON()");
         //carga los datos del catalogo a la bbdd y notifica
         repository.loadCatalog(true, callback);
     }
 
     @Override
-    public String getStoredData() {
-        // Log.e(TAG, "getStoredData()");
-        return "data";
+    public String getJSONWarning() {
+        Log.e(TAG, "getJSONWarning()");
+        return "Error obteniendo JSON";
     }
 
     @Override

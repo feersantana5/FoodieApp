@@ -22,7 +22,7 @@ import static androidx.room.ForeignKey.CASCADE;
 
 public class UserItem {
 
-    @PrimaryKey //identificador unico e irrepetible
+    @PrimaryKey(autoGenerate = true) //identificador unico e irrepetible, se crearan secuenciales
     public int id;
 
     public String email;

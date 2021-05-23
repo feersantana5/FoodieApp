@@ -15,16 +15,31 @@ public class RegisterModel implements RegisterContract.Model {
     }
 
     String vacio = "Debe rellenar todos los campos";
+    String register = "Registrado correctamente";
+    String error = "Ha ocurrido un error, inténtelo de nuevo.";
+
+
 
     @Override
     public String getEmptyAdvice() {
         return vacio;
     }
 
-/*    @Override
+    @Override
     public void registrarUsuario(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RepositoryContract.RegistroUsuarioCallback RegistroUsuarioCallback) {
         repository.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, RegistroUsuarioCallback);
-    }*/
+    }
+
+    @Override
+    public String getRegisterAdvice() {
+        return register;
+    }
+
+    @Override
+    public String getErrorAdvice() {
+        return error;
+    }
+
 
     @Override
     public String getStoredData() {

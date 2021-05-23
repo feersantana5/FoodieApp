@@ -45,7 +45,7 @@ public interface HomeContract {
 
         void fetchJSON(final RepositoryContract.FetchJSONCallback callback);
 
-        String getStoredData();
+        String getJSONWarning();
 
         void onDataFromNextScreen(String data);
 

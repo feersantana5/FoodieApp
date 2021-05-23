@@ -89,17 +89,20 @@ public class RegisterPresenter implements RegisterContract.Presenter {
 
         // call the model
         //añade los datos al modelo de forma asincrona y cuando los tiene lo notifica
-        /*model.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, new RepositoryContract.RegistroUsuarioCallback() {
+        model.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, new RepositoryContract.RegistroUsuarioCallback() {
             @Override
-            public void setUserLists(List<RestaurantItem> restaurants, List<UserItem> users) {
-                // rellena la lista con las categorias creadas
-                state.restaurants = restaurants;
-                state.users = users;
-
-                // update view
-                //view.get().displayRestaurantsListData(state);
+            public void userAdded(boolean error) {
+                Log.e(TAG, "userAdded()");
+                if (!error) {
+                    state.toast = model.getRegisterAdvice();
+                    view.get().showToastThread(state);
+                    view.get().navigateToRestaurantProfile();
+                } else {
+                    state.toast = model.getErrorAdvice();
+                    view.get().showToastThread(state);
+                }
             }
-        });*/
+        });
     }
 
     @Override

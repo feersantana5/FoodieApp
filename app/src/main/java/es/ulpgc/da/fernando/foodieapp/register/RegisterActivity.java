@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.da.fernando.foodieapp.R;
+import es.ulpgc.da.fernando.foodieapp.RestaurantProfileActivity;
 
 public class RegisterActivity
         extends AppCompatActivity implements RegisterContract.View {
@@ -85,7 +86,8 @@ public class RegisterActivity
             }
         });
     }
-    public void showToast(RegisterViewModel viewModel ) {
+
+    public void showToast(RegisterViewModel viewModel) {
         Log.e(TAG, "showToast()");
 
         if (toast != null) {
@@ -93,6 +95,16 @@ public class RegisterActivity
         }
         toast = Toast.makeText(this, viewModel.toast, Toast.LENGTH_SHORT);
         toast.show();
+    }
+
+    public void showToastThread(RegisterViewModel viewModel) {
+        Log.e(TAG, "showToastThread()");
+        runOnUiThread(new Runnable() {
+            public void run() {
+                //Do something on UiThread
+                Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -122,8 +134,8 @@ public class RegisterActivity
 
 
     @Override
-    public void navigateToNextScreen() {
-        Intent intent = new Intent(this, RegisterActivity.class);
+    public void navigateToRestaurantProfile() {
+        Intent intent = new Intent(this, RestaurantProfileActivity.class);
         startActivity(intent);
     }
 

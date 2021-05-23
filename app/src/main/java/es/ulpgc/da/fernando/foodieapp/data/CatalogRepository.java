@@ -59,6 +59,7 @@ public class CatalogRepository implements RepositoryContract {
 
     @Override
     public void loadCatalog(final boolean clearFirst, final FetchJSONCallback callback) {
+        Log.e(TAG, "loadCatalog()");
         //crea hilo asincrono
         AsyncTask.execute(new Runnable() {
 
@@ -191,6 +192,7 @@ public class CatalogRepository implements RepositoryContract {
     //obtiene la lista de categorias y notifica cuando las tiene
     @Override
     public void getRestaurantsList(final GetRestaurantsListCallback callback) {
+        Log.e(TAG, "getRestaurantsList()");
         AsyncTask.execute(new Runnable() {
 
             @Override
@@ -208,10 +210,11 @@ public class CatalogRepository implements RepositoryContract {
     //desde el modelo, obtiene la lista de modelos segun el restaurante y notifica
     @Override
     public void getMenuList(final RestaurantItem restaurant, final GetMenuListCallback callback) {
+        Log.e(TAG, "getMenuList()");
         getMenuList(restaurant.id, callback);
     }
 
-    //llamado desde el presenter, obtiene la lista segun el id
+    //llamado desde el de arriba
     @Override
     public void getMenuList(final int restaurantId, final GetMenuListCallback callback) {
         AsyncTask.execute(new Runnable() {
@@ -225,20 +228,36 @@ public class CatalogRepository implements RepositoryContract {
     }
 
 
-/*    @Override
-    public void registrarUsuario(final String email, final String password, final String ubicacion, final String webpage, final String descripcion, final String nombre, final String logo, final RegistroUsuarioCallback registroUsuarioCallback) {
+    @Override
+    public void registrarUsuario(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RegistroUsuarioCallback registroUsuarioCallback) {
+        Log.e(TAG, "registrarUsuario()");
         //crea hilo asincrono
         AsyncTask.execute(new Runnable() {
 
             //ejecuta el hilo
             @Override
             public void run() {
-                database.restaurantDao().insertRestaurant(new RestaurantItem());
-                if (registroUsuarioCallback != null) {
+                RestaurantItem newRestaurant = new RestaurantItem();
+                //newRestaurant.id = (int) (Math.random()*1000000); //numero grande para evitar que coincida
+                newRestaurant.logo = logo;
+                newRestaurant.location = ubicacion;
+                newRestaurant.description = descripcion;
+                newRestaurant.title = nombre;
+                newRestaurant.webpage = webpage;
+                getRestaurantDao().insertRestaurant(newRestaurant);
 
-                    registroUsuarioCallback.setUserLists(get);
+                UserItem newUser = new UserItem();
+                newUser.email = email;
+                newUser.password = password;
+                newRestaurant.id = newUser.restaurantId;
+                getUserDao().insertUser(newUser);
+
+                if (registroUsuarioCallback != null) {
+                    registroUsuarioCallback.userAdded(false);
+                } else {
+                    registroUsuarioCallback.userAdded(true);
                 }
             }
         });
-    }*/
+    }
 }
