@@ -46,7 +46,7 @@
             android:layout_height="101dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:contentDescription="@string/imagenperfil"
@@ -56,7 +56,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailSignUpTextInputLayout"
+            android:id="@+id/emailLoginTextInputLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -68,13 +68,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginImage"
-            tools:ignore="DuplicateIds,MissingConstraints">
+            app:layout_constraintTop_toBottomOf="@+id/loginImage">
 
             <EditText
-                android:id="@+id/emailSignUpText"
+                android:id="@+id/emailLoginText"
                 android:layout_width="330dp"
                 android:layout_height="30dp"
+                android:autofillHints="@string/email"
                 android:background="@drawable/input_text_round"
                 android:fontFamily="@font/source_sans_pro_bold"
                 android:hint="@string/email"
@@ -99,13 +99,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginImage"
-            tools:ignore="DuplicateIds,MissingConstraints">
+            app:layout_constraintTop_toBottomOf="@+id/loginImage">
 
             <EditText
-                android:id="@+id/passwordSignUpText"
+                android:id="@+id/passwordLoginText"
                 android:layout_width="330dp"
                 android:layout_height="30dp"
+                android:autofillHints="@string/password"
                 android:background="@drawable/input_text_round"
                 android:fontFamily="@font/source_sans_pro_bold"
                 android:hint="@string/password"
