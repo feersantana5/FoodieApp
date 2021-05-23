@@ -8,12 +8,13 @@
     tools:context=".EditAccountActivity">
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/editMenuTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="32dp"
+        android:contentDescription="@string/edit_account_text"
         app:layout_constraintEnd_toStartOf="@+id/loginImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -63,8 +64,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/editMenuTxt">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,7 +72,7 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailSignUpTextInputLayout"
+                android:id="@+id/emailEditAccountTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -83,13 +83,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/loginImage"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/loginImage">
 
                 <EditText
-                    android:id="@+id/emailSignUpText"
+                    android:id="@+id/emailEditAccount"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/email"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/email"
@@ -104,7 +104,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordLoginTextInputLayout"
+                android:id="@+id/passwordEditAccountTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -115,13 +115,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emailSignUpTextInputLayout"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/emailEditAccountTextInputLayout">
 
                 <EditText
-                    android:id="@+id/passwordSignUpText"
+                    android:id="@+id/passwordEditAccount"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/password"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/password"
@@ -134,7 +134,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/locationSignUpTextInputLayout"
+                android:id="@+id/locationEditAccountTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -145,13 +145,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/passwordLoginTextInputLayout"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/passwordEditAccountTextInputLayout">
 
                 <EditText
-                    android:id="@+id/locationSignUpText"
+                    android:id="@+id/locationEditAccount"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/location"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/location"
@@ -166,7 +166,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/webpageSignUpTextInputLayout"
+                android:id="@+id/webpageEditAccountTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -177,13 +177,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/locationSignUpTextInputLayout"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/locationEditAccountTextInputLayout">
 
                 <EditText
-                    android:id="@+id/webpageSignUpText"
+                    android:id="@+id/webpageEditAccount"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/webpage"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/webpage"
@@ -198,7 +198,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/restaurantenameSignUpTextInputLayout"
+                android:id="@+id/restaurantNameEditAccountTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -209,13 +209,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/webpageSignUpTextInputLayout"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/webpageEditAccountTextInputLayout">
 
                 <EditText
-                    android:id="@+id/restaurantenameSignUpText"
+                    android:id="@+id/restaurantNameEditAccount"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/restaurantename"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/restaurantename"
@@ -230,7 +230,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descripcionSignUpTextInputLayout"
+                android:id="@+id/descripcionEditAccountTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -241,13 +241,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/restaurantenameSignUpTextInputLayout"
-                tools:ignore="DuplicateIds,MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/restaurantNameEditAccountTextInputLayout">
 
                 <EditText
-                    android:id="@+id/descripcionSignUpText"
+                    android:id="@+id/descripcionEditAccount"
                     android:layout_width="330dp"
                     android:layout_height="30dp"
+                    android:autofillHints="@string/descripcion"
                     android:background="@drawable/input_text_round"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:hint="@string/descripcion"

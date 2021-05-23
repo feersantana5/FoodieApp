@@ -96,6 +96,8 @@
     <string name="bebida">Bebida</string>
     <string name="brownie">Brownie</string>
     <string name="edit_menu_texto">edit menu texto</string>
+    <string name="edit_account_text">edit account text</string>
+    <string name="create_menu_text">create menu text</string>
 
 
 </resources>

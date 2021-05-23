@@ -63,7 +63,6 @@
         android:layout_width="436dp"
         android:layout_height="368dp"
         app:layout_constraintTop_toBottomOf="@+id/registerTxt"
-        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="15dp">
 
         <LinearLayout
