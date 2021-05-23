@@ -53,7 +53,6 @@ public class RegisterPresenter implements RegisterContract.Presenter {
         //update the model if is necessary
         //model.setToastState(state.toast);
         Log.e(TAG, "Toast: " + state.toast);
-
     }
 
     @Override
@@ -95,6 +94,7 @@ public class RegisterPresenter implements RegisterContract.Presenter {
                 Log.e(TAG, "userAdded()");
                 if (!error) {
                     state.toast = model.getRegisterAdvice();
+                    state.sessionEnabled = true;
                     view.get().showToastThread(state);
                     view.get().navigateToRestaurantProfile();
                 } else {

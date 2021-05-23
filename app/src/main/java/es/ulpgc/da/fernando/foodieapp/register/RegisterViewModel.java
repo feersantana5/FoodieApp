@@ -6,6 +6,8 @@ import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 
 public class RegisterViewModel {
-    String toast;
+
+    public String toast;
+    public boolean sessionEnabled;
 
 }
