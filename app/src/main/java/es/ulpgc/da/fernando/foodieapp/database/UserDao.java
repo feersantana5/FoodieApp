@@ -19,6 +19,9 @@ public interface UserDao {
     @Query("SELECT * FROM users Where email = :email AND password = :password")
     boolean checkLogIn(String email, String password);
 
+    @Query("SELECT * FROM users Where email = :email AND password = :password")
+    UserItem getLogIn(String email, String password);
+
     // @Query("SELECT * FROM users WHERE restaurant_Id=:restaurantId")
     // List<UserItem> loadUsers(final int restaurantId);
 

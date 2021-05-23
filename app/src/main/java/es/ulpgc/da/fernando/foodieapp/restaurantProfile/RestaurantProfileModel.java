@@ -15,6 +15,9 @@ public class RestaurantProfileModel implements RestaurantProfileContract.Model {
         this.repository = repository;
     }
 
+
+
+
     @Override
     public String getStoredData() {
         Log.e(TAG, "getStoredData()");

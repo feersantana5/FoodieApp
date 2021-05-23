@@ -252,7 +252,7 @@ public class CatalogRepository implements RepositoryContract {
                 getUserDao().insertUser(newUser);
 
                 if (registroUsuarioCallback != null) {
-                    registroUsuarioCallback.userAdded(false);
+                    registroUsuarioCallback.userAdded(false, newRestaurant, newUser);
                 }
             }
         });
@@ -267,7 +267,17 @@ public class CatalogRepository implements RepositoryContract {
             //ejecuta el hilo
             @Override
             public void run() {
-                logInCallback.logInCheck(!getUserDao().checkLogIn(email, password));
+                UserItem userLogged = getUserDao().getLogIn(email, password);
+                RestaurantItem restaurantLogged = getRestaurantDao().getRestaurantWithId(userLogged.restaurantId);
+                if (logInCallback != null) {
+                    logInCallback.logInCheck(!getUserDao().checkLogIn(email, password),restaurantLogged,userLogged);
+                }
+
+//                if(getUserDao().checkLogIn(email, password)){
+//                    logInCallback.logInCheck(false,restaurantLogged,userLogged);
+//                }else{
+//                    logInCallback.logInCheck(true,restaurantLogged,userLogged);
+//                }
             }
         });
     }

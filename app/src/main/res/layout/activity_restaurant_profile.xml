@@ -32,7 +32,8 @@
         android:src="@drawable/ic_edit"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavViewMyNav"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/fab_edit_account" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -43,6 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageDetail">
+
 
         <LinearLayout
             android:layout_width="347dp"
@@ -61,7 +63,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/datos"
+                android:id="@+id/datosLabel"
                 android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -75,69 +77,151 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="330dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="28dp"
-                android:layout_marginRight="28dp"
-                android:fontFamily="@font/sniglet"
-                android:text="@string/emailallende"
-                android:textColor="#000000"
-                android:textSize="20sp" />
+                android:orientation="horizontal"
+                android:layout_marginTop="32dp">
 
-            <TextView
-                android:id="@+id/nombre"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="28dp"
-                android:layout_marginRight="28dp"
-                android:fontFamily="@font/sniglet"
-                android:text="@string/nombre_allende"
-                android:textColor="#000000"
-                android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/emailLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/sniglet"
+                    android:text="@string/Correo"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/contraseña"
-                android:layout_width="331dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="28dp"
-                android:layout_marginRight="28dp"
-                android:fontFamily="@font/sniglet"
-                android:text="@string/passwordallende"
-                android:textColor="#000000"
-                android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/emailProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sniglet"
+                    android:inputType="textWebEmailAddress"
+                    android:text="@string/email"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/descripcion"
-                android:layout_width="331dp"
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="28dp"
-                android:layout_marginRight="28dp"
-                android:fontFamily="@font/sniglet"
-                android:text="@string/allendeDescripcion"
-                android:textColor="#000000"
-                android:textSize="20sp" />
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/nombreLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/sniglet"
+                    android:text="@string/Nombre"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/nombreProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sniglet"
+                    android:text="@string/nombre"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/passwordLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/sniglet"
+                    android:text="@string/Password"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/passwordProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sniglet"
+                    android:inputType="textPassword"
+                    android:text="@string/password"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/descriptionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/sniglet"
+                    android:text="@string/Descripcion"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/descriptionProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sniglet"
+                    android:text="@string/descripcion"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnMyMenus"
                 android:layout_width="160dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="130dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="28dp"
                 android:layout_marginRight="28dp"
                 android:background="@drawable/btn_redondo"

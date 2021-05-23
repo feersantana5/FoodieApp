@@ -24,6 +24,9 @@ public interface RestaurantDao {
     @Query("SELECT * FROM restaurants Where  title = :nombre")
     RestaurantItem checkName(String nombre);
 
+    @Query("SELECT * FROM restaurants Where  id = :id")
+    RestaurantItem getRestaurantWithId(int id);
+
     @Query("SELECT id FROM restaurants Where  title = :nombre")
     int getId(String nombre);
 

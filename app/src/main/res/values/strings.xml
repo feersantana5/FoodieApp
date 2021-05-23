@@ -11,8 +11,6 @@
     <string name="email">Email</string>
     <string name="no_tengo_cuenta">No tengo cuenta</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
-    <string name="emailSignUpError">Este campo no debe estar vacío</string>
-    <string name="passwSignUpError">Este campo no debe estar vacío</string>
     <!--    LoginActivity -->
 
 
@@ -78,12 +76,11 @@
     <string name="logoURL">Logo URL</string>
     <string name="logo">Logo</string>
     <string name="menu_imagen">menu Imagen</string>
-    <string name="nombre">Nombre</string>
     <string name="icono_editar">icono editar</string>
     <string name="icono_eliminar">icono eliminar</string>
     <string name="nombre">Nombre</string>
     <string name="restaurante_imagen">restaurante imagen</string>
-    <string name="nombre">Nombre</string>
+    <string name="Nombre">Nombre:</string>
     <string name="icono_ubicacion">icono ubicacion</string>
     <string name="icono_internet">icono internet</string>
     <string name="fab_add">fab añadir</string>
@@ -98,6 +95,10 @@
     <string name="edit_menu_texto">edit menu texto</string>
     <string name="edit_account_text">edit account text</string>
     <string name="create_menu_text">create menu text</string>
+    <string name="Correo">Email:</string>
+    <string name="Password">Contraseña:</string>
+    <string name="Descripcion">Description:</string>
+    <string name="fab_edit_account">fab edit account</string>
 
 
 </resources>

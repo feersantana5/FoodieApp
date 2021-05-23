@@ -36,7 +36,7 @@ public interface RepositoryContract {
 
     // llamada en el register presenter
     interface RegistroUsuarioCallback {
-        void userAdded(boolean error);
+        void userAdded(boolean error, RestaurantItem restaurant, UserItem user);
     }
 
     // llamada en el register model
@@ -44,7 +44,7 @@ public interface RepositoryContract {
 
     // llamada en el register presenter
     interface LogInCallback {
-        void logInCheck(boolean error);
+        void logInCheck(boolean error, RestaurantItem restaurant, UserItem user);
     }
 
     // llamada en el register model

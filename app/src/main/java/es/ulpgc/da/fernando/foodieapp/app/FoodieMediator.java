@@ -85,7 +85,7 @@ public class FoodieMediator {
     //devuelve la categoria a la que pertenece en RestaurantCarta
     public RestaurantItem getRestaurant() {
         RestaurantItem item = restaurant;
-        //category = null;
+        //restaurant = null;
         return item;
     }
 
@@ -97,9 +97,17 @@ public class FoodieMediator {
     //devuelve el producto al que pertenece en el detalle
     public MenuItem getMenu() {
         MenuItem item = menu;
-        //product = null;
+        //menu = null;
         return item;
     }
 
+    public void setUser(UserItem item) {
+        user = item;
+    }
+    public UserItem getUser() {
+        UserItem item = user;
+        //user = null;
+        return item;
+    }
 
 }

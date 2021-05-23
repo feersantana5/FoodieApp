@@ -87,14 +87,16 @@ public class RegisterPresenter implements RegisterContract.Presenter {
         Log.e(TAG, "verifyDatabase()");
 
         // call the model
-        //añade los datos al modelo de forma asincrona y cuando los tiene lo notifica
+        //añade los datos de forma asincrona y cuando los tiene lo notifica
         model.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, new RepositoryContract.RegistroUsuarioCallback() {
             @Override
-            public void userAdded(boolean error) {
+            public void userAdded(boolean error, RestaurantItem restaurant, UserItem user) {
                 Log.e(TAG, "userAdded()");
                 if (!error) {
                     state.toast = model.getRegisterAdvice();
                     state.sessionEnabled = true;
+                    passRestaurantDataToOthers(restaurant);
+                    passUserDataToOthers(user);
                     view.get().showToastThread(state);
                     goToRestaurantProfile();
                 } else {
@@ -108,6 +110,16 @@ public class RegisterPresenter implements RegisterContract.Presenter {
         Log.e(TAG, "goToRestaurantProfile()");
         view.get().navigateToRestaurantProfile();
     }
+    //almacena en ek mediador la info a pasar
+    private void passRestaurantDataToOthers(RestaurantItem item) {
+        mediator.setRestaurant(item);
+    }
+
+    //almacena en ek mediador la info a pasar
+    private void passUserDataToOthers(UserItem item) {
+        mediator.setUser(item);
+    }
+
 
     @Override
     public void onBackPressed() {

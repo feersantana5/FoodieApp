@@ -6,6 +6,8 @@ import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
+import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 
 
 public class LoginPresenter implements LoginContract.Presenter {
@@ -60,9 +62,12 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void logIn(String email, String password) {
         model.logIn(email, password, new RepositoryContract.LogInCallback() {
             @Override
-            public void logInCheck(boolean error) {
+            public void logInCheck(boolean error, RestaurantItem restaurant, UserItem user) {
                 if (!error) {
                     state.sessionEnabled = true;
+                    //mediator.getLoginToOtherState();
+                    passRestaurantDataToOthers(restaurant);
+                    passUserDataToOthers(user);
                     goToRestaurantProfile();
                 } else {
                     state.toast = model.getErrorAdvice();
@@ -70,6 +75,15 @@ public class LoginPresenter implements LoginContract.Presenter {
                 }
             }
         });
+    }
+    //almacena en ek mediador la info a pasar
+    private void passRestaurantDataToOthers(RestaurantItem item) {
+        mediator.setRestaurant(item);
+    }
+
+    //almacena en ek mediador la info a pasar
+    private void passUserDataToOthers(UserItem item) {
+        mediator.setUser(item);
     }
 
     @Override

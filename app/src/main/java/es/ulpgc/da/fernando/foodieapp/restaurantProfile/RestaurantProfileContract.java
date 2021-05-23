@@ -7,9 +7,14 @@ public interface RestaurantProfileContract {
     interface View {
         void injectPresenter(Presenter presenter);
 
+        void displayData(RestaurantProfileViewModel viewModel);
+
+
         void onDataUpdated(RestaurantProfileViewModel viewModel);
 
-        void navigateToNextScreen();
+        void navigateToMyMenus();
+
+        void navigateToEditAccount();
     }
 
     interface Presenter {
@@ -22,6 +27,13 @@ public interface RestaurantProfileContract {
         void onStart();
 
         void onRestart();
+
+        void goToEditAccount();
+
+        void goToMyMenus();
+
+
+        //void fetchUserData();
 
         void onBackPressed();
 
