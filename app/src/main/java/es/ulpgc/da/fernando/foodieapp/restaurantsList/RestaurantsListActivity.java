@@ -1,29 +1,22 @@
 package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.RestaurantProfileActivity;
 import es.ulpgc.da.fernando.foodieapp.app.NavBar;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
 import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaActivity;
+import es.ulpgc.da.fernando.foodieapp.restaurantProfile.RestaurantProfileActivity;
 
 public class RestaurantsListActivity
         extends NavBar implements RestaurantsListContract.View {

@@ -12,9 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.RestaurantProfileActivity;
 import es.ulpgc.da.fernando.foodieapp.register.RegisterActivity;
-import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
+import es.ulpgc.da.fernando.foodieapp.restaurantProfile.RestaurantProfileActivity;
 
 public class LoginActivity
         extends AppCompatActivity implements LoginContract.View {

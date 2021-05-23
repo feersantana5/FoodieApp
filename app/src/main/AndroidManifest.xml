@@ -9,12 +9,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_fooidie_launcher"
+        android:icon="@mipmap/ic_foodie_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_fooidie_launcher_round"
+        android:roundIcon="@mipmap/ic_foodie_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodieApp">
-        <activity android:name=".app.NavBar"></activity>
+        <activity android:name=".app.NavBar" />
         <activity android:name=".home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,8 +27,8 @@
 
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".register.RegisterActivity" />
+        <activity android:name=".restaurantProfile.RestaurantProfileActivity" />
 
-        <activity android:name=".RestaurantProfileActivity" />
         <activity android:name=".EditAccountActivity" />
         <activity android:name=".EditMenuActivity" />
         <activity android:name=".CreateMenuActivity" />

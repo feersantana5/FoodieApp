@@ -1,8 +1,5 @@
 package es.ulpgc.da.fernando.foodieapp.menuDetail;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -15,13 +12,9 @@ import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.RestaurantProfileActivity;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
-import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
-import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaActivity;
 
 public class MenuDetailActivity
         extends AppCompatActivity implements MenuDetailContract.View {

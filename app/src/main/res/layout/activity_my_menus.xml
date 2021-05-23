@@ -37,7 +37,9 @@
         android:src="@drawable/ic_add"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavViewMyNav"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/fab_add"
+        android:layout_marginEnd="16dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavViewMyNav"

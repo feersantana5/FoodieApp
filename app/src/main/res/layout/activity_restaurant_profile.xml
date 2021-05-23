@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".RestaurantProfileActivity">
+    tools:context=".restaurantCarta.RestaurantCartaActivity">
 
     <ImageView
         android:id="@+id/imageDetail"
@@ -132,7 +132,7 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/mismenus"
+                android:id="@+id/btnMyMenus"
                 android:layout_width="160dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="30dp"

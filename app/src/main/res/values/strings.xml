@@ -77,6 +77,25 @@
     <string name="logoimage">logoImage</string>
     <string name="logoURL">Logo URL</string>
     <string name="logo">Logo</string>
+    <string name="menu_imagen">menu Imagen</string>
+    <string name="nombre">Nombre</string>
+    <string name="icono_editar">icono editar</string>
+    <string name="icono_eliminar">icono eliminar</string>
+    <string name="nombre">Nombre</string>
+    <string name="restaurante_imagen">restaurante imagen</string>
+    <string name="nombre">Nombre</string>
+    <string name="icono_ubicacion">icono ubicacion</string>
+    <string name="icono_internet">icono internet</string>
+    <string name="fab_add">fab añadir</string>
+    <string name="_1">1€</string>
+    <string name="agua">Agua</string>
+    <string name="sopa_de_pollo">Sopa de pollo</string>
+    <string name="costilla_de_cerdo">Costilla de cerdo</string>
+    <string name="papas_arrugadas_con_mojo">Papas arrugadas con mojo</string>
+    <string name="postre">Postre</string>
+    <string name="bebida">Bebida</string>
+    <string name="brownie">Brownie</string>
+    <string name="edit_menu_texto">edit menu texto</string>
 
 
 </resources>

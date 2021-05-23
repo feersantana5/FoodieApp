@@ -14,12 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.RestaurantProfileActivity;
-import es.ulpgc.da.fernando.foodieapp.app.NavBar;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
 import es.ulpgc.da.fernando.foodieapp.menuDetail.MenuDetailActivity;
+import es.ulpgc.da.fernando.foodieapp.restaurantProfile.RestaurantProfileActivity;
 
 public class RestaurantCartaActivity
         extends AppCompatActivity implements RestaurantCartaContract.View {

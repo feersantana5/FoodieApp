@@ -6,13 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.RestaurantProfileActivity;
+import es.ulpgc.da.fernando.foodieapp.restaurantProfile.RestaurantProfileActivity;
 
 public class RegisterActivity
         extends AppCompatActivity implements RegisterContract.View {
@@ -65,7 +64,6 @@ public class RegisterActivity
         descripcion = findViewById(R.id.descripcionRegister);
         nombre = findViewById(R.id.restaurantenameRegister);
         logoURL = findViewById(R.id.logoURLRegister);
-
 
         crearBtn = findViewById(R.id.btnCreateAccount);
     }
