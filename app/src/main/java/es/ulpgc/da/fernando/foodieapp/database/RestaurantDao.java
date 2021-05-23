@@ -24,6 +24,9 @@ public interface RestaurantDao {
     @Query("SELECT * FROM restaurants Where  title = :nombre")
     RestaurantItem checkName(String nombre);
 
+    @Query("SELECT id FROM restaurants Where  title = :nombre")
+    int pp(String nombre);
+
     //TODO: hacer esto para editar y añadir la cuenta
     //@Delete
     //void editMenu(MenuItem menu);

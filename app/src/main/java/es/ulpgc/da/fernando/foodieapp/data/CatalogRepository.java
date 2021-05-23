@@ -249,7 +249,7 @@ public class CatalogRepository implements RepositoryContract {
                 UserItem newUser = new UserItem();
                 newUser.email = email;
                 newUser.password = password;
-                newRestaurant.id = newUser.restaurantId;
+                newUser.restaurantId = getRestaurantDao().pp(nombre);
                 getUserDao().insertUser(newUser);
 
                 if (registroUsuarioCallback != null) {
