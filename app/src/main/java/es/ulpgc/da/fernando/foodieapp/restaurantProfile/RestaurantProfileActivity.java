@@ -5,10 +5,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import es.ulpgc.da.fernando.foodieapp.EditAccountActivity;
@@ -25,6 +31,7 @@ public class RestaurantProfileActivity
     Button btnMyMenus;
     FloatingActionButton fabEditAccount;
     TextView email, nombre, password, descripcion;
+    ImageView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +73,8 @@ public class RestaurantProfileActivity
         password = findViewById(R.id.passwordProfile);
         descripcion = findViewById(R.id.descriptionProfile);
 
+        logo = findViewById(R.id.logoProfile);
+
         fabEditAccount = findViewById(R.id.fab_editProfile);
         btnMyMenus = findViewById(R.id.btnMyMenus);
     }
@@ -74,7 +83,7 @@ public class RestaurantProfileActivity
         btnMyMenus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //presenter.goToMyMenus();
+                presenter.goToMyMenus();
             }
         });
 
@@ -95,7 +104,18 @@ public class RestaurantProfileActivity
         nombre.setText(viewModel.restaurant.title);
         password.setText(viewModel.user.password);
         descripcion.setText(viewModel.restaurant.description);
+        loadImageFromURL(logo, viewModel.restaurant.logo);
     }
+
+    private void loadImageFromURL(ImageView imageView, String imageUrl) { //metodo para añadir la imagen usando Glide
+        RequestManager reqManager = Glide.with(imageView.getContext());
+        RequestBuilder reqBuilder = reqManager.load(imageUrl);
+        RequestOptions reqOptions = new RequestOptions();
+        reqOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
+        reqBuilder.apply(reqOptions);
+        reqBuilder.into(imageView);
+    }
+
 
     public void navigateToMyMenus() {
         Intent intent = new Intent(this, MyMenusActivity.class);
