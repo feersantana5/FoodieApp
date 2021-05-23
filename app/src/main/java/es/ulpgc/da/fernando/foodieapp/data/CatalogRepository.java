@@ -15,7 +15,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -249,13 +248,11 @@ public class CatalogRepository implements RepositoryContract {
                 UserItem newUser = new UserItem();
                 newUser.email = email;
                 newUser.password = password;
-                newUser.restaurantId = getRestaurantDao().pp(nombre);
+                newUser.restaurantId = getRestaurantDao().getId(nombre);
                 getUserDao().insertUser(newUser);
 
                 if (registroUsuarioCallback != null) {
                     registroUsuarioCallback.userAdded(false);
-                } else {
-                    registroUsuarioCallback.userAdded(true);
                 }
             }
         });
@@ -270,12 +267,7 @@ public class CatalogRepository implements RepositoryContract {
             //ejecuta el hilo
             @Override
             public void run() {
-
-                if (logInCallback != null) {
-                    logInCallback.logInCheck(false);
-                } else {
-                    logInCallback.logInCheck(true);
-                }
+                logInCallback.logInCheck(!getUserDao().checkLogIn(email, password));
             }
         });
     }

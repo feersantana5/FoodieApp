@@ -12,11 +12,15 @@ import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 @Dao
 public interface UserDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE) //si inserto menu que ya existe, la machaco, sino saldria error
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+        //si inserto menu que ya existe, la machaco, sino saldria error
     void insertUser(UserItem menu);
 
-   // @Query("SELECT * FROM users WHERE restaurant_Id=:restaurantId")
-   // List<UserItem> loadUsers(final int restaurantId);
+    @Query("SELECT * FROM users Where email = :email AND password = :password")
+    boolean checkLogIn(String email, String password);
+
+    // @Query("SELECT * FROM users WHERE restaurant_Id=:restaurantId")
+    // List<UserItem> loadUsers(final int restaurantId);
 
     //TODO: hacer esto para editar cuenta
     //@Delete
