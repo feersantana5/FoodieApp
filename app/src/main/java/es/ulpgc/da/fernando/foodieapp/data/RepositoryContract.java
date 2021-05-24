@@ -53,11 +53,25 @@ public interface RepositoryContract {
     // llamada en el editaccount presenter
     interface EditUserCallback {
         void changeData(boolean error, RestaurantItem restaurantEdited, UserItem userEdited);
-        //void changeData(boolean error, RestaurantItem restaurant, UserItem user);
     }
 
     // llamada en el editaccount model
     void editUser(int idRestaurant, String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, EditUserCallback editUserCallback);
 
+    // llamada en el mymenus presenter
+    interface GetMyMenusListCallback {
+        void setMenuList(List<MenuItem> menus);
+    }
 
+    //llamado desde el modelo de Menus
+    void getMyMenuList(RestaurantItem restaurant, CatalogRepository.GetMyMenusListCallback callback);
+
+    // llamada en el mymenus presenter
+    interface DeleteMenuCallback {
+        void setMyMenuList(List<MenuItem> menuItems);
+    }
+
+    //llamado desde el modelo de myMenus
+    void deleteMenu(MenuItem menuItem, DeleteMenuCallback deleteMenuCallback);
 }
+

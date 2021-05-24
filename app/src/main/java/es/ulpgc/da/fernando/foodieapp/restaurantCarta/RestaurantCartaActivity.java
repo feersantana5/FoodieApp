@@ -100,7 +100,7 @@ public class RestaurantCartaActivity
     //muestra la lista
     @Override
     public void displayMenuListData(final RestaurantCartaViewModel viewModel) {
-        Log.e(TAG, "displayProductListData()");
+        Log.e(TAG, "displayMenuListData()");
 
         runOnUiThread(new Runnable() {
             @Override

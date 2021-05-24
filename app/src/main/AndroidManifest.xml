@@ -29,10 +29,10 @@
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".restaurantProfile.RestaurantProfileActivity" />
         <activity android:name=".editAccount.EditAccountActivity" />
+        <activity android:name=".myMenus.MyMenusActivity" />
 
         <activity android:name=".EditMenuActivity" />
         <activity android:name=".CreateMenuActivity" />
-        <activity android:name=".MyMenusActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

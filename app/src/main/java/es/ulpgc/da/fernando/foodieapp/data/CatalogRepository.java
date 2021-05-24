@@ -292,7 +292,7 @@ public class CatalogRepository implements RepositoryContract {
             @Override
             public void run() {
                 RestaurantItem editRestaurant = getRestaurantDao().getRestaurantWithId(idRestaurant);
-                UserItem editUser  = getUserDao().getUserWithRestaurantId(idRestaurant);
+                UserItem editUser = getUserDao().getUserWithRestaurantId(idRestaurant);
 
                 editRestaurant.location = ubicacion;
                 editRestaurant.webpage = webpage;
@@ -307,6 +307,35 @@ public class CatalogRepository implements RepositoryContract {
 
                 if (editUserCallback != null) {
                     editUserCallback.changeData(false, editRestaurant, editUser);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getMyMenuList(RestaurantItem restaurant, GetMyMenusListCallback callback) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                if (callback != null) {
+                    callback.setMenuList(getMenuDao().loadMenus(restaurant.id));
+                }
+            }
+        });
+    }
+
+    @Override
+    public void deleteMenu(MenuItem menuItem, DeleteMenuCallback deleteMenuCallback) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                int restaurantId = menuItem.restaurantId;
+                getMenuDao().deleteMenu(menuItem);
+
+                List<MenuItem> menusActualizados = getMenuDao().loadMenus(restaurantId);
+
+                if (deleteMenuCallback != null) {
+                    deleteMenuCallback.setMyMenuList(menusActualizados);
                 }
             }
         });

@@ -22,9 +22,9 @@ public interface MenuDao {
     List<MenuItem> loadMenus(final int restaurantId);
 
 
-    //TODO: hacer esto para editar y añadir menus
-    //@Delete
-    //void editMenu(MenuItem menu);
+    @Delete
+    void deleteMenu(MenuItem menu);
+
     //@Update
     //void updateMenu(MenuItem menu);
 }

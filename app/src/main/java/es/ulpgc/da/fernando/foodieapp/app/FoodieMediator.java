@@ -7,6 +7,7 @@ import es.ulpgc.da.fernando.foodieapp.editAccount.EditAccountState;
 import es.ulpgc.da.fernando.foodieapp.home.HomeState;
 import es.ulpgc.da.fernando.foodieapp.login.LoginState;
 import es.ulpgc.da.fernando.foodieapp.menuDetail.MenuDetailState;
+import es.ulpgc.da.fernando.foodieapp.myMenus.MyMenusState;
 import es.ulpgc.da.fernando.foodieapp.register.RegisterState;
 import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaState;
 import es.ulpgc.da.fernando.foodieapp.restaurantProfile.RestaurantProfileState;
@@ -23,6 +24,7 @@ public class FoodieMediator {
     private RegisterState registerState = new RegisterState();
     private RestaurantProfileState restaurantProfileState = new RestaurantProfileState();
     private EditAccountState editAccountState = new EditAccountState();
+    private MyMenusState myMenusState = new MyMenusState();
 
 
     private RestaurantsListState restaurantsListState = new RestaurantsListState();
@@ -35,7 +37,8 @@ public class FoodieMediator {
     private UserItem user;
 
 
-    private FoodieMediator() { }
+    private FoodieMediator() {
+    }
 
     public static void resetInstance() {
         INSTANCE = null;
@@ -66,10 +69,13 @@ public class FoodieMediator {
         return restaurantProfileState;
     }
 
-    public EditAccountState getEditAccountState () {
-        return editAccountState ;
+    public EditAccountState getEditAccountState() {
+        return editAccountState;
     }
 
+    public MyMenusState getMyMenusState() {
+        return myMenusState;
+    }
 
 
     public RestaurantsListState getRestaurantsListState() {
@@ -89,6 +95,7 @@ public class FoodieMediator {
     public void setRestaurant(RestaurantItem item) {
         restaurant = item;
     }
+
     //devuelve la categoria a la que pertenece en RestaurantCarta
     public RestaurantItem getRestaurant() {
         RestaurantItem item = restaurant;
@@ -101,6 +108,7 @@ public class FoodieMediator {
     public void setMenu(MenuItem item) {
         menu = item;
     }
+
     //devuelve el producto al que pertenece en el detalle
     public MenuItem getMenu() {
         MenuItem item = menu;
@@ -111,6 +119,7 @@ public class FoodieMediator {
     public void setUser(UserItem item) {
         user = item;
     }
+
     public UserItem getUser() {
         UserItem item = user;
         //user = null;
