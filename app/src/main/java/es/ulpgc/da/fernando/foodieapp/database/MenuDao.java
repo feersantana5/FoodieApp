@@ -25,6 +25,6 @@ public interface MenuDao {
     @Delete
     void deleteMenu(MenuItem menu);
 
-    //@Update
-    //void updateMenu(MenuItem menu);
+    @Update
+    void updateMenu(MenuItem menu);
 }

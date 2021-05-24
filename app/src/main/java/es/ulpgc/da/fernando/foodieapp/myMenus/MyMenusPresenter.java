@@ -11,6 +11,7 @@ import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
+import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 
 public class MyMenusPresenter implements MyMenusContract.Presenter {
 
@@ -73,21 +74,48 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
 
     @Override
     public void deleteMenu(MenuItem menuItem) {
-        Log.e(TAG, "deleteMenu()");
+        Log.e(TAG, "deleteMenu(): " + menuItem);
         model.deleteMenu(menuItem, new RepositoryContract.DeleteMenuCallback() {
             @Override
-            public void setMyMenuList(List<MenuItem> menuItems) {
-                // set state
-                state.menus = menuItems;
-                // update view
-                view.get().displayMyMenusListData(state);
+            public void setMyMenuList(boolean error, List<MenuItem> menuItems) {
+                if (!error) {
+                    // set state
+                    state.toast = model.getDeletedAdvice();
+                    state.menus = menuItems;
+                    // update view
+                    view.get().displayMyMenusListData(state);
+                    view.get().showToastThread(state);
+
+                }
             }
         });
     }
 
-    @Override
+/*    @Override
     public void editMenu(MenuItem menuItem) {
         Log.e(TAG, "editMenu()");
+        model.editMenu(menuItem, new RepositoryContract.EditMenuCallback() {
+            @Override
+            public void setMyMenuListEdited(boolean error, List<MenuItem> menuItems) {
+                if (!error) {
+                    // set state
+                    state.menus = menuItems;
+                    // update view
+                    view.get().displayMyMenusListData(state);
+                }
+            }
+        });
+    }*/
+
+    @Override
+    public void goToEditMenu() {
+        Log.e(TAG, "goToEditMenu()");
+        passMenuDataToOthers(state.menu);
+        view.get().navigateToEditMenu();
+    }
+    //almacena en el mediador la info a pasar
+    private void passMenuDataToOthers(MenuItem item) {
+        mediator.setMenu(item);
     }
 
     @Override

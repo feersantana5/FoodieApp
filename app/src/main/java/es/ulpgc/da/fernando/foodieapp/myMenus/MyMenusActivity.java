@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -14,9 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import es.ulpgc.da.fernando.foodieapp.EditMenuActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
+import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
 import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaAdapter;
 import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaViewModel;
 import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListAdapter;
@@ -68,11 +71,11 @@ public class MyMenusActivity
             @Override
             public void onClick(View view) {
                 MenuItem item = (MenuItem) view.getTag();
-                Log.d(TAG, "onClick: " + item);
+                Log.d(TAG, "listAdapterOnClick: " + item);
 
                 if (view.getId() == R.id.menuEdit) {
                     //listener de la lista cuando se pulsa obtiene el tag y lo pasa
-                    presenter.editMenu(item);
+                    presenter.goToEditMenu();
                 }
                 if (view.getId() == R.id.menuDelete) {
                     presenter.deleteMenu(item);
@@ -120,6 +123,17 @@ public class MyMenusActivity
     }
 
     @Override
+    public void showToastThread(MyMenusViewModel viewModel) {
+        Log.e(TAG, "showToastThread()");
+        runOnUiThread(new Runnable() {
+            public void run() {
+                //Do something on UiThread
+                Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
         presenter.onBackPressed();
@@ -146,8 +160,8 @@ public class MyMenusActivity
 
 
     @Override
-    public void navigateToNextScreen() {
-        Intent intent = new Intent(this, MyMenusActivity.class);
+    public void navigateToEditMenu() {
+        Intent intent = new Intent(this, EditMenuActivity.class);
         startActivity(intent);
     }
 

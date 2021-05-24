@@ -68,10 +68,18 @@ public interface RepositoryContract {
 
     // llamada en el mymenus presenter
     interface DeleteMenuCallback {
-        void setMyMenuList(List<MenuItem> menuItems);
+        void setMyMenuList(boolean error, List<MenuItem> menuItems);
     }
 
     //llamado desde el modelo de myMenus
     void deleteMenu(MenuItem menuItem, DeleteMenuCallback deleteMenuCallback);
+
+    // llamada en el mymenus presenter
+    interface EditMenuCallback {
+        void setMyMenuListEdited(boolean error, List<MenuItem> menuItems);
+    }
+
+    //llamado desde el modelo de myMenus
+    void editMenu(MenuItem menuItem, EditMenuCallback editMenuCallback);
 }
 

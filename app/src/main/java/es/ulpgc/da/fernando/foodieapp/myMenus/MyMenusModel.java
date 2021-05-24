@@ -12,6 +12,8 @@ public class MyMenusModel implements MyMenusContract.Model {
 
     private RepositoryContract repository;
 
+    private String borrado = "Menu borrado con éxito";
+
     public MyMenusModel(RepositoryContract repository) {
         this.repository = repository;
     }
@@ -27,6 +29,16 @@ public class MyMenusModel implements MyMenusContract.Model {
     public void deleteMenu(MenuItem item, RepositoryContract.DeleteMenuCallback deleteMenuCallback) {
         repository.deleteMenu(item, deleteMenuCallback);
     }
+
+    @Override
+    public String getDeletedAdvice() {
+        return borrado;
+    }
+
+/*    @Override
+    public void editMenu(MenuItem item, RepositoryContract.EditMenuCallback editMenuCallback) {
+        repository.editMenu(item, editMenuCallback);
+    }*/
 
     @Override
     public String getStoredData() {

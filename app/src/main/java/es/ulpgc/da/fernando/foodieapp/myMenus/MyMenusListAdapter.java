@@ -67,9 +67,12 @@ public class MyMenusListAdapter extends RecyclerView.Adapter<MyMenusListAdapter.
         holder.itemView.setTag(itemList.get(position)); //añade etiqueta con su posicion
         holder.menuTitle.setText(itemList.get(position).name);//añade texto
         //añade intents
-        holder.menuImage.setTag(itemList.get(position));
+        //holder.menuImage.setTag(itemList.get(position));
+        holder.menuEdit.setTag(itemList.get(position));
         holder.menuEdit.setOnClickListener(clickListener);
+        holder.menuDelete.setTag(itemList.get(position));
         holder.menuDelete.setOnClickListener(clickListener);
+
 
         //añade imagen
         loadImageFromURL(holder.menuImage, itemList.get(position).image);

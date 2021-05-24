@@ -5,6 +5,7 @@ import java.lang.ref.WeakReference;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
+import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
 
 public interface MyMenusContract {
 
@@ -13,9 +14,11 @@ public interface MyMenusContract {
 
         void displayMyMenusListData(final MyMenusViewModel viewModel);
 
+        void showToastThread(MyMenusViewModel viewModel);
+
         void onDataUpdated(MyMenusViewModel viewModel);
 
-        void navigateToNextScreen();
+        void navigateToEditMenu();
     }
 
     interface Presenter {
@@ -31,9 +34,11 @@ public interface MyMenusContract {
 
         void fetchMyMenusListData();
 
-        void editMenu(MenuItem menuItem);
+//        void editMenu(MenuItem menuItem);
 
         void deleteMenu(MenuItem menuItem);
+
+        void goToEditMenu();
 
         void onBackPressed();
 
@@ -45,7 +50,12 @@ public interface MyMenusContract {
     interface Model {
 
         void fetchMyMenusListData(RestaurantItem restaurant, RepositoryContract.GetMyMenusListCallback callback);
+
         void deleteMenu(MenuItem item, RepositoryContract.DeleteMenuCallback deleteMenuCallback);
+
+        String getDeletedAdvice();
+
+//        void editMenu(MenuItem item, RepositoryContract.EditMenuCallback editMenuCallback);
 
         String getStoredData();
 

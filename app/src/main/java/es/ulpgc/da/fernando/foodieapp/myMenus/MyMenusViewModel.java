@@ -10,5 +10,7 @@ public class MyMenusViewModel {
     // put the view state here
     public RestaurantItem restaurant;
     public List<MenuItem> menus;
+    public MenuItem menu;
+    public String toast;
 
 }

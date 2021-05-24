@@ -335,7 +335,24 @@ public class CatalogRepository implements RepositoryContract {
                 List<MenuItem> menusActualizados = getMenuDao().loadMenus(restaurantId);
 
                 if (deleteMenuCallback != null) {
-                    deleteMenuCallback.setMyMenuList(menusActualizados);
+                    deleteMenuCallback.setMyMenuList(false, menusActualizados);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void editMenu(MenuItem menuItem, EditMenuCallback editMenuCallback) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                int restaurantId = menuItem.restaurantId;
+                getMenuDao().updateMenu(menuItem);
+
+                List<MenuItem> menusActualizados = getMenuDao().loadMenus(restaurantId);
+
+                if (editMenuCallback != null) {
+                    editMenuCallback.setMyMenuListEdited(false, menusActualizados);
                 }
             }
         });
