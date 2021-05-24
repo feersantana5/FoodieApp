@@ -35,11 +35,6 @@ public class MyMenusModel implements MyMenusContract.Model {
         return borrado;
     }
 
-/*    @Override
-    public void editMenu(MenuItem item, RepositoryContract.EditMenuCallback editMenuCallback) {
-        repository.editMenu(item, editMenuCallback);
-    }*/
-
     @Override
     public String getStoredData() {
         Log.e(TAG, "getStoredData()");

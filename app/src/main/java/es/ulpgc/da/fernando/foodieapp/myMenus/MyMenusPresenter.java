@@ -40,6 +40,19 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
     @Override
     public void onResume() {
         Log.e(TAG, "onResume()");
+        List<MenuItem> menus = getMenuListUpdated();
+        if (menus != null) {
+            //modify state
+            state.menus = menus;
+            // update view
+            view.get().displayMyMenusListData(state);
+        }
+    }
+
+    //obtiene el restaurante almacenado en el mediador
+    private List<MenuItem> getMenuListUpdated() {
+        List<MenuItem> menus = mediator.getMenuList();
+        return menus;
     }
 
     @Override
@@ -52,7 +65,6 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
             //modify state
             state.restaurant = restaurant;
         }
-
         // call the model
         //llama al modelo para que obtenga los datos de forma async usandp patron obs
         model.fetchMyMenusListData(state.restaurant, new RepositoryContract.GetMyMenusListCallback() {
@@ -108,9 +120,11 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
     }*/
 
     @Override
-    public void goToEditMenu() {
+    public void goToEditMenu(MenuItem menu) {
         Log.e(TAG, "goToEditMenu()");
+        state.menu  = menu;
         passMenuDataToOthers(state.menu);
+        Log.e(TAG, state.menu.name);
         view.get().navigateToEditMenu();
     }
     //almacena en el mediador la info a pasar

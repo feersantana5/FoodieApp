@@ -342,13 +342,23 @@ public class CatalogRepository implements RepositoryContract {
     }
 
     @Override
-    public void editMenu(MenuItem menuItem, EditMenuCallback editMenuCallback) {
+    public void editMenu(int idMenu, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, EditMenuCallback editMenuCallback) {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                int restaurantId = menuItem.restaurantId;
-                getMenuDao().updateMenu(menuItem);
+                MenuItem editedMenu =  getMenuDao().loadMenuWithId(idMenu);
+                editedMenu.name = nombre;
+                editedMenu.price=precio;
+                editedMenu.image=imagen;
+                editedMenu.starter=entrante;
+                editedMenu.firstCourse=primero;
+                editedMenu.secondCourse=segundo;
+                editedMenu.dessert=postre;
+                editedMenu.beverage=bebida;
+                getMenuDao().updateMenu(editedMenu);
 
+                int restaurantId = editedMenu.restaurantId;
+                //RestaurantItem restaurantUpdated = getRestaurantDao().getRestaurantWithId(restaurantId);
                 List<MenuItem> menusActualizados = getMenuDao().loadMenus(restaurantId);
 
                 if (editMenuCallback != null) {

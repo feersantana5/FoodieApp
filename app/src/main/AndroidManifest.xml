@@ -30,8 +30,8 @@
         <activity android:name=".restaurantProfile.RestaurantProfileActivity" />
         <activity android:name=".editAccount.EditAccountActivity" />
         <activity android:name=".myMenus.MyMenusActivity" />
+        <activity android:name=".editMenu.EditMenuActivity" />
 
-        <activity android:name=".EditMenuActivity" />
         <activity android:name=".CreateMenuActivity" />
 
         <meta-data

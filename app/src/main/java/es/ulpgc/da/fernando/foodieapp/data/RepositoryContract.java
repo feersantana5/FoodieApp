@@ -80,6 +80,6 @@ public interface RepositoryContract {
     }
 
     //llamado desde el modelo de myMenus
-    void editMenu(MenuItem menuItem, EditMenuCallback editMenuCallback);
+    void editMenu(int idMenu, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, EditMenuCallback editMenuCallback);
 }
 

@@ -1,28 +1,21 @@
 package es.ulpgc.da.fernando.foodieapp.myMenus;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import es.ulpgc.da.fernando.foodieapp.EditMenuActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
-import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
-import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaAdapter;
-import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaViewModel;
-import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListAdapter;
+import es.ulpgc.da.fernando.foodieapp.editMenu.EditMenuActivity;
 
 public class MyMenusActivity
         extends AppCompatActivity implements MyMenusContract.View {
@@ -75,7 +68,7 @@ public class MyMenusActivity
 
                 if (view.getId() == R.id.menuEdit) {
                     //listener de la lista cuando se pulsa obtiene el tag y lo pasa
-                    presenter.goToEditMenu();
+                    presenter.goToEditMenu(item);
                 }
                 if (view.getId() == R.id.menuDelete) {
                     presenter.deleteMenu(item);
@@ -97,7 +90,6 @@ public class MyMenusActivity
         fabAddMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
     }

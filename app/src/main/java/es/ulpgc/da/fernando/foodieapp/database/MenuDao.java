@@ -21,6 +21,8 @@ public interface MenuDao {
     @Query("SELECT * FROM menus WHERE restaurant_Id=:restaurantId")
     List<MenuItem> loadMenus(final int restaurantId);
 
+    @Query("SELECT * FROM menus WHERE id=:id")
+    MenuItem loadMenuWithId(final int id);
 
     @Delete
     void deleteMenu(MenuItem menu);

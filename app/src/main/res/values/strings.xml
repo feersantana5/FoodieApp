@@ -74,6 +74,7 @@
     <string name="registertxt">registerTxt</string>
     <string name="logoimage">logoImage</string>
     <string name="logoURL">Logo URL</string>
+    <string name="imagenURL">Imagen URL</string>
     <string name="logo">Logo</string>
     <string name="menu_imagen">menu Imagen</string>
     <string name="icono_editar">icono editar</string>
@@ -99,6 +100,7 @@
     <string name="Password">Contraseña:</string>
     <string name="Descripcion">Description:</string>
     <string name="fab_edit_account">fab edit account</string>
+    <string name="imagen">Imagen</string>
 
 
 </resources>

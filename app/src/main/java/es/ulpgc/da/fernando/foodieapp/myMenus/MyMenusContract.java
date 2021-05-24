@@ -38,7 +38,7 @@ public interface MyMenusContract {
 
         void deleteMenu(MenuItem menuItem);
 
-        void goToEditMenu();
+        void goToEditMenu(MenuItem menuItem);
 
         void onBackPressed();
 
