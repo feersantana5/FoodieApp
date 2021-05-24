@@ -100,7 +100,19 @@ public class RestaurantProfilePresenter implements RestaurantProfileContract.Pre
 
     public void goToEditAccount() {
         Log.e(TAG, "goToEditAccount()");
+        passRestaurantDataToOthers(state.restaurant);
+        passUserDataToOthers(state.user);
         view.get().navigateToEditAccount();
+    }
+
+    //almacena en ek mediador la info a pasar
+    private void passRestaurantDataToOthers(RestaurantItem item) {
+        mediator.setRestaurant(item);
+    }
+
+    //almacena en ek mediador la info a pasar
+    private void passUserDataToOthers(UserItem item) {
+        mediator.setUser(item);
     }
 
     @Override

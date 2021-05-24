@@ -270,7 +270,7 @@ public class CatalogRepository implements RepositoryContract {
                 UserItem userLogged = getUserDao().getLogIn(email, password);
                 RestaurantItem restaurantLogged = getRestaurantDao().getRestaurantWithId(userLogged.restaurantId);
                 if (logInCallback != null) {
-                    logInCallback.logInCheck(!getUserDao().checkLogIn(email, password),restaurantLogged,userLogged);
+                    logInCallback.logInCheck(!getUserDao().checkLogIn(email, password), restaurantLogged, userLogged);
                 }
 
 //                if(getUserDao().checkLogIn(email, password)){
@@ -281,5 +281,36 @@ public class CatalogRepository implements RepositoryContract {
             }
         });
     }
+
+    @Override
+    public void editUser(int idRestaurant, String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, EditUserCallback editUserCallback) {
+        Log.e(TAG, "editUser()");
+        //crea hilo asincrono
+        AsyncTask.execute(new Runnable() {
+
+            //ejecuta el hilo
+            @Override
+            public void run() {
+                RestaurantItem editRestaurant = getRestaurantDao().getRestaurantWithId(idRestaurant);
+                UserItem editUser  = getUserDao().getUserWithRestaurantId(idRestaurant);
+
+                editRestaurant.location = ubicacion;
+                editRestaurant.webpage = webpage;
+                editRestaurant.description = descripcion;
+                editRestaurant.title = nombre;
+                editRestaurant.logo = logo;
+                getRestaurantDao().updateRestaurant(editRestaurant);
+
+                editUser.password = password;
+                editUser.email = email;
+                getUserDao().updateUser(editUser);
+
+                if (editUserCallback != null) {
+                    editUserCallback.changeData(false, editRestaurant, editUser);
+                }
+            }
+        });
+    }
+
 
 }

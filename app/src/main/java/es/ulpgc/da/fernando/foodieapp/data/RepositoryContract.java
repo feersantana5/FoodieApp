@@ -50,5 +50,14 @@ public interface RepositoryContract {
     // llamada en el register model
     void logIn(String email, String password, LogInCallback logInCallback);
 
+    // llamada en el editaccount presenter
+    interface EditUserCallback {
+        void changeData(boolean error, RestaurantItem restaurantEdited, UserItem userEdited);
+        //void changeData(boolean error, RestaurantItem restaurant, UserItem user);
+    }
+
+    // llamada en el editaccount model
+    void editUser(int idRestaurant, String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, EditUserCallback editUserCallback);
+
 
 }

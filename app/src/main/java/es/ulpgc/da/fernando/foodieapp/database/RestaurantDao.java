@@ -30,6 +30,9 @@ public interface RestaurantDao {
     @Query("SELECT id FROM restaurants Where  title = :nombre")
     int getId(String nombre);
 
+    @Update
+    void updateRestaurant(RestaurantItem restaurantItem);
+
     //TODO: hacer esto para editar y añadir la cuenta
     //@Delete
     //void editMenu(MenuItem menu);

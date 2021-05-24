@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".EditAccountActivity">
+    tools:context=".editAccount.EditAccountActivity">
 
     <ImageView
         android:id="@+id/editMenuTxt"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/edit_account_text"
         app:layout_constraintEnd_toStartOf="@+id/loginImage"
         app:layout_constraintStart_toStartOf="parent"
@@ -230,7 +230,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descripcionEditAccountTextInputLayout"
+                android:id="@+id/logoEditAccountTextInputLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -242,6 +242,39 @@
                 app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/restaurantNameEditAccountTextInputLayout">
+
+                <EditText
+                    android:id="@+id/logoEditAccount"
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:autofillHints="@string/logo"
+                    android:background="@drawable/input_text_round"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:hint="@string/logoURL"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="154dp"
+                    tools:text="@string/logo" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/descripcionEditAccountTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/input_text_round"
+                android:elevation="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoEditAccountTextInputLayout">
 
                 <EditText
                     android:id="@+id/descripcionEditAccount"

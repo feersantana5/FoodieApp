@@ -3,6 +3,7 @@ package es.ulpgc.da.fernando.foodieapp.app;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.data.UserItem;
+import es.ulpgc.da.fernando.foodieapp.editAccount.EditAccountState;
 import es.ulpgc.da.fernando.foodieapp.home.HomeState;
 import es.ulpgc.da.fernando.foodieapp.login.LoginState;
 import es.ulpgc.da.fernando.foodieapp.menuDetail.MenuDetailState;
@@ -19,8 +20,10 @@ public class FoodieMediator {
     //screen states
     private HomeState homeState = new HomeState();
     private LoginState loginState = new LoginState();
-    protected RegisterState registerState = new RegisterState();
-    protected RestaurantProfileState restaurantProfileState = new RestaurantProfileState();
+    private RegisterState registerState = new RegisterState();
+    private RestaurantProfileState restaurantProfileState = new RestaurantProfileState();
+    private EditAccountState editAccountState = new EditAccountState();
+
 
     private RestaurantsListState restaurantsListState = new RestaurantsListState();
     private RestaurantCartaState restaurantCartaState = new RestaurantCartaState();
@@ -32,8 +35,7 @@ public class FoodieMediator {
     private UserItem user;
 
 
-    private FoodieMediator() {
-    }
+    private FoodieMediator() { }
 
     public static void resetInstance() {
         INSTANCE = null;
@@ -63,6 +65,11 @@ public class FoodieMediator {
     public RestaurantProfileState getRestaurantProfileState() {
         return restaurantProfileState;
     }
+
+    public EditAccountState getEditAccountState () {
+        return editAccountState ;
+    }
+
 
 
     public RestaurantsListState getRestaurantsListState() {

@@ -4,9 +4,11 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 
 @Dao
@@ -21,6 +23,12 @@ public interface UserDao {
 
     @Query("SELECT * FROM users Where email = :email AND password = :password")
     UserItem getLogIn(String email, String password);
+
+    @Query("SELECT * FROM users Where  restaurant_Id = :id")
+    UserItem getUserWithRestaurantId(int id);
+
+    @Update
+    void updateUser(UserItem userItem);
 
     // @Query("SELECT * FROM users WHERE restaurant_Id=:restaurantId")
     // List<UserItem> loadUsers(final int restaurantId);

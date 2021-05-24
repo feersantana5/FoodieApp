@@ -17,9 +17,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import es.ulpgc.da.fernando.foodieapp.EditAccountActivity;
 import es.ulpgc.da.fernando.foodieapp.MyMenusActivity;
 import es.ulpgc.da.fernando.foodieapp.R;
+import es.ulpgc.da.fernando.foodieapp.editAccount.EditAccountActivity;
 
 public class RestaurantProfileActivity
         extends AppCompatActivity implements RestaurantProfileContract.View {
@@ -56,8 +56,6 @@ public class RestaurantProfileActivity
             presenter.onRestart();
         }
 
-        // do some work
-        //presenter.fetchUserData();
     }
 
     @Override
