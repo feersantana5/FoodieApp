@@ -31,8 +31,7 @@
         <activity android:name=".editAccount.EditAccountActivity" />
         <activity android:name=".myMenus.MyMenusActivity" />
         <activity android:name=".editMenu.EditMenuActivity" />
-
-        <activity android:name=".CreateMenuActivity" />
+        <activity android:name=".createMenu.CreateMenuActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

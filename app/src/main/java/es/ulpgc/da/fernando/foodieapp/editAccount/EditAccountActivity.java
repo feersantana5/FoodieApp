@@ -69,17 +69,6 @@ public class EditAccountActivity
         logoURL = findViewById(R.id.logoEditAccount);
     }
 
-    @Override
-    public void displayData(EditAccountViewModel viewModel) {
-        email.setText(viewModel.user.email);
-        password.setText(viewModel.user.password);
-        ubicacion.setText(viewModel.restaurant.location);
-        webpage.setText(viewModel.restaurant.webpage);
-        descripcion.setText(viewModel.restaurant.description);
-        nombre.setText(viewModel.restaurant.title);
-        logoURL.setText(viewModel.restaurant.logo);
-    }
-
     private void enableLayoutButtons() {
         btnEditAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +83,17 @@ public class EditAccountActivity
                 presenter.editAccount(emailUser, passwordUser, ubicacionUser, webpageUser, descripcionUser, nombreUser, logoUser);
             }
         });
+    }
+
+    @Override
+    public void displayData(EditAccountViewModel viewModel) {
+        email.setText(viewModel.user.email);
+        password.setText(viewModel.user.password);
+        ubicacion.setText(viewModel.restaurant.location);
+        webpage.setText(viewModel.restaurant.webpage);
+        descripcion.setText(viewModel.restaurant.description);
+        nombre.setText(viewModel.restaurant.title);
+        logoURL.setText(viewModel.restaurant.logo);
     }
 
     public void showToast(EditAccountViewModel viewModel) {

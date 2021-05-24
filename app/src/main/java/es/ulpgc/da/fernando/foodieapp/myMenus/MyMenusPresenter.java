@@ -103,34 +103,32 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
         });
     }
 
-/*    @Override
-    public void editMenu(MenuItem menuItem) {
-        Log.e(TAG, "editMenu()");
-        model.editMenu(menuItem, new RepositoryContract.EditMenuCallback() {
-            @Override
-            public void setMyMenuListEdited(boolean error, List<MenuItem> menuItems) {
-                if (!error) {
-                    // set state
-                    state.menus = menuItems;
-                    // update view
-                    view.get().displayMyMenusListData(state);
-                }
-            }
-        });
-    }*/
-
     @Override
     public void goToEditMenu(MenuItem menu) {
         Log.e(TAG, "goToEditMenu()");
-        state.menu  = menu;
+        state.menu = menu;
         passMenuDataToOthers(state.menu);
         Log.e(TAG, state.menu.name);
         view.get().navigateToEditMenu();
     }
+
     //almacena en el mediador la info a pasar
     private void passMenuDataToOthers(MenuItem item) {
         mediator.setMenu(item);
     }
+
+    @Override
+    public void goToCreateMenu() {
+        Log.e(TAG, "goToCreateMenu()");
+        passRestaurantToOthers(state.restaurant);
+        view.get().navigateToCreateMenu();
+    }
+
+    //almacena en el mediador la info a pasar
+    private void passRestaurantToOthers(RestaurantItem item) {
+        mediator.setRestaurant(item);
+    }
+
 
     @Override
     public void onBackPressed() {

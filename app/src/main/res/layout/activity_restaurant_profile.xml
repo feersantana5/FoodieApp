@@ -29,11 +29,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
+        android:contentDescription="@string/fab_edit_account"
         android:src="@drawable/ic_edit"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavViewMyNav"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/fab_edit_account" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -80,8 +80,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="32dp">
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/emailLabel"
@@ -115,8 +115,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/nombreLabel"
@@ -149,8 +149,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/passwordLabel"
@@ -184,8 +184,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/descriptionLabel"

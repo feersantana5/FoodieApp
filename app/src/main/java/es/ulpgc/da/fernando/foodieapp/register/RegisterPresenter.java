@@ -33,17 +33,6 @@ public class RegisterPresenter implements RegisterContract.Presenter {
             state = new RegisterState();
         }
 
-        // call the model and update the state
-        // state.data = model.getStoredData();
-
-        // use passed state if is necessary
-        // PreviousToRegisterState savedState = getStateFromPreviousScreen();
-        //if (savedState != null) {
-        // update the model if is necessary
-        //  model.onDataFromPreviousScreen(savedState.data);
-        // update the state if is necessary
-        //state.data = savedState.data;
-        // }
     }
 
     //reinicia activity tras rotar
@@ -58,21 +47,9 @@ public class RegisterPresenter implements RegisterContract.Presenter {
     @Override
     public void onResume() {
         Log.e(TAG, "onResume()");
-        // use passed state if is necessary
-        //NextToRegisterState savedState = getStateFromNextScreen();
-        // if (savedState != null) {
-        // update the model if is necessary
-        // model.onDataFromNextScreen(savedState.data);
-        // update the state if is necessary
-        // state.data = savedState.data;
-        // }
-
-        // call the model and update the state
-        //state.data = model.getStoredData();
-        // update the view
-        //view.get().onDataUpdated(state);
     }
 
+    @Override
     public void createRestaurant(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo) {
         Log.e(TAG, "createRestaurant()");
         if (email.isEmpty() || password.isEmpty() || ubicacion.isEmpty() || webpage.isEmpty() || descripcion.isEmpty() || nombre.isEmpty() || logo.isEmpty()) {

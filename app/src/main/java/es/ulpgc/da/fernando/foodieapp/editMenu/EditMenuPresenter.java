@@ -71,22 +71,15 @@ public class EditMenuPresenter implements EditMenuContract.Presenter {
                     if (!error) {
                         // set state
                         state.toast = model.getUpdatedAdvice();
-                        //state.restaurantItem = restauranteActualizado;
                         state.menus=listaActualizada;
-                        //passRestaurantDataToOthers(restauranteActualizado);
                         passMenusDataToOthers(listaActualizada);
                         // update view
-                        //volver pa atras
                         view.get().showToastThread(state);
                         goToMyMenus();
                     }
                 }
             });
         }
-    }
-    //almacena en ek mediador la info a pasar
-    private void passRestaurantDataToOthers(RestaurantItem item) {
-        mediator.setRestaurant(item);
     }
     //almacena en ek mediador la info a pasar
     private void passMenusDataToOthers(List<MenuItem> items) {

@@ -81,5 +81,13 @@ public interface RepositoryContract {
 
     //llamado desde el modelo de myMenus
     void editMenu(int idMenu, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, EditMenuCallback editMenuCallback);
+
+    // llamada en el createmenu presenter
+    interface CreateMenuCallback {
+        void addMenu(boolean error, List<MenuItem> menuItems);
+    }
+
+    void createMenu(int idRestaurant, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, CreateMenuCallback createMenuCallback);
+
 }
 

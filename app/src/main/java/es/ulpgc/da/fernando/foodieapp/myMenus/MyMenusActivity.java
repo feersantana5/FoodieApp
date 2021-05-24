@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import es.ulpgc.da.fernando.foodieapp.R;
+import es.ulpgc.da.fernando.foodieapp.createMenu.CreateMenuActivity;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.editMenu.EditMenuActivity;
@@ -90,6 +91,7 @@ public class MyMenusActivity
         fabAddMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                presenter.goToCreateMenu();
             }
         });
     }
@@ -154,6 +156,12 @@ public class MyMenusActivity
     @Override
     public void navigateToEditMenu() {
         Intent intent = new Intent(this, EditMenuActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void navigateToCreateMenu() {
+        Intent intent = new Intent(this, CreateMenuActivity.class);
         startActivity(intent);
     }
 

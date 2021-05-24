@@ -5,7 +5,6 @@ import java.lang.ref.WeakReference;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
-import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
 
 public interface MyMenusContract {
 
@@ -19,6 +18,8 @@ public interface MyMenusContract {
         void onDataUpdated(MyMenusViewModel viewModel);
 
         void navigateToEditMenu();
+
+        void navigateToCreateMenu();
     }
 
     interface Presenter {
@@ -34,7 +35,7 @@ public interface MyMenusContract {
 
         void fetchMyMenusListData();
 
-//        void editMenu(MenuItem menuItem);
+        void goToCreateMenu();
 
         void deleteMenu(MenuItem menuItem);
 

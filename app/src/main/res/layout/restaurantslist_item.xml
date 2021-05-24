@@ -17,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:adjustViewBounds="true"
-            tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="@string/restaurante_imagen" />
+            android:contentDescription="@string/restaurante_imagen"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,17 +44,17 @@
                 android:id="@+id/restaurantLocationCardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/icono_ubicacion"
                 android:padding="10dp"
-                android:src="@drawable/ic_location"
-                android:contentDescription="@string/icono_ubicacion" />
+                android:src="@drawable/ic_location" />
 
             <ImageView
                 android:id="@+id/restaurantWebpageCardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/icono_internet"
                 android:padding="10dp"
-                android:src="@drawable/ic_share"
-                android:contentDescription="@string/icono_internet" />
+                android:src="@drawable/ic_share" />
 
         </LinearLayout>
     </LinearLayout>

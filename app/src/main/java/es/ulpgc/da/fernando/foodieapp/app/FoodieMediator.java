@@ -2,6 +2,7 @@ package es.ulpgc.da.fernando.foodieapp.app;
 
 import java.util.List;
 
+import es.ulpgc.da.fernando.foodieapp.createMenu.CreateMenuState;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.data.UserItem;
@@ -29,6 +30,7 @@ public class FoodieMediator {
     private EditAccountState editAccountState = new EditAccountState();
     private MyMenusState myMenusState = new MyMenusState();
     private EditMenuState editMenuState = new EditMenuState();
+    private CreateMenuState createMenuState = new CreateMenuState();
 
 
     private RestaurantsListState restaurantsListState = new RestaurantsListState();
@@ -85,6 +87,10 @@ public class FoodieMediator {
         return editMenuState;
     }
 
+    public CreateMenuState getCreateMenuState() {
+        return createMenuState;
+    }
+
 
     public RestaurantsListState getRestaurantsListState() {
         return restaurantsListState;
@@ -117,17 +123,6 @@ public class FoodieMediator {
         menu = item;
     }
 
-    private List<MenuItem> menus;
-    public void setMenuList(List<MenuItem> items) {
-        menus = items;
-    }
-    public List<MenuItem> getMenuList() {
-        List<MenuItem> items = menus;
-        //menu = null;
-        return items;
-    }
-
-
     //devuelve el producto al que pertenece en el detalle
     public MenuItem getMenu() {
         MenuItem item = menu;
@@ -138,11 +133,21 @@ public class FoodieMediator {
     public void setUser(UserItem item) {
         user = item;
     }
-
     public UserItem getUser() {
         UserItem item = user;
         //user = null;
         return item;
     }
+
+    private List<MenuItem> menus;
+    public void setMenuList(List<MenuItem> items) {
+        menus = items;
+    }
+    public List<MenuItem> getMenuList() {
+        List<MenuItem> items = menus;
+        //menu = null;
+        return items;
+    }
+
 
 }

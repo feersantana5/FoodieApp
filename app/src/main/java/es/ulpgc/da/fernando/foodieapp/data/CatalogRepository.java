@@ -237,7 +237,6 @@ public class CatalogRepository implements RepositoryContract {
             @Override
             public void run() {
                 RestaurantItem newRestaurant = new RestaurantItem();
-                //newRestaurant.id = (int) (Math.random()*1000000); //numero grande para evitar que coincida
                 newRestaurant.logo = logo;
                 newRestaurant.location = ubicacion;
                 newRestaurant.description = descripcion;
@@ -314,6 +313,7 @@ public class CatalogRepository implements RepositoryContract {
 
     @Override
     public void getMyMenuList(RestaurantItem restaurant, GetMyMenusListCallback callback) {
+        Log.e(TAG, "getMyMenuList()");
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
@@ -326,6 +326,7 @@ public class CatalogRepository implements RepositoryContract {
 
     @Override
     public void deleteMenu(MenuItem menuItem, DeleteMenuCallback deleteMenuCallback) {
+        Log.e(TAG, "deleteMenu()");
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
@@ -343,18 +344,20 @@ public class CatalogRepository implements RepositoryContract {
 
     @Override
     public void editMenu(int idMenu, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, EditMenuCallback editMenuCallback) {
+        Log.e(TAG, "editMenu()");
         AsyncTask.execute(new Runnable() {
+
             @Override
             public void run() {
-                MenuItem editedMenu =  getMenuDao().loadMenuWithId(idMenu);
+                MenuItem editedMenu = getMenuDao().loadMenuWithId(idMenu);
                 editedMenu.name = nombre;
-                editedMenu.price=precio;
-                editedMenu.image=imagen;
-                editedMenu.starter=entrante;
-                editedMenu.firstCourse=primero;
-                editedMenu.secondCourse=segundo;
-                editedMenu.dessert=postre;
-                editedMenu.beverage=bebida;
+                editedMenu.price = precio;
+                editedMenu.image = imagen;
+                editedMenu.starter = entrante;
+                editedMenu.firstCourse = primero;
+                editedMenu.secondCourse = segundo;
+                editedMenu.dessert = postre;
+                editedMenu.beverage = bebida;
                 getMenuDao().updateMenu(editedMenu);
 
                 int restaurantId = editedMenu.restaurantId;
@@ -363,6 +366,36 @@ public class CatalogRepository implements RepositoryContract {
 
                 if (editMenuCallback != null) {
                     editMenuCallback.setMyMenuListEdited(false, menusActualizados);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void createMenu(int restaurantId, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, CreateMenuCallback createMenuCallback) {
+        //crea hilo asincrono
+        AsyncTask.execute(new Runnable() {
+
+            //ejecuta el hilo
+            @Override
+            public void run() {
+                MenuItem newMenu = new MenuItem();
+                newMenu.restaurantId = restaurantId;
+                newMenu.name = nombre;
+                newMenu.price = precio;
+                newMenu.image = imagen;
+                newMenu.starter = entrante;
+                newMenu.firstCourse = primero;
+                newMenu.secondCourse = segundo;
+                newMenu.dessert = postre;
+                newMenu.beverage = bebida;
+
+                getMenuDao().insertMenu(newMenu);
+                List<MenuItem> menusActualizados = getMenuDao().loadMenus(newMenu.restaurantId);
+
+
+                if (createMenuCallback != null) {
+                    createMenuCallback.addMenu(false, menusActualizados);
                 }
             }
         });

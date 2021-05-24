@@ -16,8 +16,7 @@ public class RegisterModel implements RegisterContract.Model {
 
     String vacio = "Debe rellenar todos los campos";
     String register = "Registrado correctamente";
-    String error = "Ha ocurrido un error, inténtelo de nuevo.";
-
+    String error = "Ha ocurrido un error, inténtelo de nuevo";
 
 
     @Override
