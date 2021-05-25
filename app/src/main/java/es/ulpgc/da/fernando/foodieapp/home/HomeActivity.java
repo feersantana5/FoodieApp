@@ -64,7 +64,6 @@ public class HomeActivity
     protected void onResume() {
         super.onResume();
         // load the data
-        //TODO: REPOSITORY?
     }
 
     public void showToast(String toast) {

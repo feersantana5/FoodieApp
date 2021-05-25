@@ -81,7 +81,6 @@ public class EditMenuPresenter implements EditMenuContract.Presenter {
 
     public void goToMyMenus() {
         Log.e(TAG, "goToMyMenus()");
-        //TODO: verificar registro e ir al perfil
         view.get().navigateToMyMenus();
     }
 

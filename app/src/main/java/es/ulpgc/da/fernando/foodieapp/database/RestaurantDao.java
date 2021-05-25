@@ -31,10 +31,4 @@ public interface RestaurantDao {
 
     @Update
     void updateRestaurant(RestaurantItem restaurantItem);
-
-    //TODO: hacer esto para editar y añadir la cuenta
-    //@Delete
-    //void editMenu(MenuItem menu);
-    //@Update
-    //void updateMenu(MenuItem menu);
 }

@@ -70,7 +70,6 @@ public class MyMenusActivity
             if (view.getId() == R.id.menuDelete) {
                 presenter.deleteMenu(item);
             }
-            //TODO: detalle en menus?
         });
     }
 

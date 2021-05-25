@@ -105,7 +105,6 @@ public class EditAccountPresenter implements EditAccountContract.Presenter {
     @Override
     public void goToRestaurantProfile() {
         Log.e(TAG, "goToRestaurantProfile()");
-        //TODO: verificar registro e ir al perfil
         view.get().navigateToRestaurantProfile();
     }
 

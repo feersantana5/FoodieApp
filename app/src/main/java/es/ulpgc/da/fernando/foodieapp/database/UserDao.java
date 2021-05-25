@@ -26,13 +26,4 @@ public interface UserDao {
 
     @Update
     void updateUser(UserItem userItem);
-
-    // @Query("SELECT * FROM users WHERE restaurant_Id=:restaurantId")
-    // List<UserItem> loadUsers(final int restaurantId);
-
-    //TODO: hacer esto para editar cuenta
-    //@Delete
-    //void editMenu(MenuItem menu);
-    //@Update
-    //void updateMenu(MenuItem menu);
 }
