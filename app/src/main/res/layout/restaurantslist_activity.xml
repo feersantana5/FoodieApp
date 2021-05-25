@@ -25,9 +25,9 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavViewMyNav"
-        android:layout_marginTop="16dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:itemIconTint="@color/design_default_color_background"
         app:itemTextColor="@color/design_default_color_background"
         app:layout_constraintBottom_toBottomOf="parent"
