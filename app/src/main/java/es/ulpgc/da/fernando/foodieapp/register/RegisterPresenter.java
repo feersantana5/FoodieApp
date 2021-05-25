@@ -58,7 +58,7 @@ public class RegisterPresenter implements RegisterContract.Presenter {
         // call the model
         //añade los datos de forma asincrona y cuando los tiene lo notifica
         model.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, (error, restaurant, user) -> {
-            Log.e(TAG, "registrarUsuario()"+restaurant);
+            Log.e(TAG, "registrarUsuario()");
             if (!error) {
                 state.toast = model.getRegisterAdvice();
                 state.sessionEnabled = true;

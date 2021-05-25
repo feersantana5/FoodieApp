@@ -62,8 +62,6 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
         //obtiene el restaurante al que pertenece, almacenada en el mediador
         RestaurantItem restaurant = getUserRestaurantData();
         if (restaurant != null) {
-            Log.e(TAG, "fetchMyMenusListData()" + restaurant);
-
             //modify state
             state.restaurant = restaurant;
         }
@@ -114,9 +112,9 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
 
     @Override
     public void goToCreateMenu() {
+        Log.e(TAG, "goToCreateMenu()");
         RestaurantItem myRestaurant = getUserRestaurantData();
         state.restaurant = myRestaurant;
-        Log.e(TAG, "goToCreateMenu()" + state.restaurant);
         passRestaurantToOthers(state.restaurant);
         view.get().navigateToCreateMenu();
     }

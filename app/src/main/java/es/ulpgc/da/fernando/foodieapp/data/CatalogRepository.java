@@ -212,7 +212,6 @@ public class CatalogRepository implements RepositoryContract {
             getUserDao().insertUser(newUser);
 
             if (registroUsuarioCallback != null) {
-                Log.e(TAG, "pp()" + newRestaurant.id);
                 registroUsuarioCallback.userAdded(false, newRestaurant, newUser);
             }
         });
@@ -316,7 +315,7 @@ public class CatalogRepository implements RepositoryContract {
 
     @Override
     public void createMenu(RestaurantItem restaurant, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, CreateMenuCallback createMenuCallback) {
-        Log.e(TAG, "createMenu()" + restaurant);
+        Log.e(TAG, "createMenu()");
         //crea hilo asincrono
         //ejecuta el hilo
         AsyncTask.execute(() -> {

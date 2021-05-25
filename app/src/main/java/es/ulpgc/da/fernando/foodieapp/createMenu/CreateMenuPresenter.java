@@ -45,7 +45,6 @@ public class CreateMenuPresenter implements CreateMenuContract.Presenter {
         if (restaurant != null) {
             //modify state
             state.restaurant = restaurant;
-            Log.e(TAG, "onResume()" + state.restaurant.id);
         }
     }
 
@@ -57,7 +56,7 @@ public class CreateMenuPresenter implements CreateMenuContract.Presenter {
 
     @Override
     public void createMenu(String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida) {
-        Log.e(TAG, "createMenu()" + state.restaurant);
+        Log.e(TAG, "createMenu()");
         if (nombre.isEmpty() || imagen.isEmpty() || entrante.isEmpty() || primero.isEmpty() || segundo.isEmpty() || postre.isEmpty() || bebida.isEmpty()) {
             state.toast = model.getEmptyAdvice();
             view.get().showToast(state);

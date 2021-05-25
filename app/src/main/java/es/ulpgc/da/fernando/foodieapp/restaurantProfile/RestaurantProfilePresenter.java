@@ -47,7 +47,7 @@ public class RestaurantProfilePresenter implements RestaurantProfileContract.Pre
             //modify state
             state.restaurant = restaurant;
             state.user = user;
-            Log.e(TAG, "onResume()" + restaurant.id);
+            Log.e(TAG, "onResume()");
 
             // update view
             view.get().displayData(state);
@@ -70,7 +70,6 @@ public class RestaurantProfilePresenter implements RestaurantProfileContract.Pre
     public void goToMyMenus() {
         Log.e(TAG, "goToMyMenus()");
         passRestaurantDataToOthers(state.restaurant);
-        Log.e(TAG, "goToMyMenus()" + state.restaurant.id);
         view.get().navigateToMyMenus();
     }
 
