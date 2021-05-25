@@ -1,7 +1,7 @@
 {
   "restaurants": [
     {
-      "id": 5,
+      "id": 1,
       "title": "Allende",
       "logo": "https://www.allenderestauracion.com/wp-content/uploads/2020/06/ALL20_LOGOS_22-NEGRO.png",
       "description": "Comida Mediterránea",
@@ -9,7 +9,7 @@
       "webpage": "https://www.allenderestauracion.com/restaurantes/allende-puerto/",
       "menus": [
         {
-          "id": 40,
+          "id": 1,
           "name": "Italiano",
           "price": "12",
           "image": "https://i.blogs.es/fff4ca/pizzas/1366_521.jpg",
@@ -20,63 +20,248 @@
           "beverage": "Vino tinto"
         },
         {
-          "id": 41,
+          "id": 2,
+          "name": "Americano",
+          "price": "10",
+          "image": "https://www.salud.mapfre.es/media/2019/02/comida-americana.jpg",
+          "starter": "Papas fritas",
+          "firstCourse": "Hamburguesa",
+          "secondCourse": "Perrito Caliente",
+          "dessert": "Brownie",
+          "beverage": "Soda"
+        },
+        {
+          "id": 3,
           "name": "Griego",
-          "price": "12",
-          "image": "https://i.blogs.es/fff4ca/pizzas/1366_521.jpg",
-          "starter": "Focaccia",
-          "firstCourse": "Pizza",
-          "secondCourse": "Lasagna",
-          "dessert": "Tiramisu",
-          "beverage": "Vino tinto"
+          "price": "13",
+          "image": "https://lugarnia.com/wp-content/uploads/2020/02/platos-grecia-e1582628000374.jpg",
+          "starter": "Pan con Ajo",
+          "firstCourse": "Ensalada",
+          "secondCourse": "Sardinas",
+          "dessert": "Yogurt",
+          "beverage": "Refresco"
+        },
+        {
+          "id": 4,
+          "name": "Mexicano",
+          "price": "7",
+          "image": "https://www.cucinare.tv/wp-content/uploads/2019/11/tacos.jpg",
+          "starter": "Nachos",
+          "firstCourse": "Quesadilla",
+          "secondCourse": "Tequeños",
+          "dessert": "Helado",
+          "beverage": "Agua"
+        },
+        {
+          "id": 5,
+          "name": "Chino",
+          "price": "17",
+          "image": "https://dam.cocinafacil.com.mx/wp-content/uploads/2020/04/comida-china-tipica.jpg",
+          "starter": "Pan",
+          "firstCourse": "Shushi",
+          "secondCourse": "Sashimi",
+          "dessert": "Takishu",
+          "beverage": "Soda"
         }
       ]
     },
     {
-      "id": 10,
-      "title": "Pepe",
-      "logo": "https://www.allenderestauracion.com/wp-content/uploads/2020/06/logo_allende_white-768x203.png",
-      "description": "Comida Mediterránea",
-      "location": "https://goo.gl/maps/xPDa7KzAqs3Esgou8",
-      "webpage": "https://www.allenderestauracion.com/restaurantes/allende-puerto/",
+      "id": 2,
+      "title": "McDonalds",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/McDonald%27s_logo_%281953-1960%29.svg/1200px-McDonald%27s_logo_%281953-1960%29.svg.png",
+      "description": "Comida Basura",
+      "location": "https://goo.gl/maps/4KBjXoBhZeDAJRkE7",
+      "webpage": "https://mcdonalds.es",
       "menus": [
         {
-          "id": 42,
-          "name": "Chino",
-          "price": "12",
-          "image": "https://i.blogs.es/fff4ca/pizzas/1366_521.jpg",
-          "starter": "Focaccia",
-          "firstCourse": "Pizza",
-          "secondCourse": "Lasagna",
-          "dessert": "Tiramisu",
-          "beverage": "Vino tinto"
+          "id": 6,
+          "name": "Pollo",
+          "price": "6",
+          "image": "https://www.lavanguardia.com/files/image_948_465/uploads/2020/11/04/5fb28f9fbf544.jpeg",
+          "starter": "Papas fritas",
+          "firstCourse": "Nuggets",
+          "secondCourse": "Hamburguesa",
+          "dessert": "Actimel",
+          "beverage": "Fanta"
         },
         {
-          "id": 43,
-          "name": "Japonés",
+          "id": 7,
+          "name": "Cerdo",
+          "price": "7",
+          "image": "https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2014/10/hamburguesas-960x540.jpg",
+          "starter": "Papas fritas",
+          "firstCourse": "Hamburguesa",
+          "secondCourse": "Lasagna",
+          "dessert": "Fruta",
+          "beverage": "Zumo de naranja"
+        },
+        {
+          "id": 8,
+          "name": "Vegano",
+          "price": "10",
+          "image": "https://www.superama.com.mx/views/micrositio/recetas/images/comidasaludable/ensaladamixta/Web_fotoreceta.jpg",
+          "starter": "Ensalada",
+          "firstCourse": "Lasagna",
+          "secondCourse": "Aguacate",
+          "dessert": "Tarta de zanahoria",
+          "beverage": "Agua"
+        },
+        {
+          "id": 9,
+          "name": "Pescado",
+          "price": "18",
+          "image": "https://www.afuegolento.com/img_db/timthumb.php?src=img_db/old/9825_ppal_pescadofritocrujiente.jpg&w=800&z=1",
+          "starter": "Papas fritas",
+          "firstCourse": "Pescado",
+          "secondCourse": "Palitos de pescado",
+          "dessert": "Mousse",
+          "beverage": "Coca Cola"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "TheGoodBurguer",
+      "logo": "https://www.emprendedores.es/wp-content/uploads/2014/09/the-good-burger.png",
+      "description": "Hamburgueseria",
+      "location": "https://goo.gl/maps/BwEoYScrWX75JXUN6",
+      "webpage": "https://thegoodburger.com",
+      "menus": [
+        {
+          "id": 10,
+          "name": "Pollo",
+          "price": "12",
+          "image": "https://images.chicmagazine.com.mx/6UHdUAKHr_027mLaf4cn9nKtnGg=/958x596/uploads/media/2020/05/28/dia-de-la-hamburguesa-donde-1.jpg",
+          "starter": "Pan",
+          "firstCourse": "Hamburguesa",
+          "secondCourse": "Nuggets",
+          "dessert": "Tarta",
+          "beverage": "Vino"
+        },
+        {
+          "id": 11,
+          "name": "Cerdo",
+          "price": "10",
+          "image": "https://www.thebeertimes.com/wp-content/uploads/2019/06/Receta-de-hamburguesas-a-la-cerveza.jpg",
+          "starter": "Focaccia",
+          "firstCourse": "Hamburguesa",
+          "secondCourse": "Nachos",
+          "dessert": "Helado",
+          "beverage": "Cerveza"
+        },
+        {
+          "id": 12,
+          "name": "Vegetariano",
+          "price": "10",
+          "image": "https://urbansevilla.es/wp-content/uploads/2020/01/hamburguesas-hamburger-sevilla.jpg",
+          "starter": "Zanahoria",
+          "firstCourse": "Hamburguesa",
+          "secondCourse": "Ensalada",
+          "dessert": "Tarta",
+          "beverage": "Agua"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "100 Montaditos",
+      "logo": "http://www.ccociopia.com/wp-content/uploads/2017/09/100montaditos-Logo-tienda-ociopia.png",
+      "description": "Comida Española",
+      "location": "https://goo.gl/maps/AtUiyK6LCERZQrvc8",
+      "webpage": "https://spain.100montaditos.com/es/",
+      "menus": [
+        {
+          "id": 13,
+          "name": "Tapas",
+          "price": "16",
+          "image": "https://www.excelenciasgourmet.com/sites/default/files/styles/slideshow_large/public/2019-06/Tapas.jpg?itok=L-qfBzm2",
+          "starter": "Papas fritas",
+          "firstCourse": "Tapas",
+          "secondCourse": "Pella",
+          "dessert": "Tiramisu",
+          "beverage": "Sangría"
+        },
+        {
+          "id": 14,
+          "name": "Pintxos",
+          "price": "15",
+          "image": "https://static.eldiario.es/clip/ee1a6976-9563-4d20-a835-249d814558ec_16-9-aspect-ratio_default_0.jpg",
+          "starter": "Croquetas",
+          "firstCourse": "Pintxos",
+          "secondCourse": "Tortilla",
+          "dessert": "Flan",
+          "beverage": "Vino"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Telepizza",
+      "logo": "http://2.bp.blogspot.com/-EruW5ZX6rLo/Vedcjkn11xI/AAAAAAAAQjc/W4E9VArnS1Y/s1600/d99b7-telepizza_editado.png",
+      "description": "Pizzeria",
+      "location": "https://goo.gl/maps/y5Wb7UQbBdCaTb8P8",
+      "webpage": "https://www.telepizza.es",
+      "menus": [
+        {
+          "id": 15,
+          "name": "Pizzas",
           "price": "12",
           "image": "https://i.blogs.es/fff4ca/pizzas/1366_521.jpg",
-          "starter": "Focaccia",
+          "starter": "Pan de ajo",
           "firstCourse": "Pizza",
-          "secondCourse": "Lasagna",
-          "dessert": "Tiramisu",
-          "beverage": "Vino tinto"
+          "secondCourse": "Focaccia",
+          "dessert": "Panacotta",
+          "beverage": "Seven up"
         }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Pizza Royers",
+      "logo": "https://tiendaonline.pizzagest.info/produccion/recursos/10/imagenes/logo.png",
+      "description": "Pizzeria",
+      "location": "https://goo.gl/maps/7tLGi7AYmUcNksrb8",
+      "webpage": "https://pizzaroyers.com/#/home",
+      "menus": [
       ]
     }
   ],
   "users": [
     {
       "id": 1,
-      "email": "feer@feer.com",
-      "password": "fer",
-      "restaurantId": "5"
+      "email": "allende@allende.com",
+      "password": "allende",
+      "restaurantId": "1"
     },
     {
       "id": 2,
-      "email": "pp@pp.com",
-      "password": "pp",
-      "restaurantId": "10"
+      "email": "mcd@mcd.com",
+      "password": "mcd",
+      "restaurantId": "2"
+    },
+    {
+      "id": 3,
+      "email": "tgb@tgb.com",
+      "password": "tgb",
+      "restaurantId": "3"
+    },
+    {
+      "id": 4,
+      "email": "100mon@100mon.com",
+      "password": "100mon",
+      "restaurantId": "4"
+    },
+    {
+      "id": 5,
+      "email": "telepi@telepi.com",
+      "password": "telepi",
+      "restaurantId": "5"
+    },
+    {
+      "id": 6,
+      "email": "royers@royers.com",
+      "password": "royers",
+      "restaurantId": "6"
     }
   ]
 }

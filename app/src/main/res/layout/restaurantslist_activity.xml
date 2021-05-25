@@ -11,10 +11,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewRestaurants"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
+        android:padding="4dp"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavViewMyNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,6 +25,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavViewMyNav"
+        android:layout_marginTop="16dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:itemIconTint="@color/design_default_color_background"
