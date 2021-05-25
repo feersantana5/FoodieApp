@@ -10,9 +10,9 @@ public class EditAccountModel implements EditAccountContract.Model {
 
     private final RepositoryContract repository;
 
-    String vacio = "Debe mantener rellenos todos los campos.";
-    String updated = "Sus datos han sido actualizados correctamente";
-    String error = "Ha ocurrido un error, inténtelo de nuevo";
+    private final String vacio = "Debe mantener rellenos todos los campos.";
+    private final String updated = "Sus datos han sido actualizados correctamente";
+    private final String error = "Ha ocurrido un error, inténtelo de nuevo";
 
     public EditAccountModel(RepositoryContract repository) {
         this.repository = repository;

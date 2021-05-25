@@ -47,6 +47,7 @@ public class EditMenuPresenter implements EditMenuContract.Presenter {
             view.get().displayData(state);
         }
     }
+
     //obtiene el restaurante almacenado en el mediador
     private MenuItem getMenuData() {
         MenuItem menu = mediator.getMenu();

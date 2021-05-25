@@ -9,7 +9,7 @@ public class HomeModel implements HomeContract.Model {
     public static String TAG = HomeModel.class.getSimpleName();
 
     private final RepositoryContract repository;
-    String error = "Error obteniendo JSON";
+    private final String error = "Error obteniendo JSON";
 
     public HomeModel(RepositoryContract repository) {
         this.repository = repository;

@@ -68,6 +68,7 @@ public class LoginPresenter implements LoginContract.Presenter {
             }
         });
     }
+
     //almacena en el mediador la info a pasar
     private void passRestaurantDataToOthers(RestaurantItem item) {
         mediator.setRestaurant(item);

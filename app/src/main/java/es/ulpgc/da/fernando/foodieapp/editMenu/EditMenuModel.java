@@ -10,8 +10,8 @@ public class EditMenuModel implements EditMenuContract.Model {
 
     private final RepositoryContract repository;
 
-    String vacio = "Debe mantener rellenos todos los campos.";
-    String updated = "Su menu ha sido actualizados correctamente";
+    private final String vacio = "Debe mantener rellenos todos los campos.";
+    private final String updated = "Su menu ha sido actualizados correctamente";
 
     public EditMenuModel(RepositoryContract repository) {
         this.repository = repository;

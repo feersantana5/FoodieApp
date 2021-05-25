@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
@@ -24,7 +23,6 @@ import es.ulpgc.da.fernando.foodieapp.editAccount.EditAccountActivity;
 import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
 import es.ulpgc.da.fernando.foodieapp.myMenus.MyMenusActivity;
 import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaActivity;
-import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListActivity;
 
 public class RestaurantProfileActivity
         extends AppCompatActivity implements RestaurantProfileContract.View {

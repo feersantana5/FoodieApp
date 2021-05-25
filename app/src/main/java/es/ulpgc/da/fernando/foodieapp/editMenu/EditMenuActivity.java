@@ -17,8 +17,8 @@ public class EditMenuActivity
 
     private EditMenuContract.Presenter presenter;
 
-    Button buttonEditMenu;
-    EditText nombre, precio, imagen, entrante, primero, segundo, bebida, postre;
+    private Button buttonEditMenu;
+    private EditText nombre, precio, imagen, entrante, primero, segundo, bebida, postre;
     private Toast toast;
 
 

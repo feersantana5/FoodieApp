@@ -14,7 +14,6 @@ public class CreateMenuScreen {
 
         WeakReference<FragmentActivity> context = new WeakReference<>((FragmentActivity) view);
 
-
         FoodieMediator mediator = FoodieMediator.getInstance();
         CreateMenuContract.Presenter presenter = new CreateMenuPresenter(mediator);
 

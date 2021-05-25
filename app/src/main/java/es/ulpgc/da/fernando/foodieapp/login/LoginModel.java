@@ -10,8 +10,8 @@ public class LoginModel implements LoginContract.Model {
 
     private final RepositoryContract repository;
 
-    String vacio = "Debe rellenar todos los campos";
-    String error = "Credenciales incorrectos, regístrese o inténtelo de nuevo.";
+    private final String vacio = "Debe rellenar todos los campos";
+    private final String error = "Credenciales incorrectos, regístrese o inténtelo de nuevo.";
 
     public LoginModel(RepositoryContract repository) {
         this.repository = repository;

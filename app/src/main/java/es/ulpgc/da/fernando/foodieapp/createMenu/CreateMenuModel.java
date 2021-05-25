@@ -11,9 +11,9 @@ public class CreateMenuModel implements CreateMenuContract.Model {
 
     private final RepositoryContract repository;
 
-    String vacio = "Debe rellenar todos los campos";
-    String creado = "Menu creado correctamente";
-    String error = "Ha ocurrido un error, inténtelo de nuevo.";
+    private final String vacio = "Debe rellenar todos los campos";
+    private final String creado = "Menu creado correctamente";
+    private final String error = "Ha ocurrido un error, inténtelo de nuevo.";
 
     public CreateMenuModel(RepositoryContract repository) {
         this.repository = repository;

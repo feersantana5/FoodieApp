@@ -7,18 +7,15 @@ import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 public interface LoginContract {
 
     interface View {
-
         void injectPresenter(Presenter presenter);
 
         void showToast(LoginViewModel state);
 
         void showToastThread(LoginViewModel state);
 
-
         void navigateToRestaurantProfile();
 
         void navigateToRegister();
-
     }
 
     interface Presenter {

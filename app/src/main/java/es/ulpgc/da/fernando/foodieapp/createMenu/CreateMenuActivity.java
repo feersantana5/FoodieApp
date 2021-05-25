@@ -17,8 +17,8 @@ public class CreateMenuActivity
 
     private CreateMenuContract.Presenter presenter;
 
-    Button btnCreateMenu;
-    EditText nombre, precio, imagen, entrante, primero, segundo, bebida, postre;
+    private Button btnCreateMenu;
+    private EditText nombre, precio, imagen, entrante, primero, segundo, bebida, postre;
     private Toast toast;
 
     @Override

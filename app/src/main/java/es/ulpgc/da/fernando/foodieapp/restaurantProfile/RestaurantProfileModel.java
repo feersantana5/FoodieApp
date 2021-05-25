@@ -1,7 +1,5 @@
 package es.ulpgc.da.fernando.foodieapp.restaurantProfile;
 
-import android.util.Log;
-
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 
 public class RestaurantProfileModel implements RestaurantProfileContract.Model {

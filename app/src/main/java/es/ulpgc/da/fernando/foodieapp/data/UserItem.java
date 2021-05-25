@@ -4,13 +4,15 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+
 import static androidx.room.ForeignKey.CASCADE;
 
 
 //config tabla room
 @Entity(
+        //nombre tabla
         tableName = "users"
-//        , //nombre tabla
+//        ,
 //        foreignKeys = @ForeignKey(  //valor que obtiene de otra tabla y sus caract aqui
 //                entity = RestaurantItem.class,
 //                parentColumns = "id",

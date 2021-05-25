@@ -14,9 +14,9 @@ public class RegisterModel implements RegisterContract.Model {
         this.repository = repository;
     }
 
-    String vacio = "Debe rellenar todos los campos";
-    String register = "Registrado correctamente";
-    String error = "Ha ocurrido un error, inténtelo de nuevo";
+    private final String vacio = "Debe rellenar todos los campos";
+    private final String register = "Registrado correctamente";
+    private final String error = "Ha ocurrido un error, inténtelo de nuevo";
 
     @Override
     public String getEmptyAdvice() {
