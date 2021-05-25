@@ -30,15 +30,11 @@ public class LoginPresenter implements LoginContract.Presenter {
         if (state == null) {
             state = new LoginState();
         }
-        // call the model and update the state
-        //state.data = model.getStoredData();
     }
 
     @Override
     public void onRestart() {
         Log.e(TAG, "onRestart()");
-        // update the model if is necessary
-        // model.onRestartScreen(state.data);
     }
 
     @Override
@@ -46,7 +42,7 @@ public class LoginPresenter implements LoginContract.Presenter {
         Log.e(TAG, "onResume()");
     }
 
-    //se comprueba si se han introducidos los campos requeridos
+
     @Override
     public void checkLogin(String email, String password) {
         Log.e(TAG, "checkLogin()");
@@ -72,12 +68,12 @@ public class LoginPresenter implements LoginContract.Presenter {
             }
         });
     }
-    //almacena en ek mediador la info a pasar
+    //almacena en el mediador la info a pasar
     private void passRestaurantDataToOthers(RestaurantItem item) {
         mediator.setRestaurant(item);
     }
 
-    //almacena en ek mediador la info a pasar
+    //almacena en el mediador la info a pasar
     private void passUserDataToOthers(UserItem item) {
         mediator.setUser(item);
     }

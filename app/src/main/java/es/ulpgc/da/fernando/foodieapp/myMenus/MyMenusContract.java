@@ -15,8 +15,6 @@ public interface MyMenusContract {
 
         void showToastThread(MyMenusViewModel viewModel);
 
-        void onDataUpdated(MyMenusViewModel viewModel);
-
         void navigateToEditMenu();
 
         void navigateToCreateMenu();
@@ -56,15 +54,6 @@ public interface MyMenusContract {
 
         String getDeletedAdvice();
 
-//        void editMenu(MenuItem item, RepositoryContract.EditMenuCallback editMenuCallback);
-
-        String getStoredData();
-
-        void onDataFromNextScreen(String data);
-
-        void onRestartScreen(String data);
-
-        void onDataFromPreviousScreen(String data);
     }
 
 }

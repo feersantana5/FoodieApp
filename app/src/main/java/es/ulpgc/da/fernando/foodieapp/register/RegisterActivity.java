@@ -54,7 +54,6 @@ public class RegisterActivity
         presenter.onResume();
     }
 
-
     public void initLayout() {
         email = findViewById(R.id.emailRegister);
         password = findViewById(R.id.passwordRegister);
@@ -81,6 +80,7 @@ public class RegisterActivity
         });
     }
 
+    @Override
     public void showToast(RegisterViewModel viewModel) {
         Log.e(TAG, "showToast()");
         if (toast != null) {
@@ -90,6 +90,7 @@ public class RegisterActivity
         toast.show();
     }
 
+    @Override
     public void showToastThread(RegisterViewModel viewModel) {
         Log.e(TAG, "showToastThread()");
         runOnUiThread(() -> {
@@ -117,15 +118,8 @@ public class RegisterActivity
     }
 
     @Override
-    public void onDataUpdated(RegisterViewModel viewModel) {
-        Log.e(TAG, "onDataUpdated()");
-        // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
-    }
-
-
-    @Override
     public void navigateToRestaurantProfile() {
+        Log.e(TAG, "navigateToRestaurantProfile()");
         Intent intent = new Intent(this, RestaurantProfileActivity.class);
         startActivity(intent);
     }

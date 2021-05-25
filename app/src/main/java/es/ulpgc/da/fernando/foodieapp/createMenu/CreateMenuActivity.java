@@ -115,14 +115,6 @@ public class CreateMenuActivity
     }
 
     @Override
-    public void onDataUpdated(CreateMenuViewModel viewModel) {
-        Log.e(TAG, "onDataUpdated()");
-        // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
-    }
-
-
-    @Override
     public void navigateToMyMenus() {
         Log.e(TAG, "navigateToMyMenus()");
         finish();

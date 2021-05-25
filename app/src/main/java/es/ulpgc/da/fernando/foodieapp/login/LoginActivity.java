@@ -50,7 +50,6 @@ public class LoginActivity
 
     }
 
-
     private void initLayout() {
         email = findViewById(R.id.emailLoginText);
         password = findViewById(R.id.passwordLoginText);
@@ -70,6 +69,7 @@ public class LoginActivity
         btnRegister.setOnClickListener(v -> presenter.goToRegister());
     }
 
+    @Override
     public void showToast(LoginViewModel viewModel) {
         Log.e(TAG, "showToast()");
         if (toast != null) {
@@ -79,6 +79,7 @@ public class LoginActivity
         toast.show();
     }
 
+    @Override
     public void showToastThread(LoginViewModel viewModel) {
         Log.e(TAG, "showToastThread()");
         runOnUiThread(() -> {
@@ -86,7 +87,6 @@ public class LoginActivity
             Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
         });
     }
-
 
     @Override
     protected void onResume() {
@@ -100,7 +100,6 @@ public class LoginActivity
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
-
 
     @Override
     public void navigateToRestaurantProfile() {

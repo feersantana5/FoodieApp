@@ -12,7 +12,7 @@ public class MenuDetailPresenter implements MenuDetailContract.Presenter {
     public static String TAG = MenuDetailPresenter.class.getSimpleName();
 
     private WeakReference<MenuDetailContract.View> view;
-    private final MenuDetailState state;
+    private MenuDetailState state;
     private MenuDetailContract.Model model;
     private final FoodieMediator mediator;
 
@@ -25,6 +25,10 @@ public class MenuDetailPresenter implements MenuDetailContract.Presenter {
     @Override
     public void onStart() {
         Log.e(TAG, "onStart()");
+        // initialize the state if is necessary
+        if (state == null) {
+            state = new MenuDetailState();
+        }
     }
 
     @Override
@@ -41,7 +45,6 @@ public class MenuDetailPresenter implements MenuDetailContract.Presenter {
     @Override
     public void fetchMenuDetailData() {
         Log.e(TAG, "fetchMenuDetailData()");
-
         // set passed state
         MenuItem menu = getDataFromRestaurantCartaScreen();
         if (menu != null) {
@@ -50,7 +53,6 @@ public class MenuDetailPresenter implements MenuDetailContract.Presenter {
         // update view
         view.get().displayMenuDetailData(state);
     }
-
     // obtiene los datos del producto almacenado en el mediador
     private MenuItem getDataFromRestaurantCartaScreen() {
         MenuItem menu = mediator.getMenu();
@@ -81,5 +83,4 @@ public class MenuDetailPresenter implements MenuDetailContract.Presenter {
     public void injectModel(MenuDetailContract.Model model) {
         this.model = model;
     }
-
 }

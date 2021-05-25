@@ -55,17 +55,17 @@ public class HomeActivity
 
     private void enableLayoutButtons() {
         btnUser.setOnClickListener(v -> presenter.goToRestaurantList());
-
         btnRestaurante.setOnClickListener(v -> presenter.goToLogin());
     }
-
 
     @Override
     protected void onResume() {
         super.onResume();
         // load the data
+        presenter.onResume();
     }
 
+    @Override
     public void showToast(String toast) {
         Log.e(TAG, "showToast()");
         Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
@@ -91,12 +91,14 @@ public class HomeActivity
 
     @Override
     public void navigateToLogin() {
+        Log.e(TAG, "navigateToLogin()");
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void navigateToRestaurantList() {
+        Log.e(TAG, "navigateToRestaurantList()");
         Intent intent = new Intent(this, RestaurantsListActivity.class);
         startActivity(intent);
     }

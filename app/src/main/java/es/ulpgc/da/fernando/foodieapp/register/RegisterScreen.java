@@ -24,6 +24,5 @@ public class RegisterScreen {
         presenter.injectView(new WeakReference<>(view));
 
         view.injectPresenter(presenter);
-
     }
 }

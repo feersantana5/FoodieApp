@@ -15,9 +15,6 @@ public interface RestaurantsListContract {
 
         //intent
         void navigateToRestaurantCarta();
-
-
-
     }
 
     interface Presenter {

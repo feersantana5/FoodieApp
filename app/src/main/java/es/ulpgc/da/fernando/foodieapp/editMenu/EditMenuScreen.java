@@ -24,6 +24,5 @@ public class EditMenuScreen {
         presenter.injectView(new WeakReference<>(view));
 
         view.injectPresenter(presenter);
-
     }
 }

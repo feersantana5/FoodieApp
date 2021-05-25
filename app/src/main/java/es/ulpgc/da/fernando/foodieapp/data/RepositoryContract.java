@@ -87,7 +87,7 @@ public interface RepositoryContract {
         void addMenu(boolean error, List<MenuItem> menuItems);
     }
 
-    void createMenu(int idRestaurant, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, CreateMenuCallback createMenuCallback);
+    void createMenu(RestaurantItem restaurant, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, CreateMenuCallback createMenuCallback);
 
 }
 

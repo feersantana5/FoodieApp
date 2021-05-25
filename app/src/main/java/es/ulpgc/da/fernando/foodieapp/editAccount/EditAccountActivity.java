@@ -21,8 +21,6 @@ public class EditAccountActivity
     private EditText email, password, ubicacion, webpage, descripcion, nombre, logoURL;
     private Toast toast;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +88,7 @@ public class EditAccountActivity
         logoURL.setText(viewModel.restaurant.logo);
     }
 
+    @Override
     public void showToast(EditAccountViewModel viewModel) {
         Log.e(TAG, "showToast()");
         if (toast != null) {
@@ -98,6 +97,8 @@ public class EditAccountActivity
         toast = Toast.makeText(this, viewModel.toast, Toast.LENGTH_SHORT);
         toast.show();
     }
+
+    @Override
     public void showToastThread(EditAccountViewModel viewModel) {
         Log.e(TAG, "showToastThread()");
         runOnUiThread(() -> {
@@ -124,16 +125,10 @@ public class EditAccountActivity
         presenter.onDestroy();
     }
 
-    @Override
-    public void onDataUpdated(EditAccountViewModel viewModel) {
-        Log.e(TAG, "onDataUpdated()");
-        // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
-    }
-
 
     @Override
     public void navigateToRestaurantProfile() {
+        Log.e(TAG, "navigateToRestaurantProfile()");
         finish();
     }
 

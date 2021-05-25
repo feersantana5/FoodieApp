@@ -25,8 +25,6 @@ public class RestaurantsListActivity
     private RestaurantsListContract.Presenter presenter;
     private RestaurantsListAdapter listAdapter;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +35,6 @@ public class RestaurantsListActivity
       AppMediator.resetInstance();
     }
     */
-
 
         BottomNavigationView buttonNavBar;
         buttonNavBar = findViewById(R.id.bottomNavViewMyNav);
@@ -134,7 +131,6 @@ public class RestaurantsListActivity
     @Override
     public void displayRestaurantsListData(final RestaurantsListViewModel viewModel) {
         Log.e(TAG, "displayRestaurantsListData()");
-
         runOnUiThread(() -> {
             // deal with the data
             //muesta la info
@@ -145,10 +141,10 @@ public class RestaurantsListActivity
     //intent
     @Override
     public void navigateToRestaurantCarta() {
+        Log.e(TAG, "navigateToRestaurantCarta()");
         Intent intent = new Intent(this, RestaurantCartaActivity.class);
         startActivity(intent);
     }
-
 
     @Override
     public void onBackPressed() {

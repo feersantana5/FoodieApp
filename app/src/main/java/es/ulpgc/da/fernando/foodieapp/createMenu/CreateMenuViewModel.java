@@ -6,7 +6,6 @@ import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class CreateMenuViewModel {
-
     // put the view state here
     public String toast;
     public RestaurantItem restaurant;

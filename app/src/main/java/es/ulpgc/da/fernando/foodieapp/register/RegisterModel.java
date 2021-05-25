@@ -18,46 +18,28 @@ public class RegisterModel implements RegisterContract.Model {
     String register = "Registrado correctamente";
     String error = "Ha ocurrido un error, inténtelo de nuevo";
 
-
     @Override
     public String getEmptyAdvice() {
+        Log.e(TAG, "getEmptyAdvice()");
         return vacio;
     }
 
     @Override
     public void registrarUsuario(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RepositoryContract.RegistroUsuarioCallback callback) {
+        Log.e(TAG, "registrarUsuario()");
         repository.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, callback);
     }
 
     @Override
     public String getRegisterAdvice() {
+        Log.e(TAG, "getRegisterAdvice()");
         return register;
     }
 
     @Override
     public String getErrorAdvice() {
+        Log.e(TAG, "getErrorAdvice()");
         return error;
     }
 
-
-    @Override
-    public String getStoredData() {
-        Log.e(TAG, "getStoredData()");
-        return "data";
-    }
-
-    @Override
-    public void onRestartScreen(String data) {
-        Log.e(TAG, "onRestartScreen()");
-    }
-
-    @Override
-    public void onDataFromNextScreen(String data) {
-        Log.e(TAG, "onDataFromNextScreen()");
-    }
-
-    @Override
-    public void onDataFromPreviousScreen(String data) {
-        Log.e(TAG, "onDataFromPreviousScreen()");
-    }
 }

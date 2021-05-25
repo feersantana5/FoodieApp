@@ -60,7 +60,7 @@ public class RestaurantsListPresenter implements RestaurantsListContract.Present
         view.get().navigateToRestaurantCarta();
     }
 
-    //almacena en ek mediador la info a pasar
+    //almacena en el mediador la info a pasar
     private void passDataToProductListScreen(RestaurantItem item) {
         mediator.setRestaurant(item);
     }

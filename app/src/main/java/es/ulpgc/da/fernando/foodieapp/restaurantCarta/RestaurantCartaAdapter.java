@@ -58,9 +58,8 @@ public class RestaurantCartaAdapter extends RecyclerView.Adapter<RestaurantCarta
         holder.itemView.setTag(itemList.get(position)); //añade etiqueta con su posicion
         holder.menuTitle.setText(itemList.get(position).name);//añade texto
         //añade intents
-        holder.menuImage.setTag(itemList.get(position));
-        holder.menuImage.setOnClickListener(clickListener);
-
+        holder.itemView.setTag(itemList.get(position));
+        holder.itemView.setOnClickListener(clickListener);
         //añade imagen
         loadImageFromURL(holder.menuImage, itemList.get(position).image);
     }

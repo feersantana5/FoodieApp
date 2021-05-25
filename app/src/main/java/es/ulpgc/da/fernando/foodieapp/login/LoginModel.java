@@ -19,39 +19,20 @@ public class LoginModel implements LoginContract.Model {
 
     @Override
     public String getEmptyAdvice() {
+        Log.e(TAG, "getEmptyAdvice()");
         return vacio;
     }
 
     @Override
     public void logIn(String email, String password, RepositoryContract.LogInCallback callback) {
+        Log.e(TAG, "logIn()");
         repository.logIn(email, password, callback);
     }
 
     @Override
     public String getErrorAdvice() {
+        Log.e(TAG, "getErrorAdvice()");
         return error;
     }
 
-
-    @Override
-    public String getStoredData() {
-        Log.e(TAG, "getStoredData()");
-        return "data";
-    }
-
-
-    @Override
-    public void onRestartScreen(String data) {
-        Log.e(TAG, "onRestartScreen()");
-    }
-
-    @Override
-    public void onDataFromNextScreen(String data) {
-        Log.e(TAG, "onDataFromNextScreen()");
-    }
-
-    @Override
-    public void onDataFromPreviousScreen(String data) {
-        Log.e(TAG, "onDataFromPreviousScreen()");
-    }
 }

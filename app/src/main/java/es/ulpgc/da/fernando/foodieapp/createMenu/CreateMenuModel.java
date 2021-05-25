@@ -3,6 +3,7 @@ package es.ulpgc.da.fernando.foodieapp.createMenu;
 import android.util.Log;
 
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class CreateMenuModel implements CreateMenuContract.Model {
 
@@ -14,7 +15,6 @@ public class CreateMenuModel implements CreateMenuContract.Model {
     String creado = "Menu creado correctamente";
     String error = "Ha ocurrido un error, inténtelo de nuevo.";
 
-
     public CreateMenuModel(RepositoryContract repository) {
         this.repository = repository;
     }
@@ -25,38 +25,21 @@ public class CreateMenuModel implements CreateMenuContract.Model {
     }
 
     @Override
-    public void createMenu(int restaurantId, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, RepositoryContract.CreateMenuCallback createMenuCallback) {
-        repository.createMenu(restaurantId, nombre, precio, imagen, entrante, primero, segundo, postre, bebida, createMenuCallback);
+    public void createMenu(RestaurantItem restaurant, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, RepositoryContract.CreateMenuCallback createMenuCallback) {
+        Log.e(TAG, "createMenu()");
+        repository.createMenu(restaurant, nombre, precio, imagen, entrante, primero, segundo, postre, bebida, createMenuCallback);
     }
 
     @Override
     public String getCreatedAdvice() {
+        Log.e(TAG, "getCreatedAdvice()");
         return creado;
     }
 
     @Override
     public String getErrorAdvice() {
+        Log.e(TAG, "getErrorAdvice()");
         return error;
     }
 
-    @Override
-    public String getStoredData() {
-        Log.e(TAG, "getStoredData()");
-        return "data";
-    }
-
-    @Override
-    public void onRestartScreen(String data) {
-        // Log.e(TAG, "onRestartScreen()");
-    }
-
-    @Override
-    public void onDataFromNextScreen(String data) {
-        // Log.e(TAG, "onDataFromNextScreen()");
-    }
-
-    @Override
-    public void onDataFromPreviousScreen(String data) {
-        // Log.e(TAG, "onDataFromPreviousScreen()");
-    }
 }

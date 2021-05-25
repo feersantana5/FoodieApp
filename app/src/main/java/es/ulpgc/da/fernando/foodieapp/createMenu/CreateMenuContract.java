@@ -3,6 +3,7 @@ package es.ulpgc.da.fernando.foodieapp.createMenu;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
+import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public interface CreateMenuContract {
 
@@ -12,8 +13,6 @@ public interface CreateMenuContract {
         void showToast(CreateMenuViewModel state);
 
         void showToastThread(CreateMenuViewModel state);
-
-        void onDataUpdated(CreateMenuViewModel viewModel);
 
         void navigateToMyMenus();
     }
@@ -41,19 +40,11 @@ public interface CreateMenuContract {
     interface Model {
         String getEmptyAdvice();
 
-        void createMenu(int restaurantId, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, RepositoryContract.CreateMenuCallback callback);
+        void createMenu(RestaurantItem restaurant, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, RepositoryContract.CreateMenuCallback callback);
 
         String getCreatedAdvice();
 
         String getErrorAdvice();
-
-        String getStoredData();
-
-        void onDataFromNextScreen(String data);
-
-        void onRestartScreen(String data);
-
-        void onDataFromPreviousScreen(String data);
     }
 
 }

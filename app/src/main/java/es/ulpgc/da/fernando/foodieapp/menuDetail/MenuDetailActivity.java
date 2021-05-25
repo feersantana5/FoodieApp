@@ -76,7 +76,6 @@ public class MenuDetailActivity
     @Override
     public void displayMenuDetailData(MenuDetailViewModel viewModel) {
         Log.e(TAG, "displayMenuDetailData()");
-
         // deal with the data
         MenuItem menu = viewModel.menu;//obtiene el menu
         if (menu != null) {

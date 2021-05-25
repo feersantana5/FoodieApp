@@ -63,7 +63,6 @@ public class MyMenusListAdapter extends RecyclerView.Adapter<MyMenusListAdapter.
         holder.menuDelete.setTag(itemList.get(position));
         holder.menuDelete.setOnClickListener(clickListener);
 
-
         //añade imagen
         loadImageFromURL(holder.menuImage, itemList.get(position).image);
     }

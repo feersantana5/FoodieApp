@@ -15,8 +15,6 @@ public interface EditAccountContract {
 
         void displayData(EditAccountViewModel viewModel);
 
-        void onDataUpdated(EditAccountViewModel viewModel);
-
         void navigateToRestaurantProfile();
     }
 
@@ -50,14 +48,6 @@ public interface EditAccountContract {
         String getUpdatedAdvice();
 
         String getErrorAdvice();
-
-        String getStoredData();
-
-        void onDataFromNextScreen(String data);
-
-        void onRestartScreen(String data);
-
-        void onDataFromPreviousScreen(String data);
     }
 
 }

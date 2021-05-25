@@ -2,11 +2,13 @@ package es.ulpgc.da.fernando.foodieapp.data;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import static androidx.room.ForeignKey.CASCADE;
+
 
 //config tabla room
 @Entity(
-
         tableName = "users"
 //        , //nombre tabla
 //        foreignKeys = @ForeignKey(  //valor que obtiene de otra tabla y sus caract aqui

@@ -9,6 +9,7 @@ public class HomeModel implements HomeContract.Model {
     public static String TAG = HomeModel.class.getSimpleName();
 
     private final RepositoryContract repository;
+    String error = "Error obteniendo JSON";
 
     public HomeModel(RepositoryContract repository) {
         this.repository = repository;
@@ -25,21 +26,6 @@ public class HomeModel implements HomeContract.Model {
     @Override
     public String getJSONWarning() {
         Log.e(TAG, "getJSONWarning()");
-        return "Error obteniendo JSON";
-    }
-
-    @Override
-    public void onRestartScreen(String data) {
-        // Log.e(TAG, "onRestartScreen()");
-    }
-
-    @Override
-    public void onDataFromNextScreen(String data) {
-        // Log.e(TAG, "onDataFromNextScreen()");
-    }
-
-    @Override
-    public void onDataFromPreviousScreen(String data) {
-        // Log.e(TAG, "onDataFromPreviousScreen()");
+        return error;
     }
 }

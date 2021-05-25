@@ -41,7 +41,6 @@ public class RestaurantCartaPresenter implements RestaurantCartaContract.Present
     @Override
     public void fetchMenuListData() {
         Log.e(TAG, "fetchMenuListData()");
-
         // set passed state
         //obtiene el restaurante al que pertenece, almacenada en el mediador
         RestaurantItem restaurant = getDataFromRestaurantListScreen();
@@ -49,7 +48,6 @@ public class RestaurantCartaPresenter implements RestaurantCartaContract.Present
             //modify state
             state.restaurant = restaurant;
         }
-
         // call the model
         //llama al modelo para que obtenga los datos de forma async usandp patron obs
         model.fetchMenuListData(state.restaurant, menus -> {
@@ -68,6 +66,7 @@ public class RestaurantCartaPresenter implements RestaurantCartaContract.Present
     //notificado de que un item es seleccionado
     @Override
     public void selectMenuListData(MenuItem item) {
+        Log.e(TAG, "selectMenuListData()");
         //almacena el item en el mediadior
         passDataToProductDetailScreen(item);
         //cambia de activity

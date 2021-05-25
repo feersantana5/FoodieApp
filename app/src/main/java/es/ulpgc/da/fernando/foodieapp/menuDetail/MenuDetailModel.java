@@ -6,5 +6,4 @@ public class MenuDetailModel implements MenuDetailContract.Model {
 
     public MenuDetailModel() { }
 
-
 }

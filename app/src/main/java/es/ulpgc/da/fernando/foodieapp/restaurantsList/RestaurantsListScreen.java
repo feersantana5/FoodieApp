@@ -24,6 +24,5 @@ public class RestaurantsListScreen {
         presenter.injectView(new WeakReference<>(view));
 
         view.injectPresenter(presenter);
-
     }
 }

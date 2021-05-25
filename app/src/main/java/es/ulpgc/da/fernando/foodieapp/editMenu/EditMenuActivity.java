@@ -18,7 +18,6 @@ public class EditMenuActivity
     private EditMenuContract.Presenter presenter;
 
     Button buttonEditMenu;
-
     EditText nombre, precio, imagen, entrante, primero, segundo, bebida, postre;
     private Toast toast;
 
@@ -93,6 +92,7 @@ public class EditMenuActivity
         bebida.setText(viewModel.menu.beverage);
     }
 
+    @Override
     public void showToast(EditMenuViewModel viewModel) {
         Log.e(TAG, "showToast()");
         if (toast != null) {
@@ -102,6 +102,7 @@ public class EditMenuActivity
         toast.show();
     }
 
+    @Override
     public void showToastThread(EditMenuViewModel viewModel) {
         Log.e(TAG, "showToastThread()");
         runOnUiThread(() -> {
@@ -129,15 +130,8 @@ public class EditMenuActivity
     }
 
     @Override
-    public void onDataUpdated(EditMenuViewModel viewModel) {
-        Log.e(TAG, "onDataUpdated()");
-        // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
-    }
-
-
-    @Override
     public void navigateToMyMenus() {
+        Log.e(TAG, "navigateToMyMenus()");
         finish();
     }
 

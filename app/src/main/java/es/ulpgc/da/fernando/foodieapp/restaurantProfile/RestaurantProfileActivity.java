@@ -54,7 +54,6 @@ public class RestaurantProfileActivity
         } else {
             presenter.onRestart();
         }
-
     }
 
     @Override
@@ -69,7 +68,6 @@ public class RestaurantProfileActivity
         nombre = findViewById(R.id.nombreProfile);
         password = findViewById(R.id.passwordProfile);
         descripcion = findViewById(R.id.descriptionProfile);
-
         logo = findViewById(R.id.logoProfile);
 
         fabEditAccount = findViewById(R.id.fab_editProfile);
@@ -78,7 +76,6 @@ public class RestaurantProfileActivity
 
     public void enableLayoutButtons() {
         btnMyMenus.setOnClickListener(v -> presenter.goToMyMenus());
-
         fabEditAccount.setOnClickListener(v -> presenter.goToEditAccount());
     }
 
@@ -105,11 +102,13 @@ public class RestaurantProfileActivity
 
 
     public void navigateToMyMenus() {
+        Log.e(TAG, "navigateToMyMenus()");
         Intent intent = new Intent(this, MyMenusActivity.class);
         startActivity(intent);
     }
 
     public void navigateToEditAccount() {
+        Log.e(TAG, "navigateToEditAccount()");
         Intent intent = new Intent(this, EditAccountActivity.class);
         startActivity(intent);
     }
@@ -131,14 +130,6 @@ public class RestaurantProfileActivity
         super.onDestroy();
         presenter.onDestroy();
     }
-
-    @Override
-    public void onDataUpdated(RestaurantProfileViewModel viewModel) {
-        Log.e(TAG, "onDataUpdated()");
-        // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
-    }
-
 
     @Override
     public void injectPresenter(RestaurantProfileContract.Presenter presenter) {

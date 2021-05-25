@@ -15,7 +15,7 @@ public class CreateMenuPresenter implements CreateMenuContract.Presenter {
     public static String TAG = CreateMenuPresenter.class.getSimpleName();
 
     private WeakReference<CreateMenuContract.View> view;
-    private final CreateMenuState state;
+    private CreateMenuState state;
     private CreateMenuContract.Model model;
     private final FoodieMediator mediator;
 
@@ -27,6 +27,10 @@ public class CreateMenuPresenter implements CreateMenuContract.Presenter {
     @Override
     public void onStart() {
         Log.e(TAG, "onStart()");
+        // initialize the state if is necessary
+        if (state == null) {
+            state = new CreateMenuState();
+        }
     }
 
     @Override
@@ -41,6 +45,7 @@ public class CreateMenuPresenter implements CreateMenuContract.Presenter {
         if (restaurant != null) {
             //modify state
             state.restaurant = restaurant;
+            Log.e(TAG, "onResume()"+state.restaurant.id);
         }
     }
 
@@ -52,12 +57,12 @@ public class CreateMenuPresenter implements CreateMenuContract.Presenter {
 
     @Override
     public void createMenu(String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida) {
-        Log.e(TAG, "createMenu()");
+        Log.e(TAG, "createMenu()"+state.restaurant);
         if (nombre.isEmpty() || imagen.isEmpty() || entrante.isEmpty() || primero.isEmpty() || segundo.isEmpty() || postre.isEmpty() || bebida.isEmpty()) {
             state.toast = model.getEmptyAdvice();
             view.get().showToast(state);
         } else {
-            model.createMenu(state.restaurant.id, nombre, precio, imagen, entrante, primero, segundo, postre, bebida, (error, menusActualizados) -> {
+            model.createMenu(state.restaurant, nombre, precio, imagen, entrante, primero, segundo, postre, bebida, (error, menusActualizados) -> {
                 Log.e(TAG, "userAdded()");
                 if (!error) {
                     // set state

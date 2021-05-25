@@ -47,6 +47,8 @@ public class RestaurantProfilePresenter implements RestaurantProfileContract.Pre
             //modify state
             state.restaurant = restaurant;
             state.user = user;
+            Log.e(TAG, "onResume()"+restaurant.id);
+
             // update view
             view.get().displayData(state);
         }
@@ -64,39 +66,15 @@ public class RestaurantProfilePresenter implements RestaurantProfileContract.Pre
         return user;
     }
 
-  /*  @Override
-    public void fetchUserData() {
-        Log.e(TAG, "fetchMenuListData()");
-        model.getUserProfileData(new RepositoryContract.OnGetUserDataCallback() {
-            @Override
-            public void setUserData(boolean error, RestaurantItem restaurant, UserItem user) {
-                if (!error) {
-                    state.restaurant = restaurant;
-                    state.user = user;
-                    view.get().displayData(state);
-                } else {
-                    //view.get().showToast("Error retrieving data");
-                }
-            }
-        });
-        // set passed state
-        //obtiene el restaurante al que pertenece, almacenada en el mediador
-        RestaurantItem restaurant = getUserRestaurantData();
-        UserItem user = getUserData();
-        if (restaurant != null && user != null) {
-            //modify state
-            state.restaurant = restaurant;
-            state.user = user;
-            // update view
-            view.get().displayData(state);
-        }
-    }*/
-
+    @Override
     public void goToMyMenus() {
         Log.e(TAG, "goToMyMenus()");
+        passRestaurantDataToOthers(state.restaurant);
+        Log.e(TAG, "goToMyMenus()"+state.restaurant.id);
         view.get().navigateToMyMenus();
     }
 
+    @Override
     public void goToEditAccount() {
         Log.e(TAG, "goToEditAccount()");
         passRestaurantDataToOthers(state.restaurant);
@@ -104,12 +82,12 @@ public class RestaurantProfilePresenter implements RestaurantProfileContract.Pre
         view.get().navigateToEditAccount();
     }
 
-    //almacena en ek mediador la info a pasar
+    //almacena en el mediador la info a pasar
     private void passRestaurantDataToOthers(RestaurantItem item) {
         mediator.setRestaurant(item);
     }
 
-    //almacena en ek mediador la info a pasar
+    //almacena en el mediador la info a pasar
     private void passUserDataToOthers(UserItem item) {
         mediator.setUser(item);
     }

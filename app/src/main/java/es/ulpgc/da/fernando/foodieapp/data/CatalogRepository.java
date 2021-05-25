@@ -161,28 +161,6 @@ public class CatalogRepository implements RepositoryContract {
         return database.menuDao();
     }
 
-/*
-    public boolean getUserFromJson(String json) {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        Gson gson = gsonBuilder.create();
-        try {
-            JSONObject jsonObject = new JSONObject(json);
-            JSONArray jsonSegundoArray = jsonObject.getJSONArray("users"); //elemento padre del json
-            if (jsonSegundoArray.length() > 0) { //si hay contenido
-                //convierte la lista de restaurantes en una lista serializable, convirtiendo los elementos a string
-                final List<UserItem> users = Arrays.asList(gson.fromJson(jsonSegundoArray.toString(), UserItem[].class));
-                //recorre los usuarios e inserta
-                for (UserItem user : users) {
-                    getUserDao().insertUser(user);
-                }
-                return true;
-            }
-        } catch (JSONException error) {
-            Log.e(TAG, "error: " + error);
-        }
-        return false;
-    }*/
-
     //obtiene la lista de categorias y notifica cuando las tiene
     @Override
     public void getRestaurantsList(final GetRestaurantsListCallback callback) {
@@ -194,8 +172,6 @@ public class CatalogRepository implements RepositoryContract {
         });
 
     }
-
-//MENUS
 
     //desde el modelo, obtiene la lista de modelos segun el restaurante y notifica
     @Override
@@ -236,6 +212,7 @@ public class CatalogRepository implements RepositoryContract {
             getUserDao().insertUser(newUser);
 
             if (registroUsuarioCallback != null) {
+                Log.e(TAG, "pp()"+ newRestaurant.id);
                 registroUsuarioCallback.userAdded(false, newRestaurant, newUser);
             }
         });
@@ -338,12 +315,13 @@ public class CatalogRepository implements RepositoryContract {
     }
 
     @Override
-    public void createMenu(int restaurantId, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, CreateMenuCallback createMenuCallback) {
+    public void createMenu(RestaurantItem restaurant, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, CreateMenuCallback createMenuCallback) {
+        Log.e(TAG, "createMenu()"+restaurant);
         //crea hilo asincrono
         //ejecuta el hilo
         AsyncTask.execute(() -> {
             MenuItem newMenu = new MenuItem();
-            newMenu.restaurantId = restaurantId;
+            newMenu.restaurantId = getRestaurantDao().getId(restaurant.title);
             newMenu.name = nombre;
             newMenu.price = precio;
             newMenu.image = imagen;
@@ -362,6 +340,4 @@ public class CatalogRepository implements RepositoryContract {
             }
         });
     }
-
-
 }

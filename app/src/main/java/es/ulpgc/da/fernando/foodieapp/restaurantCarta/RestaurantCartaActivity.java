@@ -92,7 +92,6 @@ public class RestaurantCartaActivity
     @Override
     public void displayMenuListData(final RestaurantCartaViewModel viewModel) {
         Log.e(TAG, "displayMenuListData()");
-
         runOnUiThread(() -> {
             // deal with the data
             //obtiene el restaurante del viewmodel
@@ -100,10 +99,9 @@ public class RestaurantCartaActivity
         });
     }
 
-
-    //intent siguiente activity
     @Override
     public void navigateToMenuDetail() {
+        Log.e(TAG, "navigateToMenuDetail()");
         Intent intent = new Intent(this, MenuDetailActivity.class);
         //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
@@ -133,24 +131,28 @@ public class RestaurantCartaActivity
     }
 
     private void goToHome() {
+        Log.e(TAG, "goToHome()");
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
     }
 
     private void goProfile() {
+        Log.e(TAG, "goProfile()");
         Intent intent = new Intent(this, RestaurantProfileActivity.class);
         startActivity(intent);
         finish();
     }
 
     private void goMenu() {
+        Log.e(TAG, "goMenu()");
         Intent intent = new Intent(this, RestaurantCartaActivity.class);
         startActivity(intent);
         finish();
     }
 
     private void showAlertDialog() {
+        Log.e(TAG, "showAlertDialog()");
         AlertDialog.Builder builder = new AlertDialog.Builder(RestaurantCartaActivity.this);
         builder.setTitle("Cerrar Sesión");
         builder.setMessage("¿Está seguro que desea cerrar su sesión?");

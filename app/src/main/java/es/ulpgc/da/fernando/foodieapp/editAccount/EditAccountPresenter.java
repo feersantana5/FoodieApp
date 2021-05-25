@@ -92,12 +92,12 @@ public class EditAccountPresenter implements EditAccountContract.Presenter {
         }
     }
 
-    //almacena en ek mediador la info a pasar
+    //almacena en el mediador la info a pasar
     private void passRestaurantDataToOthers(RestaurantItem item) {
         mediator.setRestaurant(item);
     }
 
-    //almacena en ek mediador la info a pasar
+    //almacena en el mediador la info a pasar
     private void passUserDataToOthers(UserItem item) {
         mediator.setUser(item);
     }

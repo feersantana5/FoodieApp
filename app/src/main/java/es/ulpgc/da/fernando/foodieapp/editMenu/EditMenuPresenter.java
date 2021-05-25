@@ -47,7 +47,6 @@ public class EditMenuPresenter implements EditMenuContract.Presenter {
             view.get().displayData(state);
         }
     }
-
     //obtiene el restaurante almacenado en el mediador
     private MenuItem getMenuData() {
         MenuItem menu = mediator.getMenu();
@@ -57,7 +56,7 @@ public class EditMenuPresenter implements EditMenuContract.Presenter {
 
     public void editMenu(String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida) {
         Log.e(TAG, "editMenu()");
-        if (nombre.isEmpty() || imagen.isEmpty() || entrante.isEmpty() || primero.isEmpty() || segundo.isEmpty() || postre.isEmpty()|| bebida.isEmpty()) {
+        if (nombre.isEmpty() || imagen.isEmpty() || entrante.isEmpty() || primero.isEmpty() || segundo.isEmpty() || postre.isEmpty() || bebida.isEmpty()) {
             state.toast = model.getEmptyAdvice();
             view.get().showToast(state);
         } else {
@@ -65,7 +64,7 @@ public class EditMenuPresenter implements EditMenuContract.Presenter {
                 if (!error) {
                     // set state
                     state.toast = model.getUpdatedAdvice();
-                    state.menus=listaActualizada;
+                    state.menus = listaActualizada;
                     passMenusDataToOthers(listaActualizada);
                     // update view
                     view.get().showToastThread(state);
@@ -74,7 +73,8 @@ public class EditMenuPresenter implements EditMenuContract.Presenter {
             });
         }
     }
-    //almacena en ek mediador la info a pasar
+
+    //almacena en el mediador la info a pasar
     private void passMenusDataToOthers(List<MenuItem> items) {
         mediator.setMenuList(items);
     }

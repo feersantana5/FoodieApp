@@ -8,14 +8,12 @@ public interface RegisterContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
-        void showToast(RegisterViewModel state);
 
-        void onDataUpdated(RegisterViewModel viewModel);
+        void showToast(RegisterViewModel state);
 
         void navigateToRestaurantProfile();
 
         void showToastThread(RegisterViewModel state);
-
     }
 
     interface Presenter {
@@ -46,15 +44,6 @@ public interface RegisterContract {
         String getRegisterAdvice();
 
         String getErrorAdvice();
-
-
-        String getStoredData();
-
-        void onDataFromNextScreen(String data);
-
-        void onRestartScreen(String data);
-
-        void onDataFromPreviousScreen(String data);
     }
 
 }

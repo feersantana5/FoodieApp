@@ -16,28 +16,10 @@ public class RestaurantsListModel implements RestaurantsListContract.Model {
         this.repository = repository;
     }
 
-/*    @Override
-    public void fetchRestaurantsListData(final RepositoryContract.GetRestaurantsListCallback callback) {
-        Log.e(TAG, "fetchRestaurantsListData()");
-
-        //carga los datos al catalogo y notifica
-        repository.loadCatalog(true, new RepositoryContract.FetchCatalogDataCallback() {
-
-            @Override //de repository
-            public void onCatalogDataFetched(boolean error) {
-                if(!error) {
-                    repository.getRestaurantsList(callback); //cuando tiene la info notifica
-                }
-            }
-        });
-    }*/
-
     @Override
     public void fetchRestaurantsListData(final RepositoryContract.GetRestaurantsListCallback callback) {
         Log.e(TAG, "fetchRestaurantsListData()");
         //obtiene la lista de restaurantes y notifica
         repository.getRestaurantsList(callback);
     }
-
-
 }

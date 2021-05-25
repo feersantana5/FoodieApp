@@ -11,7 +11,6 @@ public class RestaurantCartaModel implements RestaurantCartaContract.Model {
 
     private final RepositoryContract repository;
 
-
     public RestaurantCartaModel(RepositoryContract repository) {
         this.repository = repository;
     }

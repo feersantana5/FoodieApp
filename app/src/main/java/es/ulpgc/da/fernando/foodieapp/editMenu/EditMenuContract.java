@@ -15,8 +15,6 @@ public interface EditMenuContract {
 
         void showToastThread(EditMenuViewModel viewModel);
 
-        void onDataUpdated(EditMenuViewModel viewModel);
-
         void navigateToMyMenus();
     }
 
@@ -46,14 +44,6 @@ public interface EditMenuContract {
         void editMenu(int idMenu, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, RepositoryContract.EditMenuCallback editMenuCallback);
 
         String getUpdatedAdvice();
-
-        String getStoredData();
-
-        void onDataFromNextScreen(String data);
-
-        void onRestartScreen(String data);
-
-        void onDataFromPreviousScreen(String data);
     }
 
 }

@@ -20,42 +20,25 @@ public class EditAccountModel implements EditAccountContract.Model {
 
     @Override
     public String getEmptyAdvice() {
+        Log.e(TAG, "getEmptyAdvice()");
         return vacio;
     }
 
     @Override
     public void editUserAccount(int idRestaurant, String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RepositoryContract.EditUserCallback callback) {
+        Log.e(TAG, "editUserAccount()");
         repository.editUser(idRestaurant, email, password, ubicacion, webpage, descripcion, nombre, logo, callback);
     }
 
     @Override
     public String getUpdatedAdvice() {
+        Log.e(TAG, "getUpdatedAdvice()");
         return updated;
     }
 
     @Override
     public String getErrorAdvice() {
+        Log.e(TAG, "getErrorAdvice()");
         return error;
-    }
-
-    @Override
-    public String getStoredData() {
-        Log.e(TAG, "getStoredData()");
-        return "data";
-    }
-
-    @Override
-    public void onRestartScreen(String data) {
-        // Log.e(TAG, "onRestartScreen()");
-    }
-
-    @Override
-    public void onDataFromNextScreen(String data) {
-        // Log.e(TAG, "onDataFromNextScreen()");
-    }
-
-    @Override
-    public void onDataFromPreviousScreen(String data) {
-        // Log.e(TAG, "onDataFromPreviousScreen()");
     }
 }

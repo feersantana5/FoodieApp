@@ -24,10 +24,8 @@ public class MyMenusActivity
     private MyMenusContract.Presenter presenter;
     private MyMenusListAdapter listAdapter;
 
-
     FloatingActionButton fabAddMenu;
     RecyclerView recyclerView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,14 +126,6 @@ public class MyMenusActivity
         super.onDestroy();
         presenter.onDestroy();
     }
-
-    @Override
-    public void onDataUpdated(MyMenusViewModel viewModel) {
-        Log.e(TAG, "onDataUpdated()");
-        // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
-    }
-
 
     @Override
     public void navigateToEditMenu() {

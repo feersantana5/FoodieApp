@@ -9,9 +9,6 @@ public interface RestaurantProfileContract {
 
         void displayData(RestaurantProfileViewModel viewModel);
 
-
-        void onDataUpdated(RestaurantProfileViewModel viewModel);
-
         void navigateToMyMenus();
 
         void navigateToEditAccount();
@@ -32,9 +29,6 @@ public interface RestaurantProfileContract {
 
         void goToMyMenus();
 
-
-        //void fetchUserData();
-
         void onBackPressed();
 
         void onPause();
@@ -43,13 +37,7 @@ public interface RestaurantProfileContract {
     }
 
     interface Model {
-        String getStoredData();
 
-        void onDataFromNextScreen(String data);
-
-        void onRestartScreen(String data);
-
-        void onDataFromPreviousScreen(String data);
     }
 
 }

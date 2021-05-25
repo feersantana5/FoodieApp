@@ -25,21 +25,16 @@ public class RegisterPresenter implements RegisterContract.Presenter {
     @Override
     public void onStart() {
         Log.e(TAG, "onStart()");
-
         // initialize the state if is necessary
         if (state == null) {
             state = new RegisterState();
         }
-
     }
 
     //reinicia activity tras rotar
     @Override
     public void onRestart() {
         Log.e(TAG, "onRestart()");
-        //update the model if is necessary
-        //model.setToastState(state.toast);
-        Log.e(TAG, "Toast: " + state.toast);
     }
 
     @Override
@@ -60,11 +55,10 @@ public class RegisterPresenter implements RegisterContract.Presenter {
 
     public void verifyDatabase(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo) {
         Log.e(TAG, "verifyDatabase()");
-
         // call the model
         //añade los datos de forma asincrona y cuando los tiene lo notifica
         model.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, (error, restaurant, user) -> {
-            Log.e(TAG, "userAdded()");
+            Log.e(TAG, "registrarUsuario()"+restaurant);
             if (!error) {
                 state.toast = model.getRegisterAdvice();
                 state.sessionEnabled = true;

@@ -14,7 +14,7 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
     public static String TAG = MyMenusPresenter.class.getSimpleName();
 
     private WeakReference<MyMenusContract.View> view;
-    private final MyMenusState state;
+    private MyMenusState state;
     private MyMenusContract.Model model;
     private final FoodieMediator mediator;
 
@@ -26,6 +26,10 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
     @Override
     public void onStart() {
         Log.e(TAG, "onStart()");
+        // initialize the state if is necessary
+        if (state == null) {
+            state = new MyMenusState();
+        }
     }
 
     @Override
@@ -58,6 +62,8 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
         //obtiene el restaurante al que pertenece, almacenada en el mediador
         RestaurantItem restaurant = getUserRestaurantData();
         if (restaurant != null) {
+            Log.e(TAG, "fetchMyMenusListData()"+restaurant);
+
             //modify state
             state.restaurant = restaurant;
         }
@@ -88,7 +94,6 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
                 // update view
                 view.get().displayMyMenusListData(state);
                 view.get().showToastThread(state);
-
             }
         });
     }
@@ -109,7 +114,9 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
 
     @Override
     public void goToCreateMenu() {
-        Log.e(TAG, "goToCreateMenu()");
+        RestaurantItem myRestaurant = getUserRestaurantData();
+        state.restaurant = myRestaurant ;
+        Log.e(TAG, "goToCreateMenu()"+state.restaurant);
         passRestaurantToOthers(state.restaurant);
         view.get().navigateToCreateMenu();
     }

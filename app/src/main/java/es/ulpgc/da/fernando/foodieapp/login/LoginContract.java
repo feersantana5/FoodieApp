@@ -12,11 +12,13 @@ public interface LoginContract {
 
         void showToast(LoginViewModel state);
 
+        void showToastThread(LoginViewModel state);
+
+
         void navigateToRestaurantProfile();
 
         void navigateToRegister();
 
-        void showToastThread(LoginViewModel state);
     }
 
     interface Presenter {
@@ -45,21 +47,11 @@ public interface LoginContract {
     }
 
     interface Model {
-
         String getEmptyAdvice();
 
         void logIn(String email, String password, RepositoryContract.LogInCallback logInCallback);
 
         String getErrorAdvice();
-
-
-        String getStoredData();
-
-        void onDataFromNextScreen(String data);
-
-        void onRestartScreen(String data);
-
-        void onDataFromPreviousScreen(String data);
     }
 
 }

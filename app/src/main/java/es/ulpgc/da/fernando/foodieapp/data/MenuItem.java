@@ -32,7 +32,8 @@ public class MenuItem {
     public String dessert;
     public String beverage;
 
-    @ColumnInfo(name = "restaurant_Id") //columna customizada, obtiene el foreignkey que lo relaciona con la otra tabla
+    @ColumnInfo(name = "restaurant_Id")
+    //columna customizada, obtiene el foreignkey que lo relaciona con la otra tabla
     public int restaurantId;
 
 

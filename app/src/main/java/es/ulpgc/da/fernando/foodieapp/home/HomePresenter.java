@@ -37,11 +37,6 @@ public class HomePresenter implements HomeContract.Presenter {
     @Override
     public void onRestart() {
         Log.e(TAG, "onRestart()");
-        if (state == null) {
-            state = new HomeState();
-        }
-        // update the model if is necessary
-        model.onRestartScreen(state.data);
     }
 
     @Override
@@ -60,11 +55,13 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void goToRestaurantList() {
+        Log.e(TAG, "goToRestaurantList()");
         view.get().navigateToRestaurantList();
     }
 
     @Override
     public void goToLogin() {
+        Log.e(TAG, "goToLogin()");
         view.get().navigateToLogin();
     }
 

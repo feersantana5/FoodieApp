@@ -46,12 +46,6 @@ public interface HomeContract {
         void fetchJSON(final RepositoryContract.FetchJSONCallback callback);
 
         String getJSONWarning();
-
-        void onDataFromNextScreen(String data);
-
-        void onRestartScreen(String data);
-
-        void onDataFromPreviousScreen(String data);
     }
 
 }
