@@ -3,14 +3,13 @@ package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 import android.util.Log;
 
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
-import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class RestaurantsListModel implements RestaurantsListContract.Model {
 
     public static String TAG = RestaurantsListModel.class.getSimpleName();
 
     //instancia al repositorio (es el unico que accede, la via de acceso)
-    private RepositoryContract repository;
+    private final RepositoryContract repository;
 
     public RestaurantsListModel(RepositoryContract repository) {
         //iniciali repo

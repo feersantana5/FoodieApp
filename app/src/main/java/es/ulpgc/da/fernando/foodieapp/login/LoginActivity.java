@@ -3,13 +3,11 @@ package es.ulpgc.da.fernando.foodieapp.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.register.RegisterActivity;
@@ -62,22 +60,14 @@ public class LoginActivity
     }
 
     private void enableLayoutButtons() {
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String emailUser = email.getText().toString().trim();
-                String passwordUser = password.getText().toString().trim();
-                presenter.checkLogin(emailUser, passwordUser);
-                //TODO: verificar registro e ir al perfil, pasar ssesion init
-            }
+        btnLogin.setOnClickListener(v -> {
+            String emailUser = email.getText().toString().trim();
+            String passwordUser = password.getText().toString().trim();
+            presenter.checkLogin(emailUser, passwordUser);
+            //TODO: verificar registro e ir al perfil, pasar ssesion init
         });
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.goToRegister();
-            }
-        });
+        btnRegister.setOnClickListener(v -> presenter.goToRegister());
     }
 
     public void showToast(LoginViewModel viewModel) {
@@ -91,11 +81,9 @@ public class LoginActivity
 
     public void showToastThread(LoginViewModel viewModel) {
         Log.e(TAG, "showToastThread()");
-        runOnUiThread(new Runnable() {
-            public void run() {
-                //Do something on UiThread
-                Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
-            }
+        runOnUiThread(() -> {
+            //Do something on UiThread
+            Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
         });
     }
 

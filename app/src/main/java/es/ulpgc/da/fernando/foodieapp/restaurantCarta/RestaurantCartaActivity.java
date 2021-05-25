@@ -1,11 +1,9 @@
 package es.ulpgc.da.fernando.foodieapp.restaurantCarta;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -15,7 +13,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
-import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
 import es.ulpgc.da.fernando.foodieapp.menuDetail.MenuDetailActivity;
 import es.ulpgc.da.fernando.foodieapp.restaurantProfile.RestaurantProfileActivity;
@@ -37,34 +34,28 @@ public class RestaurantCartaActivity
         BottomNavigationView buttonNavBar;
         buttonNavBar = findViewById(R.id.bottomNavViewMyNav);
         //buttonNavBar.setVisibility(View.GONE);
-        buttonNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(android.view.MenuItem item) {
-                if (item.getItemId() == R.id.nav_menu_inicio) {
-                    goToHome();
-                }
-                if (item.getItemId() == R.id.nav_menu_profile) {
-                    goProfile();
-                }
-                if (item.getItemId() == R.id.nav_menu_menu) {
-                    goMenu();
-                }
-                if (item.getItemId() == R.id.nav_menu_out) {
-                    showAlertDialog();
-                }
-                return true;
+        buttonNavBar.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_menu_inicio) {
+                goToHome();
             }
+            if (item.getItemId() == R.id.nav_menu_profile) {
+                goProfile();
+            }
+            if (item.getItemId() == R.id.nav_menu_menu) {
+                goMenu();
+            }
+            if (item.getItemId() == R.id.nav_menu_out) {
+                showAlertDialog();
+            }
+            return true;
         });
 
-        listAdapter = new RestaurantCartaAdapter(new View.OnClickListener() {
-            //onclick
-            @Override
-            public void onClick(View view) {
-                //obtiene el elemento seleccionado
-                MenuItem item = (MenuItem) view.getTag();
-                //notifica el elemento seleccionado
-                presenter.selectMenuListData(item);
-            }
+        //onclick
+        listAdapter = new RestaurantCartaAdapter(view -> {
+            //obtiene el elemento seleccionado
+            MenuItem item = (MenuItem) view.getTag();
+            //notifica el elemento seleccionado
+            presenter.selectMenuListData(item);
         });
 
         //relaciona el RecyclerView con el list adapter
@@ -102,13 +93,10 @@ public class RestaurantCartaActivity
     public void displayMenuListData(final RestaurantCartaViewModel viewModel) {
         Log.e(TAG, "displayMenuListData()");
 
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                // deal with the data
-                RestaurantItem restaurant = viewModel.restaurant; //obtiene el restaurante del viewmodel
-                listAdapter.setItems(viewModel.menus);  //rellena la lista con los menus
-            }
+        runOnUiThread(() -> {
+            // deal with the data
+            //obtiene el restaurante del viewmodel
+            listAdapter.setItems(viewModel.menus);  //rellena la lista con los menus
         });
     }
 
@@ -167,19 +155,13 @@ public class RestaurantCartaActivity
         builder.setTitle("Cerrar Sesión");
         builder.setMessage("¿Está seguro que desea cerrar su sesión?");
 
-        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //TODO: pendiente modificar
-                goToHome();
-            }
+        builder.setPositiveButton("Aceptar", (dialog, which) -> {
+            //TODO: pendiente modificar
+            goToHome();
         });
-        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //TODO: pendiente modificar
-                finish();
-            }
+        builder.setNegativeButton("Cancelar", (dialog, which) -> {
+            //TODO: pendiente modificar
+            finish();
         });
         AlertDialog dialog = builder.create();
         dialog.show();

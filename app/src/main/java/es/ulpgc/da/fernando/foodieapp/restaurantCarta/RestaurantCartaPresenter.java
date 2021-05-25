@@ -3,11 +3,9 @@ package es.ulpgc.da.fernando.foodieapp.restaurantCarta;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
-import java.util.List;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
-import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class RestaurantCartaPresenter implements RestaurantCartaContract.Presenter {
@@ -15,9 +13,9 @@ public class RestaurantCartaPresenter implements RestaurantCartaContract.Present
     public static String TAG = RestaurantCartaPresenter.class.getSimpleName();
 
     private WeakReference<RestaurantCartaContract.View> view;
-    private RestaurantCartaState state;
+    private final RestaurantCartaState state;
     private RestaurantCartaContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public RestaurantCartaPresenter(FoodieMediator mediator) {
         //obtiene el estado del screen del mediador
@@ -54,15 +52,11 @@ public class RestaurantCartaPresenter implements RestaurantCartaContract.Present
 
         // call the model
         //llama al modelo para que obtenga los datos de forma async usandp patron obs
-        model.fetchMenuListData(state.restaurant, new RepositoryContract.GetMenuListCallback() {
-
-            @Override
-            public void setMenuList(List<MenuItem> menus) {
-                // set state
-                state.menus = menus;
-                // update view
-                view.get().displayMenuListData(state);
-            }
+        model.fetchMenuListData(state.restaurant, menus -> {
+            // set state
+            state.menus = menus;
+            // update view
+            view.get().displayMenuListData(state);
         });
     }
     //obtiene el restaurante almacenado en el mediador

@@ -23,19 +23,19 @@ public class FoodieMediator {
     private static FoodieMediator INSTANCE;
 
     //screen states
-    private HomeState homeState = new HomeState();
-    private LoginState loginState = new LoginState();
-    private RegisterState registerState = new RegisterState();
-    private RestaurantProfileState restaurantProfileState = new RestaurantProfileState();
-    private EditAccountState editAccountState = new EditAccountState();
-    private MyMenusState myMenusState = new MyMenusState();
-    private EditMenuState editMenuState = new EditMenuState();
-    private CreateMenuState createMenuState = new CreateMenuState();
+    private final HomeState homeState = new HomeState();
+    private final LoginState loginState = new LoginState();
+    private final RegisterState registerState = new RegisterState();
+    private final RestaurantProfileState restaurantProfileState = new RestaurantProfileState();
+    private final EditAccountState editAccountState = new EditAccountState();
+    private final MyMenusState myMenusState = new MyMenusState();
+    private final EditMenuState editMenuState = new EditMenuState();
+    private final CreateMenuState createMenuState = new CreateMenuState();
 
 
-    private RestaurantsListState restaurantsListState = new RestaurantsListState();
-    private RestaurantCartaState restaurantCartaState = new RestaurantCartaState();
-    private MenuDetailState menuDetailState = new MenuDetailState();
+    private final RestaurantsListState restaurantsListState = new RestaurantsListState();
+    private final RestaurantCartaState restaurantCartaState = new RestaurantCartaState();
+    private final MenuDetailState menuDetailState = new MenuDetailState();
 
     //elementos
     private RestaurantItem restaurant;
@@ -133,6 +133,7 @@ public class FoodieMediator {
     public void setUser(UserItem item) {
         user = item;
     }
+
     public UserItem getUser() {
         UserItem item = user;
         //user = null;
@@ -140,9 +141,11 @@ public class FoodieMediator {
     }
 
     private List<MenuItem> menus;
+
     public void setMenuList(List<MenuItem> items) {
         menus = items;
     }
+
     public List<MenuItem> getMenuList() {
         List<MenuItem> items = menus;
         //menu = null;

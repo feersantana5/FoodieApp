@@ -8,7 +8,7 @@ public class LoginModel implements LoginContract.Model {
 
     public static String TAG = LoginModel.class.getSimpleName();
 
-    private RepositoryContract repository;
+    private final RepositoryContract repository;
 
     String vacio = "Debe rellenar todos los campos";
     String error = "Credenciales incorrectos, regístrese o inténtelo de nuevo.";

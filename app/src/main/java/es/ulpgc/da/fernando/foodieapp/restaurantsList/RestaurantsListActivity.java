@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -85,26 +84,23 @@ public class RestaurantsListActivity
 //        });
 
         //adapter y onclick
-        listAdapter = new RestaurantsListAdapter(new View.OnClickListener() {
-            //onClick
-            @Override
-            public void onClick(View view) {
-                RestaurantItem item = (RestaurantItem) view.getTag();
-                Log.d(TAG, "onClick: " + item);
-                if (view.getId() == R.id.restaurantLogoImageCardView) {
-                    //listener de la lista cuando se pulsa obtiene el tag y lo pasa
-                    presenter.selectRestaurantListData(item);
-                }
-                if (view.getId() == R.id.restaurantWebpageCardView) {
-                    Intent locationIntent = new Intent(Intent.ACTION_VIEW);
-                    locationIntent.setData(Uri.parse(item.webpage));
-                    startActivity(locationIntent);
-                }
-                if (view.getId() == R.id.restaurantLocationCardView) {
-                    Intent webpageIntent = new Intent(Intent.ACTION_VIEW);
-                    webpageIntent.setData(Uri.parse(item.location));
-                    startActivity(webpageIntent);
-                }
+        //onClick
+        listAdapter = new RestaurantsListAdapter(view -> {
+            RestaurantItem item = (RestaurantItem) view.getTag();
+            Log.d(TAG, "onClick: " + item);
+            if (view.getId() == R.id.restaurantLogoImageCardView) {
+                //listener de la lista cuando se pulsa obtiene el tag y lo pasa
+                presenter.selectRestaurantListData(item);
+            }
+            if (view.getId() == R.id.restaurantWebpageCardView) {
+                Intent locationIntent = new Intent(Intent.ACTION_VIEW);
+                locationIntent.setData(Uri.parse(item.webpage));
+                startActivity(locationIntent);
+            }
+            if (view.getId() == R.id.restaurantLocationCardView) {
+                Intent webpageIntent = new Intent(Intent.ACTION_VIEW);
+                webpageIntent.setData(Uri.parse(item.location));
+                startActivity(webpageIntent);
             }
         });
 
@@ -139,13 +135,10 @@ public class RestaurantsListActivity
     public void displayRestaurantsListData(final RestaurantsListViewModel viewModel) {
         Log.e(TAG, "displayRestaurantsListData()");
 
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                // deal with the data
-                //muesta la info
-                listAdapter.setItems(viewModel.restaurants);
-            }
+        runOnUiThread(() -> {
+            // deal with the data
+            //muesta la info
+            listAdapter.setItems(viewModel.restaurants);
         });
     }
 

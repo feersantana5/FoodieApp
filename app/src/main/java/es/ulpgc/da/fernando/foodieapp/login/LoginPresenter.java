@@ -5,7 +5,6 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
-import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 
@@ -17,7 +16,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     private WeakReference<LoginContract.View> view;
     private LoginState state;
     private LoginContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public LoginPresenter(FoodieMediator mediator) {
         this.mediator = mediator;
@@ -60,19 +59,16 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     public void logIn(String email, String password) {
-        model.logIn(email, password, new RepositoryContract.LogInCallback() {
-            @Override
-            public void logInCheck(boolean error, RestaurantItem restaurant, UserItem user) {
-                if (!error) {
-                    state.sessionEnabled = true;
-                    //mediator.getLoginToOtherState();
-                    passRestaurantDataToOthers(restaurant);
-                    passUserDataToOthers(user);
-                    goToRestaurantProfile();
-                } else {
-                    state.toast = model.getErrorAdvice();
-                    view.get().showToastThread(state);
-                }
+        model.logIn(email, password, (error, restaurant, user) -> {
+            if (!error) {
+                state.sessionEnabled = true;
+                //mediator.getLoginToOtherState();
+                passRestaurantDataToOthers(restaurant);
+                passUserDataToOthers(user);
+                goToRestaurantProfile();
+            } else {
+                state.toast = model.getErrorAdvice();
+                view.get().showToastThread(state);
             }
         });
     }

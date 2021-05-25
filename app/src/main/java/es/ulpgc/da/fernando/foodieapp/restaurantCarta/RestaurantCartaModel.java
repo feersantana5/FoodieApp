@@ -9,7 +9,7 @@ public class RestaurantCartaModel implements RestaurantCartaContract.Model {
 
     public static String TAG = RestaurantCartaModel.class.getSimpleName();
 
-    private RepositoryContract repository;
+    private final RepositoryContract repository;
 
 
     public RestaurantCartaModel(RepositoryContract repository) {

@@ -89,7 +89,7 @@ public class MenuDetailActivity
             ((TextView) findViewById(R.id.menuSecondCourse)).setText(menu.secondCourse);
             ((TextView) findViewById(R.id.menuDesserts)).setText(menu.dessert);
             //añade imagen
-            loadImageFromURL((ImageView) findViewById(R.id.detalleimagen), menu.image);
+            loadImageFromURL(findViewById(R.id.detalleimagen), menu.image);
         }
     }
 

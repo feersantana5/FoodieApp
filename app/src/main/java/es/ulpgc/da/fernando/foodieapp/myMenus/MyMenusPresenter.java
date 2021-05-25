@@ -2,25 +2,21 @@ package es.ulpgc.da.fernando.foodieapp.myMenus;
 
 import android.util.Log;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.lang.ref.WeakReference;
 import java.util.List;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
-import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
-import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 
 public class MyMenusPresenter implements MyMenusContract.Presenter {
 
     public static String TAG = MyMenusPresenter.class.getSimpleName();
 
     private WeakReference<MyMenusContract.View> view;
-    private MyMenusState state;
+    private final MyMenusState state;
     private MyMenusContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public MyMenusPresenter(FoodieMediator mediator) {
         this.mediator = mediator;
@@ -67,14 +63,11 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
         }
         // call the model
         //llama al modelo para que obtenga los datos de forma async usandp patron obs
-        model.fetchMyMenusListData(state.restaurant, new RepositoryContract.GetMyMenusListCallback() {
-            @Override
-            public void setMenuList(List<MenuItem> menus) {
-                // set state
-                state.menus = menus;
-                // update view
-                view.get().displayMyMenusListData(state);
-            }
+        model.fetchMyMenusListData(state.restaurant, menus -> {
+            // set state
+            state.menus = menus;
+            // update view
+            view.get().displayMyMenusListData(state);
         });
     }
 
@@ -87,18 +80,15 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
     @Override
     public void deleteMenu(MenuItem menuItem) {
         Log.e(TAG, "deleteMenu(): " + menuItem);
-        model.deleteMenu(menuItem, new RepositoryContract.DeleteMenuCallback() {
-            @Override
-            public void setMyMenuList(boolean error, List<MenuItem> menuItems) {
-                if (!error) {
-                    // set state
-                    state.toast = model.getDeletedAdvice();
-                    state.menus = menuItems;
-                    // update view
-                    view.get().displayMyMenusListData(state);
-                    view.get().showToastThread(state);
+        model.deleteMenu(menuItem, (error, menuItems) -> {
+            if (!error) {
+                // set state
+                state.toast = model.getDeletedAdvice();
+                state.menus = menuItems;
+                // update view
+                view.get().displayMyMenusListData(state);
+                view.get().showToastThread(state);
 
-                }
             }
         });
     }

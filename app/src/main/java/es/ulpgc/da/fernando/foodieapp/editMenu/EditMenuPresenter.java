@@ -7,10 +7,6 @@ import java.util.List;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
-import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
-import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
-import es.ulpgc.da.fernando.foodieapp.data.UserItem;
-import es.ulpgc.da.fernando.foodieapp.editAccount.EditAccountState;
 
 public class EditMenuPresenter implements EditMenuContract.Presenter {
 
@@ -19,7 +15,7 @@ public class EditMenuPresenter implements EditMenuContract.Presenter {
     private WeakReference<EditMenuContract.View> view;
     private EditMenuState state;
     private EditMenuContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public EditMenuPresenter(FoodieMediator mediator) {
         this.mediator = mediator;
@@ -65,18 +61,15 @@ public class EditMenuPresenter implements EditMenuContract.Presenter {
             state.toast = model.getEmptyAdvice();
             view.get().showToast(state);
         } else {
-            model.editMenu(state.menu.id, nombre, precio, imagen, entrante, primero, segundo, postre, bebida, new RepositoryContract.EditMenuCallback() {
-                @Override
-                public void setMyMenuListEdited(boolean error, List<MenuItem>  listaActualizada) {
-                    if (!error) {
-                        // set state
-                        state.toast = model.getUpdatedAdvice();
-                        state.menus=listaActualizada;
-                        passMenusDataToOthers(listaActualizada);
-                        // update view
-                        view.get().showToastThread(state);
-                        goToMyMenus();
-                    }
+            model.editMenu(state.menu.id, nombre, precio, imagen, entrante, primero, segundo, postre, bebida, (error, listaActualizada) -> {
+                if (!error) {
+                    // set state
+                    state.toast = model.getUpdatedAdvice();
+                    state.menus=listaActualizada;
+                    passMenusDataToOthers(listaActualizada);
+                    // update view
+                    view.get().showToastThread(state);
+                    goToMyMenus();
                 }
             });
         }

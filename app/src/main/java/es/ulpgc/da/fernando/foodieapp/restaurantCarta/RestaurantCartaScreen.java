@@ -7,8 +7,6 @@ import java.lang.ref.WeakReference;
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
 import es.ulpgc.da.fernando.foodieapp.data.CatalogRepository;
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
-import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListContract;
-import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListPresenter;
 
 public class RestaurantCartaScreen {
 

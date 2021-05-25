@@ -3,10 +3,8 @@ package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
-import java.util.List;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
-import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 public class RestaurantsListPresenter implements RestaurantsListContract.Presenter {
@@ -14,9 +12,9 @@ public class RestaurantsListPresenter implements RestaurantsListContract.Present
     public static String TAG = RestaurantsListPresenter.class.getSimpleName();
 
     private WeakReference<RestaurantsListContract.View> view;
-    private RestaurantsListState state;
+    private final RestaurantsListState state;
     private RestaurantsListContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public RestaurantsListPresenter(FoodieMediator mediator) {
         this.mediator = mediator;
@@ -45,15 +43,11 @@ public class RestaurantsListPresenter implements RestaurantsListContract.Present
         // call the model
         // pide al modelo de forma asincrona la lista y que cuando los tenga le notifique
         // (callback) del Repository Contract
-        model.fetchRestaurantsListData(new RepositoryContract.GetRestaurantsListCallback() {
-
-            @Override
-            public void setRestaurantsList(List<RestaurantItem> restaurants) {
-                // rellena la lista con las categprias almacenadas
-                state.restaurants = restaurants;
-                // update view
-                view.get().displayRestaurantsListData(state);
-            }
+        model.fetchRestaurantsListData(restaurants -> {
+            // rellena la lista con las categprias almacenadas
+            state.restaurants = restaurants;
+            // update view
+            view.get().displayRestaurantsListData(state);
         });
     }
 

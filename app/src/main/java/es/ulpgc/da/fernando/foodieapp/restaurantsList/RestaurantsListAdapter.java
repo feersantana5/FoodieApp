@@ -1,6 +1,5 @@
 package es.ulpgc.da.fernando.foodieapp.restaurantsList;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,16 +29,6 @@ public class RestaurantsListAdapter
     public RestaurantsListAdapter(View.OnClickListener listener) {
         itemList = new ArrayList();
         clickListener = listener;
-    }
-
-    public void addItem(RestaurantItem item) {
-        itemList.add(item);
-        notifyDataSetChanged();
-    }
-
-    public void addItems(List<RestaurantItem> items) {
-        itemList.addAll(items);
-        notifyDataSetChanged();
     }
 
     //modifica items de la lista para presentarla

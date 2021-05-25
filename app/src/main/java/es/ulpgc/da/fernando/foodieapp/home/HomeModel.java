@@ -8,7 +8,7 @@ public class HomeModel implements HomeContract.Model {
 
     public static String TAG = HomeModel.class.getSimpleName();
 
-    private RepositoryContract repository;
+    private final RepositoryContract repository;
 
     public HomeModel(RepositoryContract repository) {
         this.repository = repository;

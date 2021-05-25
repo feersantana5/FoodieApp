@@ -8,7 +8,7 @@ public class EditAccountModel implements EditAccountContract.Model {
 
     public static String TAG = EditAccountModel.class.getSimpleName();
 
-    private RepositoryContract repository;
+    private final RepositoryContract repository;
 
     String vacio = "Debe mantener rellenos todos los campos.";
     String updated = "Sus datos han sido actualizados correctamente";

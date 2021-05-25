@@ -8,7 +8,7 @@ public class RegisterModel implements RegisterContract.Model {
 
     public static String TAG = RegisterModel.class.getSimpleName();
 
-    private RepositoryContract repository;
+    private final RepositoryContract repository;
 
     public RegisterModel(RepositoryContract repository) {
         this.repository = repository;

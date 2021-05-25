@@ -29,16 +29,6 @@ public class MyMenusListAdapter extends RecyclerView.Adapter<MyMenusListAdapter.
         clickListener = listener;//Listener
     }
 
-    public void addItem(MenuItem item) {
-        itemList.add(item);
-        notifyDataSetChanged();
-    }
-
-    public void addItems(List<MenuItem> items) {
-        itemList.addAll(items);
-        notifyDataSetChanged();
-    }
-
     //modifica los items para mostrarlos
     public void setItems(List<MenuItem> items) {
         itemList = items;
@@ -57,7 +47,7 @@ public class MyMenusListAdapter extends RecyclerView.Adapter<MyMenusListAdapter.
     @Override
     public MyMenusListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.restaurant_my_menulist_item, parent, false);
-        return new MyMenusListAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     //actualiza el contenido del ViewHolder con el item dado en la posicion indicada,edita sus params tb para ser usados con el RecyclerView.
@@ -79,7 +69,7 @@ public class MyMenusListAdapter extends RecyclerView.Adapter<MyMenusListAdapter.
     }
 
     //describe la vista de los items en el RecyclerView y su posicion (para cada celda en memoria)
-    class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView menuTitle;
         final ImageView menuImage, menuEdit, menuDelete;
 

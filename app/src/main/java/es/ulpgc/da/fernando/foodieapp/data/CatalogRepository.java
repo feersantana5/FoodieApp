@@ -15,7 +15,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
 import java.util.List;
 
 import es.ulpgc.da.fernando.foodieapp.database.CatalogDatabase;
@@ -37,8 +36,8 @@ public class CatalogRepository implements RepositoryContract {
     //instancia del repositorio
     private static CatalogRepository INSTANCE;
 
-    private CatalogDatabase database;
-    private Context context;
+    private final CatalogDatabase database;
+    private final Context context;
 
     // crea el repositorio la primera vez que se le llama
     public static RepositoryContract getInstance(Context context) {
@@ -60,26 +59,22 @@ public class CatalogRepository implements RepositoryContract {
     public void loadCatalog(final boolean clearFirst, final FetchJSONCallback callback) {
         Log.e(TAG, "loadCatalog()");
         //crea hilo asincrono
-        AsyncTask.execute(new Runnable() {
+        //ejecuta el hilo
+        AsyncTask.execute(() -> {
+            //si es true, elimina la info existente en la tabla
+            if (clearFirst) {
+                database.clearAllTables();
+            }
 
-            //ejecuta el hilo
-            @Override
-            public void run() {
-                //si es true, elimina la info existente en la tabla
-                if (clearFirst) {
-                    database.clearAllTables();
-                }
+            boolean error = false;
 
-                boolean error = false;
+            //si no hay restaurantes, error al cargar al json pq esta vacio
+            if (getRestaurantDao().loadRestaurants().size() == 0) {
+                error = !loadCatalogFromJSON(loadJSONFromAsset());
+            }
 
-                //si no hay restaurantes, error al cargar al json pq esta vacio
-                if (getRestaurantDao().loadRestaurants().size() == 0) {
-                    error = !loadCatalogFromJSON(loadJSONFromAsset());
-                }
-
-                if (callback != null) {
-                    callback.onJSONFetched(error); //notifica si hay error o no
-                }
+            if (callback != null) {
+                callback.onJSONFetched(error); //notifica si hay error o no
             }
         });
     }
@@ -124,7 +119,7 @@ public class CatalogRepository implements RepositoryContract {
             if (jsonArray.length() > 0) { //si hay contenido
 
                 //convierte la lista de restaurantes en una lista serializable, convirtiendo los elementos a string
-                final List<RestaurantItem> restaurants = Arrays.asList(gson.fromJson(jsonArray.toString(), RestaurantItem[].class));
+                final RestaurantItem[] restaurants = gson.fromJson(jsonArray.toString(), RestaurantItem[].class);
 
                 //recorre los restaurantes e inserta
                 for (RestaurantItem restaurant : restaurants) {
@@ -143,7 +138,7 @@ public class CatalogRepository implements RepositoryContract {
                     JSONArray jsonSegundoArray = jsonObject.getJSONArray("users"); //elemento padre del json
                     if (jsonSegundoArray.length() > 0) { //si hay contenido
                         //convierte la lista de restaurantes en una lista serializable, convirtiendo los elementos a string
-                        final List<UserItem> users = Arrays.asList(gson.fromJson(jsonSegundoArray.toString(), UserItem[].class));
+                        final UserItem[] users = gson.fromJson(jsonSegundoArray.toString(), UserItem[].class);
                         //recorre los usuarios e inserta
                         for (UserItem user : users) {
                             getUserDao().insertUser(user);
@@ -192,13 +187,9 @@ public class CatalogRepository implements RepositoryContract {
     @Override
     public void getRestaurantsList(final GetRestaurantsListCallback callback) {
         Log.e(TAG, "getRestaurantsList()");
-        AsyncTask.execute(new Runnable() {
-
-            @Override
-            public void run() {
-                if (callback != null) {
-                    callback.setRestaurantsList(getRestaurantDao().loadRestaurants());
-                }
+        AsyncTask.execute(() -> {
+            if (callback != null) {
+                callback.setRestaurantsList(getRestaurantDao().loadRestaurants());
             }
         });
 
@@ -216,12 +207,9 @@ public class CatalogRepository implements RepositoryContract {
     //llamado desde el de arriba
     @Override
     public void getMenuList(final int restaurantId, final GetMenuListCallback callback) {
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                if (callback != null) {
-                    callback.setMenuList(getMenuDao().loadMenus(restaurantId));
-                }
+        AsyncTask.execute(() -> {
+            if (callback != null) {
+                callback.setMenuList(getMenuDao().loadMenus(restaurantId));
             }
         });
     }
@@ -231,28 +219,24 @@ public class CatalogRepository implements RepositoryContract {
     public void registrarUsuario(String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, RegistroUsuarioCallback registroUsuarioCallback) {
         Log.e(TAG, "registrarUsuario()");
         //crea hilo asincrono
-        AsyncTask.execute(new Runnable() {
+        //ejecuta el hilo
+        AsyncTask.execute(() -> {
+            RestaurantItem newRestaurant = new RestaurantItem();
+            newRestaurant.logo = logo;
+            newRestaurant.location = ubicacion;
+            newRestaurant.description = descripcion;
+            newRestaurant.title = nombre;
+            newRestaurant.webpage = webpage;
+            getRestaurantDao().insertRestaurant(newRestaurant);
 
-            //ejecuta el hilo
-            @Override
-            public void run() {
-                RestaurantItem newRestaurant = new RestaurantItem();
-                newRestaurant.logo = logo;
-                newRestaurant.location = ubicacion;
-                newRestaurant.description = descripcion;
-                newRestaurant.title = nombre;
-                newRestaurant.webpage = webpage;
-                getRestaurantDao().insertRestaurant(newRestaurant);
+            UserItem newUser = new UserItem();
+            newUser.email = email;
+            newUser.password = password;
+            newUser.restaurantId = getRestaurantDao().getId(nombre);
+            getUserDao().insertUser(newUser);
 
-                UserItem newUser = new UserItem();
-                newUser.email = email;
-                newUser.password = password;
-                newUser.restaurantId = getRestaurantDao().getId(nombre);
-                getUserDao().insertUser(newUser);
-
-                if (registroUsuarioCallback != null) {
-                    registroUsuarioCallback.userAdded(false, newRestaurant, newUser);
-                }
+            if (registroUsuarioCallback != null) {
+                registroUsuarioCallback.userAdded(false, newRestaurant, newUser);
             }
         });
     }
@@ -261,23 +245,19 @@ public class CatalogRepository implements RepositoryContract {
     public void logIn(String email, String password, LogInCallback logInCallback) {
         Log.e(TAG, "logIn()");
         //crea hilo asincrono
-        AsyncTask.execute(new Runnable() {
-
-            //ejecuta el hilo
-            @Override
-            public void run() {
-                UserItem userLogged = getUserDao().getLogIn(email, password);
-                RestaurantItem restaurantLogged = getRestaurantDao().getRestaurantWithId(userLogged.restaurantId);
-                if (logInCallback != null) {
-                    logInCallback.logInCheck(!getUserDao().checkLogIn(email, password), restaurantLogged, userLogged);
-                }
+        //ejecuta el hilo
+        AsyncTask.execute(() -> {
+            UserItem userLogged = getUserDao().getLogIn(email, password);
+            RestaurantItem restaurantLogged = getRestaurantDao().getRestaurantWithId(userLogged.restaurantId);
+            if (logInCallback != null) {
+                logInCallback.logInCheck(!getUserDao().checkLogIn(email, password), restaurantLogged, userLogged);
+            }
 
 //                if(getUserDao().checkLogIn(email, password)){
 //                    logInCallback.logInCheck(false,restaurantLogged,userLogged);
 //                }else{
 //                    logInCallback.logInCheck(true,restaurantLogged,userLogged);
 //                }
-            }
         });
     }
 
@@ -285,28 +265,24 @@ public class CatalogRepository implements RepositoryContract {
     public void editUser(int idRestaurant, String email, String password, String ubicacion, String webpage, String descripcion, String nombre, String logo, EditUserCallback editUserCallback) {
         Log.e(TAG, "editUser()");
         //crea hilo asincrono
-        AsyncTask.execute(new Runnable() {
+        //ejecuta el hilo
+        AsyncTask.execute(() -> {
+            RestaurantItem editRestaurant = getRestaurantDao().getRestaurantWithId(idRestaurant);
+            UserItem editUser = getUserDao().getUserWithRestaurantId(idRestaurant);
 
-            //ejecuta el hilo
-            @Override
-            public void run() {
-                RestaurantItem editRestaurant = getRestaurantDao().getRestaurantWithId(idRestaurant);
-                UserItem editUser = getUserDao().getUserWithRestaurantId(idRestaurant);
+            editRestaurant.location = ubicacion;
+            editRestaurant.webpage = webpage;
+            editRestaurant.description = descripcion;
+            editRestaurant.title = nombre;
+            editRestaurant.logo = logo;
+            getRestaurantDao().updateRestaurant(editRestaurant);
 
-                editRestaurant.location = ubicacion;
-                editRestaurant.webpage = webpage;
-                editRestaurant.description = descripcion;
-                editRestaurant.title = nombre;
-                editRestaurant.logo = logo;
-                getRestaurantDao().updateRestaurant(editRestaurant);
+            editUser.password = password;
+            editUser.email = email;
+            getUserDao().updateUser(editUser);
 
-                editUser.password = password;
-                editUser.email = email;
-                getUserDao().updateUser(editUser);
-
-                if (editUserCallback != null) {
-                    editUserCallback.changeData(false, editRestaurant, editUser);
-                }
+            if (editUserCallback != null) {
+                editUserCallback.changeData(false, editRestaurant, editUser);
             }
         });
     }
@@ -314,12 +290,9 @@ public class CatalogRepository implements RepositoryContract {
     @Override
     public void getMyMenuList(RestaurantItem restaurant, GetMyMenusListCallback callback) {
         Log.e(TAG, "getMyMenuList()");
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                if (callback != null) {
-                    callback.setMenuList(getMenuDao().loadMenus(restaurant.id));
-                }
+        AsyncTask.execute(() -> {
+            if (callback != null) {
+                callback.setMenuList(getMenuDao().loadMenus(restaurant.id));
             }
         });
     }
@@ -327,17 +300,14 @@ public class CatalogRepository implements RepositoryContract {
     @Override
     public void deleteMenu(MenuItem menuItem, DeleteMenuCallback deleteMenuCallback) {
         Log.e(TAG, "deleteMenu()");
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                int restaurantId = menuItem.restaurantId;
-                getMenuDao().deleteMenu(menuItem);
+        AsyncTask.execute(() -> {
+            int restaurantId = menuItem.restaurantId;
+            getMenuDao().deleteMenu(menuItem);
 
-                List<MenuItem> menusActualizados = getMenuDao().loadMenus(restaurantId);
+            List<MenuItem> menusActualizados = getMenuDao().loadMenus(restaurantId);
 
-                if (deleteMenuCallback != null) {
-                    deleteMenuCallback.setMyMenuList(false, menusActualizados);
-                }
+            if (deleteMenuCallback != null) {
+                deleteMenuCallback.setMyMenuList(false, menusActualizados);
             }
         });
     }
@@ -345,28 +315,24 @@ public class CatalogRepository implements RepositoryContract {
     @Override
     public void editMenu(int idMenu, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, EditMenuCallback editMenuCallback) {
         Log.e(TAG, "editMenu()");
-        AsyncTask.execute(new Runnable() {
+        AsyncTask.execute(() -> {
+            MenuItem editedMenu = getMenuDao().loadMenuWithId(idMenu);
+            editedMenu.name = nombre;
+            editedMenu.price = precio;
+            editedMenu.image = imagen;
+            editedMenu.starter = entrante;
+            editedMenu.firstCourse = primero;
+            editedMenu.secondCourse = segundo;
+            editedMenu.dessert = postre;
+            editedMenu.beverage = bebida;
+            getMenuDao().updateMenu(editedMenu);
 
-            @Override
-            public void run() {
-                MenuItem editedMenu = getMenuDao().loadMenuWithId(idMenu);
-                editedMenu.name = nombre;
-                editedMenu.price = precio;
-                editedMenu.image = imagen;
-                editedMenu.starter = entrante;
-                editedMenu.firstCourse = primero;
-                editedMenu.secondCourse = segundo;
-                editedMenu.dessert = postre;
-                editedMenu.beverage = bebida;
-                getMenuDao().updateMenu(editedMenu);
+            int restaurantId = editedMenu.restaurantId;
+            //RestaurantItem restaurantUpdated = getRestaurantDao().getRestaurantWithId(restaurantId);
+            List<MenuItem> menusActualizados = getMenuDao().loadMenus(restaurantId);
 
-                int restaurantId = editedMenu.restaurantId;
-                //RestaurantItem restaurantUpdated = getRestaurantDao().getRestaurantWithId(restaurantId);
-                List<MenuItem> menusActualizados = getMenuDao().loadMenus(restaurantId);
-
-                if (editMenuCallback != null) {
-                    editMenuCallback.setMyMenuListEdited(false, menusActualizados);
-                }
+            if (editMenuCallback != null) {
+                editMenuCallback.setMyMenuListEdited(false, menusActualizados);
             }
         });
     }
@@ -374,29 +340,25 @@ public class CatalogRepository implements RepositoryContract {
     @Override
     public void createMenu(int restaurantId, String nombre, int precio, String imagen, String entrante, String primero, String segundo, String postre, String bebida, CreateMenuCallback createMenuCallback) {
         //crea hilo asincrono
-        AsyncTask.execute(new Runnable() {
+        //ejecuta el hilo
+        AsyncTask.execute(() -> {
+            MenuItem newMenu = new MenuItem();
+            newMenu.restaurantId = restaurantId;
+            newMenu.name = nombre;
+            newMenu.price = precio;
+            newMenu.image = imagen;
+            newMenu.starter = entrante;
+            newMenu.firstCourse = primero;
+            newMenu.secondCourse = segundo;
+            newMenu.dessert = postre;
+            newMenu.beverage = bebida;
 
-            //ejecuta el hilo
-            @Override
-            public void run() {
-                MenuItem newMenu = new MenuItem();
-                newMenu.restaurantId = restaurantId;
-                newMenu.name = nombre;
-                newMenu.price = precio;
-                newMenu.image = imagen;
-                newMenu.starter = entrante;
-                newMenu.firstCourse = primero;
-                newMenu.secondCourse = segundo;
-                newMenu.dessert = postre;
-                newMenu.beverage = bebida;
-
-                getMenuDao().insertMenu(newMenu);
-                List<MenuItem> menusActualizados = getMenuDao().loadMenus(newMenu.restaurantId);
+            getMenuDao().insertMenu(newMenu);
+            List<MenuItem> menusActualizados = getMenuDao().loadMenus(newMenu.restaurantId);
 
 
-                if (createMenuCallback != null) {
-                    createMenuCallback.addMenu(false, menusActualizados);
-                }
+            if (createMenuCallback != null) {
+                createMenuCallback.addMenu(false, menusActualizados);
             }
         });
     }

@@ -8,7 +8,7 @@ public class CreateMenuModel implements CreateMenuContract.Model {
 
     public static String TAG = CreateMenuModel.class.getSimpleName();
 
-    private RepositoryContract repository;
+    private final RepositoryContract repository;
 
     String vacio = "Debe rellenar todos los campos";
     String creado = "Menu creado correctamente";

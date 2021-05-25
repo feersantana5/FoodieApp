@@ -7,7 +7,6 @@ import java.util.List;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
-import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 
 
@@ -16,9 +15,9 @@ public class CreateMenuPresenter implements CreateMenuContract.Presenter {
     public static String TAG = CreateMenuPresenter.class.getSimpleName();
 
     private WeakReference<CreateMenuContract.View> view;
-    private CreateMenuState state;
+    private final CreateMenuState state;
     private CreateMenuContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public CreateMenuPresenter(FoodieMediator mediator) {
         this.mediator = mediator;
@@ -58,22 +57,19 @@ public class CreateMenuPresenter implements CreateMenuContract.Presenter {
             state.toast = model.getEmptyAdvice();
             view.get().showToast(state);
         } else {
-            model.createMenu(state.restaurant.id, nombre, precio, imagen, entrante, primero, segundo, postre, bebida, new RepositoryContract.CreateMenuCallback() {
-                @Override
-                public void addMenu(boolean error, List<MenuItem> menusActualizados) {
-                    Log.e(TAG, "userAdded()");
-                    if (!error) {
-                        // set state
-                        state.toast = model.getCreatedAdvice();
-                        state.menus = menusActualizados;
-                        passMenusDataToOthers(menusActualizados);
-                        // update view
-                        view.get().showToastThread(state);
-                        goToMyMenus();
-                    } else {
-                        state.toast = model.getErrorAdvice();
-                        view.get().showToastThread(state);
-                    }
+            model.createMenu(state.restaurant.id, nombre, precio, imagen, entrante, primero, segundo, postre, bebida, (error, menusActualizados) -> {
+                Log.e(TAG, "userAdded()");
+                if (!error) {
+                    // set state
+                    state.toast = model.getCreatedAdvice();
+                    state.menus = menusActualizados;
+                    passMenusDataToOthers(menusActualizados);
+                    // update view
+                    view.get().showToastThread(state);
+                    goToMyMenus();
+                } else {
+                    state.toast = model.getErrorAdvice();
+                    view.get().showToastThread(state);
                 }
             });
         }

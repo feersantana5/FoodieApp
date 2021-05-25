@@ -5,7 +5,6 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
-import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 
 public class HomePresenter implements HomeContract.Presenter {
 
@@ -14,7 +13,7 @@ public class HomePresenter implements HomeContract.Presenter {
     private WeakReference<HomeContract.View> view;
     private HomeState state;
     private HomeContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public HomePresenter(FoodieMediator mediator) {
         this.mediator = mediator;
@@ -51,13 +50,9 @@ public class HomePresenter implements HomeContract.Presenter {
         // call the model
         // pide al modelo de forma asincrona la lista y que cuando los tenga le notifique
         // (callback) del Repository Contract
-        model.fetchJSON(new RepositoryContract.FetchJSONCallback() {
-
-            @Override
-            public void onJSONFetched(boolean error) {
-                if (error) {
-                    view.get().showToast(model.getJSONWarning());
-                }
+        model.fetchJSON(error -> {
+            if (error) {
+                view.get().showToast(model.getJSONWarning());
             }
         });
     }

@@ -1,18 +1,14 @@
 package es.ulpgc.da.fernando.foodieapp.createMenu;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
 
 public class CreateMenuActivity
         extends AppCompatActivity implements CreateMenuContract.View {
@@ -70,19 +66,16 @@ public class CreateMenuActivity
     }
 
     private void enableLayoutButtons() {
-        btnCreateMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String nombreMenu = nombre.getText().toString().trim();
-                int precioMenu = Integer.parseInt(precio.getText().toString().trim());
-                String imagenMenu = imagen.getText().toString().trim();
-                String entranteMenu = entrante.getText().toString().trim();
-                String primeroMenu = primero.getText().toString().trim();
-                String segundoMenu = segundo.getText().toString().trim();
-                String postreMenu = postre.getText().toString().trim();
-                String bebidaMenu = bebida.getText().toString().trim();
-                presenter.createMenu(nombreMenu, precioMenu, imagenMenu, entranteMenu, primeroMenu, segundoMenu, postreMenu, bebidaMenu);
-            }
+        btnCreateMenu.setOnClickListener(v -> {
+            String nombreMenu = nombre.getText().toString().trim();
+            int precioMenu = Integer.parseInt(precio.getText().toString().trim());
+            String imagenMenu = imagen.getText().toString().trim();
+            String entranteMenu = entrante.getText().toString().trim();
+            String primeroMenu = primero.getText().toString().trim();
+            String segundoMenu = segundo.getText().toString().trim();
+            String postreMenu = postre.getText().toString().trim();
+            String bebidaMenu = bebida.getText().toString().trim();
+            presenter.createMenu(nombreMenu, precioMenu, imagenMenu, entranteMenu, primeroMenu, segundoMenu, postreMenu, bebidaMenu);
         });
     }
 
@@ -97,11 +90,9 @@ public class CreateMenuActivity
 
     public void showToastThread(CreateMenuViewModel viewModel) {
         Log.e(TAG, "showToastThread()");
-        runOnUiThread(new Runnable() {
-            public void run() {
-                //Do something on UiThread
-                Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
-            }
+        runOnUiThread(() -> {
+            //Do something on UiThread
+            Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
         });
     }
 

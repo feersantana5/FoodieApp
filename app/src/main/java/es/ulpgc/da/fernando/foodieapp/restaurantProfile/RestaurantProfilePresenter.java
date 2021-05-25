@@ -5,7 +5,6 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
-import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 
@@ -16,7 +15,7 @@ public class RestaurantProfilePresenter implements RestaurantProfileContract.Pre
     private WeakReference<RestaurantProfileContract.View> view;
     private RestaurantProfileState state;
     private RestaurantProfileContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public RestaurantProfilePresenter(FoodieMediator mediator) {
         this.mediator = mediator;

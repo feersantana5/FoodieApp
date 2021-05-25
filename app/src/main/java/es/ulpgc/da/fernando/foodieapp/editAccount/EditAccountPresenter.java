@@ -5,7 +5,6 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
-import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 
@@ -16,7 +15,7 @@ public class EditAccountPresenter implements EditAccountContract.Presenter {
     private WeakReference<EditAccountContract.View> view;
     private EditAccountState state;
     private EditAccountContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public EditAccountPresenter(FoodieMediator mediator) {
         this.mediator = mediator;
@@ -76,21 +75,18 @@ public class EditAccountPresenter implements EditAccountContract.Presenter {
             state.toast = model.getEmptyAdvice();
             view.get().showToast(state);
         } else {
-            model.editUserAccount(state.restaurant.id, email, password, ubicacion, webpage, descripcion, nombre, logo, new RepositoryContract.EditUserCallback() {
-                @Override
-                public void changeData(boolean error, RestaurantItem restaurantEdited, UserItem userEdited ) {
-                    if (!error) {
-                        state.toast = model.getUpdatedAdvice();
-                        state.restaurant = restaurantEdited;
-                        state.user = userEdited;
-                        passRestaurantDataToOthers(restaurantEdited);
-                        passUserDataToOthers(userEdited);
-                        view.get().showToastThread(state);
-                        goToRestaurantProfile();
-                    } else {
-                        state.toast = model.getErrorAdvice();
-                        view.get().showToastThread(state);
-                    }
+            model.editUserAccount(state.restaurant.id, email, password, ubicacion, webpage, descripcion, nombre, logo, (error, restaurantEdited, userEdited) -> {
+                if (!error) {
+                    state.toast = model.getUpdatedAdvice();
+                    state.restaurant = restaurantEdited;
+                    state.user = userEdited;
+                    passRestaurantDataToOthers(restaurantEdited);
+                    passUserDataToOthers(userEdited);
+                    view.get().showToastThread(state);
+                    goToRestaurantProfile();
+                } else {
+                    state.toast = model.getErrorAdvice();
+                    view.get().showToastThread(state);
                 }
             });
         }

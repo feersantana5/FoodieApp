@@ -3,16 +3,13 @@ package es.ulpgc.da.fernando.foodieapp.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.login.LoginActivity;
-import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
 import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListActivity;
 
 public class HomeActivity
@@ -57,19 +54,9 @@ public class HomeActivity
     }
 
     private void enableLayoutButtons() {
-        btnUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.goToRestaurantList();
-            }
-        });
+        btnUser.setOnClickListener(v -> presenter.goToRestaurantList());
 
-        btnRestaurante.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.goToLogin();
-            }
-        });
+        btnRestaurante.setOnClickListener(v -> presenter.goToLogin());
     }
 
 

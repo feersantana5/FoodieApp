@@ -3,7 +3,6 @@ package es.ulpgc.da.fernando.foodieapp.myMenus;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +14,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.createMenu.CreateMenuActivity;
 import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
-import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.editMenu.EditMenuActivity;
 
 public class MyMenusActivity
@@ -60,22 +58,19 @@ public class MyMenusActivity
     }
 
     public void initAdapter() {
-        listAdapter = new MyMenusListAdapter(new View.OnClickListener() {
-            //onclick
-            @Override
-            public void onClick(View view) {
-                MenuItem item = (MenuItem) view.getTag();
-                Log.d(TAG, "listAdapterOnClick: " + item);
+        //onclick
+        listAdapter = new MyMenusListAdapter(view -> {
+            MenuItem item = (MenuItem) view.getTag();
+            Log.d(TAG, "listAdapterOnClick: " + item);
 
-                if (view.getId() == R.id.menuEdit) {
-                    //listener de la lista cuando se pulsa obtiene el tag y lo pasa
-                    presenter.goToEditMenu(item);
-                }
-                if (view.getId() == R.id.menuDelete) {
-                    presenter.deleteMenu(item);
-                }
-                //TODO: detalle en menus?
+            if (view.getId() == R.id.menuEdit) {
+                //listener de la lista cuando se pulsa obtiene el tag y lo pasa
+                presenter.goToEditMenu(item);
             }
+            if (view.getId() == R.id.menuDelete) {
+                presenter.deleteMenu(item);
+            }
+            //TODO: detalle en menus?
         });
     }
 
@@ -88,12 +83,7 @@ public class MyMenusActivity
     }
 
     public void enableLayoutButtons() {
-        fabAddMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.goToCreateMenu();
-            }
-        });
+        fabAddMenu.setOnClickListener(view -> presenter.goToCreateMenu());
     }
 
     @Override
@@ -106,24 +96,19 @@ public class MyMenusActivity
     @Override
     public void displayMyMenusListData(final MyMenusViewModel viewModel) {
         Log.e(TAG, "displayMyMenusListData()");
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                // deal with the data
-                RestaurantItem restaurant = viewModel.restaurant; //obtiene el restaurante del viewmodel
-                listAdapter.setItems(viewModel.menus);  //rellena la lista con los menus
-            }
+        runOnUiThread(() -> {
+            // deal with the data
+            //obtiene el restaurante del viewmodel
+            listAdapter.setItems(viewModel.menus);  //rellena la lista con los menus
         });
     }
 
     @Override
     public void showToastThread(MyMenusViewModel viewModel) {
         Log.e(TAG, "showToastThread()");
-        runOnUiThread(new Runnable() {
-            public void run() {
-                //Do something on UiThread
-                Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
-            }
+        runOnUiThread(() -> {
+            //Do something on UiThread
+            Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
         });
     }
 

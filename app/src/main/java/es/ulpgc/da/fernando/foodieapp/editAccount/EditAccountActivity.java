@@ -1,9 +1,7 @@
 package es.ulpgc.da.fernando.foodieapp.editAccount;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,7 +9,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.da.fernando.foodieapp.R;
-import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
 
 public class EditAccountActivity
         extends AppCompatActivity implements EditAccountContract.View {
@@ -70,18 +67,15 @@ public class EditAccountActivity
     }
 
     private void enableLayoutButtons() {
-        btnEditAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String emailUser = email.getText().toString().trim();
-                String passwordUser = password.getText().toString().trim();
-                String ubicacionUser = ubicacion.getText().toString().trim();
-                String webpageUser = webpage.getText().toString().trim();
-                String descripcionUser = descripcion.getText().toString().trim();
-                String nombreUser = nombre.getText().toString().trim();
-                String logoUser = logoURL.getText().toString().trim();
-                presenter.editAccount(emailUser, passwordUser, ubicacionUser, webpageUser, descripcionUser, nombreUser, logoUser);
-            }
+        btnEditAccount.setOnClickListener(v -> {
+            String emailUser = email.getText().toString().trim();
+            String passwordUser = password.getText().toString().trim();
+            String ubicacionUser = ubicacion.getText().toString().trim();
+            String webpageUser = webpage.getText().toString().trim();
+            String descripcionUser = descripcion.getText().toString().trim();
+            String nombreUser = nombre.getText().toString().trim();
+            String logoUser = logoURL.getText().toString().trim();
+            presenter.editAccount(emailUser, passwordUser, ubicacionUser, webpageUser, descripcionUser, nombreUser, logoUser);
         });
     }
 
@@ -106,11 +100,9 @@ public class EditAccountActivity
     }
     public void showToastThread(EditAccountViewModel viewModel) {
         Log.e(TAG, "showToastThread()");
-        runOnUiThread(new Runnable() {
-            public void run() {
-                //Do something on UiThread
-                Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
-            }
+        runOnUiThread(() -> {
+            //Do something on UiThread
+            Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
         });
     }
 

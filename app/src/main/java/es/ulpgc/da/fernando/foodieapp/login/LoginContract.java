@@ -3,7 +3,6 @@ package es.ulpgc.da.fernando.foodieapp.login;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
-import es.ulpgc.da.fernando.foodieapp.register.RegisterViewModel;
 
 public interface LoginContract {
 

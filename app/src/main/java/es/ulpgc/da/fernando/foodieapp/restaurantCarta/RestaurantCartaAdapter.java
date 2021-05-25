@@ -30,16 +30,6 @@ public class RestaurantCartaAdapter extends RecyclerView.Adapter<RestaurantCarta
         clickListener = listener;//Listener
     }
 
-    public void addItem(MenuItem item) {
-        itemList.add(item);
-        notifyDataSetChanged();
-    }
-
-    public void addItems(List<MenuItem> items) {
-        itemList.addAll(items);
-        notifyDataSetChanged();
-    }
-
     //modifica los items para mostrarlos
     public void setItems(List<MenuItem> items) {
         itemList = items;
@@ -76,7 +66,7 @@ public class RestaurantCartaAdapter extends RecyclerView.Adapter<RestaurantCarta
     }
 
     //describe la vista de los items en el RecyclerView y su posicion (para cada celda en memoria)
-    class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView menuTitle;
         final ImageView menuImage;
 

@@ -10,9 +10,9 @@ public class MyMenusModel implements MyMenusContract.Model {
 
     public static String TAG = MyMenusModel.class.getSimpleName();
 
-    private RepositoryContract repository;
+    private final RepositoryContract repository;
 
-    private String borrado = "Menu borrado con éxito";
+    private final String borrado = "Menu borrado con éxito";
 
     public MyMenusModel(RepositoryContract repository) {
         this.repository = repository;

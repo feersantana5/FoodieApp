@@ -8,7 +8,7 @@ public class EditMenuModel implements EditMenuContract.Model {
 
     public static String TAG = EditMenuModel.class.getSimpleName();
 
-    private RepositoryContract repository;
+    private final RepositoryContract repository;
 
     String vacio = "Debe mantener rellenos todos los campos.";
     String updated = "Su menu ha sido actualizados correctamente";

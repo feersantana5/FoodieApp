@@ -3,10 +3,8 @@ package es.ulpgc.da.fernando.foodieapp.register;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
-import java.util.List;
 
 import es.ulpgc.da.fernando.foodieapp.app.FoodieMediator;
-import es.ulpgc.da.fernando.foodieapp.data.RepositoryContract;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 
@@ -17,7 +15,7 @@ public class RegisterPresenter implements RegisterContract.Presenter {
     private WeakReference<RegisterContract.View> view;
     private RegisterState state;
     private RegisterContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public RegisterPresenter(FoodieMediator mediator) {
         this.mediator = mediator;
@@ -65,21 +63,18 @@ public class RegisterPresenter implements RegisterContract.Presenter {
 
         // call the model
         //añade los datos de forma asincrona y cuando los tiene lo notifica
-        model.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, new RepositoryContract.RegistroUsuarioCallback() {
-            @Override
-            public void userAdded(boolean error, RestaurantItem restaurant, UserItem user) {
-                Log.e(TAG, "userAdded()");
-                if (!error) {
-                    state.toast = model.getRegisterAdvice();
-                    state.sessionEnabled = true;
-                    passRestaurantDataToOthers(restaurant);
-                    passUserDataToOthers(user);
-                    view.get().showToastThread(state);
-                    goToRestaurantProfile();
-                } else {
-                    state.toast = model.getErrorAdvice();
-                    view.get().showToastThread(state);
-                }
+        model.registrarUsuario(email, password, ubicacion, webpage, descripcion, nombre, logo, (error, restaurant, user) -> {
+            Log.e(TAG, "userAdded()");
+            if (!error) {
+                state.toast = model.getRegisterAdvice();
+                state.sessionEnabled = true;
+                passRestaurantDataToOthers(restaurant);
+                passUserDataToOthers(user);
+                view.get().showToastThread(state);
+                goToRestaurantProfile();
+            } else {
+                state.toast = model.getErrorAdvice();
+                view.get().showToastThread(state);
             }
         });
     }

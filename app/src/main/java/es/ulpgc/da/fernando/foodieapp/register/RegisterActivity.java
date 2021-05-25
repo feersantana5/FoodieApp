@@ -3,7 +3,6 @@ package es.ulpgc.da.fernando.foodieapp.register;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -69,19 +68,16 @@ public class RegisterActivity
     }
 
     public void enableLayoutButtons() {
-        crearBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String emailUser = email.getText().toString().trim();
-                String passwordUser = password.getText().toString().trim();
-                String ubicacionUser = ubicacion.getText().toString().trim();
-                String webpageUser = webpage.getText().toString().trim();
-                String descripcionUser = descripcion.getText().toString().trim();
-                String nombreUser = nombre.getText().toString().trim();
-                String logoUser = logoURL.getText().toString().trim();
+        crearBtn.setOnClickListener(v -> {
+            String emailUser = email.getText().toString().trim();
+            String passwordUser = password.getText().toString().trim();
+            String ubicacionUser = ubicacion.getText().toString().trim();
+            String webpageUser = webpage.getText().toString().trim();
+            String descripcionUser = descripcion.getText().toString().trim();
+            String nombreUser = nombre.getText().toString().trim();
+            String logoUser = logoURL.getText().toString().trim();
 
-                presenter.createRestaurant(emailUser, passwordUser, ubicacionUser, webpageUser, descripcionUser, nombreUser, logoUser);
-            }
+            presenter.createRestaurant(emailUser, passwordUser, ubicacionUser, webpageUser, descripcionUser, nombreUser, logoUser);
         });
     }
 
@@ -96,11 +92,9 @@ public class RegisterActivity
 
     public void showToastThread(RegisterViewModel viewModel) {
         Log.e(TAG, "showToastThread()");
-        runOnUiThread(new Runnable() {
-            public void run() {
-                //Do something on UiThread
-                Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
-            }
+        runOnUiThread(() -> {
+            //Do something on UiThread
+            Toast.makeText(getApplicationContext(), viewModel.toast, Toast.LENGTH_SHORT).show();
         });
     }
 

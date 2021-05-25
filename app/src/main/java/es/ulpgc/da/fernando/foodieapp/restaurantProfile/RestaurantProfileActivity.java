@@ -3,7 +3,6 @@ package es.ulpgc.da.fernando.foodieapp.restaurantProfile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -78,19 +77,9 @@ public class RestaurantProfileActivity
     }
 
     public void enableLayoutButtons() {
-        btnMyMenus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.goToMyMenus();
-            }
-        });
+        btnMyMenus.setOnClickListener(v -> presenter.goToMyMenus());
 
-        fabEditAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.goToEditAccount();
-            }
-        });
+        fabEditAccount.setOnClickListener(v -> presenter.goToEditAccount());
     }
 
     //metodo que modifica el activity segun el estado

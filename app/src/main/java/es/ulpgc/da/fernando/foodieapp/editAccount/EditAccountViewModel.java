@@ -1,6 +1,5 @@
 package es.ulpgc.da.fernando.foodieapp.editAccount;
 
-import es.ulpgc.da.fernando.foodieapp.data.MenuItem;
 import es.ulpgc.da.fernando.foodieapp.data.RestaurantItem;
 import es.ulpgc.da.fernando.foodieapp.data.UserItem;
 

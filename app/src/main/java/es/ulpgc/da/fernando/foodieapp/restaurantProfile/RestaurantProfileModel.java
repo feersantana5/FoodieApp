@@ -8,7 +8,7 @@ public class RestaurantProfileModel implements RestaurantProfileContract.Model {
 
     public static String TAG = RestaurantProfileModel.class.getSimpleName();
 
-    private RepositoryContract repository;
+    private final RepositoryContract repository;
 
     public RestaurantProfileModel(RepositoryContract repository) {
         //iniciali repo

@@ -12,9 +12,9 @@ public class MenuDetailPresenter implements MenuDetailContract.Presenter {
     public static String TAG = MenuDetailPresenter.class.getSimpleName();
 
     private WeakReference<MenuDetailContract.View> view;
-    private MenuDetailState state;
+    private final MenuDetailState state;
     private MenuDetailContract.Model model;
-    private FoodieMediator mediator;
+    private final FoodieMediator mediator;
 
     public MenuDetailPresenter(FoodieMediator mediator) {
         //obtiene los datos del screen del mediador
