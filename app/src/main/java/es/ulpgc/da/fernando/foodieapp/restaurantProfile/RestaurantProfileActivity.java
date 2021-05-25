@@ -1,5 +1,6 @@
 package es.ulpgc.da.fernando.foodieapp.restaurantProfile;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,17 +9,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import es.ulpgc.da.fernando.foodieapp.R;
 import es.ulpgc.da.fernando.foodieapp.editAccount.EditAccountActivity;
+import es.ulpgc.da.fernando.foodieapp.home.HomeActivity;
 import es.ulpgc.da.fernando.foodieapp.myMenus.MyMenusActivity;
+import es.ulpgc.da.fernando.foodieapp.restaurantCarta.RestaurantCartaActivity;
+import es.ulpgc.da.fernando.foodieapp.restaurantsList.RestaurantsListActivity;
 
 public class RestaurantProfileActivity
         extends AppCompatActivity implements RestaurantProfileContract.View {
@@ -27,10 +33,11 @@ public class RestaurantProfileActivity
 
     private RestaurantProfileContract.Presenter presenter;
 
-    Button btnMyMenus;
-    FloatingActionButton fabEditAccount;
-    TextView email, nombre, password, descripcion;
-    ImageView logo;
+    private Button btnMyMenus;
+    private FloatingActionButton fabEditAccount;
+    private TextView email, nombre, password, descripcion;
+    private ImageView logo;
+    private BottomNavigationView buttonNavBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +71,10 @@ public class RestaurantProfileActivity
     }
 
     public void initLayout() {
+        //navbar
+        buttonNavBar = findViewById(R.id.bottomNavViewMyNav);
+        navbarSettings();
+
         email = findViewById(R.id.emailProfile);
         nombre = findViewById(R.id.nombreProfile);
         password = findViewById(R.id.passwordProfile);
@@ -72,6 +83,25 @@ public class RestaurantProfileActivity
 
         fabEditAccount = findViewById(R.id.fab_editProfile);
         btnMyMenus = findViewById(R.id.btnMyMenus);
+    }
+
+    public void navbarSettings() {
+        //buttonNavBar.setVisibility(View.GONE);
+        buttonNavBar.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_menu_inicio) {
+                presenter.goToHomeNav();
+            }
+            if (item.getItemId() == R.id.nav_menu_profile) {
+                //nada pq está aqui
+            }
+            if (item.getItemId() == R.id.nav_menu_menu) {
+                presenter.goToMyMenusListNav();
+            }
+            if (item.getItemId() == R.id.nav_menu_out) {
+                presenter.closeSession();
+            }
+            return true;
+        });
     }
 
     public void enableLayoutButtons() {
@@ -100,17 +130,53 @@ public class RestaurantProfileActivity
         reqBuilder.into(imageView);
     }
 
-
+    @Override
     public void navigateToMyMenus() {
         Log.e(TAG, "navigateToMyMenus()");
         Intent intent = new Intent(this, MyMenusActivity.class);
         startActivity(intent);
     }
 
+    @Override
     public void navigateToEditAccount() {
         Log.e(TAG, "navigateToEditAccount()");
         Intent intent = new Intent(this, EditAccountActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void navigateToHomeNav() {
+        Log.e(TAG, "navigateToHomeNav()");
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void navigateToMenuNav() {
+        Log.e(TAG, "navigateToMenuNav()");
+        Intent intent = new Intent(this, RestaurantCartaActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void showAlertDialogNav() {
+        Log.e(TAG, "showAlertDialogNav()");
+        AlertDialog.Builder builder = new AlertDialog.Builder(RestaurantProfileActivity.this);
+        builder.setTitle("Cerrar Sesión");
+        builder.setMessage("¿Está seguro que desea cerrar su sesión?");
+
+        builder.setPositiveButton("Aceptar", (dialog, which) -> {
+            //TODO: pendiente modificar
+            navigateToHomeNav();
+        });
+        builder.setNegativeButton("Cancelar", (dialog, which) -> {
+            //TODO: pendiente modificar
+            finish();
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override

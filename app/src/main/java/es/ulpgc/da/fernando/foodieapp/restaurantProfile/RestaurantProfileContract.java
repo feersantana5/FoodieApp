@@ -12,6 +12,12 @@ public interface RestaurantProfileContract {
         void navigateToMyMenus();
 
         void navigateToEditAccount();
+
+        void navigateToHomeNav();
+
+        void navigateToMenuNav();
+
+        void showAlertDialogNav();
     }
 
     interface Presenter {
@@ -28,6 +34,12 @@ public interface RestaurantProfileContract {
         void goToEditAccount();
 
         void goToMyMenus();
+
+        void goToHomeNav();
+
+        void goToMyMenusListNav();
+
+        void closeSession();
 
         void onBackPressed();
 

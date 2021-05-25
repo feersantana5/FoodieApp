@@ -7,6 +7,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,43 +26,18 @@ public class RestaurantCartaActivity
     private RestaurantCartaContract.Presenter presenter;
     private RestaurantCartaAdapter listAdapter;
 
+    private BottomNavigationView buttonNavBar;
+    private RecyclerView recyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_carta);
 
-        BottomNavigationView buttonNavBar;
-        buttonNavBar = findViewById(R.id.bottomNavViewMyNav);
-        //buttonNavBar.setVisibility(View.GONE);
-        buttonNavBar.setOnNavigationItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.nav_menu_inicio) {
-                goToHome();
-            }
-            if (item.getItemId() == R.id.nav_menu_profile) {
-                goProfile();
-            }
-            if (item.getItemId() == R.id.nav_menu_menu) {
-                goMenu();
-            }
-            if (item.getItemId() == R.id.nav_menu_out) {
-                showAlertDialog();
-            }
-            return true;
-        });
+        initAdapter();
+        initLayout();
 
-        //onclick
-        listAdapter = new RestaurantCartaAdapter(view -> {
-            //obtiene el elemento seleccionado
-            MenuItem item = (MenuItem) view.getTag();
-            //notifica el elemento seleccionado
-            presenter.selectMenuListData(item);
-        });
-
-        //relaciona el RecyclerView con el list adapter
-        RecyclerView recyclerView = findViewById(R.id.recyclerViewMenusCarta);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        recyclerView.setAdapter(listAdapter);
     /*
     if(savedInstanceState == null) {
       AppMediator.resetInstance();
@@ -79,6 +55,49 @@ public class RestaurantCartaActivity
 
         // do some work
         presenter.fetchMenuListData();
+    }
+
+    public void initAdapter() {
+        //onclick
+        listAdapter = new RestaurantCartaAdapter(view -> {
+            //obtiene el elemento seleccionado
+            MenuItem item = (MenuItem) view.getTag();
+            //notifica el elemento seleccionado
+            presenter.selectMenuListData(item);
+        });
+    }
+
+    public void initLayout() {
+        //recycler
+        recyclerView = findViewById(R.id.recyclerViewMenusCarta);
+        reyclerSettings();
+        //navbar
+        buttonNavBar = findViewById(R.id.bottomNavViewMyNav);
+        navbarSettings();
+    }
+
+    public void reyclerSettings() {
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setAdapter(listAdapter);
+    }
+
+    public void navbarSettings() {
+        //buttonNavBar.setVisibility(View.GONE);
+        buttonNavBar.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_menu_inicio) {
+                presenter.goToHomeNav();
+            }
+            if (item.getItemId() == R.id.nav_menu_profile) {
+                presenter.goToProfileNav();
+            }
+            if (item.getItemId() == R.id.nav_menu_menu) {
+                //nada pq está aqui
+            }
+            if (item.getItemId() == R.id.nav_menu_out) {
+                presenter.closeSession();
+            }
+            return true;
+        });
     }
 
     @Override
@@ -130,36 +149,32 @@ public class RestaurantCartaActivity
         this.presenter = presenter;
     }
 
-    private void goToHome() {
-        Log.e(TAG, "goToHome()");
+    @Override
+    public void navigateToHomeNav() {
+        Log.e(TAG, "navigateToHomeNav()");
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private void goProfile() {
-        Log.e(TAG, "goProfile()");
+    @Override
+    public void navigateToProfileNav() {
+        Log.e(TAG, "navigateToProfileNav()");
         Intent intent = new Intent(this, RestaurantProfileActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private void goMenu() {
-        Log.e(TAG, "goMenu()");
-        Intent intent = new Intent(this, RestaurantCartaActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    private void showAlertDialog() {
-        Log.e(TAG, "showAlertDialog()");
+    @Override
+    public void showAlertDialogNav() {
+        Log.e(TAG, "showAlertDialogNav()");
         AlertDialog.Builder builder = new AlertDialog.Builder(RestaurantCartaActivity.this);
         builder.setTitle("Cerrar Sesión");
         builder.setMessage("¿Está seguro que desea cerrar su sesión?");
 
         builder.setPositiveButton("Aceptar", (dialog, which) -> {
             //TODO: pendiente modificar
-            goToHome();
+            navigateToHomeNav();
         });
         builder.setNegativeButton("Cancelar", (dialog, which) -> {
             //TODO: pendiente modificar

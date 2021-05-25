@@ -66,6 +66,34 @@ public class RestaurantsListPresenter implements RestaurantsListContract.Present
     }
 
     @Override
+    public void goToHomeNav() {
+        Log.e(TAG, "goToHomeNav()");
+        //cambia de activity
+        view.get().navigateToHomeNav();
+    }
+
+    @Override
+    public void goToProfileNav() {
+        Log.e(TAG, "goToProfileNav()");
+        //cambia de activity
+        view.get().navigateToProfileNav();
+    }
+
+    @Override
+    public void goToMyMenusListNav() {
+        Log.e(TAG, "goToMyMenusListNav()");
+        //cambia de activity
+        view.get().navigateToMenuNav();
+    }
+
+    @Override
+    public void closeSession() {
+        Log.e(TAG, "closeSession()");
+        //cambia de activity
+        view.get().showAlertDialogNav();
+    }
+
+    @Override
     public void onBackPressed() {
         Log.e(TAG, "onBackPressed()");
     }

@@ -14,6 +14,12 @@ public interface RestaurantCartaContract {
         void displayMenuListData(RestaurantCartaViewModel viewModel);
 
         void navigateToMenuDetail();
+
+        void navigateToHomeNav();
+
+        void navigateToProfileNav();
+
+        void showAlertDialogNav();
     }
 
     interface Presenter {
@@ -28,7 +34,14 @@ public interface RestaurantCartaContract {
         void onRestart();
 
         void fetchMenuListData();
+
         void selectMenuListData(MenuItem item);
+
+        void goToProfileNav();
+
+        void goToHomeNav();
+
+        void closeSession();
 
         void onBackPressed();
 
@@ -38,7 +51,7 @@ public interface RestaurantCartaContract {
     }
 
     interface Model {
-         void fetchMenuListData(RestaurantItem restaurant, RepositoryContract.GetMenuListCallback callback);
+        void fetchMenuListData(RestaurantItem restaurant, RepositoryContract.GetMenuListCallback callback);
     }
 
 }

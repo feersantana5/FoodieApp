@@ -10,11 +10,17 @@ public interface RestaurantsListContract {
     interface View {
         void injectPresenter(Presenter presenter);
 
-        //presentar lista
         void displayRestaurantsListData(RestaurantsListViewModel viewModel);
 
-        //intent
         void navigateToRestaurantCarta();
+
+        void navigateToHomeNav();
+
+        void navigateToProfileNav();
+
+        void navigateToMenuNav();
+
+        void showAlertDialogNav();
     }
 
     interface Presenter {
@@ -31,6 +37,14 @@ public interface RestaurantsListContract {
         void fetchRestaurantsListData();
 
         void selectRestaurantListData(RestaurantItem item);
+
+        void goToHomeNav();
+
+        void goToProfileNav();
+
+        void goToMyMenusListNav();
+
+        void closeSession();
 
         void onBackPressed();
 

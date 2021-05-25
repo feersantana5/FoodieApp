@@ -57,6 +57,7 @@ public class RestaurantCartaPresenter implements RestaurantCartaContract.Present
             view.get().displayMenuListData(state);
         });
     }
+
     //obtiene el restaurante almacenado en el mediador
     private RestaurantItem getDataFromRestaurantListScreen() {
         RestaurantItem restaurant = mediator.getRestaurant();
@@ -72,10 +73,32 @@ public class RestaurantCartaPresenter implements RestaurantCartaContract.Present
         //cambia de activity
         view.get().navigateToMenuDetail();
     }
+
     private void passDataToProductDetailScreen(MenuItem item) {
         mediator.setMenu(item);
     }
 
+
+    @Override
+    public void goToHomeNav() {
+        Log.e(TAG, "goToHomeNav()");
+        //cambia de activity
+        view.get().navigateToHomeNav();
+    }
+
+    @Override
+    public void goToProfileNav() {
+        Log.e(TAG, "goToProfileNav()");
+        //cambia de activity
+        view.get().navigateToProfileNav();
+    }
+
+    @Override
+    public void closeSession() {
+        Log.e(TAG, "closeSession()");
+        //cambia de activity
+        view.get().showAlertDialogNav();
+    }
 
     @Override
     public void onBackPressed() {

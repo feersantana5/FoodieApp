@@ -62,7 +62,7 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
         //obtiene el restaurante al que pertenece, almacenada en el mediador
         RestaurantItem restaurant = getUserRestaurantData();
         if (restaurant != null) {
-            Log.e(TAG, "fetchMyMenusListData()"+restaurant);
+            Log.e(TAG, "fetchMyMenusListData()" + restaurant);
 
             //modify state
             state.restaurant = restaurant;
@@ -115,8 +115,8 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
     @Override
     public void goToCreateMenu() {
         RestaurantItem myRestaurant = getUserRestaurantData();
-        state.restaurant = myRestaurant ;
-        Log.e(TAG, "goToCreateMenu()"+state.restaurant);
+        state.restaurant = myRestaurant;
+        Log.e(TAG, "goToCreateMenu()" + state.restaurant);
         passRestaurantToOthers(state.restaurant);
         view.get().navigateToCreateMenu();
     }
@@ -126,6 +126,33 @@ public class MyMenusPresenter implements MyMenusContract.Presenter {
         mediator.setRestaurant(item);
     }
 
+    @Override
+    public void goToHomeNav() {
+        Log.e(TAG, "goToHomeNav()");
+        //cambia de activity
+        view.get().navigateToHomeNav();
+    }
+
+    @Override
+    public void goToProfileNav() {
+        Log.e(TAG, "goToProfileNav()");
+        //cambia de activity
+        view.get().navigateToProfileNav();
+    }
+
+    @Override
+    public void goToMyMenusListNav() {
+        Log.e(TAG, "goToMyMenusListNav()");
+        //cambia de activity
+        view.get().navigateToMenuNav();
+    }
+
+    @Override
+    public void closeSession() {
+        Log.e(TAG, "closeSession()");
+        //cambia de activity
+        view.get().showAlertDialogNav();
+    }
 
     @Override
     public void onBackPressed() {

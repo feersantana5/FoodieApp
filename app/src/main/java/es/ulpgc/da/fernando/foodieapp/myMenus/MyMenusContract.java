@@ -18,6 +18,14 @@ public interface MyMenusContract {
         void navigateToEditMenu();
 
         void navigateToCreateMenu();
+
+        void navigateToHomeNav();
+
+        void navigateToProfileNav();
+
+        void navigateToMenuNav();
+
+        void showAlertDialogNav();
     }
 
     interface Presenter {
@@ -38,6 +46,14 @@ public interface MyMenusContract {
         void deleteMenu(MenuItem menuItem);
 
         void goToEditMenu(MenuItem menuItem);
+
+        void goToHomeNav();
+
+        void goToProfileNav();
+
+        void goToMyMenusListNav();
+
+        void closeSession();
 
         void onBackPressed();
 
