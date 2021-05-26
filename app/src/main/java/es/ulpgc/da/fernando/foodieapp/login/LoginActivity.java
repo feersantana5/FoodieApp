@@ -63,7 +63,7 @@ public class LoginActivity
             String emailUser = email.getText().toString().trim();
             String passwordUser = password.getText().toString().trim();
             presenter.checkLogin(emailUser, passwordUser);
-            //TODO: verificar registro e ir al perfil, pasar ssesion init
+            //TODO: pasar ssesion enable
         });
 
         btnRegister.setOnClickListener(v -> presenter.goToRegister());

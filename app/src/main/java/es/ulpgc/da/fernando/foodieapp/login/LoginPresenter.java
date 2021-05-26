@@ -83,7 +83,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void goToRestaurantProfile() {
         Log.e(TAG, "goToRestaurantProfile()");
-        //TODO: verificar registro e ir al perfil
+        //TODO: sessionEnable
         view.get().navigateToRestaurantProfile();
     }
 
