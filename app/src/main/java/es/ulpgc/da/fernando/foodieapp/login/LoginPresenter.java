@@ -57,12 +57,13 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void logIn(String email, String password) {
         model.logIn(email, password, (error, restaurant, user) -> {
             if (!error) {
+                Log.e(TAG, "pp1()");
                 state.sessionEnabled = true;
-                //mediator.getLoginToOtherState();
                 passRestaurantDataToOthers(restaurant);
                 passUserDataToOthers(user);
                 goToRestaurantProfile();
             } else {
+                Log.e(TAG, "pp2()");
                 state.toast = model.getErrorAdvice();
                 view.get().showToastThread(state);
             }

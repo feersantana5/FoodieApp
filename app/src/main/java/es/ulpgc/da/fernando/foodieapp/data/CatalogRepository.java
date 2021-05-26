@@ -223,10 +223,18 @@ public class CatalogRepository implements RepositoryContract {
         //crea hilo asincrono
         //ejecuta el hilo
         AsyncTask.execute(() -> {
-            UserItem userLogged = getUserDao().getLogIn(email, password);
-            RestaurantItem restaurantLogged = getRestaurantDao().getRestaurantWithId(userLogged.restaurantId);
+
             if (logInCallback != null) {
-                logInCallback.logInCheck(!getUserDao().checkLogIn(email, password), restaurantLogged, userLogged);
+                boolean existe = getUserDao().checkLogIn(email, password);
+                if (existe) {
+                    UserItem userLogged = getUserDao().getLogIn(email, password);
+                    RestaurantItem restaurantLogged = getRestaurantDao().getRestaurantWithId(userLogged.restaurantId);
+                    logInCallback.logInCheck(!getUserDao().checkLogIn(email, password), restaurantLogged, userLogged);
+                } else {
+                    RestaurantItem restaurantnull = new RestaurantItem();
+                    UserItem usernull = new UserItem();
+                    logInCallback.logInCheck(true, restaurantnull, usernull);
+                }
             }
 
 //                if(getUserDao().checkLogIn(email, password)){
